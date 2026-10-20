@@ -1,0 +1,759 @@
+{
+  "compact": true,
+  "textures": [
+    {
+      "source": "prop-0-baseColor.jpg",
+      "sourceSha256": "c0f5983472f5329e4fd20c646487b2aa0b13deaa516bfa1606f4e87f17c78fbc",
+      "file": "prop-0-baseColor.webp",
+      "kind": "baseColor",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 14097630,
+      "runtimeBytes": 1105208,
+      "losslessCodec": false,
+      "quality": 90,
+      "colorPsnrDb": 38.85984878001651,
+      "filter": "linear-light albedo"
+    },
+    {
+      "source": "prop-0-normal.png",
+      "sourceSha256": "4a8bb1235d56d8ea2ce16576ec25ae56496c9481fc007e6b7591ab3e9f624a40",
+      "file": "prop-0-normal.webp",
+      "kind": "normal",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 20239839,
+      "runtimeBytes": 2284046,
+      "losslessCodec": false,
+      "quality": 94,
+      "angularError": {
+        "meanDegrees": 0.829292893409729,
+        "p95Degrees": 1.8884443044662476,
+        "p99Degrees": 2.832686424255371,
+        "maxDegrees": 18.291820526123047,
+        "negativeZTexels": 300
+      },
+      "shippingSize": [
+        4096,
+        2048
+      ],
+      "normalEncoding": "xy-gray",
+      "exactSignAlpha": true,
+      "filter": "renormalized vector"
+    },
+    {
+      "source": "prop-0-orm.jpg",
+      "sourceSha256": "32511c4d743e93258e582769164a2d110c2df540e5db818cd7189b0f234b6ad4",
+      "file": "prop-0-orm.webp",
+      "kind": "orm",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "runtimeSize": [
+        1024,
+        1024
+      ],
+      "sourceBytes": 2944180,
+      "runtimeBytes": 624704,
+      "losslessCodec": true,
+      "quality": 90,
+      "bitsPerScalar": 6,
+      "maxRoughnessError": 0.007843137718737125,
+      "maxMetallicError": 0.007843137718737125,
+      "filter": "roughness variance"
+    },
+    {
+      "source": "prop-1-baseColor.jpg",
+      "sourceSha256": "445a418597d1bffa3eb87adb38ab6ba0268b7677d6f0f1a8066b26872c080e20",
+      "file": "prop-1-baseColor.webp",
+      "kind": "baseColor",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 12737364,
+      "runtimeBytes": 994804,
+      "losslessCodec": false,
+      "quality": 90,
+      "colorPsnrDb": 39.570463858981846,
+      "filter": "linear-light albedo"
+    },
+    {
+      "source": "prop-1-normal.png",
+      "sourceSha256": "121d1a97f8b7ebe64efe8957b89bba339e80e8574936cb3a5ffdee8f8430bda1",
+      "file": "prop-1-normal.webp",
+      "kind": "normal",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 20212234,
+      "runtimeBytes": 2393758,
+      "losslessCodec": false,
+      "quality": 94,
+      "angularError": {
+        "meanDegrees": 0.7844932079315186,
+        "p95Degrees": 1.8529796600341797,
+        "p99Degrees": 2.658958673477173,
+        "maxDegrees": 16.498733520507812,
+        "negativeZTexels": 523
+      },
+      "shippingSize": [
+        4096,
+        2048
+      ],
+      "normalEncoding": "xy-gray",
+      "exactSignAlpha": true,
+      "filter": "renormalized vector"
+    },
+    {
+      "source": "prop-1-orm.jpg",
+      "sourceSha256": "87b3d1e5983ab23fc84cbaa952332d457c1416912b9e6e3e9e4905f9e78adad2",
+      "file": "prop-1-orm.webp",
+      "kind": "orm",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "runtimeSize": [
+        1024,
+        1024
+      ],
+      "sourceBytes": 2462931,
+      "runtimeBytes": 546960,
+      "losslessCodec": true,
+      "quality": 90,
+      "bitsPerScalar": 6,
+      "maxRoughnessError": 0.007843137718737125,
+      "maxMetallicError": 0.007843137718737125,
+      "filter": "roughness variance"
+    },
+    {
+      "source": "prop-2-baseColor.jpg",
+      "sourceSha256": "c449f24d5b31083f369d4fc0a7a1d9185bde923842128cc90c2267917e17a05d",
+      "file": "prop-2-baseColor.webp",
+      "kind": "baseColor",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 12525506,
+      "runtimeBytes": 964088,
+      "losslessCodec": false,
+      "quality": 90,
+      "colorPsnrDb": 39.45033897839722,
+      "filter": "linear-light albedo"
+    },
+    {
+      "source": "prop-2-normal.png",
+      "sourceSha256": "e7a1251219a8f594864fa6e6f33c2eda6e1f51f0d896218c19f2da3c147a995f",
+      "file": "prop-2-normal.webp",
+      "kind": "normal",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 17342943,
+      "runtimeBytes": 1788998,
+      "losslessCodec": false,
+      "quality": 94,
+      "angularError": {
+        "meanDegrees": 0.7518987059593201,
+        "p95Degrees": 1.6798126697540283,
+        "p99Degrees": 2.3362374305725098,
+        "maxDegrees": 16.43926239013672,
+        "negativeZTexels": 323
+      },
+      "shippingSize": [
+        4096,
+        2048
+      ],
+      "normalEncoding": "xy-gray",
+      "exactSignAlpha": true,
+      "filter": "renormalized vector"
+    },
+    {
+      "source": "prop-2-orm.jpg",
+      "sourceSha256": "c1e097067a92ef020652936632f9aa57c9f3b79cb24fa9741c2f520ff0f216a6",
+      "file": "prop-2-orm.webp",
+      "kind": "orm",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "runtimeSize": [
+        1024,
+        1024
+      ],
+      "sourceBytes": 2561618,
+      "runtimeBytes": 519698,
+      "losslessCodec": true,
+      "quality": 90,
+      "bitsPerScalar": 6,
+      "maxRoughnessError": 0.007843137718737125,
+      "maxMetallicError": 0.007843137718737125,
+      "filter": "roughness variance"
+    },
+    {
+      "source": "prop-3-baseColor.jpg",
+      "sourceSha256": "e3e5efc57f115fcb99af9b69504e41a9d9400a10461cf6cc6ca1071fa990f174",
+      "file": "prop-3-baseColor.webp",
+      "kind": "baseColor",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 12481140,
+      "runtimeBytes": 933442,
+      "losslessCodec": false,
+      "quality": 90,
+      "colorPsnrDb": 40.05233163148774,
+      "filter": "linear-light albedo"
+    },
+    {
+      "source": "prop-3-normal.png",
+      "sourceSha256": "7eb94c5867480853c216152f997be3156b72b266b5fd096e2dd07942b2a8e067",
+      "file": "prop-3-normal.webp",
+      "kind": "normal",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 17964004,
+      "runtimeBytes": 1990540,
+      "losslessCodec": false,
+      "quality": 94,
+      "angularError": {
+        "meanDegrees": 0.769182562828064,
+        "p95Degrees": 1.7965672016143799,
+        "p99Degrees": 2.650331497192383,
+        "maxDegrees": 17.368202209472656,
+        "negativeZTexels": 1360
+      },
+      "shippingSize": [
+        4096,
+        2048
+      ],
+      "normalEncoding": "xy-gray",
+      "exactSignAlpha": true,
+      "filter": "renormalized vector"
+    },
+    {
+      "source": "prop-3-orm.jpg",
+      "sourceSha256": "b7a61da22ff10d3439817fb6900efee57970841a93b9e0a6b5986f4938beb1c0",
+      "file": "prop-3-orm.webp",
+      "kind": "orm",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "runtimeSize": [
+        1024,
+        1024
+      ],
+      "sourceBytes": 2643117,
+      "runtimeBytes": 537324,
+      "losslessCodec": true,
+      "quality": 90,
+      "bitsPerScalar": 6,
+      "maxRoughnessError": 0.007843137718737125,
+      "maxMetallicError": 0.007843137718737125,
+      "filter": "roughness variance"
+    },
+    {
+      "source": "prop-4-baseColor.jpg",
+      "sourceSha256": "8fd6c4e95a8b4aecc592f5c57f0b7a7f35269f5c7fb91c816a2551aaa4cdb366",
+      "file": "prop-4-baseColor.webp",
+      "kind": "baseColor",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 13173268,
+      "runtimeBytes": 928968,
+      "losslessCodec": false,
+      "quality": 90,
+      "colorPsnrDb": 39.832209054188525,
+      "filter": "linear-light albedo"
+    },
+    {
+      "source": "prop-4-normal.png",
+      "sourceSha256": "a08bb4bba1e5f242b52737264df290cb17957451e0c56e32160e2a651af69185",
+      "file": "prop-4-normal.webp",
+      "kind": "normal",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 17710886,
+      "runtimeBytes": 1545324,
+      "losslessCodec": false,
+      "quality": 94,
+      "angularError": {
+        "meanDegrees": 0.7537280917167664,
+        "p95Degrees": 1.6618925333023071,
+        "p99Degrees": 2.2515106201171875,
+        "maxDegrees": 15.515969276428223,
+        "negativeZTexels": 41
+      },
+      "shippingSize": [
+        4096,
+        2048
+      ],
+      "normalEncoding": "xy-gray",
+      "exactSignAlpha": true,
+      "filter": "renormalized vector"
+    },
+    {
+      "source": "prop-4-orm.jpg",
+      "sourceSha256": "54cabdd8d077281610d30417044ac5eaf0c9bf5186e1a0e24b766921b9bab483",
+      "file": "prop-4-orm.webp",
+      "kind": "orm",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "runtimeSize": [
+        1024,
+        1024
+      ],
+      "sourceBytes": 2613111,
+      "runtimeBytes": 519064,
+      "losslessCodec": true,
+      "quality": 90,
+      "bitsPerScalar": 6,
+      "maxRoughnessError": 0.007843137718737125,
+      "maxMetallicError": 0.007843137718737125,
+      "filter": "roughness variance"
+    },
+    {
+      "source": "prop-5-baseColor.jpg",
+      "sourceSha256": "f37b275f8cae2bc68657cdaa59e9612a323a660f8a7dce471ebe237c1dbc1481",
+      "file": "prop-5-baseColor.webp",
+      "kind": "baseColor",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 13086860,
+      "runtimeBytes": 995098,
+      "losslessCodec": false,
+      "quality": 90,
+      "colorPsnrDb": 39.45306205959113,
+      "filter": "linear-light albedo"
+    },
+    {
+      "source": "prop-5-normal.png",
+      "sourceSha256": "3cd56b42c3c10b562af311555cb4f1e546daeaf417df1daa062deb737c82dcdf",
+      "file": "prop-5-normal.webp",
+      "kind": "normal",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 19059634,
+      "runtimeBytes": 2124878,
+      "losslessCodec": false,
+      "quality": 94,
+      "angularError": {
+        "meanDegrees": 0.8163875937461853,
+        "p95Degrees": 1.851077675819397,
+        "p99Degrees": 2.7673933506011963,
+        "maxDegrees": 17.845060348510742,
+        "negativeZTexels": 553
+      },
+      "shippingSize": [
+        4096,
+        2048
+      ],
+      "normalEncoding": "xy-gray",
+      "exactSignAlpha": true,
+      "filter": "renormalized vector"
+    },
+    {
+      "source": "prop-5-orm.jpg",
+      "sourceSha256": "2809b0199edb2071f771ff9a51f04222f6cc70cafdad9fc8c1fa363d32d17aa5",
+      "file": "prop-5-orm.webp",
+      "kind": "orm",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "runtimeSize": [
+        1024,
+        1024
+      ],
+      "sourceBytes": 2805203,
+      "runtimeBytes": 548950,
+      "losslessCodec": true,
+      "quality": 90,
+      "bitsPerScalar": 6,
+      "maxRoughnessError": 0.007843137718737125,
+      "maxMetallicError": 0.007843137718737125,
+      "filter": "roughness variance"
+    },
+    {
+      "source": "prop-6-baseColor.jpg",
+      "sourceSha256": "299d88a4e36a4b9d57606111bb53fd879f028a5d6ad9d6473d6861dc7f0e43e1",
+      "file": "prop-6-baseColor.webp",
+      "kind": "baseColor",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 13702358,
+      "runtimeBytes": 1067874,
+      "losslessCodec": false,
+      "quality": 90,
+      "colorPsnrDb": 39.53962227456416,
+      "filter": "linear-light albedo"
+    },
+    {
+      "source": "prop-6-normal.png",
+      "sourceSha256": "440f92fa7831d9687c7646cf88b3d08eadf228fe307b970b4a7323edd9af718c",
+      "file": "prop-6-normal.webp",
+      "kind": "normal",
+      "sourceSize": [
+        4096,
+        4096
+      ],
+      "runtimeSize": [
+        2048,
+        2048
+      ],
+      "sourceBytes": 18168452,
+      "runtimeBytes": 1874648,
+      "losslessCodec": false,
+      "quality": 94,
+      "angularError": {
+        "meanDegrees": 0.7660069465637207,
+        "p95Degrees": 1.6800456047058105,
+        "p99Degrees": 2.2895255088806152,
+        "maxDegrees": 14.975518226623535,
+        "negativeZTexels": 285
+      },
+      "shippingSize": [
+        4096,
+        2048
+      ],
+      "normalEncoding": "xy-gray",
+      "exactSignAlpha": true,
+      "filter": "renormalized vector"
+    },
+    {
+      "source": "prop-6-orm.jpg",
+      "sourceSha256": "769d739251ef17dfb3f6b3ac279d83d743c429799cd4d29c568dcf3758479ba9",
+      "file": "prop-6-orm.webp",
+      "kind": "orm",
+      "sourceSize": [
+        2048,
+        2048
+      ],
+      "runtimeSize": [
+        1024,
+        1024
+      ],
+      "sourceBytes": 2690196,
+      "runtimeBytes": 582086,
+      "losslessCodec": true,
+      "quality": 90,
+      "bitsPerScalar": 6,
+      "maxRoughnessError": 0.007843137718737125,
+      "maxMetallicError": 0.007843137718737125,
+      "filter": "roughness variance"
+    },
+    {
+      "source": "architecture-brick.png",
+      "sourceSha256": "a0fc464381ba1562acf563b661fa4585a4c113a14505e35581df70c690475187",
+      "file": "architecture-brick.webp",
+      "kind": "surface",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 4168212,
+      "runtimeBytes": 913134,
+      "losslessCodec": false,
+      "quality": 94,
+      "colorPsnrDb": 37.182449133097556,
+      "filter": "unchanged texels"
+    },
+    {
+      "source": "architecture-concrete.png",
+      "sourceSha256": "e42e8a921649ccb2b421af7eeb74b8ddbedcab84a5225ba09532aaa249533fc1",
+      "file": "architecture-concrete.webp",
+      "kind": "surface",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 4070513,
+      "runtimeBytes": 807364,
+      "losslessCodec": false,
+      "quality": 94,
+      "colorPsnrDb": 40.51825238552725,
+      "filter": "unchanged texels"
+    },
+    {
+      "source": "architecture-vault.png",
+      "sourceSha256": "933da552db61428fbdcc724643aac4c62ec1909d4b3d3be8e10829df4cdde070",
+      "file": "architecture-vault.webp",
+      "kind": "surface",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 4111487,
+      "runtimeBytes": 803668,
+      "losslessCodec": false,
+      "quality": 94,
+      "colorPsnrDb": 40.50058327570201,
+      "filter": "unchanged texels"
+    },
+    {
+      "source": "fixture-paint.png",
+      "sourceSha256": "6cd2212efebf0494ff8d4fba5b1f340cb3f4381dc41b810ed17ec1601bf1d828",
+      "file": "fixture-paint.webp",
+      "kind": "surface",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 3318678,
+      "runtimeBytes": 599388,
+      "losslessCodec": false,
+      "quality": 94,
+      "colorPsnrDb": 41.875016943400105,
+      "filter": "unchanged texels"
+    },
+    {
+      "source": "fixture-brass.png",
+      "sourceSha256": "e5799ca3d62d57eab54aed8dd068bd05bfc9941c96e2d322dca91d65977e78bd",
+      "file": "fixture-brass.webp",
+      "kind": "surface",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 3880647,
+      "runtimeBytes": 867636,
+      "losslessCodec": false,
+      "quality": 94,
+      "colorPsnrDb": 36.58583122892879,
+      "filter": "unchanged texels"
+    },
+    {
+      "source": "gauge-face.png",
+      "sourceSha256": "f58ca257378f268940f1d82426cd24ee7b53278c29e8a11335f8726b713f49d2",
+      "file": "gauge-face.webp",
+      "kind": "surface",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "runtimeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 2010357,
+      "runtimeBytes": 262172,
+      "losslessCodec": false,
+      "quality": 96,
+      "colorPsnrDb": 44.235770995231235,
+      "filter": "unchanged texels"
+    },
+    {
+      "source": "reflection-px.png",
+      "sourceSha256": "49078211fcc30ac1d6136da2b5661ee6d02adb291856beec0f26ae88ff3d3398",
+      "file": "reflection-px.webp",
+      "kind": "rgbm",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "runtimeSize": [
+        512,
+        512
+      ],
+      "sourceBytes": 767278,
+      "runtimeBytes": 436958,
+      "losslessCodec": true,
+      "quality": 90,
+      "filter": "native dimensions"
+    },
+    {
+      "source": "reflection-nx.png",
+      "sourceSha256": "001ad88fa149557f6b20ea78be4e3a26237edefd9df95ac6058cfe8c72c7d367",
+      "file": "reflection-nx.webp",
+      "kind": "rgbm",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "runtimeSize": [
+        512,
+        512
+      ],
+      "sourceBytes": 775444,
+      "runtimeBytes": 431716,
+      "losslessCodec": true,
+      "quality": 90,
+      "filter": "native dimensions"
+    },
+    {
+      "source": "reflection-py.png",
+      "sourceSha256": "9939e4d619d31d4cf43cabcf925f0205ea6930d75809b5da812e05cb3efd2901",
+      "file": "reflection-py.webp",
+      "kind": "rgbm",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "runtimeSize": [
+        512,
+        512
+      ],
+      "sourceBytes": 761319,
+      "runtimeBytes": 376628,
+      "losslessCodec": true,
+      "quality": 90,
+      "filter": "native dimensions"
+    },
+    {
+      "source": "reflection-ny.png",
+      "sourceSha256": "d35c4589fce4b6e601c580f8c37deaca025078a960712ec76eb72e4d227f4583",
+      "file": "reflection-ny.webp",
+      "kind": "rgbm",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "runtimeSize": [
+        512,
+        512
+      ],
+      "sourceBytes": 786034,
+      "runtimeBytes": 431586,
+      "losslessCodec": true,
+      "quality": 90,
+      "filter": "native dimensions"
+    },
+    {
+      "source": "reflection-pz.png",
+      "sourceSha256": "493e2e52005ad522276519103e2d3c33c30a80aa77fe80f9b77023b950a1eca2",
+      "file": "reflection-pz.webp",
+      "kind": "rgbm",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "runtimeSize": [
+        512,
+        512
+      ],
+      "sourceBytes": 759215,
+      "runtimeBytes": 407524,
+      "losslessCodec": true,
+      "quality": 90,
+      "filter": "native dimensions"
+    },
+    {
+      "source": "reflection-nz.png",
+      "sourceSha256": "2ce3980e5e348f3c39291af74774a7e42a5e9c9921e4a31b5c4f5f8eb813834e",
+      "file": "reflection-nz.webp",
+      "kind": "rgbm",
+      "sourceSize": [
+        512,
+        512
+      ],
+      "runtimeSize": [
+        512,
+        512
+      ],
+      "sourceBytes": 771779,
+      "runtimeBytes": 432586,
+      "losslessCodec": true,
+      "quality": 90,
+      "filter": "native dimensions"
+    }
+  ],
+  "sourceBytes": 267403437,
+  "runtimeBytes": 31640820
+}

@@ -1,0 +1,70 @@
+# Multiplayer implementation and validation — 2026-10-18
+
+This records the working-tree changes and the checks actually performed. The initial validation below used local game builds, with the live Worker used only for health checks and temporary TURN credential issuance where stated. The build was subsequently deployed at the user's request; see the deployment follow-up below. No commit or Git push was performed.
+
+## Implemented behavior
+
+- **Realtime PvP:** two or three human tanks share the existing authoritative realtime engine. Everyone can drive, aim and fire; ammunition, reloads, coaxial weapons, projectile impacts, damage and victory resolve at the simulation host.
+- **Realtime artillery:** the same engine with a separate, explicit rules preset: ballistic aim/elevation/power, ammunition and destructive shells, independent reloads, simultaneous movement/fire, no turn timers or automatic coaxial fire.
+- **Classic artillery:** the existing turn-based rules remain available. Local AI and same-screen play retain their existing paths.
+- **Campaign co-op:** owner plus two helpers, passworded/private invitations, solo start, mid-mission joining, shared objectives/NPCs/destruction, next-mission flow and continued play after a helper leaves. Simulation host election never transfers campaign-save ownership.
+- **Save behavior:** only the owner advances campaign progression. Guests earn idempotent assistance XP/scrap, stored separately from campaign completion. An owner's IndexedDB co-op checkpoint uses its own slot and can serve as a solo Continue fallback without replacing an unrelated solo save.
+- **Transport/recovery:** fixed-step host, sequenced input/snapshots, local movement prediction/reconciliation, remote tank/projectile interpolation, input-rate bounds, prioritized fragmentation, bounded checkpoint retention and stale-work cancellation. Closed peer sends no longer freeze the remaining match. Late join uses current state rather than replaying old dialogue/impacts/objectives.
+- **Mode-specific departures:** a 1v1 pauses for the three-minute reconnect window and ends on expiry, or immediately on explicit Leave; it does not elect a host or rebuild an uncontested world merely to end. Three-player versus can continue with two, and co-op can continue with one.
+- **Menus/input:** four clear modes, mode-exact Quick Match, persistent queues/chat, ownership/host/slot labels, simultaneous mobile controls, fixed switch hitboxes and touch ghost-click suppression, results without turn counters in realtime modes. Campaign radio no longer covers results actions.
+- **Creator footer:** Donate opens the existing Stripe Payment Link directly. Developer website and X are separate links. No Stripe SDK, new secrets or licence change was introduced.
+
+## Verified evidence
+
+Browser automation uses separate local Chromium/Edge processes with WebGPU, real browser WebRTC and a local Cloudflare workerd/SQLite Durable Objects/WebSocket backend. The no-HMR Vite server is restarted after source edits. Gameplay harnesses issue normal commands; they do not fabricate damage, edit mission completion or force a winner.
+
+- `artifacts/online-combat/realtime-2/result.json`: complete two-player PvP combat and UI rematch. Both players move/fire, actual projectile hits take the enemy from 130 to 64 to zero health, terrain/deaths/winner agree, and each browser receives one finish event. During simultaneous movement/fire, guest input sends were delayed 120 ms and every tenth drive update was dropped. This is application-level fault injection, not WAN packet loss. Selected direct candidates were `host`/`host`, UDP.
+- `artifacts/online-combat/realtime-3-relay/result.json`: complete three-player PvP combat, two enemy deaths, consistent terrain/damage/winner/one finish event and a live rematch **over forced Cloudflare TURN**. Every local and remote selected candidate was `relay`, UDP, across all four directional endpoints of the host-star graph. Temporary credentials came from the existing live Worker and stayed in memory; game rooms and simulation clients used the local test build. This is actual relay traffic from one machine, not independent household/mobile connections.
+- `artifacts/online-combat/artillery-2/result.json` and `artifacts/online-combat/artillery-3/result.json`: complete two- and three-player realtime artillery combat and UI rematches. Every player moved and fired simultaneously; normal ammunition selection and ballistic aiming produced real projectile hits, destruction and deaths. All browsers agreed on final health, terrain and winner, received exactly one finish event, and started the next match with fresh tanks. Direct WebRTC used `host`/`host` UDP candidates. Result screens were visually inspected.
+- `artifacts/online/artillery-3/result.json`: three-player realtime artillery movement, firing from every seat, terrain replication, chat/filter/unread, queue persistence, manual transfer and mobile input passed. Real injected touch events held the drive joystick while aiming and firing; the final aim-to-Fire interval was 83 ms. Desktop/mobile screenshots were inspected. The original metadata labels the backend `local`; the endpoint was the no-HMR Vite proxy to local Cloudflare workerd.
+- `artifacts/online/coop-game/result.json`: three-player First Light victory through normal gameplay, six completed objectives and 25 matching terrain edits; third player joined an already modified world. Owner stars/XP and separate guest rewards were checked, including preservation of guests' unrelated campaign progress. The owner had a durable co-op checkpoint; the guest did not overwrite a campaign checkpoint. The party advanced to the next mission, transferred simulation hosting to a helper while retaining owner seat zero, recovered from unexpected host loss, reconnected the old host and let another helper leave/rejoin without a mission reset.
+- `artifacts/online/coop-recovery/result.json`: a separate second-mission recovery run waited for acknowledged modified-world checkpoints. Manual transfer retained three terrain edits, two completed objectives, four destroyed NPCs, one live projectile, five AI contacts and eight RNG states; the elected checkpoint matched the recorded source including script/timers and entity counters. Unexpected loss recovered a later checkpoint with five edits. After both helpers left, the owner continued alone in the same mission at tick 1,162 with seven edits and no reset.
+- `artifacts/online/realtime-3/result.json`: three-player movement/fire, chat/filter/unread, mobile input and manual transfer passed, followed by unexpected host signaling loss, election, reserved-seat reconnection and host-page refresh/election/rejoin. Browser offline emulation exercises signaling loss; it does not prove arbitrary WebRTC packets were severed while signaling remained available. Earlier two-player runs covered the same basic gameplay/menu paths.
+- `artifacts/online-menu/result.json`: passworded create/join, wrong-password rejection, keyboard submission, unavailable-Start explanation and mobile lobby passed. A temporary 1v1 signaling disconnection paused and resumed the same host/epoch/world. Closing the host then exercised the actual three-minute grace period: the survivor saw **Match over** without a loading route/world rebuild, created a fresh playable match and received an immediate result when that opponent explicitly left. Zero unexpected errors/warnings; one intentionally induced offline resource error was recorded separately. The mobile result buttons fit the viewport.
+- `artifacts/online/classic-smoke/result.json`: public-menu classic solo AI and same-screen smoke passed. A human shot advanced to the AI, the AI fired and control returned to the human. Same-screen play handed the next turn to player two, enabled Fire and accepted a click on that button. These are preservation smoke tests, not completed classic browser matches.
+- Footer checks verified all three exact URLs, keyboard focus, mobile scrolling/overflow and direct Stripe popup navigation. No payment was made. Screenshots are under `artifacts/online/artillery-3/title-*.png`.
+- `npm run verify:cloudflare`: **13 checks passed** against real local workerd, SQLite and WebSockets, including mode-exact queues, concurrent admission, private rooms, hibernation and authority recovery.
+- Campaign regression batch: **44 tests passed** in four files, including all 18 campaign operations driven by ordinary simulation commands. This is simulation coverage; it is not 18 completed multiplayer browser missions.
+- Final `npm run verify:fast` with two workers: **254 files passed; 2,222 tests passed, plus two existing expected-failure cases**. TypeScript checking is included. Added coverage includes authority/epoch fencing, stale asynchronous snapshots, bounded transfers/recovery, high-refresh-rate aiming, final-state delivery, real projectile outcomes, mode-specific departures and campaign ownership/idempotence.
+- `npm run verify:guard`: clean (4,067 files). `npm run verify:closure`: completed; its inventory still lists eight existing orphan source files and four directory-URL references as unresolved relative imports. This task did not remove unrelated engine files.
+- Production build and `wrangler deploy --dry-run` passed. The build reports the existing large-chunk warning; no upload/deployment occurs in the dry run.
+
+The initial broad suite caught a stale native-render-scale expectation and worker-timing-dependent differential fixtures. The expectation now matches the existing automatic medium default. Differential fixtures submit human inputs at fixed tick boundaries; exact state comparisons remain, and replay still exercises irregular cadence. No production graphics quality or terrain solver was changed to make these tests pass.
+
+## Practical limits
+
+- Independent computers on separate home/mobile internet connections and physical mobile devices have not been tested here. Local browsers, touch emulation, application-level delay/drop injection and actual TURN use are distinct categories.
+- The player simulation host is trusted. Guest inputs are validated, but this is not cheat-proof hosting, and the full replicated world is not a secrecy boundary. Hits resolve against the current host simulation without historical hit rewind.
+- Recovery uses an acknowledged checkpoint and may roll back several seconds. If no surviving browser holds a valid world, the room pauses with recovery actions; membership storage is not a cloud world save. Background/suspend behavior still requires real-device qualification.
+- Checkpoints are bounded to 16 MiB serialized and 20,000 terrain edits. Exceeding the limit retains the previous verified checkpoint and reports a recovery error; worlds are not silently truncated.
+- Campaign saves are local to the owner's browser/origin. Explicitly leaving ends the owner's participation in that party, and an invite cannot reclaim the reserved owner slot. Temporary reconnect preserves ownership. An offline owner must return while the completed mission is still current to receive its result; if helpers advance first, there is no account service/offline reward inbox to award that missed completion. The previous local checkpoint remains safe.
+
+## Deployment follow-up — 2026-10-18
+
+`npm run deploy` rebuilt and deployed the current working tree to [tmt.3merillon.workers.dev](https://tmt.3merillon.workers.dev) at approximately 10:03 Europe/Berlin. Cloudflare reports 100% traffic on version `1ae67855-ab11-44bb-891b-2b5707a69427`. The preceding version was `59f52dc5-ef44-4031-b8c8-d00eb88db5c0`.
+
+TypeScript and the production build passed. Existing Durable Object bindings/migrations and TURN secrets were retained. Post-deployment checks returned HTTP 200 for the game and its current `game-CeurDWHn.js` bundle, confirmed the HTML references that bundle and that it contains the direct Stripe link, and returned `{"ok":true,"deployment":"cloudflare","relay":true}` from `/api/online/health`. Health confirms configuration; browser relay verification is recorded separately when performed.
+
+The deployed browser smoke passed (`artifacts/deploy-smoke/result.json`): both Edge contexts loaded the exact Donate, website and X links, created/joined a private passworded realtime-artillery room, entered gameplay, moved and exercised Fire, then explicitly left through the UI. Both used `?relay=1`; each client had a nonempty selected candidate pair and all selected local/remote candidates were `relay`. The successful run had no browser errors. An initial cold-start attempt timed out while the guest was still validating its GPU; the retry completed successfully. This was live Cloudflare/HTTPS/TURN with two browser contexts on one computer, not independent-network qualification or another complete combat/outcome matrix.
+
+## Deploy and test live
+
+Use [the complete Cloudflare setup and test guide](../server/README.md). From this checkout:
+
+```powershell
+npm ci
+npx wrangler login
+npm run deploy:check
+npm run deploy
+npx wrangler secret put TURN_KEY_ID
+npx wrangler secret put TURN_KEY_API_TOKEN
+```
+
+For a new fork, choose the Worker name before its first deployment. For an existing deployment, preserve its name, Durable Object bindings/migration and secrets. Secret commands prompt; never put their values in source or command arguments. Check `/api/online/health` for `ok:true` and `relay:true`, then reload all players to the same HTTPS build.
+
+On two or three independent networks, create a passworded room, join by code, and play each mode through results and another match. Exercise simultaneous movement/fire, kills/terrain, co-op late join/progression, manual transfer, refresh, host closure, temporary loss/reconnect, three-minute 1v1 expiry, explicit Leave, mobile controls, chat and queues across menus. Repeat with `?relay=1` on every browser and confirm selected candidate type `relay`; health or room admission alone is not a TURN test. Detailed local harness commands and fault-injection categories are in the setup guide.

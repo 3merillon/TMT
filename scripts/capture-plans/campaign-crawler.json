@@ -1,0 +1,22 @@
+{
+  "name": "campaign-crawler",
+  "out": "artifacts/screens/campaign-crawler",
+  "jobs": [{
+    "name": "crawler",
+    "url": "/play.html?mode=campaign&mission=1-5&autopilot=1",
+    "wait": "game",
+    "timeout": 600000,
+    "keys": [
+      "shot:approach",
+      "wait:25000",
+      "shot:drive-assemblies",
+      "eval@early:({mission:window.__tmtGame.mission,tanks:window.__tmtGame.snapshot.tanks})",
+      "waitfor:window.__tmtGame.mission?.objectives?.some(o => o.text?.includes('mortar feeds')) || window.__tmtGame.mission?.outcome",
+      "shot:feeds",
+      "waitfor:window.__tmtGame.mission?.outcome",
+      "shot:result",
+      "eval@finished:({mission:window.__tmtGame.mission,tanks:window.__tmtGame.snapshot.tanks})",
+      "eval:if(window.__tmtGame.mission.outcome !== 'won') throw new Error('Crawler mission did not complete')"
+    ]
+  }]
+}

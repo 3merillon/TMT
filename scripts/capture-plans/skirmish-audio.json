@@ -1,0 +1,23 @@
+{
+  "name": "skirmish-audio", "out": "artifacts/skirmish-audio",
+  "jobs": [{
+    "name": "shared-electro", "url": "/play.html", "size": "1280x720", "wait": "selector:#title-skirmish", "timeout": 180000,
+    "settle": 100, "probe": "({audio:window.__tmtGame?.audio,proof:window.__electroProof,screen:window.__tmtGame?.ui?.screen})",
+    "keys": [
+      "eval:import('/src/audio/electro-music.ts').then(({ElectroMusic})=>{window.__electroProof={updates:0,disposed:0};const update=ElectroMusic.prototype.update,dispose=ElectroMusic.prototype.dispose;ElectroMusic.prototype.update=function(){update.call(this);const state=this.snapshot();if(state.mode==='skirmish'){window.__electroProof.updates++;window.__electroProof.snapshot=state;}};ElectroMusic.prototype.dispose=function(){dispose.call(this);if(this.snapshot().mode==='skirmish')window.__electroProof.disposed++;};})",
+      "click:#title-skirmish", "click:#skirmish-start", "waitfor:window.__tmtGame?.ready && window.__tmtGame?.ui?.screen==='match'",
+      "waitfor:window.__tmtGame.audio.music.notes>15 && window.__electroProof.updates>5", "wait:1000", "shot:skirmish-shared-music",
+      "eval@playing:(()=>{const a=window.__tmtGame.audio,p=window.__electroProof;if(a.state!=='running'||!a.music.playing||p.snapshot.mode!=='skirmish'||a.music.voices>16||a.lastError||a.clipCount)throw new Error('Live skirmish score failed:'+JSON.stringify({a,p}));return{audio:a,sharedScore:p};})()",
+      "eval:import('/src/game/meta/settings.ts').then(({currentSettings})=>{const s=currentSettings();window.__audioOriginalSettings=s;window.dispatchEvent(new CustomEvent('tmt:settings',{detail:{...s,audio:{...s.audio,master:.7,music:0,sfx:.4}}}));})", "wait:300",
+      "eval@muted:(()=>{const a=window.__tmtGame.audio;if(a.volumes.music!==0||a.volumes.sfx!==.4||a.volumes.master!==.7)throw new Error('Skirmish bus settings not applied');return a.volumes;})()",
+      "eval:window.dispatchEvent(new CustomEvent('tmt:settings',{detail:window.__audioOriginalSettings}))", "wait:300",
+      "eval:Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'))", "wait:300",
+      "eval:window.__pausedMusicNotes=window.__tmtGame.audio.music.notes", "wait:650",
+      "eval@background:(()=>{const a=window.__tmtGame.audio;if(a.state!=='suspended'||a.music.notes!==window.__pausedMusicNotes)throw new Error('Background music kept scheduling');return{state:a.state,notes:a.music.notes};})()",
+      "eval:delete document.hidden;document.dispatchEvent(new Event('visibilitychange'))", "wait:700",
+      "eval@resumed:(()=>{const a=window.__tmtGame.audio;if(a.state!=='running'||a.music.notes<=window.__pausedMusicNotes||a.music.voices>16||a.lastError)throw new Error('Resume failed');return a.music;})()",
+      "press:Escape", "click:#pause-restart", "waitfor:window.__tmtGame?.ready && window.__tmtGame?.ui?.screen==='match'", "wait:1000", "shot:skirmish-restarted",
+      "eval@restart:(()=>{const a=window.__tmtGame.audio,p=window.__electroProof;if(p.disposed<1||a.state!=='running'||!a.music.playing||a.music.voices>16||a.lastError||a.clipCount)throw new Error('Restart failed:'+JSON.stringify({a,p}));return{audio:a,sharedScore:p};})()"
+    ]
+  }]
+}

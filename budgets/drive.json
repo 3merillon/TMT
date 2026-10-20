@@ -1,0 +1,22 @@
+{
+  "plan": "drive",
+  "description": "Drivability on seed 7. Targets: max roll <= 20 deg, max pitch <= 25 deg, flips = 0. The route includes ramming the opponent on the forward leg. Recorded browser runs on 2026-09-23 measured roll 5.7-8.4 deg, pitch 10.4-15.1 deg, 0 flips and 0 airborne frames. Historical regression bounds remain alongside the stricter targets.",
+  "tolerance": 0.15,
+  "checks": [
+    { "id": "drive-ok", "path": "jobs.drive-seed7.ok", "equals": true, "stream": "W0-TOOLS" },
+    { "id": "page-errors", "path": "jobs.drive-seed7.pageErrors", "max": 0, "gate": true, "stream": "W0-TOOLS" },
+    { "id": "console-errors", "path": "jobs.drive-seed7.consoleErrors", "max": 0, "gate": true, "stream": "W0-TOOLS" },
+    { "id": "sampler-ran", "path": "jobs.drive-seed7.evals.tilt.result.samples", "min": 300, "gate": true, "note": "rAF tilt samples over the 7 s of driving", "stream": "W0-TOOLS" },
+    { "id": "distance-u", "path": "jobs.drive-seed7.evals.tilt.result.distance", "min": 8, "note": "the tank must actually drive (units along the path)", "stream": "W0-TOOLS" },
+    { "id": "flips", "path": "jobs.drive-seed7.evals.tilt.result.flips", "equals": 0, "stream": "W0-TOOLS" },
+    { "id": "max-roll-deg", "path": "jobs.drive-seed7.evals.tilt.result.maxRollDeg", "max": 20, "gate": true, "stream": "W0-TOOLS" },
+    { "id": "max-pitch-deg", "path": "jobs.drive-seed7.evals.tilt.result.maxPitchDeg", "max": 25, "gate": true, "note": "Pitch target; recorded runs measured 10.0-15.1 deg on this route, compared with 35.7 deg on the earlier ridge route.", "stream": "W0-TOOLS" },
+    { "id": "max-pitch-regression-deg", "path": "jobs.drive-seed7.evals.tilt.result.maxPitchDeg", "max": 36, "note": "today's value; must not get worse", "stream": "W0-TOOLS" },
+    { "id": "w1phy-max-pitch-deg", "path": "jobs.drive-seed7.evals.tilt.result.maxPitchDeg", "max": 25, "gate": true, "note": "Pitch target on the drive route, ramming the opponent included (2026-09-23 browser runs: 10.4 and 15.1 deg; headless replays <= 18.6 deg)", "stream": "W1-PHY" },
+    { "id": "w1phy-turned-rad", "path": "jobs.drive-seed7.evals.tilt.result.turnedRad", "min": 2.4, "note": "total heading change over the run (browser runs 6.0 and 6.9 rad)", "stream": "W1-PHY" },
+    { "id": "w1phy-airborne-samples", "path": "jobs.drive-seed7.evals.tilt.result.airborneSamples", "max": 3, "gate": true, "note": "planted: at most 3 frames with neither track in contact (browser 0)", "stream": "W1-PHY" },
+    { "id": "w1phy-distance-u", "path": "jobs.drive-seed7.evals.tilt.result.distance", "min": 10, "note": "the route drives ~21-29 u", "stream": "W1-PHY" },
+    { "id": "w1phy-turn-leg-rad", "path": "jobs.drive-seed7.evals.turn-leg.result.turnedRad", "min": 1, "gate": true, "note": "turns crisply: the forward-left leg starts pressed nose to nose against the opponent and must still turn >= 1 rad (browser runs 1.51 and 1.65 rad; 0.44 rad before W1-PHY's tank-contact model)", "stream": "W1-PHY" },
+    { "id": "w1phy-fwd-pitch-deg", "path": "jobs.drive-seed7.evals.after-fwd.result.maxPitchDeg", "max": 18, "note": "ramming the opponent at top speed and pushing it on the forward leg (browser runs 10.4 and 15.1 deg, headless replays 9.4-15.1 deg; 31.1 deg before W1-PHY)", "stream": "W1-PHY" }
+  ]
+}

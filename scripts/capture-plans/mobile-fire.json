@@ -1,0 +1,19 @@
+{
+  "name": "mobile-fire",
+  "description": "Hold the mobile joystick and tap Fire with a second finger; verify a projectile appears while the stick remains held and the tank moves.",
+  "out": "artifacts/screens/mobile-fire",
+  "jobs": [
+    {
+      "name": "mobile-drive-fire",
+      "url": "/play.html?mode=drive&seed=7&touch=1",
+      "size": "390x844",
+      "touch": true,
+      "keys": [
+        "eval:(() => { const start = window.__tmtGame.snapshot.tanks[0].position; window.mobileFire = { start, firedWhileDriving: false }; const sample = () => { if (document.getElementById('stick-zone').classList.contains('is-active') && window.__tmtGame.snapshot.projectiles.some(p => p.owner === 0)) window.mobileFire.firedWhileDriving = true; window.mobileFire.frame = requestAnimationFrame(sample); }; sample(); })()",
+        "stick:75:769:0:-45:1800:#fire",
+        "eval@result:(() => { cancelAnimationFrame(window.mobileFire.frame); const { start, firedWhileDriving } = window.mobileFire; const distance = Math.hypot(...window.__tmtGame.snapshot.tanks[0].position.map((v, i) => v - start[i])); if (!firedWhileDriving) throw new Error('Second-finger Fire did not shoot while the joystick was held'); if (distance < 0.1) throw new Error('Joystick did not drive the tank'); if (document.getElementById('stick-zone').classList.contains('is-active')) throw new Error('Joystick remained held after release'); return { firedWhileDriving, distance }; })()",
+        "shot:fired"
+      ]
+    }
+  ]
+}

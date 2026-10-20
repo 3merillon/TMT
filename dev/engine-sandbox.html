@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TMT engine sandbox</title>
+    <!-- Dev only: never a build input. Scenes: ?scene=<name> loads src/engine/sandbox/<name>-scene.ts. -->
+    <style>
+      html, body { margin: 0; height: 100%; background: #05070a; overflow: hidden; }
+      #engine-canvas { display: block; width: 100vw; height: 100vh; touch-action: none; }
+      #sandbox-status { position: fixed; left: 12px; bottom: 10px; font: 12px/1.4 ui-monospace, monospace; color: #9fb3c8; pointer-events: none; }
+      #sandbox-status[data-error="true"] { color: #ff8a80; }
+    </style>
+  </head>
+  <body>
+    <canvas id="engine-canvas"></canvas>
+    <div id="sandbox-status"></div>
+    <script type="module" src="/src/engine/sandbox/main.ts"></script>
+  </body>
+</html>

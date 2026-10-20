@@ -1,0 +1,22 @@
+{
+  "name": "workshop-final-details", "out": "artifacts/workshop-final-details",
+  "jobs": [{
+    "name": "details", "url": "/play.html", "size": "1920x1080", "wait": "selector:#title-workshop", "timeout": 120000,
+    "settle": 100, "probe": "window.__tmtWorkshop?.snapshot()",
+    "keys": [
+      "click:#title-workshop", "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')", "wait:1800",
+      "eval@shaderCheck:window.__tmtWorkshop.shaderCheck()", "shot:hero-docked",
+      "eval:(()=>{document.querySelector('.ws-overlay').style.visibility='hidden';document.querySelector('.ws-lift-controls').style.visibility='hidden';const e=window.__tmtWorkshop.engine;window.__originalWorkshopFrame=e.frame.bind(e);window.__detailsCamera=(position,target,fov=43)=>{e.frame=input=>window.__originalWorkshopFrame({...input,camera:{position,target,up:[0,1,0],fovY:fov*Math.PI/180},focus:{world:target,distance:5,tilt:0}});};window.__detailsCamera([-3.7,1.25,4.5],[0,.3,0]);})()",
+      "wait:900", "shot:pit-docked",
+      "eval:window.__tmtWorkshop.setLiftInput(1)", "waitfor:window.__tmtWorkshop.liftHeight>=1.199", "eval:window.__tmtWorkshop.setLiftInput(0)", "wait:600", "shot:pit-full-height",
+      "eval:window.__detailsCamera([-.4,.8,3.2],[0,.2,0],42)", "wait:600", "shot:scissor-mechanism",
+      "eval:window.__detailsCamera([2.65,1.60,4.8],[2.22,1.15,2.45],38)", "wait:600", "shot:pillar-control-panel",
+      "eval:window.__detailsCamera([0,2.4,3.0],[0,2.6,8.95],60)", "wait:600", "shot:freight-door",
+      "eval:window.__detailsCamera([.30,4.22,-5.7],[0,4.35,-10.0],44)", "wait:600", "shot:fan-deep-duct",
+      "eval:window.__detailsCamera([3.4,1.40,3.4],[4.58,.48,1.22],38)", "wait:600", "shot:screw-stool",
+      "eval:(()=>{window.__tmtWorkshop.engine.frame=window.__originalWorkshopFrame;document.querySelector('.ws-overlay').style.visibility='visible';document.querySelector('.ws-lift-controls').style.visibility='visible';})()",
+      "wait:600", "shot:hero-full-height", "click:#workshop-back", "wait:300",
+      "eval@disposed:(()=>{const p=window.__tmtWorkshop,b=p.engine.telemetry().vram.total;if(p.ready||b!==0)throw new Error('Workshop resources retained:'+b);return{remainingGpuBytes:b};})()"
+    ]
+  }]
+}

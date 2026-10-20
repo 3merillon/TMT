@@ -1,0 +1,45 @@
+{
+  "name": "campaign-voice-pacing",
+  "out": "artifacts/screens/campaign-voice-pacing",
+  "jobs": [
+    {
+      "name": "briefing-and-radio",
+      "url": "/play.html",
+      "wait": "js:!!window.__tmtGame?.ui",
+      "timeout": 120000,
+      "size": "1280x900",
+      "keys": [
+        "click:#title-campaign",
+        "click:button[aria-label=\"Listen to briefing: First Light\"]",
+        "waitfor:window.__tmtGame.audio.dialogue.playing",
+        "eval@briefing:(()=>{const d=window.__tmtGame.audio.dialogue;if(!/^[a-f0-9]{8}-[a-f0-9]{12}\\.ogg$/.test(d.clip)||d.duration<9)throw new Error('Revised briefing was not loaded');return d})()",
+        "waitfor:window.__tmtGame.audio.dialogue.played >= 1",
+        "click:#mission-p1",
+        "waitfor:window.__tmtGame?.ui.screen === 'match' && window.__tmtGame.audio.dialogue.playing",
+        "wait:600",
+        "press:Escape",
+        "waitfor:window.__tmtGame?.ui.screen === 'pause' && window.__tmtGame.audio.dialogue.paused",
+        "eval:window.voicePaused={...window.__tmtGame.audio.dialogue}",
+        "wait:1000",
+        "eval:if(Math.abs(window.__tmtGame.audio.dialogue.elapsed-window.voicePaused.elapsed)>.001)throw new Error('Paused dialogue advanced')",
+        "click:#pause-resume",
+        "waitfor:!window.__tmtGame.audio.dialogue.paused && window.__tmtGame.audio.dialogue.playing",
+        "eval:if(window.__tmtGame.audio.dialogue.clip!==window.voicePaused.clip || window.__tmtGame.audio.dialogue.elapsed<window.voicePaused.elapsed)throw new Error('Dialogue restarted instead of resuming')",
+        "waitfor:document.querySelector('.ch-speaker').textContent === 'Sgt. Sprocket' && window.__tmtGame.audio.dialogue.playing",
+        "shot:instructor",
+        "eval@radio:window.__tmtGame.audio.dialogue",
+        "click:.ch-radio button",
+        "eval:if(window.__tmtGame.audio.dialogue.playing)throw new Error('Skip did not stop the only remaining line')",
+        "press:Escape",
+        "click:#pause-leave",
+        "waitfor:window.__tmtGame?.ui.screen === 'campaign'",
+        "eval@left:(()=>{const d=window.__tmtGame.audio.dialogue;if(d.playing||d.lastError)throw new Error(JSON.stringify(d));return d})()",
+        "click:button[aria-label=\"Listen to briefing: First Light\"]",
+        "waitfor:window.__tmtGame.audio.dialogue.playing",
+        "eval:history.forward()",
+        "waitfor:window.__tmtGame.ui.screen === 'pause'",
+        "eval:if(window.__tmtGame.audio.dialogue.playing)throw new Error('Board briefing leaked into paused mission')"
+      ]
+    }
+  ]
+}

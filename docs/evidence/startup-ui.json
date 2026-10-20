@@ -1,0 +1,646 @@
+{
+  "format": "tmt-startup-ui-v1",
+  "seed": 7,
+  "measurement": "Desktop Chromium/WebGPU integration, no CPU throttle; not mobile hardware",
+  "passed": 15,
+  "errors": [],
+  "methods": {
+    "startupFailure": "Injected once after real terrain initialization; checks allocated-world cleanup and recovery.",
+    "cancellation": "Initialize promise gate on a real allocated terrain; the second canceled request is released after its replacement starts.",
+    "shot": "Actual HUD elevation/power inputs and Fire button, then terrain version/history and audio event assertions.",
+    "checkpoint": "Session save/restore API after that shot; restore verifies the command replay hash.",
+    "visibility": "Synthetic visibilitychange with a temporary document.hidden override.",
+    "limits": "Functional desktop checks; no performance, physical phone, audio listening, or fluid gameplay-coupling claim."
+  },
+  "checks": [
+    {
+      "name": "workshop machinery and shared music survive workshop to setup",
+      "detail": {
+        "workshop": {
+          "state": "running",
+          "active": true,
+          "voices": 0,
+          "nodes": 32,
+          "musicNotes": 0,
+          "cues": 0,
+          "musicOwner": "application",
+          "levels": {
+            "master": 0.8,
+            "sfx": 0.9,
+            "music": 0.6
+          },
+          "motion": {
+            "lift": 0,
+            "arm": 0,
+            "trolley": 0
+          },
+          "lastError": null
+        },
+        "motion": {
+          "lift": 1,
+          "arm": 0,
+          "trolley": 0
+        },
+        "audio": {
+          "state": "running",
+          "scene": "setup",
+          "music": {
+            "scene": "setup",
+            "arrangement": "copper",
+            "step": 24,
+            "notes": 39,
+            "voices": 8,
+            "transitions": 0,
+            "muted": false
+          },
+          "soundscape": {
+            "world": "glacial",
+            "active": false,
+            "voices": 4,
+            "nodes": 14
+          },
+          "lastError": null
+        }
+      }
+    },
+    {
+      "name": "injected late initialization failure unwinds resources and preserves setup",
+      "detail": {
+        "ready": false,
+        "screen": "skirmish",
+        "lifecycle": {
+          "created": 1,
+          "disposed": 1,
+          "initialized": 1,
+          "failOnce": false,
+          "gateEntered": false
+        },
+        "gpu": {
+          "validationErrors": 0,
+          "compileErrors": 0,
+          "planetPipeline": "ready",
+          "liquidReady": false
+        },
+        "audio": {
+          "state": "running",
+          "scene": "setup",
+          "music": {
+            "scene": "setup",
+            "arrangement": "copper",
+            "step": 51,
+            "notes": 73,
+            "voices": 8,
+            "transitions": 2,
+            "muted": false
+          },
+          "soundscape": {
+            "world": "temperate",
+            "active": false,
+            "voices": 4,
+            "nodes": 14
+          },
+          "lastError": null
+        }
+      }
+    },
+    {
+      "name": "retry starts identical seed with selected temperate world",
+      "detail": {
+        "ready": true,
+        "screen": "match",
+        "seed": 7,
+        "kind": "temperate",
+        "terrainVersion": 1,
+        "tick": 13,
+        "historyLength": 1,
+        "lifecycle": {
+          "created": 2,
+          "disposed": 1,
+          "initialized": 2,
+          "failOnce": false,
+          "gateEntered": false
+        },
+        "gpu": {
+          "validationErrors": 0,
+          "compileErrors": 0,
+          "planetPipeline": "ready",
+          "liquidReady": true
+        },
+        "audio": {
+          "state": "running",
+          "scene": "skirmish",
+          "music": {
+            "scene": "skirmish",
+            "arrangement": "temperate",
+            "step": 65,
+            "notes": 89,
+            "voices": 12,
+            "transitions": 3,
+            "muted": false
+          },
+          "soundscape": {
+            "world": "temperate",
+            "active": true,
+            "voices": 4,
+            "nodes": 14
+          },
+          "lastError": null
+        }
+      }
+    },
+    {
+      "name": "real HUD shot commits terrain destruction and gameplay sound",
+      "detail": {
+        "ready": true,
+        "screen": "match",
+        "seed": 7,
+        "kind": "temperate",
+        "terrainVersion": 2,
+        "tick": 107,
+        "historyLength": 2,
+        "lifecycle": {
+          "created": 2,
+          "disposed": 1,
+          "initialized": 2,
+          "failOnce": false,
+          "gateEntered": false
+        },
+        "gpu": {
+          "validationErrors": 0,
+          "compileErrors": 0,
+          "planetPipeline": "ready",
+          "liquidReady": true
+        },
+        "audio": {
+          "state": "running",
+          "scene": "skirmish",
+          "music": {
+            "scene": "skirmish",
+            "arrangement": "temperate",
+            "step": 75,
+            "notes": 103,
+            "voices": 10,
+            "transitions": 3,
+            "muted": false
+          },
+          "soundscape": {
+            "world": "temperate",
+            "active": true,
+            "voices": 4,
+            "nodes": 14
+          },
+          "lastError": null
+        }
+      }
+    },
+    {
+      "name": "checkpoint restore verifies replay after real destruction and preserves kind",
+      "detail": {
+        "tick": 122,
+        "hash": "e737d96e93bea956",
+        "kind": "temperate",
+        "restored": {
+          "ready": true,
+          "screen": "pause",
+          "seed": 7,
+          "kind": "temperate",
+          "terrainVersion": 2,
+          "tick": 122,
+          "historyLength": 2,
+          "lifecycle": {
+            "created": 3,
+            "disposed": 2,
+            "initialized": 3,
+            "failOnce": false,
+            "gateEntered": false
+          },
+          "gpu": {
+            "validationErrors": 0,
+            "compileErrors": 0,
+            "planetPipeline": "ready",
+            "liquidReady": true
+          },
+          "audio": {
+            "state": "running",
+            "scene": "pause",
+            "music": {
+              "scene": "skirmish",
+              "arrangement": "temperate",
+              "step": 88,
+              "notes": 112,
+              "voices": 3,
+              "transitions": 3,
+              "muted": false
+            },
+            "soundscape": {
+              "world": "temperate",
+              "active": true,
+              "voices": 4,
+              "nodes": 14
+            },
+            "lastError": null
+          }
+        }
+      }
+    },
+    {
+      "name": "real settings controls isolate music effects master and pause mix",
+      "detail": {
+        "muted": {
+          "scene": "pause",
+          "arrangement": "temperate",
+          "step": 92,
+          "notes": 115,
+          "voices": 3,
+          "transitions": 3,
+          "muted": true
+        },
+        "effectsMuted": {
+          "scene": "pause",
+          "arrangement": "temperate",
+          "step": 99,
+          "notes": 122,
+          "voices": 7,
+          "transitions": 3,
+          "muted": false
+        },
+        "volumes": {
+          "master": 0.8,
+          "music": 0.6,
+          "sfx": 0,
+          "ui": 0.7,
+          "voice": 0.8
+        },
+        "masterMuted": {
+          "scene": "pause",
+          "arrangement": "temperate",
+          "step": 102,
+          "notes": 122,
+          "voices": 3,
+          "transitions": 3,
+          "muted": true
+        }
+      }
+    },
+    {
+      "name": "hidden tab suspension resumes existing score",
+      "detail": {
+        "hidden": {
+          "scene": "skirmish",
+          "arrangement": "temperate",
+          "step": 105,
+          "notes": 124,
+          "voices": 5,
+          "transitions": 3,
+          "muted": false
+        },
+        "resumed": {
+          "scene": "skirmish",
+          "arrangement": "temperate",
+          "step": 108,
+          "notes": 128,
+          "voices": 9,
+          "transitions": 3,
+          "muted": false
+        }
+      }
+    },
+    {
+      "name": "repeated match start preserves score and leaves one live terrain",
+      "detail": {
+        "ready": true,
+        "screen": "match",
+        "seed": 7,
+        "kind": "temperate",
+        "terrainVersion": 1,
+        "tick": 3,
+        "historyLength": 1,
+        "lifecycle": {
+          "created": 4,
+          "disposed": 3,
+          "initialized": 4,
+          "failOnce": false,
+          "gateEntered": false
+        },
+        "gpu": {
+          "validationErrors": 0,
+          "compileErrors": 0,
+          "planetPipeline": "ready",
+          "liquidReady": true
+        },
+        "audio": {
+          "state": "running",
+          "scene": "skirmish",
+          "music": {
+            "scene": "skirmish",
+            "arrangement": "temperate",
+            "step": 120,
+            "notes": 133,
+            "voices": 4,
+            "transitions": 3,
+            "muted": false
+          },
+          "soundscape": {
+            "world": "temperate",
+            "active": true,
+            "voices": 4,
+            "nodes": 14
+          },
+          "lastError": null
+        }
+      }
+    },
+    {
+      "name": "same seed honors selected glacial terrain materials and world audio",
+      "detail": {
+        "ready": true,
+        "screen": "match",
+        "seed": 7,
+        "kind": "glacial",
+        "terrainVersion": 1,
+        "tick": 6,
+        "historyLength": 1,
+        "lifecycle": {
+          "created": 5,
+          "disposed": 4,
+          "initialized": 5,
+          "failOnce": false,
+          "gateEntered": false
+        },
+        "gpu": {
+          "validationErrors": 0,
+          "compileErrors": 0,
+          "planetPipeline": "ready",
+          "liquidReady": true
+        },
+        "audio": {
+          "state": "running",
+          "scene": "skirmish",
+          "music": {
+            "scene": "skirmish",
+            "arrangement": "glacial",
+            "step": 145,
+            "notes": 161,
+            "voices": 10,
+            "transitions": 4,
+            "muted": false
+          },
+          "soundscape": {
+            "world": "glacial",
+            "active": true,
+            "voices": 4,
+            "nodes": 14
+          },
+          "lastError": null
+        }
+      }
+    },
+    {
+      "name": "same seed honors selected dune terrain materials and world audio",
+      "detail": {
+        "ready": true,
+        "screen": "match",
+        "seed": 7,
+        "kind": "dune",
+        "terrainVersion": 1,
+        "tick": 7,
+        "historyLength": 1,
+        "lifecycle": {
+          "created": 6,
+          "disposed": 5,
+          "initialized": 6,
+          "failOnce": false,
+          "gateEntered": false
+        },
+        "gpu": {
+          "validationErrors": 0,
+          "compileErrors": 0,
+          "planetPipeline": "ready",
+          "liquidReady": true
+        },
+        "audio": {
+          "state": "running",
+          "scene": "skirmish",
+          "music": {
+            "scene": "skirmish",
+            "arrangement": "dune",
+            "step": 172,
+            "notes": 185,
+            "voices": 7,
+            "transitions": 5,
+            "muted": false
+          },
+          "soundscape": {
+            "world": "dune",
+            "active": true,
+            "voices": 4,
+            "nodes": 14
+          },
+          "lastError": null
+        }
+      }
+    },
+    {
+      "name": "same seed honors selected volcanic terrain materials and world audio",
+      "detail": {
+        "ready": true,
+        "screen": "match",
+        "seed": 7,
+        "kind": "volcanic",
+        "terrainVersion": 1,
+        "tick": 9,
+        "historyLength": 1,
+        "lifecycle": {
+          "created": 7,
+          "disposed": 6,
+          "initialized": 7,
+          "failOnce": false,
+          "gateEntered": false
+        },
+        "gpu": {
+          "validationErrors": 0,
+          "compileErrors": 0,
+          "planetPipeline": "ready",
+          "liquidReady": true
+        },
+        "audio": {
+          "state": "running",
+          "scene": "skirmish",
+          "music": {
+            "scene": "skirmish",
+            "arrangement": "volcanic",
+            "step": 204,
+            "notes": 224,
+            "voices": 6,
+            "transitions": 7,
+            "muted": false
+          },
+          "soundscape": {
+            "world": "volcanic",
+            "active": true,
+            "voices": 4,
+            "nodes": 14
+          },
+          "lastError": null
+        }
+      }
+    },
+    {
+      "name": "cancel allocated glacial startup and ignore late result",
+      "detail": {
+        "ready": false,
+        "screen": "title",
+        "seed": 7,
+        "lifecycle": {
+          "created": 8,
+          "disposed": 8,
+          "initialized": 8,
+          "failOnce": false,
+          "gateEntered": true
+        },
+        "gpu": {
+          "validationErrors": 0,
+          "compileErrors": 0,
+          "planetPipeline": "ready",
+          "liquidReady": false
+        },
+        "audio": {
+          "state": "running",
+          "scene": "title",
+          "music": {
+            "scene": "title",
+            "arrangement": "copper",
+            "step": 213,
+            "notes": 240,
+            "voices": 8,
+            "transitions": 8,
+            "muted": false
+          },
+          "soundscape": {
+            "world": "glacial",
+            "active": false,
+            "voices": 4,
+            "nodes": 14
+          },
+          "lastError": null
+        }
+      }
+    },
+    {
+      "name": "cancel allocated dune startup before starting replacement",
+      "detail": {
+        "ready": false,
+        "screen": "title",
+        "seed": 7,
+        "lifecycle": {
+          "created": 9,
+          "disposed": 9,
+          "initialized": 9,
+          "failOnce": false,
+          "gateEntered": true
+        },
+        "gpu": {
+          "validationErrors": 0,
+          "compileErrors": 0,
+          "planetPipeline": "compiling",
+          "liquidReady": false
+        },
+        "audio": {
+          "state": "running",
+          "scene": "title",
+          "music": {
+            "scene": "title",
+            "arrangement": "copper",
+            "step": 215,
+            "notes": 244,
+            "voices": 10,
+            "transitions": 8,
+            "muted": false
+          },
+          "soundscape": {
+            "world": "dune",
+            "active": false,
+            "voices": 4,
+            "nodes": 14
+          },
+          "lastError": null
+        }
+      }
+    },
+    {
+      "name": "newest seed and kind win while cancelled initialization completes late",
+      "detail": {
+        "ready": true,
+        "screen": "match",
+        "seed": 209,
+        "kind": "volcanic",
+        "terrainVersion": 1,
+        "tick": 9,
+        "historyLength": 1,
+        "lifecycle": {
+          "created": 10,
+          "disposed": 9,
+          "initialized": 10,
+          "failOnce": false,
+          "gateEntered": true
+        },
+        "gpu": {
+          "validationErrors": 0,
+          "compileErrors": 0,
+          "planetPipeline": "ready",
+          "liquidReady": true
+        },
+        "audio": {
+          "state": "running",
+          "scene": "skirmish",
+          "music": {
+            "scene": "skirmish",
+            "arrangement": "volcanic",
+            "step": 251,
+            "notes": 286,
+            "voices": 5,
+            "transitions": 9,
+            "muted": false
+          },
+          "soundscape": {
+            "world": "volcanic",
+            "active": true,
+            "voices": 4,
+            "nodes": 14
+          },
+          "lastError": null
+        }
+      }
+    },
+    {
+      "name": "browser JavaScript HTTP GPU validation and shader errors absent",
+      "detail": {
+        "warnings": [
+          "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+          "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+          "[engine] device lost (destroyed): Device was destroyed.",
+          "Match start failed: Error: Injected verification failure after terrain initialization\n    at ResidentGameTerrain.initialize (eval at evaluate (:303:30), <anonymous>:5:306)\n    at async GameSession.startMatch (http://127.0.0.1:5174/src/game/app/session.ts:127:22)\n    at async UiController.runStart (http://127.0.0.1:5174/src/game/ui/controller.ts:181:7)"
+        ]
+      }
+    }
+  ],
+  "warnings": [
+    "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+    "[engine] device lost (destroyed): Device was destroyed.",
+    "Match start failed: Error: Injected verification failure after terrain initialization\n    at ResidentGameTerrain.initialize (eval at evaluate (:303:30), <anonymous>:5:306)\n    at async GameSession.startMatch (http://127.0.0.1:5174/src/game/app/session.ts:127:22)\n    at async UiController.runStart (http://127.0.0.1:5174/src/game/ui/controller.ts:181:7)"
+  ],
+  "raw": "artifacts/startup-ui-final/verification.json",
+  "checkpoint": "artifacts/startup-ui-final/checkpoint-after-shot.json",
+  "screenshots": [
+    "artifacts/startup-ui-final/01-workshop-shared-music.png",
+    "artifacts/startup-ui-final/02-recoverable-initialization-failure.png",
+    "artifacts/startup-ui-final/03-temperate-same-seed.png",
+    "artifacts/startup-ui-final/04-real-shot-terrain-destruction.png",
+    "artifacts/startup-ui-final/05-audio-settings-during-pause.png",
+    "artifacts/startup-ui-final/glacial-same-seed.png",
+    "artifacts/startup-ui-final/dune-same-seed.png",
+    "artifacts/startup-ui-final/volcanic-same-seed.png",
+    "artifacts/startup-ui-final/09-loading-cancellable.png",
+    "artifacts/startup-ui-final/10-latest-world-after-cancellations.png"
+  ]
+}

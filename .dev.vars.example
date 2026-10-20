@@ -1,0 +1,4 @@
+# Optional for local testing. Production uses `wrangler secret put`, never VITE_ variables.
+# Local direct connections work without these. Add real TURN credentials to test relayed connections.
+TURN_KEY_ID=""
+TURN_KEY_API_TOKEN=""

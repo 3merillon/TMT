@@ -1,0 +1,4 @@
+{"seed":13,"kind":"volcanic","workers":8,"elapsedMs":7833.337,"n":250,"vertices":244362,"boundary":39807,"detached":0}
+{"seed":13,"kind":"dune","workers":8,"elapsedMs":9247.0463,"n":268,"vertices":244057,"boundary":39321,"detached":0}
+{"seed":13,"kind":"glacial","workers":8,"elapsedMs":11719.308100000002,"n":255,"vertices":245621,"boundary":39549,"detached":0}
+{"seed":13,"kind":"temperate","workers":8,"elapsedMs":13385.468099999998,"n":262,"vertices":249180,"boundary":40018,"detached":0}

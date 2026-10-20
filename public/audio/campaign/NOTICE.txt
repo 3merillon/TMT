@@ -1,0 +1,17 @@
+Tiny Metal Tank campaign speech
+
+Generated offline with Kokoro-82M (hexgrad), using onnx-community's timestamped
+fp32 ONNX conversion at dd4401a9add81ac692d20e240d22ec9dda82cc29.
+Model and voice packs: Apache-2.0; license text accompanies this directory.
+https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX-timestamped
+https://huggingface.co/hexgrad/Kokoro-82M
+
+Uses the Planets/Pinionfall offline speech pipeline, HeadTTS and Misaki English
+phonemisation. Their retained licenses accompany this directory. Model weights,
+style vectors, tokenizer, and inference runtime are not shipped in this game.
+Character casting, prosody, EQ, coloration, mastering and Opus compression are
+recorded in scripts/bake-campaign-voice.ts and manifest.json.
+These are synthetic performances, not recordings or imitations of named actors.
+
+Upstream model-card acknowledgements: StyleTTS 2 (Li et al.), trainer @rzvzn,
+Koniwa tnc (CC BY 3.0) and SIWIS (CC BY 4.0). Those datasets are not included.

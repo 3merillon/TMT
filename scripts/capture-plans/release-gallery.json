@@ -1,0 +1,11 @@
+{
+  "name": "release-gallery",
+  "description": "Current game screenshots for the public README; no injected art, debug chrome, or private rooms.",
+  "out": "artifacts/release/gallery",
+  "jobs": [
+    { "name": "artillery", "url": "/?mode=bot&seed=7", "size": "1440x900", "wait": "game", "settle": 2500,
+      "keys": ["shot:ready", "press:Space", "wait:2400", "shot:impact"] },
+    { "name": "workshop", "url": "/", "size": "1440x900", "wait": "selector:#title-workshop", "settle": 500,
+      "keys": ["click:#title-workshop", "waitfor:window.__tmtWorkshop?.ready && window.__tmtWorkshop.frames > 2 && !document.querySelector('.ws-loading')", "wait:1800", "shot:room"] }
+  ]
+}

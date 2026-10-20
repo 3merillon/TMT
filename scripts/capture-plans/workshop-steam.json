@@ -1,0 +1,20 @@
+{
+  "name": "workshop-steam", "out": "artifacts/workshop-steam",
+  "jobs": [{
+    "name": "steam", "url": "/play.html", "size": "1920x1080", "wait": "selector:#title-workshop", "timeout": 120000,
+    "settle": 100, "probe": "window.__tmtWorkshop?.snapshot()",
+    "keys": [
+      "click:#title-workshop", "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')",
+      "eval:(()=>{document.querySelector('.ws-overlay').style.visibility='hidden';const e=window.__tmtWorkshop.engine;window.__steamFrame=e.frame.bind(e);window.__steamCamera=(position,target,fov=43)=>{e.frame=input=>window.__steamFrame({...input,camera:{position,target,up:[0,1,0],fovY:fov*Math.PI/180},focus:{world:target,distance:4,tilt:0}});};window.__steamCamera([3.3,3.7,-2.5],[5.0,3.35,-5.63],48);})()",
+      "waitfor:(window.__tmtWorkshop.snapshot().atmosphere.time+6)%9>.45 && (window.__tmtWorkshop.snapshot().atmosphere.time+6)%9<.7", "shot:boiler-release",
+      "wait:500", "shot:boiler-curl", "wait:700", "shot:boiler-dissipation",
+      "eval:window.__steamCamera([4.5,4.1,-1.9],[6.35,3.95,-4],37)",
+      "waitfor:(window.__tmtWorkshop.snapshot().atmosphere.time+7)%13>.6 && (window.__tmtWorkshop.snapshot().atmosphere.time+7)%13<.9", "shot:header-bleed",
+      "eval@shaderCheck:window.__tmtWorkshop.shaderCheck()",
+      "eval:window.__steamCamera([2.65,1.55,4.5],[2.22,1.12,2.45],38)", "wait:450", "hover:#workshop-lift-up", "wait:250", "shot:ivory-button-hover",
+      "eval:(()=>{window.__tmtWorkshop.engine.frame=window.__steamFrame;document.querySelector('.ws-overlay').style.visibility='visible';})()",
+      "click:#workshop-back", "wait:300",
+      "eval@disposed:(()=>{const p=window.__tmtWorkshop,b=p.engine.telemetry().vram.total;if(p.ready||b!==0)throw new Error('Resources retained:'+b);return{remainingGpuBytes:b,audio:p.snapshot().audio};})()"
+    ]
+  }]
+}

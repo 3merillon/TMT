@@ -1,0 +1,38 @@
+{
+  "name": "workshop-fixtures",
+  "out": "artifacts/workshop-fixtures",
+  "jobs": [{
+    "name": "fixtures",
+    "url": "/play.html",
+    "size": "1920x1080",
+    "wait": "selector:#title-workshop",
+    "timeout": 120000,
+    "settle": 100,
+    "probe": "window.__tmtWorkshop?.snapshot()",
+    "keys": [
+      "click:#title-workshop",
+      "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')",
+      "wait:1800",
+      "eval@shaderCheck:window.__tmtWorkshop.shaderCheck()",
+      "shot:hero",
+      "eval:(() => { document.querySelector('.ws-overlay').style.visibility='hidden'; const e=window.__tmtWorkshop.engine; window.__originalWorkshopFrame=e.frame.bind(e); e.frame = input => window.__originalWorkshopFrame({...input, camera:{position:[4.65,2.32,-3.60],target:[5.052,2.269,-4.864],up:[0,1,0],fovY:35*Math.PI/180},focus:{world:[5.052,2.269,-4.864],distance:1.3,tilt:0}}); })()",
+      "wait:900",
+      "shot:gauge-a",
+      "wait:1600",
+      "shot:gauge-b",
+      "eval:(() => { const e=window.__tmtWorkshop.engine; e.frame = input => window.__originalWorkshopFrame({...input, camera:{position:[0,4.35,-4.0],target:[0,4.22,-8.62],up:[0,1,0],fovY:45*Math.PI/180},focus:{world:[0,4.22,-8.62],distance:4.6,tilt:0}}); })()",
+      "wait:900",
+      "shot:fan-front",
+      "eval:(() => { const e=window.__tmtWorkshop.engine; e.frame = input => window.__originalWorkshopFrame({...input, camera:{position:[-3.6,3.2,-4.7],target:[0,4.22,-8.62],up:[0,1,0],fovY:43*Math.PI/180},focus:{world:[0,4.22,-8.62],distance:5.2,tilt:0}}); })()",
+      "wait:900",
+      "shot:fan-shafts",
+      "eval:(() => { window.__tmtWorkshop.engine.frame=window.__originalWorkshopFrame; document.querySelector('.ws-overlay').style.visibility='visible'; })()",
+      "click:#workshop-view-top",
+      "wait:1200",
+      "shot:grating-lift",
+      "click:#workshop-back",
+      "wait:300",
+      "eval@disposed:(() => { const probe=window.__tmtWorkshop;const bytes=probe.engine.telemetry().vram.total;if(probe.ready || bytes!==0)throw new Error('Fixture resources retained after workshop exit: '+bytes);return{ready:probe.ready,remainingGpuBytes:bytes}; })()"
+    ]
+  }]
+}

@@ -1,0 +1,39 @@
+.hud-edge-dock { position:absolute; pointer-events:none; z-index:25; max-width:min(340px,calc(100vw - 24px)); }
+.dock-tab { pointer-events:auto; touch-action:none; border:1px solid var(--line-2); border-radius:18px; padding:9px 12px; min-height:36px; background:var(--glass-strong,#142029ed); color:var(--text); font:600 11px var(--font-ui); }
+.dock-tab.unread { color:var(--teal,#80dfca); border-color:currentColor; box-shadow:0 0 0 2px #80dfca30; }
+.dock-content { pointer-events:auto; margin-top:6px; padding:10px; border:1px solid var(--line-2); border-radius:10px; background:var(--glass-strong,#142029ed); max-height:min(45vh,340px); overflow:auto; overscroll-behavior:contain; }
+.dock-content[hidden] { display:none; }
+.dock-head { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:8px; font:600 12px var(--font-ui); touch-action:none; }
+.dock-head button { min-width:32px; min-height:32px; background:none; border:1px solid var(--line); border-radius:6px; color:inherit; }
+.dock-objectives { top:64px; left:12px; }
+.dock-actions { right:12px; bottom:265px; text-align:right; }
+.dock-objectives .ch-objectives { position:static; max-width:none; padding:0; }
+.dock-actions .ch-abilities { position:static; max-width:none; display:grid; grid-template-columns:1fr 1fr; text-align:left; }
+.dock-actions .ch-abilities .btn { min-height:40px; }
+.dock-chat { position:fixed; left:12px; bottom:12px; z-index:95; }
+#game[data-screen='match'] .dock-chat, #game[data-screen='pause'] .dock-chat { bottom:210px; }
+.chat-log { margin:0; padding:0; list-style:none; max-height:220px; overflow:auto; font:13px/1.4 var(--font-ui); text-align:left; }
+.chat-log li { margin:0 0 8px; overflow-wrap:anywhere; }
+.chat-log strong { color:var(--sender,var(--teal)); }
+.chat-form { display:flex; gap:6px; margin-top:10px; }
+.chat-form input { width:100%; min-width:0; }
+[data-camera-drag] { touch-action:none; }
+@media (max-width:720px) {
+  #hud .hud-top { gap:5px; padding:8px; }
+  #hud #roster { max-width:106px; min-height:38px; padding:6px 9px; gap:5px; }
+  #hud #roster .roster-pip:not(.self) { display:none; }
+  #hud #roster::after { content:'☰'; font-size:11px; opacity:.65; }
+  #hud #banner { min-width:0; padding:6px 9px; min-height:38px; }
+  #hud #wind-chip.is-calm { display:none; }
+  #hud #pause-open { width:40px; height:40px; min-width:40px; }
+  .dock-objectives { top:55px; left:8px; }
+  .dock-actions { right:8px; bottom:210px; }
+  .dock-tab { min-height:38px; padding:8px 10px; }
+  .ch-gun { top:56px !important; right:8px !important; min-width:92px !important; width:116px; padding:6px !important; gap:4px !important; }
+  .ch-gauge { gap:4px; grid-template-columns:20px 1fr auto; }
+  .ch-gauge-label, .ch-gun-text { font-size:8px; }
+  .ch-bottom { max-width:calc(100vw - 20px); }
+  .ch-hint { max-height:44px; overflow:auto; font-size:11px; padding:6px 10px; }
+  #game[data-screen='match'] .dock-chat { bottom:210px; left:8px; }
+  .dock-chat .dock-content { width:min(320px,calc(100vw - 32px)); }
+}

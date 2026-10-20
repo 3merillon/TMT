@@ -1,0 +1,38 @@
+{
+  "name": "skirmish-realtime",
+  "out": "artifacts/screens/skirmish-realtime",
+  "jobs": [
+    {
+      "name": "ai",
+      "url": "/",
+      "size": "1440x900",
+      "wait": "selector:#title-skirmish",
+      "settle": 200,
+      "timeout": 180000,
+      "keys": [
+        "click:#title-skirmish",
+        "click:#skirmish-turnModel [data-value=realtime]",
+        "eval:if(document.querySelector('#skirmish-brain').value!=='rusty'||!document.querySelector('#rule-aimTimer').disabled)throw new Error('Realtime options mismatch')",
+        "click:#skirmish-opponents [data-value=local]",
+        "eval:if(document.querySelector('#skirmish-turnModel [data-value=tempo]').getAttribute('aria-checked')!=='true'||!document.querySelector('#skirmish-turnModel [data-value=realtime]').disabled)throw new Error('Pass-and-play allowed realtime')",
+        "click:#skirmish-opponents [data-value=ai]",
+        "click:#skirmish-turnModel [data-value=realtime]",
+        "eval:if(document.querySelector('#skirmish-turnModel [data-value=realtime]').disabled)throw new Error('Realtime did not reenable'); const seed=document.querySelector('#skirmish-seed');seed.value='7';seed.dispatchEvent(new Event('change',{bubbles:true})); const fog=document.querySelector('#rule-fog');if(fog.checked)fog.click()",
+        "eval:(async()=>{window.realtimeSession=(await import('/src/game/api/session.ts')).session;window.realtimeShots=[];window.realtimeSession().on('event',e=>{if(e.type==='shot')window.realtimeShots.push({player:e.player,tick:window.realtimeSession().snapshot?.tick})})})()",
+        "shot:setup",
+        "click:#skirmish-start",
+        "waitfor:window.__tmtGame?.ready && window.__tmtGame.tick>5",
+        "eval@setup:const s=window.realtimeSession();if(s.setup.mode!=='skirmish'||s.setup.rules.turnModel!=='realtime'||s.setup.rules.autoCoax!==false)throw new Error('Wrong local realtime runtime');window.realtimeStart=s.snapshot.tanks.map(t=>[...t.position]);if(Math.hypot(...window.realtimeStart[0].map((v,i)=>v-window.realtimeStart[1][i]))<5)throw new Error('Overlapping spawns')",
+        "hold:KeyW:1500",
+        "eval@beforeFire:({activeElement:document.activeElement?.id,tag:document.activeElement?.tagName,fireDisabled:document.querySelector('#fire')?.disabled,fireText:document.querySelector('#fire')?.textContent,screen:document.querySelector('#game')?.dataset.screen,tick:window.realtimeSession().snapshot.tick})",
+        "press:Space",
+        "waitfor:window.realtimeShots.some(s=>s.player===0)",
+        "eval@humanShot:({shots:window.realtimeShots,activeElement:document.activeElement?.id,tag:document.activeElement?.tagName,fireDisabled:document.querySelector('#fire')?.disabled,tick:window.realtimeSession().snapshot.tick})",
+        "waitfor:window.realtimeShots.some(s=>s.player===1)",
+        "waitfor:window.realtimeSession().snapshot.tanks.every(t=>Math.hypot(...t.position.map((v,i)=>v-window.realtimeStart[t.id][i]))>0.5)",
+        "eval@combat:const s=window.realtimeSession();if(!window.realtimeShots.some(e=>e.player===0))throw new Error('Human shot failed');for(const t of s.snapshot.tanks){if(Math.hypot(...t.position.map((v,i)=>v-window.realtimeStart[t.id][i]))<0.5)throw new Error('Tank did not move: '+t.id)};({tick:s.snapshot.tick,shots:window.realtimeShots,health:s.snapshot.tanks.map(t=>t.health)})",
+        "shot:combat"
+      ]
+    }
+  ]
+}

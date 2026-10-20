@@ -1,0 +1,75 @@
+/* Campaign HUD (src/game/ui/campaign-hud.ts): mission objectives, radio, hints, banners, the objective marker and the
+   gun gauges. Lives inside #hud, so it hides with the HUD; only the radio and gauges take pointer-free space. */
+.campaign-hud { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.campaign-hud[hidden] { display: none; }
+
+.ch-objectives { position: absolute; top: 74px; left: 16px; margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; max-width: min(360px, 60vw); }
+.ch-objective { display: flex; gap: 10px; align-items: baseline; padding: 7px 12px 7px 10px; border-radius: var(--radius-sm); background: var(--glass); border: 1px solid var(--line);
+  font: 600 13px/1.3 var(--font-ui); color: var(--text); text-shadow: 0 1px 2px rgba(0, 0, 0, .6); animation: ch-in .35s ease-out; }
+.ch-objective .ch-check { flex: none; width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid var(--brass); display: grid; place-items: center; font: 700 10px/1 var(--font-mono); color: var(--brass-hi); transform: translateY(2px); }
+.ch-objective.done { color: var(--text-3); }
+.ch-objective.done .ch-check { background: var(--ok-lo); border-color: var(--ok); color: var(--text); }
+.ch-objective.failed { color: var(--danger); }
+.ch-objective.failed .ch-check { border-color: var(--danger); color: var(--danger); }
+
+.ch-bottom { position: absolute; left: 50%; bottom: 212px; transform: translateX(-50%); display: grid; justify-items: center; gap: 8px; width: min(620px, calc(100vw - 32px)); }
+.ch-radio { display: flex; flex-direction: column; gap: 4px; padding: 10px 16px 12px; border-radius: var(--radius); background: var(--glass-strong); border: 1px solid var(--line-2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35); width: 100%; }
+.ch-radio.fresh { animation: ch-in .3s ease-out; }
+.ch-speaker { font: 600 10px/1.2 var(--font-mono); letter-spacing: .22em; text-transform: uppercase; color: var(--brass); }
+.ch-speaker::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 8px var(--ember); animation: ch-blink 1.2s steps(2) infinite; }
+.ch-line { font: 500 15px/1.4 var(--font-ui); color: var(--text); }
+.ch-hint { padding: 6px 12px; border-radius: 999px; background: rgba(217, 182, 119, .16); border: 1px solid var(--line-2); font: 500 12px/1.35 var(--font-ui); color: var(--brass-hi); text-align: center; }
+
+.ch-banner { position: absolute; top: 18%; left: 50%; transform: translate(-50%, -8px); text-align: center; opacity: 0; transition: opacity .5s, transform .5s; }
+.ch-banner.show { opacity: 1; transform: translate(-50%, 0); }
+.ch-banner-sub { font: 600 11px/1.2 var(--font-mono); letter-spacing: .32em; text-transform: uppercase; color: var(--brass); }
+.ch-banner-title { margin-top: 6px; font: 700 clamp(30px, 5vw, 52px)/1 var(--font-display); letter-spacing: .04em; color: var(--text); text-shadow: 0 2px 18px rgba(0, 0, 0, .65); }
+
+.ch-marker { position: absolute; top: 0; left: 0; display: grid; justify-items: center; gap: 2px; margin: -11px 0 0 -40px; width: 80px; }
+.ch-marker[hidden] { display: none; }
+.ch-diamond { width: 14px; height: 14px; transform: rotate(45deg); border: 2px solid var(--brass-hi); background: rgba(217, 182, 119, .25); box-shadow: 0 0 10px rgba(240, 213, 156, .55); animation: ch-pulse 1.6s ease-in-out infinite; }
+.ch-marker.edge .ch-diamond { border-color: var(--ember-hi); background: rgba(226, 104, 58, .3); }
+.ch-marker-label { font: 600 10px/1.1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--text); text-shadow: 0 1px 3px #000; white-space: nowrap; }
+.ch-marker-range { font: 600 10px/1 var(--font-mono); color: var(--brass-hi); text-shadow: 0 1px 3px #000; }
+
+.ch-gun { position: absolute; right: 16px; bottom: 214px; display: grid; gap: 6px; padding: 8px 10px; border-radius: var(--radius-sm); background: var(--glass); border: 1px solid var(--line); min-width: 168px; }
+.ch-gauge { display: grid; grid-template-columns: 26px 1fr auto; align-items: center; gap: 8px; }
+.ch-gauge-label { font: 600 9px/1 var(--font-mono); letter-spacing: .16em; color: var(--text-3); }
+.ch-bar { position: relative; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, .08); overflow: hidden; }
+.ch-fill { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--brass); border-radius: 3px; }
+.ch-bar.ready .ch-fill { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+.heat .ch-fill { background: var(--teal); }
+.heat .ch-bar.hot .ch-fill { background: var(--danger); }
+.ch-gun-text { font: 600 10px/1 var(--font-mono); color: var(--text-2); min-width: 34px; text-align: right; }
+
+@keyframes ch-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes ch-blink { 50% { opacity: .35; } }
+@keyframes ch-pulse { 50% { box-shadow: 0 0 2px rgba(240, 213, 156, .2); } }
+
+/* Phones: objectives shrink, the radio sits above the thumb pads, the gauges move up out of the fire button's way. */
+@media (max-width: 720px) {
+  .ch-objectives { top: 64px; left: 12px; max-width: 62vw; }
+  .ch-objective { font-size: 12px; padding: 5px 10px 5px 8px; }
+  .ch-bottom { bottom: 176px; }
+  .ch-line { font-size: 13px; }
+  .ch-gun { right: 12px; bottom: auto; top: 64px; min-width: 132px; }
+}
+
+.ch-abilities { position:absolute; right:16px; bottom:270px; display:flex; flex-wrap:wrap; gap:4px; max-width:220px; pointer-events:auto; }
+.ch-abilities .btn { font-size:10px; min-height:30px; padding:6px 9px; }
+.ch-ending { pointer-events:auto; position:absolute; left:50%; top:38%; transform:translate(-50%,-30%); background:#111e26ed; border:1px solid #bda16c; padding:30px; width:min(500px,90vw); text-align:center; box-shadow:0 20px 80px #000a; }
+.ch-ending[hidden] { display:none; }
+.ch-ending .btn { margin:8px; }
+@media(max-width:720px) { .ch-abilities { right:10px; bottom:250px; max-width:180px; } }
+
+.ch-radio-overlay { position:fixed; z-index:80; pointer-events:none; }
+.ch-radio .btn { pointer-events:auto; align-self:flex-end; font-size:10px; min-height:24px; padding:3px 8px; }
+.ch-radio[hidden], .ch-hint[hidden] { display:none; }
+.ch-posts { position:absolute; top:78px; right:16px; display:grid; gap:6px; width:190px; padding:10px; background:var(--glass-strong); border:1px solid var(--line); border-radius:var(--radius-sm); pointer-events:auto; }
+.ch-posts[hidden] { display:none; }
+.ch-posts label { display:grid; grid-template-columns:68px 1fr; align-items:center; gap:4px; font:600 11px var(--font-ui); }
+.ch-posts select { width:100%; min-height:28px; color:var(--text); background:#182125; border:1px solid var(--line-2); border-radius:4px; }
+.ch-detection { position:absolute; top:66px; left:50%; transform:translateX(-50%); width:240px; padding:8px 12px; border:1px solid var(--line-2); border-radius:6px; text-align:center; font:600 11px var(--font-mono); background:linear-gradient(90deg,#a94825bb var(--detection),#142029dd var(--detection)); }
+.ch-detection[hidden] { display:none; }
+@media(max-width:720px) { .ch-posts { top:125px; right:10px; width:165px; } .ch-posts label { grid-template-columns:58px 1fr; } }

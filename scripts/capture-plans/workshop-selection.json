@@ -1,0 +1,18 @@
+{
+  "name": "workshop-selection", "out": "artifacts/workshop-selection",
+  "jobs": [{
+    "name": "selection", "url": "/play.html", "size": "1920x1080", "wait": "selector:#title-workshop", "timeout": 120000,
+    "settle": 100, "probe": "window.__tmtWorkshop?.snapshot()",
+    "keys": [
+      "click:#title-workshop",
+      "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')", "wait:1800",
+      "click:#workshop-open-paint", "click:#workshop-paint-ochre", "click:#workshop-close-paint", "wait:500", "shot:ochre-unselected",
+      "eval@hover:(()=>{const p=window.__tmtWorkshop.components.weapon,c=document.querySelector('#workshop-viewport canvas');c.dispatchEvent(new PointerEvent('pointermove',{clientX:p.x,clientY:p.y,pointerId:1,bubbles:true}));if(c.style.cursor!=='pointer')throw new Error('Weapon ray missed');return p;})()",
+      "wait:400", "shot:ochre-hover",
+      "click:#workshop-open-components", "click:#workshop-slot-hull", "wait:1000", "shot:ochre-selected",
+      "eval@shaderCheck:window.__tmtWorkshop.shaderCheck()",
+      "click:#workshop-back", "wait:300",
+      "eval@disposed:(()=>{const p=window.__tmtWorkshop,b=p.engine.telemetry().vram.total;if(p.ready||b!==0)throw new Error('Resources retained:'+b);return{remainingGpuBytes:b};})()"
+    ]
+  }]
+}

@@ -1,0 +1,23 @@
+{
+  "out": "artifacts/graphics-overhaul/final",
+  "jobs": [
+    {
+      "url": "/?mode=dev&seed=6&engineDev", "name": "water-debris", "wait": "game", "settle": 5000,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats().ready",
+        "click:.dev-water", "wait:500", "click:.dev-blast", "wait:900", "shot:splashes", "wait:2400", "shot:aftermath",
+        "wait:3000", "shot:float", "click:.dev-place-tank", "hold:KeyW:1800", "shot:drive"
+      ]
+    },
+    {
+      "url": "/?mode=dev&seed=5&engineDev", "name": "nuclear-crater", "wait": "game", "settle": 3500,
+      "keys": [
+        "eval:window.__p = window.__tmtVisuals.aimHit().point; const ammo = document.querySelector('.dev-munition'); ammo.value = 'nuclear'; ammo.dispatchEvent(new Event('change')); window.__tmtVisuals.blast(4.6)",
+        "eval:window.__tmtFluids.lookAt(window.__p.map(v => v * 1.3), 13, 30)",
+        "wait:900", "shot:ignition", "wait:1700", "shot:cap", "wait:2100", "shot:trunk", "wait:3000", "shot:late",
+        "eval:document.querySelector('.dev-munition').value = 'heavy'; document.querySelector('.dev-munition').dispatchEvent(new Event('change'))",
+        "press:Space", "wait:3500", "shot:heavy-fired"
+      ]
+    }
+  ]
+}

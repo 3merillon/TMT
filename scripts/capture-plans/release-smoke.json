@@ -1,0 +1,55 @@
+{
+  "name": "release-smoke",
+  "out": "artifacts/screens/release-smoke",
+  "jobs": [
+    {
+      "name": "desktop-realtime",
+      "url": "/",
+      "size": "1440x900",
+      "wait": "selector:#title-skirmish",
+      "settle": 400,
+      "timeout": 180000,
+      "keys": [
+        "click:#title-help",
+        "waitfor:!!document.querySelector('#help')",
+        "eval:if(!document.querySelector('#help').textContent.includes('Save design'))throw new Error('Updated paint instructions are missing')",
+        "click:#help-back",
+        "click:#title-skirmish",
+        "click:#skirmish-turnModel [data-value=realtime]",
+        "eval:const seed=document.querySelector('#skirmish-seed');seed.value='7';seed.dispatchEvent(new Event('change',{bubbles:true}));const fog=document.querySelector('#rule-fog');if(fog.checked)fog.click()",
+        "click:#skirmish-start",
+        "waitfor:window.__tmtGame?.ready && window.__tmtGame.tick>5",
+        "eval:window.releaseStart=window.__tmtGame.snapshot.tanks[0].position",
+        "hold:KeyW:1500",
+        "waitfor:Math.hypot(...window.__tmtGame.snapshot.tanks[0].position.map((v,i)=>v-window.releaseStart[i]))>0.5",
+        "press:Space",
+        "waitfor:window.__tmtGame.snapshot.projectiles.some(p=>p.owner===0)",
+        "shot:realtime-combat",
+        "press:Escape",
+        "waitfor:document.querySelector('#game')?.dataset.screen==='pause'",
+        "shot:paused"
+      ]
+    },
+    {
+      "name": "mobile-help",
+      "url": "/",
+      "size": "390x844",
+      "touch": true,
+      "wait": "selector:#title-help",
+      "settle": 400,
+      "keys": [
+        "click:#title-help",
+        "waitfor:document.querySelector('#help') && getComputedStyle(document.querySelector('#help')).opacity==='1' && document.querySelector('#help').getBoundingClientRect().bottom<=innerHeight+1",
+        "eval:const p=document.querySelector('#help'),r=p.getBoundingClientRect();if(r.top<0||r.bottom>innerHeight+1||r.height<100||getComputedStyle(p).opacity!=='1')throw new Error('Help is not visible')",
+        "shot:field-manual",
+        "click:#help-workshop>summary",
+        "eval:if(!document.querySelector('#help-workshop').textContent.includes('Keep painting'))throw new Error('Paint save guidance missing')",
+        "shot:paint-guide",
+        "click:#help-back",
+        "waitfor:!!document.querySelector('#title-donate')",
+        "eval:document.querySelector('.title-footer').scrollIntoView({block:'end'})",
+        "shot:menu-footer"
+      ]
+    }
+  ]
+}

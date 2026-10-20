@@ -1,0 +1,779 @@
+{
+  "51041372": {
+    "speaker": "Mags",
+    "text": "Defeat the Leviathan battery",
+    "file": "51041372-550f43250602.ogg",
+    "seconds": 2.2669166666666665,
+    "bytes": 6037
+  },
+  "76545485": {
+    "speaker": "Seraphine",
+    "text": "The Ascendancy will stand with you. Even beside the Forge.",
+    "file": "76545485-dcea08622602.ogg",
+    "seconds": 5.672666666666666,
+    "bytes": 15003
+  },
+  "01d7d2e5": {
+    "speaker": "Brann",
+    "text": "You saved my forge. You have my tracks, my tools, and my last good rivet.",
+    "file": "01d7d2e5-ecf6e44f8d35.ogg",
+    "seconds": 6.859958333333333,
+    "bytes": 17727
+  },
+  "01fe5897": {
+    "speaker": "Mags",
+    "text": "Break the canyon ambush",
+    "file": "01fe5897-bda4c49506ac.ogg",
+    "seconds": 1.9592083333333334,
+    "bytes": 5090
+  },
+  "0b1185bd": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Not bad rookie. Marshal Corvin will want to see you.",
+    "file": "0b1185bd-0846a256b70a.ogg",
+    "seconds": 5.2011666666666665,
+    "bytes": 13461
+  },
+  "0c509b7e": {
+    "speaker": "Sgt. Sprocket",
+    "text": "They saw you. Break the beam or get behind the ridge. You can still reach the prison.",
+    "file": "0c509b7e-fa98a8ddebca.ogg",
+    "seconds": 8.057166666666667,
+    "bytes": 21304
+  },
+  "0da5f06b": {
+    "speaker": "Narrator",
+    "text": "Brann's foundry is under siege. Clear the repair depot, then cut the supports feeding the Rust furnace.",
+    "file": "0da5f06b-6b7a623c468d.ogg",
+    "seconds": 8.49825,
+    "bytes": 22745
+  },
+  "0e5780bf": {
+    "speaker": "Marshal Corvin",
+    "text": "Stay with the caravan, Rook. We travel together.",
+    "file": "0e5780bf-0bef4f5766e7.ogg",
+    "seconds": 5.825541666666667,
+    "bytes": 15585
+  },
+  "102b7958": {
+    "speaker": "Mags",
+    "text": "Searchlights on the ridge. Switch your headlights off. A trench hides your hull; a shell into a tower base shuts its projector down.",
+    "file": "102b7958-7b692f33e4db.ogg",
+    "seconds": 9.440291666666667,
+    "bytes": 25612
+  },
+  "10ba4a1f": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Reach Brann's extraction point",
+    "file": "10ba4a1f-a674c6e32f44.ogg",
+    "seconds": 3.206958333333333,
+    "bytes": 8671
+  },
+  "1232e42d": {
+    "speaker": "Marshal Corvin",
+    "text": "The Key can rewind the Mainspring. I will not let our worlds die because you are afraid of the price.",
+    "file": "1232e42d-c477a476dac3.ogg",
+    "seconds": 9.077125,
+    "bytes": 26339
+  },
+  "12a52bfb": {
+    "speaker": "Mags",
+    "text": "We're with you, Rook. Whatever comes next.",
+    "file": "12a52bfb-7a8a656693b7.ogg",
+    "seconds": 4.261958333333333,
+    "bytes": 10711
+  },
+  "1630e437": {
+    "speaker": "Mags",
+    "text": "There's a lobber on the ridge. I can see it from here, so I'm marking it for you.",
+    "file": "1630e437-6f981bf8168d.ogg",
+    "seconds": 7.4075,
+    "bytes": 20399
+  },
+  "16456e24": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Escape to the Lantern gate",
+    "file": "16456e24-dfe1f9153b7b.ogg",
+    "seconds": 2.7884583333333333,
+    "bytes": 7212
+  },
+  "17028dc7": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Never sit still when the ring's on you.",
+    "file": "17028dc7-c52ee4e38d59.ogg",
+    "seconds": 3.49175,
+    "bytes": 9509
+  },
+  "1747deb0": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Contacts! Little ones. The planet curves away fast, so things pop over the horizon close. Your machine gun fires on its own at whatever your turret faces.",
+    "file": "1747deb0-f3883d64241c.ogg",
+    "seconds": 13.0475,
+    "bytes": 36081
+  },
+  "1cba3e1a": {
+    "speaker": "Marshal Corvin",
+    "text": "And what's this... still warm. I'll keep this shard of the core. For study.",
+    "file": "1cba3e1a-fce847d4ed33.ogg",
+    "seconds": 9.343083333333333,
+    "bytes": 23243
+  },
+  "1d1d44de": {
+    "speaker": "Seraphine",
+    "text": "Aether is away. One fleet remains. Hold the harbor.",
+    "file": "1d1d44de-64b912ed03a9.ogg",
+    "seconds": 6.725,
+    "bytes": 16964
+  },
+  "1e8800fa": {
+    "speaker": "Sgt. Sprocket",
+    "text": "The caravan waits when you fall behind. Keep your front armor toward the sniper while reversing.",
+    "file": "1e8800fa-dc97879d4ac4.ogg",
+    "seconds": 7.5255,
+    "bytes": 20534
+  },
+  "22e4ee56": {
+    "speaker": "Mags",
+    "text": "The Lantern burns bright. The worlds turn again. And we will be here to care for them.",
+    "file": "22e4ee56-522e61419c96.ogg",
+    "seconds": 7.784,
+    "bytes": 20970
+  },
+  "25123c61": {
+    "speaker": "Narrator",
+    "text": "Seraphine is a prisoner in the frozen observatory. Cross the whiteout and silence its watchers.",
+    "file": "25123c61-38f0264a5545.ogg",
+    "seconds": 8.100083333333334,
+    "bytes": 21831
+  },
+  "253fdd26": {
+    "speaker": "Mags",
+    "text": "Four exposed final drives. Break those brass hubs and the Crawler stops. The thick hull will just shrug it off.",
+    "file": "253fdd26-69725c482f4d.ogg",
+    "seconds": 8.593166666666667,
+    "bytes": 23411
+  },
+  "262335e0": {
+    "speaker": "Brann",
+    "text": "Forge engines hot. Aether shields holding. Launch every ship!",
+    "file": "262335e0-659b76753d70.ogg",
+    "seconds": 5.743125,
+    "bytes": 14242
+  },
+  "288d056b": {
+    "speaker": "Mags",
+    "text": "All three worlds. One last launch. Let's make it count.",
+    "file": "288d056b-8af044204f37.ogg",
+    "seconds": 5.312541666666666,
+    "bytes": 13184
+  },
+  "291b56d0": {
+    "speaker": "Narrator",
+    "text": "Intercept the ore convoy before its cargo reaches Corvin's launch spire.",
+    "file": "291b56d0-e99fa4969e62.ogg",
+    "seconds": 5.476791666666666,
+    "bytes": 15474
+  },
+  "2c271dbf": {
+    "speaker": "Brann",
+    "text": "Depot online. Park here to repair.",
+    "file": "2c271dbf-05eefe78b9cf.ogg",
+    "seconds": 3.454125,
+    "bytes": 8534
+  },
+  "2fe14c4e": {
+    "speaker": "Mags",
+    "text": "It cannot move. The two mortar feeds are exposed. Cut them off before the next salvo.",
+    "file": "2fe14c4e-4a3b8355631e.ogg",
+    "seconds": 6.907791666666666,
+    "bytes": 18464
+  },
+  "30f9cbe6": {
+    "speaker": "Mags",
+    "text": "Silence the Halo batteries",
+    "file": "30f9cbe6-eb2876517f9c.ogg",
+    "seconds": 2.1301666666666668,
+    "bytes": 5601
+  },
+  "32357e90": {
+    "speaker": "Seraphine",
+    "text": "The Lantern is not dying. It is waiting. I can show you another way.",
+    "file": "32357e90-478ac5a8db0c.ogg",
+    "seconds": 7.637208333333334,
+    "bytes": 19038
+  },
+  "32d1b70e": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Now you have a hole to hide in. Remember that.",
+    "file": "32d1b70e-20b6d9094eb9.ogg",
+    "seconds": 4.681125,
+    "bytes": 11862
+  },
+  "331b4fd1": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Gravity is sixty percent of normal. Your familiar shots will travel farther.",
+    "file": "331b4fd1-7479fd34ec87.ogg",
+    "seconds": 7.219125,
+    "bytes": 19497
+  },
+  "364452d1": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Recovered Repair Kit. Good detour, Rook.",
+    "file": "364452d1-e6102464d66a.ogg",
+    "seconds": 4.738041666666667,
+    "bytes": 12418
+  },
+  "37c2d1a2": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Craters are cover. Put a shell just in front of you. Not on your feet.",
+    "file": "37c2d1a2-8b554a0ee85c.ogg",
+    "seconds": 7.178708333333334,
+    "bytes": 18485
+  },
+  "37dd2b4b": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Repair at the depot before crossing to the furnace. Rust artillery can be silenced from beyond the curve.",
+    "file": "37dd2b4b-9cf1a8e8084b.ogg",
+    "seconds": 8.156333333333333,
+    "bytes": 22498
+  },
+  "3a54f0cc": {
+    "speaker": "Brann",
+    "text": "Forge ships clear. Our pad is safe. Send me where you need the repairs.",
+    "file": "3a54f0cc-6f80cb886ddc.ogg",
+    "seconds": 6.689666666666667,
+    "bytes": 17248
+  },
+  "3bdbbace": {
+    "speaker": "Narrator",
+    "text": "The Wright archive lies beyond an abandoned glassworks. Break the old chimney's footing to open a path.",
+    "file": "3bdbbace-d4990017d3b3.ogg",
+    "seconds": 8.125166666666667,
+    "bytes": 22222
+  },
+  "3d9797a4": {
+    "speaker": "Narrator",
+    "text": "A siege battery is rolling toward the archive. Disable its outer defence, mortar pods and armored core.",
+    "file": "3d9797a4-d5dfb03db8f9.ogg",
+    "seconds": 8.868666666666666,
+    "bytes": 24093
+  },
+  "3e3d418e": {
+    "speaker": "Narrator",
+    "text": "Range day at the Cradle depot. Sergeant Sprocket wants to see whether the new crew can drive, shoot and keep their heads down.",
+    "file": "3e3d418e-a1d30ee17051.ogg",
+    "seconds": 9.719541666666666,
+    "bytes": 26578
+  },
+  "3f35148b": {
+    "speaker": "Sgt. Sprocket",
+    "text": "A shell at a structure's foot cuts the support and lets gravity do the work.",
+    "file": "3f35148b-d3aeb4957bec.ogg",
+    "seconds": 5.383916666666667,
+    "bytes": 15414
+  },
+  "404ee5ce": {
+    "speaker": "Mags",
+    "text": "Break the Rustcrown",
+    "file": "404ee5ce-2cb02b8cf314.ogg",
+    "seconds": 1.73625,
+    "bytes": 4663
+  },
+  "453fac0b": {
+    "speaker": "Brann",
+    "text": "Or mend what our people built. There is still life in these worlds.",
+    "file": "453fac0b-fa5e9eb587e6.ogg",
+    "seconds": 5.452916666666667,
+    "bytes": 14567
+  },
+  "496d4309": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Keep the relay alive. Dig cover, watch the rings, and repair at the pad.",
+    "file": "496d4309-0f6265de4974.ogg",
+    "seconds": 6.293916666666667,
+    "bytes": 17133
+  },
+  "4d91471f": {
+    "speaker": "Marshal Corvin",
+    "text": "Good work, Kestrel. Something's stirring at Millbrook. Get some rest; you ride at dawn.",
+    "file": "4d91471f-65066304426b.ogg",
+    "seconds": 10.333541666666667,
+    "bytes": 27763
+  },
+  "515c0406": {
+    "speaker": "Mags",
+    "text": "The soil carries the weight. Put a shell at its foot.",
+    "file": "515c0406-9ced894a9f36.ogg",
+    "seconds": 4.6474166666666665,
+    "bytes": 12506
+  },
+  "564afaba": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Recovered Lantern Shard. Good detour, Rook.",
+    "file": "564afaba-1af548655913.ogg",
+    "seconds": 4.753333333333333,
+    "bytes": 12502
+  },
+  "5a280baf": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Three practice targets. Point at one and fire. Big gun, big hole.",
+    "file": "5a280baf-69f055eb1fa7.ogg",
+    "seconds": 7.567375,
+    "bytes": 19477
+  },
+  "5ee32717": {
+    "speaker": "Mags",
+    "text": "Secure the harbor",
+    "file": "5ee32717-561bf891cafa.ogg",
+    "seconds": 1.6702083333333333,
+    "bytes": 4167
+  },
+  "600b3b62": {
+    "speaker": "Mags",
+    "text": "He took the Key. Rook... the regiment is following him. We're on our own.",
+    "file": "600b3b62-f2a4a0ab5ebf.ogg",
+    "seconds": 7.042458333333333,
+    "bytes": 17033
+  },
+  "641006e1": {
+    "speaker": "Mags",
+    "text": "Clear the archive approach",
+    "file": "641006e1-8db1ea6f0b6c.ogg",
+    "seconds": 1.955375,
+    "bytes": 5278
+  },
+  "66b98a06": {
+    "speaker": "Narrator",
+    "text": "Millbrook has gone quiet. Marshal Corvin sends the Kestrel ahead of his column to hold the old mill until he arrives.",
+    "file": "66b98a06-0e75f87efc08.ogg",
+    "seconds": 9.24725,
+    "bytes": 25626
+  },
+  "6730e65e": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Scouts saw something past the ridge. Get to the lookout and have a look.",
+    "file": "6730e65e-8444d61fe3b2.ogg",
+    "seconds": 6.4075,
+    "bytes": 17115
+  },
+  "6778b0a3": {
+    "speaker": "Mags",
+    "text": "Mags Holloway, at your service. I'll stick to your flank. Try to keep up.",
+    "file": "6778b0a3-80f90b5231bf.ogg",
+    "seconds": 6.672583333333334,
+    "bytes": 17063
+  },
+  "67f44de6": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Aim low at the pontoon foundations. The harbor is a repair stop once captured.",
+    "file": "67f44de6-f0a63ef5835e.ogg",
+    "seconds": 7.361875,
+    "bytes": 20058
+  },
+  "694dfa23": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Recovered Branns Rivets. Good detour, Rook.",
+    "file": "694dfa23-b2633f901e46.ogg",
+    "seconds": 4.816041666666667,
+    "bytes": 12662
+  },
+  "6a8ed675": {
+    "speaker": "Mags",
+    "text": "Break the foundry siege",
+    "file": "6a8ed675-c4017b1cb342.ogg",
+    "seconds": 1.8689166666666666,
+    "bytes": 5033
+  },
+  "6bf54ff0": {
+    "speaker": "Mags",
+    "text": "Destroy the far-side battery",
+    "file": "6bf54ff0-13faf524df6b.ogg",
+    "seconds": 2.129208333333333,
+    "bytes": 5692
+  },
+  "6ee5aeb6": {
+    "speaker": "Narrator",
+    "text": "The Rust holds the dam and the old valley road. Break its supports, then bring down the Leviathan battery.",
+    "file": "6ee5aeb6-a66ea9103875.ogg",
+    "seconds": 8.985333333333333,
+    "bytes": 24419
+  },
+  "7247a56f": {
+    "speaker": "Harbor Master",
+    "text": "Our ships are yours. Tidewell sails with the Kestrel.",
+    "file": "7247a56f-508b038ebd02.ogg",
+    "seconds": 4.812125,
+    "bytes": 13061
+  },
+  "794f3a21": {
+    "speaker": "Mags",
+    "text": "Defeat Corvin's Rustcrown guard",
+    "file": "794f3a21-8141981d333d.ogg",
+    "seconds": 2.358875,
+    "bytes": 6359
+  },
+  "7c08575f": {
+    "speaker": "Narrator",
+    "text": "Low gravity has loosened the Halo's old anchors. Cut the Rust emplacements free and cross to the Mainspring approach.",
+    "file": "7c08575f-ee0c6d327d35.ogg",
+    "seconds": 9.52675,
+    "bytes": 26035
+  },
+  "7e4fb750": {
+    "speaker": "Mags",
+    "text": "Stop the ore convoy",
+    "file": "7e4fb750-f14d5d1b47df.ogg",
+    "seconds": 1.9151666666666667,
+    "bytes": 5069
+  },
+  "7fdbf5a4": {
+    "speaker": "Narrator",
+    "text": "The free worlds launch together. Defend three launch pads while Forge, Aether and Tidewell prepare the fleet.",
+    "file": "7fdbf5a4-1ed5737c5d92.ogg",
+    "seconds": 9.104583333333334,
+    "bytes": 24789
+  },
+  "7ffb7ca9": {
+    "speaker": "Sgt. Sprocket",
+    "text": "My turn. See the red ring? That's where my shell lands. Move!",
+    "file": "7ffb7ca9-edb439dd0559.ogg",
+    "seconds": 7.2050833333333335,
+    "bytes": 17946
+  },
+  "8f7a865b": {
+    "speaker": "Narrator",
+    "text": "Win Tidewell's harbor. Break the Rust's shore batteries and recover the harbor master's charts.",
+    "file": "8f7a865b-c77b9aa7a803.ogg",
+    "seconds": 7.505625,
+    "bytes": 20455
+  },
+  "9081d9ca": {
+    "speaker": "Narrator",
+    "text": "Seraphine marks the battery beyond the curve. Make a high arc reach the far-side guns before the fleet passes.",
+    "file": "9081d9ca-a90e91bd8630.ogg",
+    "seconds": 8.49275,
+    "bytes": 23080
+  },
+  "918c6e50": {
+    "speaker": "Sgt. Sprocket",
+    "text": "The launch spire is the destination. Destroy its footing and the convoy has nowhere to unload.",
+    "file": "918c6e50-b92d07fa1e23.ogg",
+    "seconds": 7.714583333333334,
+    "bytes": 21149
+  },
+  "9247abc5": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Two more, on your left! They've spotted you. Use the ground, a crater, anything!",
+    "file": "9247abc5-e81f1cb17a2f.ogg",
+    "seconds": 7.411416666666667,
+    "bytes": 19488
+  },
+  "95f05966": {
+    "speaker": "Marshal Corvin",
+    "text": "I only wanted the light to stay. Don't let it all have been for nothing.",
+    "file": "95f05966-ee5aa92a9579.ogg",
+    "seconds": 6.66625,
+    "bytes": 18789
+  },
+  "9c703eb9": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Morning rookie. Let's see if this crate still rolls. Drive to the flag.",
+    "file": "9c703eb9-dd47397cd57c.ogg",
+    "seconds": 6.910666666666667,
+    "bytes": 17996
+  },
+  "9db0ca57": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Attack the ground below each pylon. A crater that severs the foundation is the objective.",
+    "file": "9db0ca57-3f68b0c120d0.ogg",
+    "seconds": 7.961916666666666,
+    "bytes": 21896
+  },
+  "a431d2da": {
+    "speaker": "Mags",
+    "text": "The pond is boiling... Something's coming up out of it!",
+    "file": "a431d2da-e31279bbf65b.ogg",
+    "seconds": 4.312625,
+    "bytes": 11475
+  },
+  "a6901ead": {
+    "speaker": "Sgt. Sprocket",
+    "text": "That's the patrol. Back to the start line.",
+    "file": "a6901ead-f80babdd1447.ogg",
+    "seconds": 4.345458333333333,
+    "bytes": 11284
+  },
+  "ad323b0f": {
+    "speaker": "Narrator",
+    "text": "The orchard depot has fallen. Recapture its repair pad and sever the foundations of three Rust Spires.",
+    "file": "ad323b0f-5dd5ec5a5393.ogg",
+    "seconds": 8.509958333333334,
+    "bytes": 23358
+  },
+  "ad3a3299": {
+    "speaker": "Mags",
+    "text": "The worlds settle gently. Ahead of us, the Lantern. We sail together.",
+    "file": "ad3a3299-dc7ed78dd333.ogg",
+    "seconds": 6.489833333333333,
+    "bytes": 16895
+  },
+  "ae3b5b08": {
+    "speaker": "Rook",
+    "text": "We mend it. Together. Turn the Key.",
+    "file": "ae3b5b08-b49b2968ebd9.ogg",
+    "seconds": 4.9,
+    "bytes": 11598
+  },
+  "aefbddcb": {
+    "speaker": "Narrator",
+    "text": "Cross Amber Reach with Corvin's caravan. The wind carries shells across the canyon. Vex watches the rim.",
+    "file": "aefbddcb-3176b7163b2d.ogg",
+    "seconds": 9.272625,
+    "bytes": 24880
+  },
+  "b3c6cd96": {
+    "speaker": "Mags",
+    "text": "Destroy the exposed Frost Titan",
+    "file": "b3c6cd96-c38719750b98.ogg",
+    "seconds": 2.5479583333333333,
+    "bytes": 6886
+  },
+  "b4d7d509": {
+    "speaker": "Narrator",
+    "text": "The lamp relay is our last voice to the regiment. Hold the hill until its message reaches Corvin.",
+    "file": "b4d7d509-ed7907d52980.ogg",
+    "seconds": 8.129208333333333,
+    "bytes": 22019
+  },
+  "b595e073": {
+    "speaker": "Seraphine",
+    "text": "We could let the worlds rest. Sail for the Lantern. Make something new.",
+    "file": "b595e073-b80d687dae75.ogg",
+    "seconds": 7.435458333333333,
+    "bytes": 18779
+  },
+  "b63ed601": {
+    "speaker": "Marshal Corvin",
+    "text": "Hold your fire, the column's here. Well done, Rook. Better than I'd hoped.",
+    "file": "b63ed601-826750b41694.ogg",
+    "seconds": 9.289166666666667,
+    "bytes": 24244
+  },
+  "bc642cd5": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Signal received. The regiment is coming. You kept the light on.",
+    "file": "bc642cd5-3822b15e178a.ogg",
+    "seconds": 6.748333333333333,
+    "bytes": 17344
+  },
+  "bdcd9787": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Long shots bend with radial gravity. The marker remains visible when the target crosses the horizon.",
+    "file": "bdcd9787-4159e2393b03.ogg",
+    "seconds": 8.254791666666666,
+    "bytes": 22876
+  },
+  "bfbfdb3f": {
+    "speaker": "Marshal Corvin",
+    "text": "Rook, Millbrook's gone quiet. Hold the mill until my column arrives. Mags is riding with you.",
+    "file": "bfbfdb3f-bfffba106c22.ogg",
+    "seconds": 10.238208333333333,
+    "bytes": 27274
+  },
+  "c1b134a7": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Save the big gun for the big ones.",
+    "file": "c1b134a7-b556d70fa9e3.ogg",
+    "seconds": 3.3189583333333332,
+    "bytes": 9075
+  },
+  "c64a316d": {
+    "speaker": "Narrator",
+    "text": "The Titan anchors its armor to the ice pylons. Cut away their support and finish the exposed battery.",
+    "file": "c64a316d-d47c1d05d866.ogg",
+    "seconds": 8.447208333333334,
+    "bytes": 22899
+  },
+  "c95be20f": {
+    "speaker": "Sgt. Sprocket",
+    "text": "The exposed brass drive housings are separate targets. Four drives, two mortar feeds, then the rear core.",
+    "file": "c95be20f-36ffd2c3ff7a.ogg",
+    "seconds": 8.251791666666668,
+    "bytes": 22720
+  },
+  "c975e4ee": {
+    "speaker": "Marshal Corvin",
+    "text": "An archive older than the sun. Imagine what we might learn.",
+    "file": "c975e4ee-685986eaa577.ogg",
+    "seconds": 6.4895,
+    "bytes": 18403
+  },
+  "cd97938e": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Reach the fleet crossing",
+    "file": "cd97938e-f16e9043e581.ogg",
+    "seconds": 2.7812083333333333,
+    "bytes": 7322
+  },
+  "cf894d04": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Last one moves. Lead it: aim where it's going to be.",
+    "file": "cf894d04-3842b2f4ca15.ogg",
+    "seconds": 5.021125,
+    "bytes": 13200
+  },
+  "d09d8a0e": {
+    "speaker": "Narrator",
+    "text": "Corvin holds the Key. Break the Rustcrown, sever the core, and choose the future of the Orrery.",
+    "file": "d09d8a0e-cbe5925b6bd3.ogg",
+    "seconds": 8.421291666666667,
+    "bytes": 22465
+  },
+  "d31d41d0": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Something's lobbing at us from behind the curve! Watch the smoke trail. It comes from where the gun is.",
+    "file": "d31d41d0-bfec0ed4abf2.ogg",
+    "seconds": 8.888375,
+    "bytes": 23511
+  },
+  "d506ffdd": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Reach the lamp relay",
+    "file": "d506ffdd-6893a8836d3e.ogg",
+    "seconds": 2.4071666666666665,
+    "bytes": 6428
+  },
+  "d6cecea2": {
+    "speaker": "Sgt. Sprocket",
+    "text": "The dam wall is thick. Its buttresses are exposed at the eastern and western footings.",
+    "file": "d6cecea2-632b0ea8373a.ogg",
+    "seconds": 7.065541666666666,
+    "bytes": 19072
+  },
+  "d8a1387d": {
+    "speaker": "Rook",
+    "text": "Let it go. We carry our people forward, not the weight of the past.",
+    "file": "d8a1387d-72a045e61626.ogg",
+    "seconds": 6.73575,
+    "bytes": 17641
+  },
+  "d982d4bd": {
+    "speaker": "Mags",
+    "text": "Three launch pads. Assign us from the command panel. Keep a friendly vehicle on each pad for repairs, and clear the Rust before the countdown can continue.",
+    "file": "d982d4bd-290ee11c5a42.ogg",
+    "seconds": 10.722583333333333,
+    "bytes": 30064
+  },
+  "d9e5cc45": {
+    "speaker": "Mags",
+    "text": "They're coming over the ridge! I've got your flank.",
+    "file": "d9e5cc45-964ae7c09029.ogg",
+    "seconds": 3.9017916666666665,
+    "bytes": 10530
+  },
+  "dbe417e3": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Turn your headlights off. Stay out of the sweeping beams, use a ridge or trench as cover, or shell the projector bases. An alarm calls patrols but does not end the mission.",
+    "file": "dbe417e3-fcd4a6d18e2b.ogg",
+    "seconds": 12.814375,
+    "bytes": 35762
+  },
+  "dd927ffc": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Guns silent. The furnace vent is open at the rear. Finish it, Rook!",
+    "file": "dd927ffc-433f367d23cd.ogg",
+    "seconds": 7.026958333333333,
+    "bytes": 18198
+  },
+  "dea78ea7": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Concrete protects the tower. Soil supports it. Attack the soil.",
+    "file": "dea78ea7-830704b9ecba.ogg",
+    "seconds": 7.109458333333333,
+    "bytes": 18307
+  },
+  "e13813e3": {
+    "speaker": "Mags",
+    "text": "It isn't a plague. The Rust is a recycler. The Wrights built it to remake the worlds.",
+    "file": "e13813e3-56dd9f07e951.ogg",
+    "seconds": 7.4907916666666665,
+    "bytes": 19926
+  },
+  "e5da2a81": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Reach the Wright archive",
+    "file": "e5da2a81-d40a429b85cb.ogg",
+    "seconds": 2.3472916666666666,
+    "bytes": 6278
+  },
+  "e9b36437": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Assign each companion to a launch pad. Friendly vehicles enable repairs. Enemy vehicles contest the countdown. Move defenders as each fleet launches.",
+    "file": "e9b36437-cb12e4ed5017.ogg",
+    "seconds": 14.272958333333333,
+    "bytes": 38775
+  },
+  "ec80a988": {
+    "speaker": "Sgt. Sprocket",
+    "text": "The relay pad repairs your hull. Dig cover before each wave and leave room to dodge.",
+    "file": "ec80a988-5cab220695dc.ogg",
+    "seconds": 7.524583333333333,
+    "bytes": 20543
+  },
+  "eced6478": {
+    "speaker": "Narrator",
+    "text": "A first patrol past the depot. Scouts report movement beyond the ridge. On a world this small, the enemy is always just over the horizon.",
+    "file": "eced6478-45ffd55398e9.ogg",
+    "seconds": 12.052791666666666,
+    "bytes": 32468
+  },
+  "efdeda60": {
+    "speaker": "Sgt. Sprocket",
+    "text": "The duel is only the beginning. Keep enough hull for the escape.",
+    "file": "efdeda60-d0be9ae22367.ogg",
+    "seconds": 5.998375,
+    "bytes": 15632
+  },
+  "f15b2daf": {
+    "speaker": "Mags",
+    "text": "Clear the depot guards",
+    "file": "f15b2daf-fa13689d2e75.ogg",
+    "seconds": 1.8512916666666666,
+    "bytes": 4812
+  },
+  "f246d9d7": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Enter the glassworks",
+    "file": "f246d9d7-647ae83c707d.ogg",
+    "seconds": 2.4091666666666667,
+    "bytes": 6350
+  },
+  "f6f13730": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Recovered Mags Compass. Good detour, Rook.",
+    "file": "f6f13730-c9ba6eeaa869.ogg",
+    "seconds": 5.004875,
+    "bytes": 13070
+  },
+  "f8545908": {
+    "speaker": "Sgt. Sprocket",
+    "text": "That one's hiding behind the wall. Shells fly in an arc, so lob one over.",
+    "file": "f8545908-9e535162ca99.ogg",
+    "seconds": 6.736041666666667,
+    "bytes": 18205
+  },
+  "fa01de03": {
+    "speaker": "Mags",
+    "text": "It keeps spitting those little ones out. Take the big one down!",
+    "file": "fa01de03-8737ce42ad03.ogg",
+    "seconds": 5.007708333333333,
+    "bytes": 13402
+  },
+  "fdacdbca": {
+    "speaker": "Sgt. Sprocket",
+    "text": "Recover the harbor charts",
+    "file": "fdacdbca-b53b3da06727.ogg",
+    "seconds": 2.6350416666666665,
+    "bytes": 7123
+  }
+}

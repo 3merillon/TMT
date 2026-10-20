@@ -1,0 +1,27 @@
+{
+  "out": "artifacts/screens/fluids",
+  "jobs": [
+    {
+      "url": "play.html?mode=dev&seed=7&dev&off=veil,mist,liquidVeil",
+      "name": "probe",
+      "size": "1280x720",
+      "settle": 5000,
+      "hideUi": true,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats() && window.__tmtFluids.stats().ready",
+        "wait:2500",
+        "eval:window.__shore = (() => { const s = window.__tmtGame.snapshot; const t = s.tanks[s.active].position; let best = 1e9, bp = null; for (const p of window.__tmtFluids.shorePoints(4000, 'water')) { const d = Math.hypot(p[0] - t[0], p[1] - t[1], p[2] - t[2]); if (d < best) { best = d; bp = p; } } return bp; })()",
+        "eval:window.__pts = (() => { const c = window.__shore; const r = Math.hypot(c[0], c[1], c[2]); const u = c.map(v => v / r); const a = Math.abs(u[1]) < 0.9 ? [0, 1, 0] : [1, 0, 0]; const t1 = [u[1] * a[2] - u[2] * a[1], u[2] * a[0] - u[0] * a[2], u[0] * a[1] - u[1] * a[0]]; const l1 = Math.hypot(...t1); const e1 = t1.map(v => v / l1); const e2 = [u[1] * e1[2] - u[2] * e1[1], u[2] * e1[0] - u[0] * e1[2], u[0] * e1[1] - u[1] * e1[0]]; const out = []; for (const [x, y] of [[0, 0], [1, 0], [-1, 0], [0, 1], [0, -1], [2, 0], [-2, 0], [0, 2], [0, -2], [4, 0], [-4, 0], [0, 4], [0, -4], [8, 0], [-8, 0], [0, 8], [0, -8]]) out.push([0, 1, 2].map(k => (u[k] + (e1[k] * x + e2[k] * y) / r) * r)); return out; })()",
+        "eval@before:window.__tmtFluids.probe(window.__pts).then(r => JSON.stringify(r.map(q => [+q.water.toFixed(3), +q.ground.toFixed(3), +q.surface.toFixed(3)])))",
+        "eval@breach:JSON.stringify({ ok: window.__tmtFluids.breach(window.__shore, 2.25, 30) })",
+        "wait:3000",
+        "eval@t3:window.__tmtFluids.probe(window.__pts).then(r => JSON.stringify(r.map(q => [+q.water.toFixed(3), +q.ground.toFixed(3), +q.surface.toFixed(3)])))",
+        "eval@v3:JSON.stringify(window.__tmtFluids.volume())",
+        "wait:7000",
+        "eval@t10:window.__tmtFluids.probe(window.__pts).then(r => JSON.stringify(r.map(q => [+q.water.toFixed(3), +q.ground.toFixed(3), +q.surface.toFixed(3)])))",
+        "eval@v10:JSON.stringify(window.__tmtFluids.volume())",
+        "shot:t10"
+      ]
+    }
+  ]
+}

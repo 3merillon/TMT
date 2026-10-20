@@ -1,0 +1,30 @@
+{
+  "out": "artifacts/graphics-overhaul/lava",
+  "jobs": [{
+    "url": "/?mode=dev&seed=8&engineDev", "name": "lava", "wait": "game", "settle": 4500,
+    "keys": [
+      "waitfor:window.__tmtFluids && window.__tmtFluids.stats().ready",
+      "eval@contact-regression:import('/scripts/capture-fixtures/lava-contact-regression.ts').then(m => m.lavaContactRegression())",
+      "eval:window.__tmtVisuals.inspectWater(false)", "wait:1000",
+      "eval:window.__lavaPoint = window.__tmtVisuals.camera().target", "shot:shore",
+      "eval:window.__tmtFluids.lookAt(window.__lavaPoint, 2, 3)", "wait:500", "shot:crust",
+      "eval:window.__tmtFluids.lookAt(window.__lavaPoint, 0.8, 3)", "wait:300", "shot:crust-low",
+      "eval:window.__tmtFluids.lookAt(window.__lavaPoint, 0.8, -3)", "wait:300", "shot:crust-reverse",
+      "eval:window.__tmtFluids.lookAt(window.__lavaPoint, 2, 3)",
+      "eval@lava-physics:import('/scripts/capture-fixtures/lava-regression.ts').then(m => m.lavaRegression(window.__tmtVisuals.scene().get('fluids'), window.__lavaPoint))",
+      "shot:disturbed", "wait:1800", "shot:flow",
+      "eval:import('/scripts/capture-fixtures/lava-regression.ts').then(async m => { window.__edgePoint = await m.lavaEdge(window.__tmtVisuals.scene().get('fluids')); window.__tmtFluids.lookAt(window.__edgePoint, 2, 3); })",
+      "wait:500", "click:.dev-place-tank", "wait:600",
+      "eval:window.__tmtFluids.lookAt(window.__edgePoint, 3, 4)", "shot:margin-before",
+      "hold:KeyW:800", "shot:margin-driven", "hold:KeyW:600", "shot:embers", "wait:2200", "shot:margin-rest",
+      "eval:window.__tmtFluids.lookAt(window.__edgePoint, 1.3, 4)", "wait:300", "shot:film-low",
+      "eval:window.__tmtFluids.lookAt(window.__edgePoint, 1.3, -4)", "wait:300", "shot:film-reverse",
+      "eval:window.__tmtFluids.lookAt(window.__edgePoint, 3, 4); window.__tmtFluids.breach(window.__edgePoint, 2, 30)", "wait:3500", "shot:crater-flow",
+      "click:.dev-in-lava", "wait:1200", "shot:inside",
+      "eval@inside-camera:window.__tmtFluids.probe([window.__tmtVisuals.camera().eye]).then(samples => ({samples, camera:window.__tmtVisuals.camera()}))",
+      "eval:window.__lavaPoint = window.__tmtVisuals.camera().target; window.__tmtFluids.lookAt(window.__lavaPoint, -0.008, 0.15)", "wait:800", "shot:interface-below",
+      "eval:window.__tmtFluids.lookAt(window.__lavaPoint, 0.008, 0.15)", "wait:800", "shot:interface-above",
+      "eval@telemetry:window.__tmtVisuals.telemetry()"
+    ]
+  }]
+}

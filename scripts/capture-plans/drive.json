@@ -1,0 +1,29 @@
+{
+  "name": "drive",
+  "description": "Seed-7 driving route: forward 3 s, forward-left 2 s, reverse 1.5 s and forward-right 3 s. A requestAnimationFrame sampler records maximum roll/pitch against local vertical, flips, distance, heading change, samples without track contact and nearest opponent distance. Per-leg snapshots and the final sample expose route behavior; tests/vehicle-drive-route.test.ts covers the corresponding headless route.",
+  "out": "artifacts/screens/drive",
+  "budget": "budgets/drive.json",
+  "jobs": [
+    {
+      "name": "drive-seed7",
+      "url": "/play.html?mode=drive&seed=7",
+      "keys": [
+        "shot:ready",
+        "eval@tilt-start:(() => { const deg = 180 / Math.PI; const rot = (q, v) => { const [x, y, z, w] = q; const ix = w * v[0] + y * v[2] - z * v[1], iy = w * v[1] + z * v[0] - x * v[2], iz = w * v[2] + x * v[1] - y * v[0], iw = -x * v[0] - y * v[1] - z * v[2]; return [ix * w + iw * -x + iy * -z - iz * -y, iy * w + iw * -y + iz * -x - ix * -z, iz * w + iw * -z + ix * -y - iy * -x]; }; const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; const stats = { maxRollDeg: 0, maxPitchDeg: 0, flips: 0, samples: 0, distance: 0, flipped: false, turnedRad: 0, airborneSamples: 0, minOpponentGap: Infinity }; let last, lastHeading; window.__tmtTilt = stats; const tick = () => { const s = window.__tmtGame?.snapshot, t = s?.tanks?.[0]; if (t && t.rotation && t.position) { if (last) stats.distance += Math.hypot(t.position[0] - last[0], t.position[1] - last[1], t.position[2] - last[2]); last = [...t.position]; if (lastHeading !== undefined) stats.turnedRad += Math.abs(Math.atan2(Math.sin(t.heading - lastHeading), Math.cos(t.heading - lastHeading))); lastHeading = t.heading; const r = Math.hypot(...t.position); const up = t.position.map(c => c / r); const right = rot(t.rotation, [1, 0, 0]), forward = rot(t.rotation, [0, 0, 1]), local = rot(t.rotation, [0, 1, 0]); stats.maxRollDeg = Math.max(stats.maxRollDeg, Math.abs(Math.asin(Math.max(-1, Math.min(1, dot(right, up))))) * deg); stats.maxPitchDeg = Math.max(stats.maxPitchDeg, Math.abs(Math.asin(Math.max(-1, Math.min(1, dot(forward, up))))) * deg); const flipped = dot(local, up) < 0; if (flipped && !stats.flipped) stats.flips++; stats.flipped = flipped; if (!(t.trackContact?.[0] > 0) && !(t.trackContact?.[1] > 0)) stats.airborneSamples++; const o = s.tanks[1]; if (o) stats.minOpponentGap = Math.min(stats.minOpponentGap, Math.hypot(t.position[0] - o.position[0], t.position[1] - o.position[1], t.position[2] - o.position[2])); stats.samples++; } requestAnimationFrame(tick); }; requestAnimationFrame(tick); return true; })()",
+        "hold:KeyW:3000",
+        "shot:fwd",
+        "eval@after-fwd:(() => { const s = window.__tmtTilt; window.__tmtTurn0 = s.turnedRad; return JSON.parse(JSON.stringify(s)); })()",
+        "hold:KeyA+KeyW:2000",
+        "shot:turn",
+        "eval@after-turn:(() => { const s = window.__tmtTilt; window.__tmtTurn1 = s.turnedRad; return JSON.parse(JSON.stringify(s)); })()",
+        "eval@turn-leg:({ turnedRad: window.__tmtTurn1 - window.__tmtTurn0 })",
+        "hold:KeyS:1500",
+        "shot:back",
+        "eval@after-back:(() => { const s = window.__tmtTilt; return JSON.parse(JSON.stringify(s)); })()",
+        "hold:KeyW+KeyD:3000",
+        "shot:slope",
+        "eval@tilt:window.__tmtTilt"
+      ]
+    }
+  ]
+}

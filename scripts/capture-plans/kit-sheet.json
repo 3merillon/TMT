@@ -1,0 +1,15 @@
+{
+  "name": "kit-sheet",
+  "description": "Kit v2 contact sheet and close-ups (W1-KIT brief). Rubric: every probe (validator overlaps > 1 mm over the displayed poses) reads 0; 0 console/page errors; exhausts clearly outside the track band (rear); the breech inside the turret envelope at +85 deg with recoil (cradle85, quarter); wheels touch the belt and the return rollers sit under the top run (grip, crawler-mixed at full and half alternating travel on terrain); a fully drooped Scout wheel clears its half-drooped neighbour (scout-neighbours); the variants distinct and readable at 150 px (sheet).",
+  "out": "artifacts/screens/kit-sheet",
+  "jobs": [
+    { "name": "kit-sheet", "url": "/dev/kit.html?sheet=1", "wait": "js:window.__tmtKit?.ready===true", "size": "1920x1080", "keys": ["wait:1500", "shot:sheet"], "probe": "window.__tmtKit.overlaps" },
+    { "name": "kit-rear", "url": "/dev/kit.html?assembly=warden,scout,dome,mortar,antenna&view=rear", "wait": "js:window.__tmtKit?.ready===true", "size": "1920x1080", "keys": ["wait:1000", "shot:rear"], "probe": "window.__tmtKit.overlaps" },
+    { "name": "kit-quarter", "url": "/dev/kit.html?assembly=bastion,crawler,wedge,rail,radar&view=quarter&pitch=85&recoil=1", "wait": "js:window.__tmtKit?.ready===true", "size": "1920x1080", "keys": ["wait:1000", "shot:quarter"], "probe": "window.__tmtKit.overlaps" },
+    { "name": "kit-cradle85", "url": "/dev/kit.html?assembly=warden,grip,cradle,cannon,radar&view=side&pitch=85&recoil=1", "wait": "js:window.__tmtKit?.ready===true", "size": "1920x1080", "keys": ["wait:1000", "shot:side"], "probe": "window.__tmtKit.overlaps" },
+    { "name": "kit-grip-compressed", "url": "/dev/kit.html?assembly=warden,grip,dome,cannon,antenna&view=side&susp=0.085", "wait": "js:window.__tmtKit?.ready===true", "size": "1920x1080", "keys": ["wait:1000", "shot:side"], "probe": "window.__tmtKit.overlaps" },
+    { "name": "kit-crawler-mixed", "url": "/dev/kit.html?assembly=warden,crawler,wedge,cannon,antenna&view=side&susp=0.085,-0.12,0.085,-0.12&susp2=-0.12,0.085,-0.12,0.085&terrain=1", "wait": "js:window.__tmtKit?.ready===true", "size": "1920x1080", "keys": ["wait:1000", "shot:side"], "probe": "window.__tmtKit.overlaps" },
+    { "name": "kit-crawler-half", "url": "/dev/kit.html?assembly=warden,crawler,wedge,cannon,antenna&view=side&susp=0.0425,-0.06,0.0425,-0.06&susp2=-0.06,0.0425,-0.06,0.0425&terrain=1", "wait": "js:window.__tmtKit?.ready===true", "size": "1920x1080", "keys": ["wait:1000", "shot:side"], "probe": "window.__tmtKit.overlaps" },
+    { "name": "kit-scout-neighbours", "url": "/dev/kit.html?assembly=warden,scout,dome,mortar,antenna&view=side&susp=-0.12,-0.052,0,0", "wait": "js:window.__tmtKit?.ready===true", "size": "1920x1080", "keys": ["wait:1000", "shot:side"], "probe": "window.__tmtKit.overlaps" }
+  ]
+}

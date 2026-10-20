@@ -1,0 +1,40 @@
+{
+  "generator": "Native image_gen built-in tool",
+  "date": "2026-10-13",
+  "purpose": "Seamless authored workshop material base-color textures; original image files retained without resampling or editing.",
+  "dimensions": [1254, 1254],
+  "commonPrompt": "Photorealistic seamless tileable PBR base-color material scan. Orthographic full-frame texture, flat cross-polarized diffuse lighting, no directional shadows, specular highlights, perspective, vignette, text, object edges, or seams. Consistent average brightness to all four edges.",
+  "textures": [
+    {
+      "path": "public/workshop/architecture-brick.png",
+      "materialId": 15,
+      "tileMetres": 0.4,
+      "prompt": "Old rough red fired clay brick material, continuous clay only without mortar, joints or brick boundaries. Muted rich terracotta and iron oxide red, small dark pores, fine sand grains, shallow irregular kiln wrinkles, tiny pale mineral flecks, light chalk dust and subtle abrasion. Restrained Victorian underground industrial masonry, authentic tactile irregularity at several scales. No large cracks."
+    },
+    {
+      "path": "public/workshop/architecture-concrete.png",
+      "materialId": 16,
+      "tileMetres": 1.5,
+      "prompt": "Cold old worn workshop concrete, continuous slab with muted cool grey, tiny exposed aggregate, worn cement paste, shallow pits and pores, fine hairline irregular abrasion, soft mineral discoloration from foot traffic and faint fully dry diffuse oil smudges. Heavy poured industrial concrete, matte and clean enough to see granular detail. No grout, tiles, slab seams, brick pattern, broad cracks or props."
+    },
+    {
+      "path": "public/workshop/architecture-vault.png",
+      "materialId": 17,
+      "tileMetres": 0.6,
+      "prompt": "Old hand-dressed grey limestone, unpolished continuous mineral surface. Fine pale grains, small dark pores, shallow granular erosion, restrained weathering, faint irregular worn tool dressing and subtle calcite flecks. Cool neutral grey with slight warm dusty undertones and medium brightness. No masonry joints, tile divisions, structural cracks or large motifs. Absolutely matte, not ceramic or metallic."
+    },
+    {
+      "path": "public/workshop/fixture-paint.png",
+      "materialId": 18,
+      "tileMetres": 0.6,
+      "prompt": "Military olive sage green enamel on restored Victorian factory steel machinery, sRGB approximately #64744F. Mostly intact paint, small scattered chips exposing dark warm grey steel, fine thin scratches, rub marks and subdued orange-peel grain. Very restrained dry grime only in tiny scratch recesses. No panel edges, seams, rivets, corners, symbols or rust texture. Maintained heavy-duty machinery with gentle long use."
+    },
+    {
+      "path": "public/workshop/fixture-brass.png",
+      "materialId": 19,
+      "tileMetres": 0.6,
+      "prompt": "Continuous old industrial brass surface, restrained warm muted golden ochre and copper undertones, darker brown mottled oxidation, fine hairline machined abrasion, small crossing scratches and faint worn polishing areas. Mostly maintained brass without bright yellow, heavy green verdigris, rust, bolts, objects, panel edges or seams. Pure base-color values for a metallic PBR shader, with rich fine tactile wear at several scales."
+    }
+  ],
+  "runtime": "SRGB albedo array with linear-light mip filtering; mip-aware central height differences create surface-gradient bump, with per-material roughness and metalness. Masonry world projection; moving fixtures use scaled rest coordinates."
+}

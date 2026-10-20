@@ -1,0 +1,23 @@
+{
+  "name": "help-gamepad",
+  "out": "artifacts/screens/help-gamepad",
+  "jobs": [
+    {
+      "name": "mobile-gamepad",
+      "url": "/?screen=help",
+      "size": "390x844",
+      "touch": true,
+      "wait": "selector:#help",
+      "settle": 1200,
+      "keys": [
+        "eval:window.manualPad={connected:true,mapping:'standard',axes:[0,0,0,0],buttons:Array.from({length:17},()=>({value:0,pressed:false}))};Object.defineProperty(navigator,'getGamepads',{configurable:true,value:()=>[window.manualPad]})",
+        "eval:(async()=>{const wait=ms=>new Promise(r=>setTimeout(r,ms));await wait(150);for(let i=0;i<20&&document.activeElement?.tagName!=='SUMMARY';i++){window.manualPad.buttons[13]={value:1,pressed:true};await wait(100);window.manualPad.buttons[13]={value:0,pressed:false};await wait(100)}})()",
+        "eval:if(document.activeElement?.tagName!=='SUMMARY')throw new Error('D-pad cannot focus a manual section');window.manualSection=document.activeElement.parentElement;window.manualWasOpen=window.manualSection.open;window.manualPad.buttons[0]={value:1,pressed:true}",
+        "wait:150",
+        "eval:window.manualPad.buttons[0]={value:0,pressed:false}",
+        "eval@gamepad:if(window.manualSection.open===window.manualWasOpen)throw new Error('A did not toggle the section');({section:window.manualSection.id,open:window.manualSection.open})",
+        "shot:controller-section"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# Line endings: the index is LF; worktrees on Windows (core.autocrlf=true) must not
+# check out CRLF, because WGSL string patching and the CRLF guard depend on LF.
+* text=auto eol=lf
+*.wgsl text eol=lf
+
+# Binary assets: never normalise or diff as text.
+*.png binary
+*.jpg binary
+*.glb binary
+*.blend binary
+*.wasm binary
+*.br binary
+*.cpuprofile binary
+*.webp binary
+*.wmesh binary
+*.pmb binary
+*.bin binary
+*.exr binary

@@ -1,0 +1,17 @@
+{
+  "out": "artifacts/graphics-overhaul/grass",
+  "jobs": [{
+    "url": "/?mode=dev&seed=7&engineDev", "name": "grass", "wait": "game", "settle": 4500,
+    "keys": [
+      "eval:window.__grassPoint = window.__tmtVisuals.aimHit().point; window.__tmtFluids.lookAt(window.__grassPoint, 3, 5)",
+      "wait:1000", "shot:clumps",
+      "eval:window.__tmtFluids.lookAt(window.__grassPoint, 12, 6)", "wait:500", "shot:wide",
+      "eval:window.__tmtFluids.lookAt(window.__grassPoint, 3, 5)", "wait:300",
+      "eval:window.__tmtVisuals.scene().get('grass').impact(window.__grassPoint, 2)",
+      "wait:250", "shot:shockwave", "wait:1800", "shot:recovery",
+      "eval:window.__tmtFluids.lookAt(window.__grassPoint, 6, 8); window.__tmtVisuals.blast(2.5)",
+      "wait:5000", "click:.dev-clear-fx", "wait:300", "shot:crater",
+      "eval@telemetry:window.__tmtVisuals.telemetry()"
+    ]
+  }]
+}

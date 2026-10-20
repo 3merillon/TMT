@@ -1,0 +1,31 @@
+{
+  "out": "artifacts/graphics-overhaul/interactions",
+  "jobs": [
+    {
+      "url": "/?mode=dev&seed=7&engineDev", "name": "resting-hull", "wait": "game", "settle": 6000, "hideUi": false,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats().ready",
+        "eval:window.__shore = window.__tmtFluids.shorePoints(64, 'water'); window.__p = window.__shore[0]; window.__tmtFluids.lookAt(window.__p, 4, 6)",
+        "eval:window.__tmtFluids.testHull(window.__p, window.__p, 0)",
+        "wait:1000", "shot:displacement",
+        "eval@early:window.__tmtFluids.probe(window.__shore).then(x => JSON.stringify(x))",
+        "wait:7000", "shot:rest",
+        "eval@rest:window.__tmtFluids.probe(window.__shore).then(x => JSON.stringify(x))",
+        "wait:7000", "shot:settled",
+        "eval@settled:window.__tmtFluids.probe(window.__shore).then(x => JSON.stringify(x))",
+        "eval:window.__tmtFluids.testHull(null)",
+        "click:.dev-follow", "click:.dev-blast", "wait:2200", "shot:debris",
+        "hold:KeyW:2000", "shot:push-rubble", "press:Space", "wait:3000", "shot:fired",
+        "eval:window.__tmtFluids.setTier('low')", "wait:1500", "shot:low",
+        "eval:window.__tmtFluids.setTier('high')", "wait:2000", "shot:high"
+      ]
+    },
+    {
+      "url": "/?mode=dev&seed=5&engineDev", "name": "nuke-shape", "wait": "game", "settle": 4000, "hideUi": false,
+      "keys": [
+        "eval:window.__p = window.__tmtVisuals.aimHit().point; window.__tmtFluids.lookAt(window.__p.map(v => v * 1.4), 15, 36); window.__tmtVisuals.burst(window.__p, 4.6, 'nuclear')",
+        "wait:800", "shot:ignition", "wait:2500", "shot:cap", "wait:3500", "shot:mushroom", "wait:4000", "shot:late"
+      ]
+    }
+  ]
+}

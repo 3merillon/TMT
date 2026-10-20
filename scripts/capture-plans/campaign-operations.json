@@ -1,0 +1,222 @@
+{
+  "name": "campaign-operations",
+  "out": "artifacts/screens/campaign-operations",
+  "jobs": [
+    {
+      "name": "p1",
+      "url": "/play.html?mode=campaign&mission=p1&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "p2",
+      "url": "/play.html?mode=campaign&mission=p2&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "p3",
+      "url": "/play.html?mode=campaign&mission=p3&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "1-1",
+      "url": "/play.html?mode=campaign&mission=1-1&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "1-2",
+      "url": "/play.html?mode=campaign&mission=1-2&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "1-3",
+      "url": "/play.html?mode=campaign&mission=1-3&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "1-4",
+      "url": "/play.html?mode=campaign&mission=1-4&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "1-5",
+      "url": "/play.html?mode=campaign&mission=1-5&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "t-a",
+      "url": "/play.html?mode=campaign&mission=t-a&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "t-b",
+      "url": "/play.html?mode=campaign&mission=t-b&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "f-a",
+      "url": "/play.html?mode=campaign&mission=f-a&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "f-b",
+      "url": "/play.html?mode=campaign&mission=f-b&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "c-a",
+      "url": "/play.html?mode=campaign&mission=c-a&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "c-b",
+      "url": "/play.html?mode=campaign&mission=c-b&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "ii-7",
+      "url": "/play.html?mode=campaign&mission=ii-7&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "3-1",
+      "url": "/play.html?mode=campaign&mission=3-1&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "3-2",
+      "url": "/play.html?mode=campaign&mission=3-2&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    },
+    {
+      "name": "3-3",
+      "url": "/play.html?mode=campaign&mission=3-3&autopilot=1",
+      "wait": "game",
+      "timeout": 120000,
+      "keys": [
+        "shot:ready",
+        "wait:20000",
+        "shot:play",
+        "eval:window.__tmtGame.mission"
+      ]
+    }
+  ]
+}

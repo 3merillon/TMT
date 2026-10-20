@@ -1,0 +1,46 @@
+{
+  "name": "help",
+  "out": "artifacts/screens/help",
+  "jobs": [
+    {
+      "name": "desktop-remapped",
+      "url": "/?screen=help",
+      "size": "1440x900",
+      "wait": "selector:#help",
+      "settle": 200,
+      "keys": [
+        "eval:(async()=>{const p=await import('/src/game/meta/profile.ts'),b=await import('/src/game/ui/input/bindings.ts');const profile=p.defaultProfile();profile.settings.controls.bindings=b.rebindKey(profile.settings.controls.bindings,'drive','fire',0,'ShiftLeft');profile.settings.controls.bindings=b.rebindKey(profile.settings.controls.bindings,'aim','fire',0,'NumpadEnter');if(!p.saveProgress(profile,localStorage))throw new Error('Test profile could not be saved');})()",
+        "reload",
+        "eval:if(!document.querySelector('#help-keyboard').open)document.querySelector('#help-keyboard>summary').click()",
+        "eval@driving:if(document.querySelector('[data-action=fire] kbd')?.textContent!=='Left Shift')throw new Error('Saved driving remap missing or split')",
+        "click:#help-binding-mode [data-value=aim]",
+        "eval@aim:if(document.querySelector('[data-action=fire] kbd')?.textContent!=='Num Enter')throw new Error('Saved aiming remap missing or split')",
+        "shot:remapped-controls",
+        "click:#help-binding-mode [data-value=watch]",
+        "eval@watch:if(document.querySelector('[data-action=fire]'))throw new Error('Spectating lists unavailable fire action')",
+        "eval@layout:if([...document.querySelectorAll('#help,.card-body')].some(e=>e.scrollWidth>e.clientWidth+1))throw new Error('Help horizontal overflow')",
+        "click:#help-back",
+        "waitfor:!!document.querySelector('#title-help')"
+      ]
+    },
+    {
+      "name": "mobile",
+      "url": "/?screen=help",
+      "size": "390x844",
+      "touch": true,
+      "wait": "selector:#help",
+      "settle": 1200,
+      "keys": [
+        "waitfor:document.querySelector('#help') && getComputedStyle(document.querySelector('#help')).opacity==='1' && document.querySelector('#help').getBoundingClientRect().bottom<=innerHeight+1",
+        "eval@initialPanel:(()=>{const p=document.querySelector('#help'),r=p.getBoundingClientRect(),s=getComputedStyle(p);if(r.top<0||r.bottom>innerHeight+1||r.height<100||s.opacity!=='1')throw new Error('Initial Help panel is not visible: '+JSON.stringify({rect:r.toJSON(),opacity:s.opacity,transform:s.transform,display:s.display,visibility:s.visibility,viewport:[innerWidth,innerHeight],scroll:[scrollX,scrollY],animations:p.getAnimations().map(a=>({state:a.playState,time:a.currentTime,timing:a.effect.getComputedTiming()}))}));return r.toJSON()})()",
+        "shot:overview",
+        "click:#help-keyboard>summary",
+        "click:#help-binding-mode [data-value=aim]",
+        "shot:aim-controls",
+        "eval@layout:if([...document.querySelectorAll('#help,.card-body')].some(e=>e.scrollWidth>e.clientWidth+1))throw new Error('Help horizontal overflow')",
+        "click:#help-back",
+        "waitfor:!!document.querySelector('#title-help')"
+      ]
+    }
+  ]
+}

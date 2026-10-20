@@ -1,0 +1,205 @@
+{
+  "date": "2026-10-13T20:02:58.648Z",
+  "baseCommit": "8e965a3",
+  "browser": "155.0.8059.40",
+  "hardware": {
+    "vendor": "nvidia",
+    "architecture": "ampere",
+    "fallback": false
+  },
+  "viewport": [
+    1440,
+    900
+  ],
+  "phoneHardware": false,
+  "videoRecording": true,
+  "passed": true,
+  "checks": [
+    "visible-tank-click-release",
+    "tank-precision-sweep",
+    "space-visible-tank",
+    "front-target",
+    "back-target",
+    "range-base",
+    "held-wheel-range",
+    "sky-keeps-aim",
+    "released-wheel-zoom",
+    "right-drag-camera",
+    "moving-target-start",
+    "aim-while-driving",
+    "unreachable-feedback",
+    "space-fire-target",
+    "space-fire",
+    "actual-projectile-impact",
+    "post-crater-stability",
+    "space-during-turn",
+    "smooth-frame-response"
+  ],
+  "renderedFrames": 2288,
+  "browserErrors": [],
+  "gpuValidationErrors": 0,
+  "gpuCompileErrors": 0,
+  "impactErrorMetres": {
+    "selectedTank": 0.0023003220075498523,
+    "terrain": 1.4207578909712338e-05
+  },
+  "fineAim": {
+    "samples": 7,
+    "goalChanges": [
+      0.005329219306953825,
+      0.00531417456933505,
+      0.005293973584691223,
+      0.005289733518033743,
+      0.005298886803851697,
+      0.005318306286253571
+    ],
+    "screenStepPixels": 2,
+    "response": {
+      "label": "smooth-frame-response",
+      "frames": 89,
+      "movingFrames": 41,
+      "maxYawStep": 0.10079987609402719,
+      "pointerSamples": 151,
+      "pointerRmsPixels": 0.6303646316150057
+    }
+  },
+  "crater": {
+    "before": {
+      "point": [
+        -7.836593828528089,
+        16.23507069111986,
+        1.9448475059938213
+      ],
+      "terrain": {
+        "version": 2,
+        "direction": [
+          -0.4321950849589609,
+          0.895378516508007,
+          0.10726006112825424
+        ]
+      }
+    },
+    "after": {
+      "point": [
+        -7.218833036244066,
+        14.955255716350763,
+        1.791534655734742
+      ],
+      "terrain": {
+        "version": 3,
+        "direction": [
+          -0.4321950849589609,
+          0.895378516508007,
+          0.10726006112825424
+        ]
+      }
+    },
+    "settledFrames": 72,
+    "targetMotionMetres": 0,
+    "goalMotion": 0,
+    "distinctAnchorsByRevision": [
+      {
+        "version": 2,
+        "count": 1
+      },
+      {
+        "version": 3,
+        "count": 1
+      }
+    ],
+    "previewContinuousThroughFlightAndCommit": true
+  },
+  "fireDuringTurn": {
+    "barrelPoseUnchanged": true,
+    "remainingRadians": 1.9714948396407328
+  },
+  "solverCost": {
+    "observedCalls": 230,
+    "totalCalls": 230,
+    "p50Ms": 0.7000000178813934,
+    "p95Ms": 3.800000011920929,
+    "maxMs": 9.599999994039536,
+    "maxTraces": 24,
+    "maxSteps": 2294,
+    "note": "One observation per distinct solver call; cached frame repeats excluded. Video capture is active."
+  },
+  "meshPickCost": {
+    "samples": 151,
+    "p50Ms": 0,
+    "p95Ms": 0.10000002384185791,
+    "maxMs": 0.20000001788139343,
+    "maxParts": 164,
+    "maxTriangles": 1158,
+    "note": "Per-rendered-frame exact mesh picks during the held-pointer tank sweep; video capture is active."
+  },
+  "eightTankMeshPickBenchmark": {
+    "tanks": 8,
+    "lod": 0,
+    "samples": 420,
+    "milliseconds": {
+      "median": 0.2319999999999709,
+      "p95": 0.39680000000004156,
+      "max": 0.755800000000022
+    },
+    "maxParts": 1392,
+    "maxBounds": 4,
+    "maxTriangles": 6216
+  },
+  "verification": {
+    "affectedSuites": {
+      "files": 57,
+      "passedTests": 424,
+      "declaredExpectedFailures": 1
+    },
+    "finalFocusedTests": {
+      "files": 10,
+      "passedTests": 85
+    },
+    "typescript": "pass",
+    "productionBuild": "pass",
+    "sourceGuards": {
+      "status": "pass",
+      "files": 3340
+    }
+  },
+  "bundle": {
+    "entries": [
+      {
+        "entry": "structural",
+        "initialKb": 3804.2,
+        "initialGzipKb": 1355.6,
+        "allKb": 3804.2
+      },
+      {
+        "entry": "game",
+        "initialKb": 4158.1,
+        "initialGzipKb": 1529.9,
+        "allKb": 4488.8
+      }
+    ],
+    "findings": [
+      {
+        "level": "error",
+        "check": "entries",
+        "message": "game initial JS 4158.1 KB > 1070 KB (+15%)"
+      },
+      {
+        "level": "error",
+        "check": "entries",
+        "message": "game initial JS 1529.9 KB gzip > 315 KB (+15%)"
+      }
+    ],
+    "note": "Same two initial game bundle budget failures as baseline; total closure stays within its unchanged limit."
+  },
+  "artifacts": {
+    "root": "artifacts/ground-aim-final",
+    "video": "page@0c2c0f1c9a9f6b7884b35dd58ba64f07.webm",
+    "report": "report.json"
+  },
+  "limits": [
+    "Desktop NVIDIA hardware only; no phone hardware tested.",
+    "Recorded CPU samples include video capture and are not an isolated benchmark.",
+    "Live collision retains simplified tank spheres. Hovering a visual protrusion can produce a precise aim without a physical hit.",
+    "Solver intent uses committed terrain. Actual preview and shots still collide with moving debris."
+  ]
+}

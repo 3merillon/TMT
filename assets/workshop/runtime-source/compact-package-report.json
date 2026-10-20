@@ -1,0 +1,207 @@
+{
+  "createdAt": "2026-10-15T20:52:41.793Z",
+  "propErrorMm": 8,
+  "roomErrorMm": 4,
+  "sizes": {
+    "propColor": 1024,
+    "propNormal": 512,
+    "propOrm": 256,
+    "surface": 512,
+    "gauge": 512,
+    "probe": 128
+  },
+  "triangles": 398969,
+  "files": 44,
+  "bytes": 7671762,
+  "details": [
+    {
+      "file": "room-5.eaea335429cf.wmesh",
+      "triangles": [
+        176,
+        162
+      ],
+      "vertices": [
+        360,
+        322
+      ],
+      "simplificationErrorMm": 3.88,
+      "quantizationErrorMm": 0.189,
+      "bytes": 1072
+    },
+    {
+      "file": "room-9.a9bc1dc66745.wmesh",
+      "triangles": [
+        608,
+        608
+      ],
+      "vertices": [
+        1716,
+        1492
+      ],
+      "simplificationErrorMm": 0,
+      "quantizationErrorMm": 0.102,
+      "bytes": 7744
+    },
+    {
+      "file": "room-10.390817bb7ee0.wmesh",
+      "triangles": [
+        76842,
+        69279
+      ],
+      "vertices": [
+        141530,
+        79141
+      ],
+      "simplificationErrorMm": 3.98,
+      "quantizationErrorMm": 0.271,
+      "bytes": 370482
+    },
+    {
+      "file": "room-12.48556d84d668.wmesh",
+      "triangles": [
+        3872,
+        3428
+      ],
+      "vertices": [
+        7312,
+        2413
+      ],
+      "simplificationErrorMm": 3.97,
+      "quantizationErrorMm": 0.163,
+      "bytes": 25093
+    },
+    {
+      "file": "room-13.57a17154bb5f.wmesh",
+      "triangles": [
+        222767,
+        103494
+      ],
+      "vertices": [
+        668301,
+        174085
+      ],
+      "simplificationErrorMm": 7.99,
+      "quantizationErrorMm": 0.141,
+      "bytes": 2004965
+    },
+    {
+      "file": "room-15.8e5c455d9d01.wmesh",
+      "triangles": [
+        159430,
+        159430
+      ],
+      "vertices": [
+        425272,
+        424635
+      ],
+      "simplificationErrorMm": 0,
+      "quantizationErrorMm": 0.182,
+      "bytes": 1191773
+    },
+    {
+      "file": "room-16.7c76c99b5523.wmesh",
+      "triangles": [
+        108,
+        108
+      ],
+      "vertices": [
+        216,
+        200
+      ],
+      "simplificationErrorMm": 0,
+      "quantizationErrorMm": 0.108,
+      "bytes": 544
+    },
+    {
+      "file": "room-17.38a7fa3a1e5a.wmesh",
+      "triangles": [
+        21584,
+        21584
+      ],
+      "vertices": [
+        53462,
+        53428
+      ],
+      "simplificationErrorMm": 0,
+      "quantizationErrorMm": 0.181,
+      "bytes": 163680
+    },
+    {
+      "file": "room-18.c4334e6d6528.wmesh",
+      "triangles": [
+        6272,
+        3248
+      ],
+      "vertices": [
+        12812,
+        4622
+      ],
+      "simplificationErrorMm": 3.92,
+      "quantizationErrorMm": 0.119,
+      "bytes": 21995
+    },
+    {
+      "file": "room-19.d36f17325d17.wmesh",
+      "triangles": [
+        29676,
+        29086
+      ],
+      "vertices": [
+        53452,
+        33126
+      ],
+      "simplificationErrorMm": 3.99,
+      "quantizationErrorMm": 0.183,
+      "bytes": 86398
+    },
+    {
+      "file": "fan-13.569ef081f667.wmesh",
+      "triangles": [
+        24575,
+        8542
+      ],
+      "vertices": [
+        73725,
+        10466
+      ],
+      "simplificationErrorMm": 7.95,
+      "quantizationErrorMm": 0.029,
+      "bytes": 145070
+    },
+    {
+      "source": "prop-0-normal.png",
+      "quality": 92,
+      "p95AngularErrorDegrees": 2.258
+    },
+    {
+      "source": "prop-1-normal.png",
+      "quality": 92,
+      "p95AngularErrorDegrees": 2.215
+    },
+    {
+      "source": "prop-2-normal.png",
+      "quality": 92,
+      "p95AngularErrorDegrees": 2.078
+    },
+    {
+      "source": "prop-3-normal.png",
+      "quality": 92,
+      "p95AngularErrorDegrees": 2.184
+    },
+    {
+      "source": "prop-4-normal.png",
+      "quality": 92,
+      "p95AngularErrorDegrees": 2.015
+    },
+    {
+      "source": "prop-5-normal.png",
+      "quality": 92,
+      "p95AngularErrorDegrees": 2.177
+    },
+    {
+      "source": "prop-6-normal.png",
+      "quality": 92,
+      "p95AngularErrorDegrees": 2.03
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "out": "artifacts/screens/fluids",
+  "jobs": [
+    {
+      "url": "play.html?mode=dev&seed=4&dev&off=veil,mist,liquidVeil",
+      "name": "vents",
+      "size": "1600x900",
+      "settle": 5000,
+      "hideUi": true,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats() && window.__tmtFluids.stats().ready",
+        "wait:2500",
+        "eval@vents:JSON.stringify(window.__tmtFluids.vents())",
+        "eval:window.__V = window.__tmtFluids.vents()[0]",
+        "eval:window.__tmtFluids.lookAt(window.__V.centre, 3.5, 5.5)",
+        "waitfor:window.__tmtFluids.vents()[0].erupting",
+        "wait:1500",
+        "shot:vent-erupt-1-5",
+        "wait:4000",
+        "shot:vent-erupt-5-5",
+        "wait:6000",
+        "shot:vent-erupt-11-5",
+        "eval@gpu:JSON.stringify((window.__tmtGame.performance.gpu.passes || []).filter(p => p.name.startsWith('fluids')).map(p => [p.name, +p.ms.toFixed(3)]))",
+        "wait:10000",
+        "shot:vent-after-20",
+        "eval@stats:JSON.stringify(window.__tmtFluids.stats())"
+      ]
+    },
+    {
+      "url": "play.html?mode=dev&seed=4&dev&off=veil,mist,liquidVeil&view=liquid-temperature",
+      "name": "vents-heat",
+      "size": "1600x900",
+      "settle": 5000,
+      "hideUi": true,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats() && window.__tmtFluids.stats().ready",
+        "wait:2500",
+        "eval:window.__V = window.__tmtFluids.vents()[0]",
+        "eval:window.__tmtFluids.lookAt(window.__V.centre, 3.5, 5.5)",
+        "waitfor:window.__tmtFluids.vents()[0].erupting",
+        "wait:10000",
+        "shot:heat-10",
+        "wait:12000",
+        "shot:heat-22"
+      ]
+    },
+    {
+      "url": "play.html?mode=dev&seed=4&dev&off=veil,mist,liquidVeil",
+      "name": "lava-blast",
+      "size": "1600x900",
+      "settle": 5000,
+      "hideUi": true,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats() && window.__tmtFluids.stats().ready",
+        "wait:2500",
+        "eval:window.__L = (() => { const s = window.__tmtGame.snapshot; const t = s.tanks[s.active].position; let best = 1e9, bp = null; for (const p of window.__tmtFluids.shorePoints(4000, 'lava')) { const d = Math.hypot(p[0] - t[0], p[1] - t[1], p[2] - t[2]); if (d < best) { best = d; bp = p; } } return bp; })()",
+        "eval:window.__tmtFluids.lookAt(window.__L, 4, 6)",
+        "wait:2000",
+        "eval:window.__tmtFluids.pulse(window.__L.map(v => v * 0.99), 2.25)",
+        "wait:300",
+        "shot:lava-blast-0-3",
+        "wait:900",
+        "shot:lava-blast-1-2",
+        "wait:2500",
+        "shot:lava-blast-3-7"
+      ]
+    }
+  ]
+}

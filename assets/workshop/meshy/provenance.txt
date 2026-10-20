@@ -1,0 +1,55 @@
+WORKSHOP AUTHORED PROP SOURCES
+Generated October 13, 2026 for TMT on codex/workshop-3d.
+
+Reference images: native image_gen tool, inspected before 3D submission.
+boiler-reference.png: One realistically engineered Victorian pressure-boiler
+generator, isolated front three-quarter view, compact upright riveted sage-enamel
+vessel, cast-iron feet, aged brass bands, oxidized copper pipes, pressure gauge,
+red handwheel, bolted firebox hatch and pressure-regulator manifold. Diffuse
+neutral studio light on pale grey, no room/person/tank/steam/glow/text.
+lathe-reference.png: One Victorian precision machinist's bench, isolated front
+three-quarter view. Sage cabinet drawers, oak top, iron lathe bed, aligned
+headstock/carriage/tailstock, brass workpiece, leadscrew and guarded belt wheel,
+organized tool back rail and pressure gauges. Neutral studio light, no extra
+room/platform/person/tank/steam/glow/text.
+trolley-reference.png: One squat rolling industrial tool cabinet, isolated front
+three-quarter product view. Clear flat brushed-steel deck, chamfered sage-enamel
+panels, two shallow tool drawers, recessed brass handles, riveted corner guards,
+side ventilation louvers and four forged-steel swivel casters. No raised lid,
+frame, tools or payload; working covers and service supports remain runtime geometry.
+ordnance-reference.png: One fictional decommissioned closed olive display casing
+on a sage steel rolling trolley. Two padded saddle supports, broad leather straps,
+brass hardware, swivel casters and a push handle. Small faded yellow radiation
+trefoil on the sealed exterior; no internals or working weapon mechanisms.
+fan-reference.png: One isolated axial ventilation rotor with seven identical
+sculpted cupped sage-enamel blades, formed metal edges, brass hub, bronze root
+clamps and steel fasteners. No stationary frame/guard/motor; runtime rotates the
+full original mesh inside the separately authored ventilation housing.
+compressor-reference.png: One twin-cylinder workshop air compressor with a
+bronze flywheel rim, finned black iron cylinders, sage crankcase and receiver,
+bolted heads, supported piston rods and copper pipes on a cast-iron skid.
+crate-reference.png: One closed engineering-parts crate with oak plank panels,
+sage riveted steel frame, reinforced corners, brass latches and folding handles.
+Both were generated with native imagegen, inspected, then sent to Meshy7.1.
+../texture-source/gauge-face.png: Native imagegen replacement circular ivory pressure
+dial print with a blank center and 0–250 scale. Displayed on a fitted separate
+disc for the real geometric needle; original boiler PBR maps are unchanged.
+
+3D: Meshy 7.1 image-to-3D, explicitly ai_model=meshy-7.1,
+geometry_resolution=4k, texture_resolution=4k, PBR enabled,
+target_polycount=24000, triangle remesh, GLB output.
+Official Meshy MCP 0.5.1 was verified via the existing planets project's bridge.
+Its model schema lacks literal meshy-7.1 and geometry_resolution=4k; the official
+REST image-to-3D API was used for these exact requested settings. Credentials
+are loaded locally by the existing planets environment loader and never saved.
+
+Authorization: User permitted up to 450 Meshy credits for workshop assets.
+Seven tasks submitted at 35 credits each. Balance 450 -> 205. Total 245 credits.
+Task IDs, status and settings: receipts.json. Never resubmit existing task IDs.
+Recovery/status/download: node scripts/workshop/meshy-assets.mjs status
+                         node scripts/workshop/meshy-assets.mjs download
+
+Official documentation checked October 13, 2026:
+https://docs.meshy.ai/en/api/changelog (September 18 release of 7.1 and 4K)
+https://docs.meshy.ai/en/api/image-to-3d
+https://docs.meshy.ai/en/api/pricing

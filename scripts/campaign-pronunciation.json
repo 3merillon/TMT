@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "lexicon": {
+    "TIDEWELL": { "phonemes": "tˈIdwˌɛl", "reading": "TIDE-well" },
+    "SERAPHINE": { "phonemes": "sɛɹəfˈin", "reading": "seh-ruh-FEEN" },
+    "AETHER": { "phonemes": "ˈiθəɹ", "reading": "EE-ther" },
+    "BRANN": { "phonemes": "bɹˈæn", "reading": "bran" },
+    "CORVIN": { "phonemes": "kˈɔɹvɪn", "reading": "CORE-vin" },
+    "MAGS": { "phonemes": "mˈæɡz", "reading": "mags" },
+    "KESTREL": { "phonemes": "kˈɛstɹəl", "reading": "KES-trul" },
+    "FROSTMERE": { "phonemes": "fɹˈɔstmˌɪɹ", "reading": "FROST-meer" },
+    "RUSTCROWN": { "phonemes": "ɹˈʌstkɹˌWn", "reading": "RUST-crown, rhymes with down" },
+    "ORRERY": { "phonemes": "ˈɔɹəɹi", "reading": "OR-uh-ree" },
+    "MAINSPRING": { "phonemes": "mˈAnspɹˌɪŋ", "reading": "MAIN-spring" },
+    "MILLBROOK": { "phonemes": "mˈɪlbɹˌʊk", "reading": "MILL-brook" },
+    "WHITEOUT": { "phonemes": "wˈItˌWt", "reading": "WHITE-out" },
+    "GLASSWORKS": { "phonemes": "ɡlˈæswˌɜɹks", "reading": "GLASS-works" },
+    "LOBBER": { "phonemes": "lˈɑbəɹ", "reading": "LOB-er" },
+    "LEVIATHAN": { "phonemes": "lɪvˈIəθən", "reading": "lih-VYE-uh-thun" }
+  },
+  "context": {
+    "WIND": { "phonemes": "wˈɪnd", "accept": "\\bwind carries shells\\b", "sense": "moving air, not winding a clock" },
+    "LEAD": { "phonemes": "lˈid", "accept": "\\bLead it:", "sense": "aim ahead of a target, not the metal" },
+    "CLOSE": { "phonemes": "klˈOs", "accept": "\\bpop over the horizon close\\b", "sense": "nearby, not shut" },
+    "USE": { "phonemes": "jˈuz", "accept": "\\bUse the ground\\b|\\buse a ridge or trench\\b", "sense": "verb, with a voiced z" },
+    "CONTEST": { "phonemes": "kəntˈɛst", "accept": "\\bvehicles contest the countdown\\b", "sense": "verb con-TEST, not noun CON-test" },
+    "SEPARATE": { "phonemes": "sˈɛpəɹət", "accept": "\\bare separate targets\\b", "sense": "adjective SEP-er-ut, not verb sep-er-ATE" },
+    "CONCRETE": { "phonemes": "kˈɑnkɹit", "accept": "\\bConcrete protects the tower\\b", "sense": "building material CON-creet" },
+    "BASES": { "phonemes": "bˈAsᵻz", "accept": "\\bprojector bases\\b", "sense": "plural base, not plural basis" },
+    "REWIND": { "phonemes": "ɹˌiwˈInd", "accept": "\\bKey can rewind the Mainspring\\b", "sense": "verb ree-WIND, turn back" },
+    "REMAKE": { "phonemes": "ɹˌimˈAk", "accept": "\\bbuilt it to remake the worlds\\b", "sense": "verb ree-MAKE, make again" }
+  }
+}

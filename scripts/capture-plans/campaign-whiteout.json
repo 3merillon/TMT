@@ -1,0 +1,37 @@
+{
+  "name": "campaign-whiteout",
+  "out": "artifacts/screens/campaign-whiteout",
+  "jobs": [
+    {
+      "name": "whiteout",
+      "url": "/play.html?mode=campaign&mission=f-a&autopilot=1",
+      "wait": "game",
+      "settle": 0,
+      "timeout": 240000,
+      "keys": [
+        "waitfor:window.__tmtGame.snapshot.tanks[0].headlights === false",
+        "shot:infiltration",
+        "wait:12000",
+        "shot:approach",
+        "waitfor:window.__tmtGame.mission?.outcome",
+        "shot:result",
+        "eval@finished:window.__tmtGame.mission",
+        "eval:if(window.__tmtGame.mission.outcome !== 'won') throw new Error('Whiteout failed')"
+      ]
+    },
+    {
+      "name": "projector",
+      "url": "/play.html?mode=campaign&mission=f-a&dev&fog=off",
+      "wait": "game",
+      "timeout": 120000,
+      "hideUi": true,
+      "keys": [
+        "eval:window.__tmtVisuals.setFog(false);window.__tmtFluids.lookAt(window.__tmtGame.snapshot.tanks.find(t=>t.visualKind==='watchtower').position,3,5,1.2)",
+        "wait:2000",
+        "shot:searchlight-tower",
+        "eval:Array.from(document.querySelectorAll('.ch-abilities button')).find(b=>b.textContent==='Lights on').click()",
+        "eval:if(window.__tmtGame.snapshot.tanks[0].headlights !== false) throw new Error('Headlight switch failed')"
+      ]
+    }
+  ]
+}

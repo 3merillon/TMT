@@ -1,0 +1,30 @@
+{
+  "name": "workshop-surfaces",
+  "out": "artifacts/workshop-surfaces",
+  "jobs": [{
+    "name": "surfaces", "url": "/play.html", "size": "1920x1080", "wait": "selector:#title-workshop",
+    "timeout": 120000, "settle": 100, "probe": "window.__tmtWorkshop?.snapshot()",
+    "keys": [
+      "click:#title-workshop",
+      "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')",
+      "wait:1800",
+      "eval@shaderCheck:window.__tmtWorkshop.shaderCheck()",
+      "shot:hero",
+      "eval:(() => { document.querySelector('.ws-overlay').style.visibility='hidden';document.querySelector('.ws-lift-controls').style.visibility='hidden'; const e=window.__tmtWorkshop.engine; window.__originalWorkshopFrame=e.frame.bind(e);e.frame=input=>window.__originalWorkshopFrame({...input,camera:{position:[-1.4,1.65,3.1],target:[-3.7,.7,.65],up:[0,1,0],fovY:43*Math.PI/180},focus:{world:[-3.7,.7,.65],distance:3.5,tilt:0}}); })()",
+      "wait:900", "shot:cabinet-paint-comparison",
+      "eval:window.__tmtWorkshop.engine.frame=input=>window.__originalWorkshopFrame({...input,camera:{position:[-.35,1.8,-.7],target:[-2.65,1.3,-1],up:[0,1,0],fovY:47*Math.PI/180},focus:{world:[-2.65,1.3,-1],distance:2.4,tilt:0}})",
+      "wait:900", "shot:robot-paint-brass",
+      "eval:window.__tmtWorkshop.engine.frame=input=>window.__originalWorkshopFrame({...input,camera:{position:[2.6,2.15,1.2],target:[6.8,1.65,.5],up:[0,1,0],fovY:47*Math.PI/180},focus:{world:[6.8,1.65,.5],distance:4.3,tilt:0}})",
+      "wait:900", "shot:brick-and-lathe",
+      "eval:window.__tmtWorkshop.engine.frame=input=>window.__originalWorkshopFrame({...input,camera:{position:[1,4.15,1],target:[0,7.3,-1.5],up:[0,1,0],fovY:52*Math.PI/180},focus:{world:[0,7.3,-1.5],distance:4.2,tilt:0}})",
+      "wait:900", "shot:matte-vault",
+      "eval:window.__tmtWorkshop.engine.frame=input=>window.__originalWorkshopFrame({...input,camera:{position:[-.8,1.7,4.8],target:[-1.5,.03,3.2],up:[0,1,0],fovY:52*Math.PI/180},focus:{world:[-1.5,.03,3.2],distance:2.4,tilt:0}})",
+      "wait:900", "shot:worn-concrete",
+      "eval:window.__tmtWorkshop.engine.frame=input=>window.__originalWorkshopFrame({...input,camera:{position:[-2.9,.78,3.5],target:[0,.58,0],up:[0,1,0],fovY:44*Math.PI/180},focus:{world:[0,.58,0],distance:4.5,tilt:0}})",
+      "wait:900", "shot:lift-materials",
+      "eval:(() => {window.__tmtWorkshop.engine.frame=window.__originalWorkshopFrame;document.querySelector('.ws-overlay').style.visibility='visible';document.querySelector('.ws-lift-controls').style.visibility='visible';})()",
+      "click:#workshop-back", "wait:300",
+      "eval@disposed:(()=>{const p=window.__tmtWorkshop,b=p.engine.telemetry().vram.total;if(p.ready||b!==0)throw new Error('Workshop resources retained:'+b);return{remainingGpuBytes:b};})()"
+    ]
+  }]
+}

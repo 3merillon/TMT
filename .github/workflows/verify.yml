@@ -1,0 +1,84 @@
+name: Verify
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run verify:guard
+      - run: npm run verify:closure
+      - run: npm run verify:repo
+      - run: npm run verify:bundle
+      - run: npm run verify:cloudflare
+      - run: npm run build
+  tests:
+    name: tests (${{ matrix.shard }}/4)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # The WGSL suite needs the naga executable; building it takes minutes, so each shard reuses one cached binary.
+      - uses: actions/cache@v4
+        id: naga
+        with:
+          path: ~/.cargo/bin/naga
+          key: naga-cli-30.0.0-${{ runner.os }}
+      - if: steps.naga.outputs.cache-hit != 'true'
+        run: cargo install naga-cli --version 30.0.0 --locked
+      # Shard the complete discovered suite. One worker keeps timing measurements
+      # isolated; benchmark targets are reported separately from correctness.
+      - run: npm test -- --shard=${{ matrix.shard }}/4 --maxWorkers=1
+  # Preserve one overall JavaScript status for branch rules and callers.
+  javascript:
+    needs: [checks, tests]
+    if: ${{ always() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Require checks and every test shard
+        env:
+          CHECKS_RESULT: ${{ needs.checks.result }}
+          TESTS_RESULT: ${{ needs.tests.result }}
+        run: test "$CHECKS_RESULT" = success && test "$TESTS_RESULT" = success
+  rust:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      CARGO_TARGET_DIR: ${{ github.workspace }}/artifacts/cargo-target
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install 1.90.0 --profile minimal
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            artifacts/cargo-target
+          key: cargo-1.90.0-${{ runner.os }}-${{ hashFiles('rust/*/Cargo.lock') }}
+          restore-keys: cargo-1.90.0-${{ runner.os }}-
+      - run: cargo +1.90.0 test --manifest-path rust/terrain-core/Cargo.toml --locked
+      - run: cargo +1.90.0 test --manifest-path rust/realtime-core/Cargo.toml --locked

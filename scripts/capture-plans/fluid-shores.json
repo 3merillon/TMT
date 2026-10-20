@@ -1,0 +1,58 @@
+{
+  "out": "artifacts/screens/fluids",
+  "jobs": [
+    {
+      "url": "play.html?mode=dev&seed=7&dev&off=veil,mist,liquidVeil",
+      "name": "shore-temperate",
+      "size": "1600x900",
+      "settle": 6000,
+      "hideUi": true,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats() && window.__tmtFluids.stats().ready",
+        "wait:1500",
+        "eval@pts:JSON.stringify(window.__tmtFluids.shorePoints(6, 'water'))",
+        "eval:window.__tmtFluids.lookAt(window.__tmtFluids.shorePoints(6, 'water')[1], 2.5, 4.5)",
+        "wait:2500",
+        "shot:a",
+        "eval:window.__tmtFluids.lookAt(window.__tmtFluids.shorePoints(6, 'water')[3], 4, 6)",
+        "wait:2500",
+        "shot:b",
+        "eval:window.__tmtFluids.lookAt(window.__tmtFluids.shorePoints(6, 'water')[5], 1.5, 3)",
+        "wait:2500",
+        "shot:c"
+      ]
+    },
+    {
+      "url": "play.html?mode=dev&seed=7&dev",
+      "name": "shore-temperate-fog",
+      "size": "1600x900",
+      "settle": 6000,
+      "hideUi": true,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats() && window.__tmtFluids.stats().ready",
+        "wait:1500",
+        "eval:window.__tmtFluids.lookAt(window.__tmtFluids.shorePoints(6, 'water')[1], 2.5, 4.5)",
+        "wait:2500",
+        "shot:a"
+      ]
+    },
+    {
+      "url": "play.html?mode=dev&seed=4&dev&off=veil,mist,liquidVeil",
+      "name": "shore-volcanic",
+      "size": "1600x900",
+      "settle": 6000,
+      "hideUi": true,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats() && window.__tmtFluids.stats().ready",
+        "wait:1500",
+        "eval@basins:JSON.stringify(window.__tmtFluids.basins().map(b => [b.kind + ':' + b.material, +b.level.toFixed(3), b.cells]))",
+        "eval:window.__tmtFluids.lookAt(window.__tmtFluids.shorePoints(6, 'lava')[1], 3, 5)",
+        "wait:2500",
+        "shot:lava",
+        "eval:window.__tmtFluids.lookAt(window.__tmtFluids.shorePoints(6, 'water')[0], 3, 5)",
+        "wait:2500",
+        "shot:spring"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "out": "artifacts/graphics-overhaul/lava-contact",
+  "jobs": [{
+    "url": "/?mode=dev&seed=8&engineDev", "name": "contact", "wait": "game", "settle": 4500,
+    "keys": [
+      "waitfor:window.__tmtFluids && window.__tmtFluids.stats().ready",
+      "eval:window.__fluidFacet = window.__tmtVisuals.scene().get('fluids')",
+      "eval:import('/scripts/capture-fixtures/lava-regression.ts').then(async m => { window.__edgePoint = await m.lavaEdge(window.__fluidFacet); window.__tmtFluids.lookAt(window.__edgePoint, 2, 4, 0.5); })",
+      "wait:500", "shot:wall-before",
+      "eval:(() => { const p = window.__edgePoint, r = Math.hypot(...p), up = p.map(v => v/r), side = [up[2],0,-up[0]], l = Math.hypot(...side); const from = p.map((v,k) => v - up[k]*0.12 - side[k]/l*0.6), to = from.map((v,k) => v+side[k]/l*1.2); window.__fluidFacet.testHull(from,to,0.8); })()",
+      "wait:600", "shot:spatter", "wait:600", "shot:cooling", "wait:1800", "shot:settled",
+      "eval:window.__fluidFacet.testHull(null); window.__fluidFacet.toggles.sim = false",
+      "eval:window.__tmtFluids.lookAt(window.__edgePoint, 1.2, 4, 0.2)", "wait:300", "shot:wall-angle-a",
+      "eval:window.__tmtFluids.lookAt(window.__edgePoint, 1.2, 4, 0.8)", "wait:300", "shot:wall-angle-b",
+      "eval:window.__tmtFluids.lookAt(window.__edgePoint, 1.2, 4, 1.3)", "wait:300", "shot:wall-angle-c",
+      "eval@telemetry:window.__tmtVisuals.telemetry()"
+    ]
+  }]
+}

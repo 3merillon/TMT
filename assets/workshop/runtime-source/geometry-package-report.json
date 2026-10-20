@@ -1,0 +1,97 @@
+{
+  "sourceBytes": 64077240,
+  "packedBytes": 8094143,
+  "triangles": 545910,
+  "maxPositionErrorMeters": 0.00027050815329156085,
+  "maxNormalErrorDegrees": 0.017213905005237434,
+  "meshes": [
+    {
+      "file": "room-5.30144d0b5ad2.wmesh",
+      "triangles": 176,
+      "sourceBytes": 16512,
+      "packedBytes": 1122,
+      "positionError": 0.00018928904653181135,
+      "normalError": 0.010587035552932727
+    },
+    {
+      "file": "room-9.976209ad4743.wmesh",
+      "triangles": 608,
+      "sourceBytes": 75936,
+      "packedBytes": 7806,
+      "positionError": 0.00010225794815054132,
+      "normalError": 0.01534077937693226
+    },
+    {
+      "file": "room-10.0b1607b46531.wmesh",
+      "triangles": 76842,
+      "sourceBytes": 6583304,
+      "packedBytes": 508216,
+      "positionError": 0.00027050815329156085,
+      "normalError": 0.01600031528922914
+    },
+    {
+      "file": "room-12.ef88f46399fc.wmesh",
+      "triangles": 3872,
+      "sourceBytes": 338944,
+      "packedBytes": 37012,
+      "positionError": 0.00016289241691999225,
+      "normalError": 0.014170134433304133
+    },
+    {
+      "file": "room-13.a97bf9f5a8ec.wmesh",
+      "triangles": 222767,
+      "sourceBytes": 29405244,
+      "packedBytes": 5459574,
+      "positionError": 0.0001420939228235184,
+      "normalError": 0.017213905005237434
+    },
+    {
+      "file": "room-15.361a3a67bc93.wmesh",
+      "triangles": 159430,
+      "sourceBytes": 18924040,
+      "packedBytes": 1191073,
+      "positionError": 0.0001819738688073966,
+      "normalError": 0.01677067679287215
+    },
+    {
+      "file": "room-16.3a389fb2c2e1.wmesh",
+      "triangles": 108,
+      "sourceBytes": 9936,
+      "packedBytes": 486,
+      "positionError": 0.00010783730579904595,
+      "normalError": 0
+    },
+    {
+      "file": "room-17.dc3a2a293945.wmesh",
+      "triangles": 21584,
+      "sourceBytes": 2397488,
+      "packedBytes": 163651,
+      "positionError": 0.00018148979127351121,
+      "normalError": 0.01643100275358905
+    },
+    {
+      "file": "room-18.ccd2dd2832d6.wmesh",
+      "triangles": 6272,
+      "sourceBytes": 587744,
+      "packedBytes": 42991,
+      "positionError": 0.00011901638695476652,
+      "normalError": 0.016363013657011937
+    },
+    {
+      "file": "room-19.6b49bc18d123.wmesh",
+      "triangles": 29676,
+      "sourceBytes": 2494192,
+      "packedBytes": 102386,
+      "positionError": 0.00018273803801881617,
+      "normalError": 0.01643249426046823
+    },
+    {
+      "file": "fan-13.2b126e8bb158.wmesh",
+      "triangles": 24575,
+      "sourceBytes": 3243900,
+      "packedBytes": 579826,
+      "positionError": 0.000029402664513024993,
+      "normalError": 0.016471263340255442
+    }
+  ]
+}

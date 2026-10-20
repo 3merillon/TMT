@@ -1,0 +1,27 @@
+{
+  "name": "workshop-cancellation",
+  "out": "artifacts/workshop-cancellation",
+  "jobs": [{
+    "name": "cancel-loading",
+    "url": "/play.html",
+    "size": "1440x900",
+    "wait": "selector:#title-workshop",
+    "settle": 100,
+    "timeout": 120000,
+    "keys": [
+      "eval:(() => { window.__workshopAbortTest={devices:[],delayed:0,cancelled:0}; const state=window.__workshopAbortTest; const fetchOriginal=window.fetch.bind(window); state.fetchOriginal=fetchOriginal; window.fetch=async (input, options) => { if(String(input).startsWith('/workshop/prop-') && String(input).includes('baseColor')) { state.delayed++; await new Promise((resolve,reject) => { const signal=options?.signal; const abort=()=>{clearTimeout(timer);state.cancelled++;reject(new DOMException('Slow asset aborted','AbortError'));}; const timer=setTimeout(()=>{signal?.removeEventListener('abort',abort);resolve();},15000); if(signal?.aborted) abort(); else signal?.addEventListener('abort',abort,{once:true}); }); } return fetchOriginal(input,options); }; const requestAdapter=navigator.gpu.requestAdapter.bind(navigator.gpu); navigator.gpu.requestAdapter=async options=>{const adapter=await requestAdapter(options); if(adapter){const requestDevice=adapter.requestDevice.bind(adapter);adapter.requestDevice=async descriptor=>{const device=await requestDevice(descriptor);state.devices.push(device);return device;};}return adapter;}; })()",
+      "click:#title-workshop",
+      "waitfor:window.__workshopAbortTest.delayed > 0",
+      "click:#workshop-back",
+      "wait:800",
+      "eval@aborted:(() => { const state=window.__workshopAbortTest;const bytes=state.devices.map(device=>device.__tmtVram?.total); if((state.cancelled<1 || state.cancelled!==state.delayed) || bytes.length!==1 || bytes.some(value=>value!==0) || document.querySelector('#workshop')) throw new Error('Early workshop leave failed to abort/release '+JSON.stringify({cancelled:state.cancelled,bytes}));window.fetch=state.fetchOriginal;return{abortedRequests:state.cancelled,devices:bytes.length,remainingGpuBytes:bytes}; })()",
+      "click:#title-workshop",
+      "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')",
+      "wait:700",
+      "shot:reopened",
+      "click:#workshop-back",
+      "wait:400",
+      "eval@recovered:(() => { const bytes=window.__workshopAbortTest.devices.map(device=>device.__tmtVram?.total);if(bytes.length!==2 || bytes.some(value=>value!==0) || window.__tmtWorkshop.ready)throw new Error('Workshop did not recover cleanly '+JSON.stringify(bytes));return{successfulReopen:true,remainingGpuBytes:bytes}; })()"
+    ]
+  }]
+}

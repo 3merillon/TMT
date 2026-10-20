@@ -1,0 +1,39 @@
+{
+  "name": "point-defense",
+  "description": "Inspect the articulated point-defense receiver covers from multiple angles in an isolated workshop Sandbox.",
+  "out": "artifacts/screens/point-defense",
+  "jobs": [
+    {
+      "name": "receiver-clearance",
+      "url": "/",
+      "size": "1440x900",
+      "wait": "selector:#title-workshop",
+      "settle": 300,
+      "keys": [
+        "click:#title-workshop",
+        "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')",
+        "click:#workshop-sandbox",
+        "click:#workshop-open-options",
+        "click:#workshop-quick-install",
+        "click:.ws-panel-head .ws-close",
+        "click:#workshop-open-components",
+        "click:#workshop-slot-utility",
+        "click:#workshop-part-point_defense",
+        "click:#workshop-install",
+        "waitfor:window.__tmtWorkshop.kit.utility === 'point_defense' && !window.__tmtWorkshop.busy",
+        "wait:700",
+        "click:#workshop-presentation",
+        "drag:0.70:0.55:0.705:0.55:3",
+        "wheel:-1600:1",
+        "wait:900",
+        "shot:receiver-side",
+        "drag:0.65:0.55:0.80:0.55:24",
+        "wait:900",
+        "shot:receiver-quarter",
+        "wait:4000",
+        "shot:receiver-elevated",
+        "eval@shaders:(async()=>{const result=await window.__tmtWorkshop.shaderCheck();if(!result.ok)throw new Error('Workshop shader validation failed');return result;})()"
+      ]
+    }
+  ]
+}

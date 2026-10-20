@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="data:,"><title>Resident terrain structural check</title>
+<style>body{margin:0;background:#101923;color:#dae5ef;font:14px system-ui}main{display:grid;grid-template-columns:minmax(400px,1fr) 400px;height:100vh}canvas{width:100%;height:100%;display:block}aside{padding:18px;overflow:auto}button,select{padding:8px;margin:3px;background:#243c50;color:white;border:1px solid #58738b;border-radius:4px}pre{white-space:pre-wrap;font:11px monospace;overflow-wrap:anywhere}#status[data-state=error]{color:#ff958a}#status[data-state=success]{color:#95e6ae}</style></head>
+<body><main><canvas id="view"></canvas><aside><h2>Resident terrain structural check</h2><p id="profile">resident-f32-v1 · side-3 cells · side-6 bricks · fixed 60 Hz Rapier</p>
+<select id="fixture"><option>two-supports</option><option>one-support</option><option>three-bricks</option><option>arch</option></select>
+<button id="cut" disabled>Cut next support</button><button id="run" disabled>Run acceptance sequence</button><button id="rebuild" disabled>Rebuild static terrain</button>
+<p id="status">Initializing the renderer device…</p><p>Drag to orbit. Wheel to zoom. Blue geometry is the surviving slab. Foundation anchors are explicit. Detached structures persist.</p><pre id="results"></pre></aside></main>
+<script type="module" src="/src/lab/structural-check.ts"></script></body></html>

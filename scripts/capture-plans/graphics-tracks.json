@@ -1,0 +1,11 @@
+{
+  "out": "artifacts/graphics-overhaul/tracks",
+  "jobs": [{
+    "url": "/?mode=dev&seed=7&engineDev", "name": "tracks", "wait": "game", "settle": 4500,
+    "keys": [
+      "hold:KeyW:1800", "hold:KeyW+KeyA:2200", "hold:KeyD:700", "hold:KeyS:900",
+      "eval:window.__tmtFluids.lookAt(window.__tmtVisuals.tank(), 4, 6)", "wait:600", "shot:flattened",
+      "hold:KeyW:1800", "wait:12000", "shot:recovering", "wait:14000", "shot:recovered"
+    ]
+  }]
+}

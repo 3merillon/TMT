@@ -1,0 +1,74 @@
+[
+  {
+    "name": "still-low-sun-close", "seed": 7, "skyTime": 42, "epoch": 100, "frames": 90,
+    "camera": { "position": [0.508084737922049, 22.682826433662118, -0.011148372520206912], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "graphics": { "tier": "high", "renderScale": 1, "grain": 0, "miniature": 0, "fisheye": 0, "clouds": true, "volumetrics": true, "lensFlare": true, "godRays": true }, "off": []
+  },
+  {
+    "name": "still-overview", "seed": 7, "skyTime": 0, "epoch": 300, "frames": 90,
+    "camera": { "position": [-43.50033642533781, 33.50159015866965, -32.99839567517453], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "graphics": { "tier": "high", "renderScale": 1, "grain": 0, "miniature": 0, "fisheye": 0, "clouds": true, "volumetrics": true, "lensFlare": true, "godRays": true }, "off": []
+  },
+  {
+    "name": "still-night-headlights", "seed": 7, "skyTime": 180, "epoch": 700, "frames": 90, "tanks": 4,
+    "camera": { "position": [0.508084737922049, 22.682826433662118, -0.011148372520206912], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "graphics": { "tier": "high", "renderScale": 1, "grain": 0, "miniature": 0, "fisheye": 0, "clouds": true, "volumetrics": true, "lensFlare": true, "godRays": true }, "off": []
+  },
+  {
+    "name": "still-dense-clouds", "seed": 7, "skyTime": 42, "epoch": 150, "frames": 90, "clouds": { "coverage": 2.2, "density": 1.8 },
+    "camera": { "position": [-18.978052139282227, 22.061283111572266, -12.195109367370605], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "graphics": { "tier": "high", "renderScale": 1, "grain": 0, "miniature": 0, "fisheye": 0, "clouds": true, "volumetrics": true, "lensFlare": true, "godRays": true }, "off": []
+  },
+  {
+    "name": "still-glacial", "seed": 6, "skyTime": 0, "epoch": 400, "frames": 90,
+    "camera": { "position": [-18.978052139282227, 22.061283111572266, -12.195109367370605], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "graphics": { "tier": "high", "renderScale": 1, "grain": 0, "miniature": 0, "fisheye": 0, "clouds": true, "volumetrics": true, "lensFlare": true, "godRays": true }, "off": []
+  },
+  {
+    "name": "still-volcanic", "seed": 4, "skyTime": 0, "epoch": 500, "frames": 90,
+    "camera": { "position": [-18.978052139282227, 22.061283111572266, -12.195109367370605], "target": [-5.335671901702881, 17.799152374267578, 0],
+      "up": [-0.2871469129537156, 0.9578865540246083, 0], "fovY": 0.8203047484373349 },
+    "graphics": { "tier": "high", "renderScale": 1, "grain": 0, "miniature": 0, "fisheye": 0, "clouds": true, "volumetrics": true, "lensFlare": true, "godRays": true }, "off": []
+  },
+  {
+    "name": "still-dune", "seed": 5, "skyTime": 0, "epoch": 600, "frames": 90,
+    "camera": { "position": [-18.978052139282227, 22.061283111572266, -12.195109367370605], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "graphics": { "tier": "high", "renderScale": 1, "grain": 0, "miniature": 0, "fisheye": 0, "clouds": true, "volumetrics": true, "lensFlare": true, "godRays": true }, "off": []
+  },
+  {
+    "name": "blast-explosive-day", "seed": 7, "skyTime": 0, "epoch": 1000, "frames": 300, "tanks": 2,
+    "camera": { "position": [0.508084737922049, 22.682826433662118, -0.011148372520206912], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "graphics": { "tier": "high", "renderScale": 1, "grain": 0, "miniature": 0, "fisheye": 0, "clouds": true, "volumetrics": true, "lensFlare": true, "godRays": true }, "off": [],
+    "blast": { "frame": 10, "radius": 2.25, "munition": "explosive" }
+  },
+  {
+    "name": "blast-incendiary-night", "seed": 7, "skyTime": 180, "epoch": 1100, "frames": 300, "tanks": 2,
+    "camera": { "position": [0.508084737922049, 22.682826433662118, -0.011148372520206912], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "graphics": { "tier": "high", "renderScale": 1, "grain": 0, "miniature": 0, "fisheye": 0, "clouds": true, "volumetrics": true, "lensFlare": true, "godRays": true }, "off": [],
+    "blast": { "frame": 10, "radius": 2.25, "munition": "incendiary" }
+  },
+  {
+    "name": "blast-nuclear-night-dense-clouds", "seed": 7, "skyTime": 180, "epoch": 1300, "frames": 360, "tanks": 2, "clouds": { "coverage": 2.2, "density": 1.8 },
+    "camera": { "position": [-18.978052139282227, 22.061283111572266, -12.195109367370605], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "graphics": { "tier": "high", "renderScale": 1, "grain": 0, "miniature": 0, "fisheye": 0, "clouds": true, "volumetrics": true, "lensFlare": true, "godRays": true }, "off": [],
+    "blast": { "frame": 10, "radius": 4, "munition": "nuclear", "camera": { "position": [0.508084737922049, 22.682826433662118, -0.011148372520206912],
+      "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833], "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 } }
+  },
+  {
+    "name": "blast-nuclear-day-overview", "seed": 7, "skyTime": 0, "epoch": 1200, "frames": 360, "tanks": 2,
+    "camera": { "position": [-43.50033642533781, 33.50159015866965, -32.99839567517453], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "graphics": { "tier": "high", "renderScale": 1, "grain": 0, "miniature": 0, "fisheye": 0, "clouds": true, "volumetrics": true, "lensFlare": true, "godRays": true }, "off": [],
+    "blast": { "frame": 10, "radius": 4, "munition": "nuclear", "camera": { "position": [0.508084737922049, 22.682826433662118, -0.011148372520206912],
+      "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833], "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 } }
+  }
+]

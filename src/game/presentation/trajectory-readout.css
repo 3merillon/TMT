@@ -1,0 +1,26 @@
+.trajectory-readout, .trajectory-target, .trajectory-leader { position: absolute; top: 0; left: 0; pointer-events: none; }
+.trajectory-readout { width: 156px; height: 42px; box-sizing: border-box; padding: 5px 9px; border: 1px solid #7affd6; border-radius: 6px; color: #eefff8; background: #09221fed; box-shadow: 0 2px 5px #0008; font-family: var(--font-mono); }
+.trajectory-readout > span { display: block; font-size: 9px; line-height: 12px; font-weight: 700; letter-spacing: .12em; color: #95f7d8; }
+.trajectory-readout > strong { display: block; font-size: 13px; line-height: 16px; font-weight: 700; white-space: nowrap; }
+.trajectory-target { width: 18px; height: 18px; margin: -9px; box-sizing: border-box; border: 2px solid #caffef; border-radius: 50%; box-shadow: 0 0 0 2px #071b18d9, inset 0 0 0 1px #071b18d9; }
+.trajectory-target::before, .trajectory-target::after { content: ''; position: absolute; background: #caffef; box-shadow: 0 0 0 1px #071b18b0; }
+.trajectory-target::before { width: 2px; height: 24px; left: 6px; top: -5px; }
+.trajectory-target::after { height: 2px; width: 24px; top: 6px; left: -5px; }
+.trajectory-target[data-kind='flight-limit'] { border-style: dashed; opacity: .65; }
+.trajectory-target[data-kind='flight-limit']::before, .trajectory-target[data-kind='flight-limit']::after { display: none; }
+.trajectory-target[data-occluded='true'] { border-style: dashed; opacity: .55; }
+.trajectory-target[data-occluded='true']::before, .trajectory-target[data-occluded='true']::after { display: none; }
+.trajectory-leader { height: 1px; background: #95f7d8bb; transform-origin: 0 50%; box-shadow: 0 1px 1px #000a; }
+.trajectory-leader[data-occluded='true'] { background: repeating-linear-gradient(90deg, #95f7d877 0 3px, transparent 3px 7px); }
+.requested-aim-target, .requested-aim-status { position: absolute; top: 0; left: 0; pointer-events: none; }
+.requested-aim-target { width: 28px; height: 28px; color: #ffe3a3; filter: drop-shadow(0 1px 1px #071b18); background:
+  linear-gradient(currentColor,currentColor) left top / 8px 2px, linear-gradient(currentColor,currentColor) left top / 2px 8px,
+  linear-gradient(currentColor,currentColor) right top / 8px 2px, linear-gradient(currentColor,currentColor) right top / 2px 8px,
+  linear-gradient(currentColor,currentColor) left bottom / 8px 2px, linear-gradient(currentColor,currentColor) left bottom / 2px 8px,
+  linear-gradient(currentColor,currentColor) right bottom / 8px 2px, linear-gradient(currentColor,currentColor) right bottom / 2px 8px;
+  background-repeat: no-repeat; }
+.requested-aim-target[data-status='reachable'] { color: #effff8; opacity: .85; }
+.requested-aim-target[data-status='solving'] { opacity: .6; }
+.requested-aim-target[data-status='blocked'], .requested-aim-target[data-status='out-of-range'] { color: #ffb58c; }
+.requested-aim-target[data-kind='tank'] { color: #effff8; opacity: 1; }
+.requested-aim-status { box-sizing: border-box; width: 156px; padding: 6px 7px; border: 1px solid #ddaa79; border-radius: 4px; background: #21180bef; color: #ffe6bb; font: 700 10px/14px var(--font-mono); box-shadow: 0 2px 4px #0008; }

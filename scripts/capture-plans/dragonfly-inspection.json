@@ -1,0 +1,17 @@
+{
+  "name": "dragonfly-inspection",
+  "out": "artifacts/screens/dragonfly-comanche",
+  "jobs": [
+    {"name": "quarter", "url": "/dev/kit.html?model=dragonfly", "wait": "js:window.__tmtKit?.ready && window.__tmtKit.frames > 5", "probe": "({ready:window.__tmtKit.ready, frames:window.__tmtKit.frames, info:window.__tmtKit.info})"},
+    {"name": "side", "url": "/dev/kit.html?model=dragonfly&view=side&rotor=0.78", "wait": "js:window.__tmtKit?.ready && window.__tmtKit.frames > 5", "probe": "({ready:window.__tmtKit.ready, frames:window.__tmtKit.frames, info:window.__tmtKit.info})"},
+    {"name": "front", "url": "/dev/kit.html?model=dragonfly&view=front", "wait": "js:window.__tmtKit?.ready && window.__tmtKit.frames > 5", "probe": "({ready:window.__tmtKit.ready, frames:window.__tmtKit.frames, info:window.__tmtKit.info})"},
+    {"name": "rear", "url": "/dev/kit.html?model=dragonfly&view=rear&rotor=1.57", "wait": "js:window.__tmtKit?.ready && window.__tmtKit.frames > 5", "probe": "({ready:window.__tmtKit.ready, frames:window.__tmtKit.frames, info:window.__tmtKit.info})"},
+    {"name": "cockpit", "url": "/dev/kit.html?model=dragonfly&view=cockpit", "wait": "js:window.__tmtKit?.ready && window.__tmtKit.frames > 5", "probe": "({ready:window.__tmtKit.ready, frames:window.__tmtKit.frames, info:window.__tmtKit.info})"},
+    {"name": "rotor", "url": "/dev/kit.html?model=dragonfly&view=rotor&rotor=0.65", "wait": "js:window.__tmtKit?.ready && window.__tmtKit.frames > 5", "probe": "({ready:window.__tmtKit.ready, frames:window.__tmtKit.frames, info:window.__tmtKit.info})"},
+    {"name": "gun", "url": "/dev/kit.html?model=dragonfly&view=gun", "wait": "js:window.__tmtKit?.ready && window.__tmtKit.frames > 5", "probe": "({ready:window.__tmtKit.ready, frames:window.__tmtKit.frames, info:window.__tmtKit.info})"},
+    {"name": "intakes", "url": "/dev/kit.html?model=dragonfly&view=intakes", "wait": "js:window.__tmtKit?.ready && window.__tmtKit.frames > 5", "probe": "({ready:window.__tmtKit.ready, frames:window.__tmtKit.frames, info:window.__tmtKit.info})"},
+    {"name": "top", "url": "/dev/kit.html?model=dragonfly&view=top&rotor=0", "wait": "js:window.__tmtKit?.ready && window.__tmtKit.frames > 5", "probe": "({ready:window.__tmtKit.ready, frames:window.__tmtKit.frames, info:window.__tmtKit.info})"},
+    {"name": "lod2", "url": "/dev/kit.html?model=dragonfly&lod=2", "wait": "js:window.__tmtKit?.ready && window.__tmtKit.frames > 5", "probe": "({ready:window.__tmtKit.ready, frames:window.__tmtKit.frames, info:window.__tmtKit.info})"},
+    {"name": "damage", "url": "/dev/kit.html?damage=1&model=dragonfly", "settle": 4500, "wait": "js:window.__tmtKit?.ready && window.__tmtKit.frames > 5", "probe": "({ready:window.__tmtKit.ready, frames:window.__tmtKit.frames, info:window.__tmtKit.info})"}
+  ]
+}

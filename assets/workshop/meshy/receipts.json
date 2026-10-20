@@ -1,0 +1,512 @@
+{
+  "version": 1,
+  "budgetCredits": 450,
+  "jobs": {
+    "pressure-boiler": {
+      "id": "pressure-boiler",
+      "imagePath": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\boiler-reference.png",
+      "reservedCredits": 100,
+      "submittedAt": "2026-10-13T12:50:15.001Z",
+      "status": "SUCCEEDED",
+      "balanceBefore": 450,
+      "params": {
+        "image_url": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\boiler-reference.png",
+        "ai_model": "meshy-7.1",
+        "model_type": "standard",
+        "geometry_resolution": "4k",
+        "texture_resolution": "4k",
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "topology": "triangle",
+        "target_polycount": 24000,
+        "should_remesh": true,
+        "should_texture": true,
+        "enable_pbr": true,
+        "texture_prompt": "Aged riveted black iron, worn dark sage enamel, oxidized copper pipes and muted polished brass. Physically believable Victorian industrial machinery. No text, no decals, no glowing parts."
+      },
+      "taskId": "01a13550-452f-71af-a38e-9cc8867e9a49",
+      "progress": 100,
+      "task": {
+        "id": "01a13550-452f-71af-a38e-9cc8867e9a49",
+        "type": "image-to-3d",
+        "name": "",
+        "art_style": "",
+        "object_prompt": "",
+        "style_prompt": "",
+        "negative_prompt": "",
+        "texture_prompt": "Aged riveted black iron, worn dark sage enamel, oxidized copper pipes and muted polished brass. Physically believable Victorian industrial machinery. No text, no decals, no glowing parts.",
+        "texture_image_url": "",
+        "text_style_prompt": "",
+        "image_style_url": "",
+        "status": "SUCCEEDED",
+        "created_at": 1791895822700,
+        "progress": 100,
+        "started_at": 1791895822707,
+        "finished_at": 1791896130166,
+        "expires_at": 1792155330166,
+        "task_error": null,
+        "model_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13550-452f-71af-a38e-9cc8867e9a49/output/model.glb",
+        "model_urls": {
+          "glb": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13550-452f-71af-a38e-9cc8867e9a49/output/model.glb"
+        },
+        "thumbnail_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13550-452f-71af-a38e-9cc8867e9a49/output/preview.png",
+        "thumbnail_urls": {
+          "back": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13550-452f-71af-a38e-9cc8867e9a49/output/preview_back.png",
+          "front": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13550-452f-71af-a38e-9cc8867e9a49/output/preview_front.png",
+          "left": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13550-452f-71af-a38e-9cc8867e9a49/output/preview_left.png",
+          "right": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13550-452f-71af-a38e-9cc8867e9a49/output/preview_right.png"
+        },
+        "texture_urls": [
+          {
+            "base_color": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13550-452f-71af-a38e-9cc8867e9a49/output/texture_0.png",
+            "metallic": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13550-452f-71af-a38e-9cc8867e9a49/output/texture_0_metallic.png",
+            "roughness": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13550-452f-71af-a38e-9cc8867e9a49/output/texture_0_roughness.png",
+            "normal": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13550-452f-71af-a38e-9cc8867e9a49/output/texture_0_normal.png"
+          }
+        ],
+        "ultra_mode": true,
+        "geometry_resolution": "4k",
+        "hd_texture": true,
+        "texture_resolution": "4k",
+        "consumed_credits": 35
+      },
+      "localFile": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\pressure-boiler\\model.glb"
+    },
+    "machinist-lathe": {
+      "id": "machinist-lathe",
+      "imagePath": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\lathe-reference.png",
+      "reservedCredits": 100,
+      "submittedAt": "2026-10-13T12:51:23.828Z",
+      "status": "SUCCEEDED",
+      "balanceBefore": 415,
+      "params": {
+        "image_url": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\lathe-reference.png",
+        "ai_model": "meshy-7.1",
+        "model_type": "standard",
+        "geometry_resolution": "4k",
+        "texture_resolution": "4k",
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "topology": "triangle",
+        "target_polycount": 24000,
+        "should_remesh": true,
+        "should_texture": true,
+        "enable_pbr": true,
+        "texture_prompt": "Aged riveted black iron, worn dark sage enamel, oxidized copper pipes and muted polished brass. Physically believable Victorian industrial machinery. No text, no decals, no glowing parts."
+      },
+      "taskId": "01a13551-5268-7092-b38b-4f48022504f8",
+      "progress": 100,
+      "task": {
+        "id": "01a13551-5268-7092-b38b-4f48022504f8",
+        "type": "image-to-3d",
+        "name": "",
+        "art_style": "",
+        "object_prompt": "",
+        "style_prompt": "",
+        "negative_prompt": "",
+        "texture_prompt": "Aged riveted black iron, worn dark sage enamel, oxidized copper pipes and muted polished brass. Physically believable Victorian industrial machinery. No text, no decals, no glowing parts.",
+        "texture_image_url": "",
+        "text_style_prompt": "",
+        "image_style_url": "",
+        "status": "SUCCEEDED",
+        "created_at": 1791895886288,
+        "progress": 100,
+        "started_at": 1791895886292,
+        "finished_at": 1791896169608,
+        "expires_at": 1792155369608,
+        "task_error": null,
+        "model_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13551-5268-7092-b38b-4f48022504f8/output/model.glb",
+        "model_urls": {
+          "glb": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13551-5268-7092-b38b-4f48022504f8/output/model.glb"
+        },
+        "thumbnail_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13551-5268-7092-b38b-4f48022504f8/output/preview.png",
+        "thumbnail_urls": {
+          "back": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13551-5268-7092-b38b-4f48022504f8/output/preview_back.png",
+          "front": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13551-5268-7092-b38b-4f48022504f8/output/preview_front.png",
+          "left": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13551-5268-7092-b38b-4f48022504f8/output/preview_left.png",
+          "right": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13551-5268-7092-b38b-4f48022504f8/output/preview_right.png"
+        },
+        "texture_urls": [
+          {
+            "base_color": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13551-5268-7092-b38b-4f48022504f8/output/texture_0.png",
+            "metallic": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13551-5268-7092-b38b-4f48022504f8/output/texture_0_metallic.png",
+            "roughness": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13551-5268-7092-b38b-4f48022504f8/output/texture_0_roughness.png",
+            "normal": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13551-5268-7092-b38b-4f48022504f8/output/texture_0_normal.png"
+          }
+        ],
+        "ultra_mode": true,
+        "geometry_resolution": "4k",
+        "hd_texture": true,
+        "texture_resolution": "4k",
+        "consumed_credits": 35
+      },
+      "localFile": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\machinist-lathe\\model.glb"
+    },
+    "rolling-tool-cabinet": {
+      "id": "rolling-tool-cabinet",
+      "imagePath": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\trolley-reference.png",
+      "reservedCredits": 100,
+      "submittedAt": "2026-10-13T13:26:32.914Z",
+      "status": "SUCCEEDED",
+      "balanceBefore": 380,
+      "params": {
+        "image_url": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\trolley-reference.png",
+        "ai_model": "meshy-7.1",
+        "model_type": "standard",
+        "geometry_resolution": "4k",
+        "texture_resolution": "4k",
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "topology": "triangle",
+        "target_polycount": 24000,
+        "should_remesh": true,
+        "should_texture": true,
+        "enable_pbr": true,
+        "texture_prompt": "Aged riveted black iron, worn dark sage enamel, oxidized copper pipes and muted polished brass. Physically believable Victorian industrial machinery. No text, no decals, no glowing parts."
+      },
+      "taskId": "01a13571-80a6-722a-b6d0-a08a6ad809d7",
+      "progress": 100,
+      "task": {
+        "id": "01a13571-80a6-722a-b6d0-a08a6ad809d7",
+        "type": "image-to-3d",
+        "name": "",
+        "art_style": "",
+        "object_prompt": "",
+        "style_prompt": "",
+        "negative_prompt": "",
+        "texture_prompt": "Aged riveted black iron, worn dark sage enamel, oxidized copper pipes and muted polished brass. Physically believable Victorian industrial machinery. No text, no decals, no glowing parts.",
+        "texture_image_url": "",
+        "text_style_prompt": "",
+        "image_style_url": "",
+        "status": "SUCCEEDED",
+        "created_at": 1791897994953,
+        "progress": 100,
+        "started_at": 1791897994960,
+        "finished_at": 1791898327723,
+        "expires_at": 1792157527723,
+        "task_error": null,
+        "model_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13571-80a6-722a-b6d0-a08a6ad809d7/output/model.glb",
+        "model_urls": {
+          "glb": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13571-80a6-722a-b6d0-a08a6ad809d7/output/model.glb"
+        },
+        "thumbnail_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13571-80a6-722a-b6d0-a08a6ad809d7/output/preview.png",
+        "thumbnail_urls": {
+          "back": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13571-80a6-722a-b6d0-a08a6ad809d7/output/preview_back.png",
+          "front": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13571-80a6-722a-b6d0-a08a6ad809d7/output/preview_front.png",
+          "left": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13571-80a6-722a-b6d0-a08a6ad809d7/output/preview_left.png",
+          "right": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13571-80a6-722a-b6d0-a08a6ad809d7/output/preview_right.png"
+        },
+        "texture_urls": [
+          {
+            "base_color": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13571-80a6-722a-b6d0-a08a6ad809d7/output/texture_0.png",
+            "metallic": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13571-80a6-722a-b6d0-a08a6ad809d7/output/texture_0_metallic.png",
+            "roughness": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13571-80a6-722a-b6d0-a08a6ad809d7/output/texture_0_roughness.png",
+            "normal": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13571-80a6-722a-b6d0-a08a6ad809d7/output/texture_0_normal.png"
+          }
+        ],
+        "ultra_mode": true,
+        "geometry_resolution": "4k",
+        "hd_texture": true,
+        "texture_resolution": "4k",
+        "consumed_credits": 35
+      },
+      "localFile": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\rolling-tool-cabinet\\model.glb"
+    },
+    "inert-ordnance-cart": {
+      "id": "inert-ordnance-cart",
+      "imagePath": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\ordnance-reference.png",
+      "reservedCredits": 100,
+      "submittedAt": "2026-10-13T13:33:52.765Z",
+      "status": "SUCCEEDED",
+      "balanceBefore": 345,
+      "params": {
+        "image_url": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\ordnance-reference.png",
+        "ai_model": "meshy-7.1",
+        "model_type": "standard",
+        "geometry_resolution": "4k",
+        "texture_resolution": "4k",
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "topology": "triangle",
+        "target_polycount": 24000,
+        "should_remesh": true,
+        "should_texture": true,
+        "enable_pbr": true,
+        "texture_prompt": "Preserve the reference: inert closed olive green enamel bomb casing with a small faded yellow radiation trefoil stencil, muted bronze bands, dark brown padded leather securing straps, aged brass fasteners, dark sage steel cart and black rubber wheels. Physically believable restrained wear. No glow and no added text."
+      },
+      "taskId": "01a13578-36e1-75cb-aa5b-b63c078226af",
+      "progress": 100,
+      "task": {
+        "id": "01a13578-36e1-75cb-aa5b-b63c078226af",
+        "type": "image-to-3d",
+        "name": "",
+        "art_style": "",
+        "object_prompt": "",
+        "style_prompt": "",
+        "negative_prompt": "",
+        "texture_prompt": "Preserve the reference: inert closed olive green enamel bomb casing with a small faded yellow radiation trefoil stencil, muted bronze bands, dark brown padded leather securing straps, aged brass fasteners, dark sage steel cart and black rubber wheels. Physically believable restrained wear. No glow and no added text.",
+        "texture_image_url": "",
+        "text_style_prompt": "",
+        "image_style_url": "",
+        "status": "SUCCEEDED",
+        "created_at": 1791898437523,
+        "progress": 100,
+        "started_at": 1791898437527,
+        "finished_at": 1791898726003,
+        "expires_at": 1792157926003,
+        "task_error": null,
+        "model_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13578-36e1-75cb-aa5b-b63c078226af/output/model.glb",
+        "model_urls": {
+          "glb": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13578-36e1-75cb-aa5b-b63c078226af/output/model.glb"
+        },
+        "thumbnail_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13578-36e1-75cb-aa5b-b63c078226af/output/preview.png",
+        "thumbnail_urls": {
+          "back": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13578-36e1-75cb-aa5b-b63c078226af/output/preview_back.png",
+          "front": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13578-36e1-75cb-aa5b-b63c078226af/output/preview_front.png",
+          "left": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13578-36e1-75cb-aa5b-b63c078226af/output/preview_left.png",
+          "right": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13578-36e1-75cb-aa5b-b63c078226af/output/preview_right.png"
+        },
+        "texture_urls": [
+          {
+            "base_color": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13578-36e1-75cb-aa5b-b63c078226af/output/texture_0.png",
+            "metallic": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13578-36e1-75cb-aa5b-b63c078226af/output/texture_0_metallic.png",
+            "roughness": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13578-36e1-75cb-aa5b-b63c078226af/output/texture_0_roughness.png",
+            "normal": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13578-36e1-75cb-aa5b-b63c078226af/output/texture_0_normal.png"
+          }
+        ],
+        "ultra_mode": true,
+        "geometry_resolution": "4k",
+        "hd_texture": true,
+        "texture_resolution": "4k",
+        "consumed_credits": 35
+      },
+      "localFile": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\inert-ordnance-cart\\model.glb"
+    },
+    "axial-fan-rotor": {
+      "id": "axial-fan-rotor",
+      "imagePath": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\fan-reference.png",
+      "reservedCredits": 100,
+      "submittedAt": "2026-10-13T13:47:50.072Z",
+      "status": "SUCCEEDED",
+      "balanceBefore": 310,
+      "params": {
+        "image_url": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\fan-reference.png",
+        "ai_model": "meshy-7.1",
+        "model_type": "standard",
+        "geometry_resolution": "4k",
+        "texture_resolution": "4k",
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "topology": "triangle",
+        "target_polycount": 24000,
+        "should_remesh": true,
+        "should_texture": true,
+        "enable_pbr": true,
+        "texture_prompt": "Preserve the seven green enamel cupped fan blades and precisely machined central satin brass hub of the reference. Sage enamel with restrained exposed steel edge wear, bronze blade-root clamps, dark steel bolts and axle socket. No added objects, frame, guard, glow or text."
+      },
+      "taskId": "01a13584-fd6b-7765-b3a7-3304e00aa121",
+      "progress": 100,
+      "task": {
+        "id": "01a13584-fd6b-7765-b3a7-3304e00aa121",
+        "type": "image-to-3d",
+        "name": "",
+        "art_style": "",
+        "object_prompt": "",
+        "style_prompt": "",
+        "negative_prompt": "",
+        "texture_prompt": "Preserve the seven green enamel cupped fan blades and precisely machined central satin brass hub of the reference. Sage enamel with restrained exposed steel edge wear, bronze blade-root clamps, dark steel bolts and axle socket. No added objects, frame, guard, glow or text.",
+        "texture_image_url": "",
+        "text_style_prompt": "",
+        "image_style_url": "",
+        "status": "SUCCEEDED",
+        "created_at": 1791899274725,
+        "progress": 100,
+        "started_at": 1791899274729,
+        "finished_at": 1791899538738,
+        "expires_at": 1792158738738,
+        "task_error": null,
+        "model_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13584-fd6b-7765-b3a7-3304e00aa121/output/model.glb",
+        "model_urls": {
+          "glb": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13584-fd6b-7765-b3a7-3304e00aa121/output/model.glb"
+        },
+        "thumbnail_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13584-fd6b-7765-b3a7-3304e00aa121/output/preview.png",
+        "thumbnail_urls": {
+          "back": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13584-fd6b-7765-b3a7-3304e00aa121/output/preview_back.png",
+          "front": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13584-fd6b-7765-b3a7-3304e00aa121/output/preview_front.png",
+          "left": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13584-fd6b-7765-b3a7-3304e00aa121/output/preview_left.png",
+          "right": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13584-fd6b-7765-b3a7-3304e00aa121/output/preview_right.png"
+        },
+        "texture_urls": [
+          {
+            "base_color": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13584-fd6b-7765-b3a7-3304e00aa121/output/texture_0.png",
+            "metallic": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13584-fd6b-7765-b3a7-3304e00aa121/output/texture_0_metallic.png",
+            "roughness": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13584-fd6b-7765-b3a7-3304e00aa121/output/texture_0_roughness.png",
+            "normal": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13584-fd6b-7765-b3a7-3304e00aa121/output/texture_0_normal.png"
+          }
+        ],
+        "ultra_mode": true,
+        "geometry_resolution": "4k",
+        "hd_texture": true,
+        "texture_resolution": "4k",
+        "consumed_credits": 35
+      },
+      "localFile": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\axial-fan-rotor\\model.glb"
+    },
+    "twin-cylinder-compressor": {
+      "id": "twin-cylinder-compressor",
+      "imagePath": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\compressor-reference.png",
+      "reservedCredits": 100,
+      "submittedAt": "2026-10-13T14:09:20.907Z",
+      "status": "SUCCEEDED",
+      "balanceBefore": 275,
+      "params": {
+        "image_url": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\compressor-reference.png",
+        "ai_model": "meshy-7.1",
+        "model_type": "standard",
+        "geometry_resolution": "4k",
+        "texture_resolution": "4k",
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "topology": "triangle",
+        "target_polycount": 24000,
+        "should_remesh": true,
+        "should_texture": true,
+        "enable_pbr": true,
+        "texture_prompt": "Preserve the reference compact twin-cylinder air compressor, finned black iron cylinders, bronze flywheel rim, aged sage enamel crankcase and receiver tank, copper piping and restrained brass fittings. Realistic maintained industrial patina and crisp CAD-like manufacturing. No additional objects, text, steam or glow."
+      },
+      "taskId": "01a13598-afd1-753f-b328-9b2ec61aa791",
+      "progress": 99,
+      "task": {
+        "id": "01a13598-afd1-753f-b328-9b2ec61aa791",
+        "type": "image-to-3d",
+        "name": "",
+        "art_style": "",
+        "object_prompt": "",
+        "style_prompt": "",
+        "negative_prompt": "",
+        "texture_prompt": "Preserve the reference compact twin-cylinder air compressor, finned black iron cylinders, bronze flywheel rim, aged sage enamel crankcase and receiver tank, copper piping and restrained brass fittings. Realistic maintained industrial patina and crisp CAD-like manufacturing. No additional objects, text, steam or glow.",
+        "texture_image_url": "",
+        "text_style_prompt": "",
+        "image_style_url": "",
+        "status": "SUCCEEDED",
+        "created_at": 1791900564645,
+        "progress": 100,
+        "started_at": 1791900564651,
+        "finished_at": 1791900985787,
+        "expires_at": 1792160185787,
+        "task_error": null,
+        "model_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13598-afd1-753f-b328-9b2ec61aa791/output/model.glb",
+        "model_urls": {
+          "glb": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13598-afd1-753f-b328-9b2ec61aa791/output/model.glb"
+        },
+        "thumbnail_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13598-afd1-753f-b328-9b2ec61aa791/output/preview.png",
+        "thumbnail_urls": {
+          "back": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13598-afd1-753f-b328-9b2ec61aa791/output/preview_back.png",
+          "front": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13598-afd1-753f-b328-9b2ec61aa791/output/preview_front.png",
+          "left": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13598-afd1-753f-b328-9b2ec61aa791/output/preview_left.png",
+          "right": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13598-afd1-753f-b328-9b2ec61aa791/output/preview_right.png"
+        },
+        "texture_urls": [
+          {
+            "base_color": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13598-afd1-753f-b328-9b2ec61aa791/output/texture_0.png",
+            "metallic": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13598-afd1-753f-b328-9b2ec61aa791/output/texture_0_metallic.png",
+            "roughness": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13598-afd1-753f-b328-9b2ec61aa791/output/texture_0_roughness.png",
+            "normal": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13598-afd1-753f-b328-9b2ec61aa791/output/texture_0_normal.png"
+          }
+        ],
+        "ultra_mode": true,
+        "geometry_resolution": "4k",
+        "hd_texture": true,
+        "texture_resolution": "4k",
+        "consumed_credits": 35
+      },
+      "localFile": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\twin-cylinder-compressor\\model.glb"
+    },
+    "reinforced-parts-crate": {
+      "id": "reinforced-parts-crate",
+      "imagePath": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\crate-reference.png",
+      "reservedCredits": 100,
+      "submittedAt": "2026-10-13T14:10:33.529Z",
+      "status": "SUCCEEDED",
+      "balanceBefore": 240,
+      "params": {
+        "image_url": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\crate-reference.png",
+        "ai_model": "meshy-7.1",
+        "model_type": "standard",
+        "geometry_resolution": "4k",
+        "texture_resolution": "4k",
+        "target_formats": [
+          "glb"
+        ],
+        "multi_view_thumbnails": true,
+        "topology": "triangle",
+        "target_polycount": 24000,
+        "should_remesh": true,
+        "should_texture": true,
+        "enable_pbr": true,
+        "texture_prompt": "Preserve the reference closed engineering parts crate: aged brown oak plank panels and lid with subtle timber grain, dark sage enamel riveted steel frame and corner guards, aged brass front latches and folding side handles. Maintain closed rectangular box proportions. No added objects, text, symbols or glow."
+      },
+      "taskId": "01a13599-cb83-71f2-aebd-3b34a5fdfee2",
+      "progress": 100,
+      "task": {
+        "id": "01a13599-cb83-71f2-aebd-3b34a5fdfee2",
+        "type": "image-to-3d",
+        "name": "",
+        "art_style": "",
+        "object_prompt": "",
+        "style_prompt": "",
+        "negative_prompt": "",
+        "texture_prompt": "Preserve the reference closed engineering parts crate: aged brown oak plank panels and lid with subtle timber grain, dark sage enamel riveted steel frame and corner guards, aged brass front latches and folding side handles. Maintain closed rectangular box proportions. No added objects, text, symbols or glow.",
+        "texture_image_url": "",
+        "text_style_prompt": "",
+        "image_style_url": "",
+        "status": "SUCCEEDED",
+        "created_at": 1791900637450,
+        "progress": 100,
+        "started_at": 1791900637461,
+        "finished_at": 1791900948592,
+        "expires_at": 1792160148592,
+        "task_error": null,
+        "model_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13599-cb83-71f2-aebd-3b34a5fdfee2/output/model.glb",
+        "model_urls": {
+          "glb": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13599-cb83-71f2-aebd-3b34a5fdfee2/output/model.glb"
+        },
+        "thumbnail_url": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13599-cb83-71f2-aebd-3b34a5fdfee2/output/preview.png",
+        "thumbnail_urls": {
+          "back": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13599-cb83-71f2-aebd-3b34a5fdfee2/output/preview_back.png",
+          "front": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13599-cb83-71f2-aebd-3b34a5fdfee2/output/preview_front.png",
+          "left": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13599-cb83-71f2-aebd-3b34a5fdfee2/output/preview_left.png",
+          "right": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13599-cb83-71f2-aebd-3b34a5fdfee2/output/preview_right.png"
+        },
+        "texture_urls": [
+          {
+            "base_color": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13599-cb83-71f2-aebd-3b34a5fdfee2/output/texture_0.png",
+            "metallic": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13599-cb83-71f2-aebd-3b34a5fdfee2/output/texture_0_metallic.png",
+            "roughness": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13599-cb83-71f2-aebd-3b34a5fdfee2/output/texture_0_roughness.png",
+            "normal": "https://assets.meshy.ai/f931435e-6671-4315-a68f-e7512ed5e476/tasks/01a13599-cb83-71f2-aebd-3b34a5fdfee2/output/texture_0_normal.png"
+          }
+        ],
+        "ultra_mode": true,
+        "geometry_resolution": "4k",
+        "hd_texture": true,
+        "texture_resolution": "4k",
+        "consumed_credits": 35
+      },
+      "localFile": "C:\\GitHub Projects\\TMT\\assets\\workshop\\meshy\\reinforced-parts-crate\\model.glb"
+    }
+  },
+  "initialBalance": 450,
+  "latestBalance": 205
+}

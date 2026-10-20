@@ -1,0 +1,79 @@
+{
+  "name": "takeover",
+  "description": "Full-game renderer acceptance captures. takeover-drive moves and aims on seed 7, fires through #fire, waits for a recorded flash and then a committed terrain edit in the aim phase, and compares DOM labels with rendered-frame projection plus an independent camera projection. takeover-perf records idle and shot/edit frames at 1280x720. takeover-gpu1080 compares gameplay and planet views at 1920x1080. takeover-closeup drives 1.2 s before zooming for rear articulation, belts and track marks, then orbits at 1920x1080 with UI hidden. takeover-overview captures planet culling, horizon and biome presentation. Timing and visual claims require the corresponding budget/probe results and screenshot review.",
+  "out": "artifacts/screens/takeover",
+  "budget": "budgets/takeover.json",
+  "jobs": [
+    {
+      "name": "takeover-drive",
+      "url": "/play.html?mode=drive&seed=7",
+      "keys": [
+        "shot:ready",
+        "hold:KeyW:2000",
+        "wait:300",
+        "shot:moved",
+        "eval@labels:(() => { const host = document.getElementById('viewport').getBoundingClientRect(); const recs = (window.__tmtGame?.performance?.labels ?? []).filter(r => !r.hidden); let maxError = 0, refError = 0, refs = 0; for (const r of recs) { const el = document.querySelector('.world-label[data-tank=\"' + r.tank + '\"]'); if (!el) return { maxError: 1e9, refError: 1e9, labels: recs.length, refs }; const b = el.getBoundingClientRect(); maxError = Math.max(maxError, Math.hypot(b.left + b.width / 2 - host.left - r.x, b.bottom - host.top - r.y)); if (r.ref) { refs++; refError = Math.max(refError, Math.hypot(r.ref[0] - r.x, r.ref[1] - r.y)); } } return { maxError, refError: refs ? refError : 1e9, labels: recs.length, refs }; })()",
+        "eval:(() => { const set = (id, v) => { const e = document.getElementById(id); e.value = String(v); e.dispatchEvent(new Event('input')); }; set('bearing', 55); set('elevation', 60); set('power', 34); return 1; })()",
+        "wait:500",
+        "shot:aimed",
+        "click:#fire",
+        "wait:250",
+        "shot:fired",
+        "waitfor:(() => { const g = window.__tmtGame; return !!g && g.performance && g.performance.flashes >= 1; })()",
+        "shot:impactframe",
+        "waitfor:(() => { const g = window.__tmtGame; return !!g && g.terrainVersion >= 2 && g.phase === 'aim'; })()",
+        "wait:800",
+        "shot:impact"
+      ]
+    },
+    {
+      "name": "takeover-perf",
+      "url": "/play.html?mode=drive&seed=7",
+      "frames": 240,
+      "keys": [
+        "shot:idle",
+        "press:Space",
+        "wait:500",
+        "shot:edit"
+      ]
+    },
+    {
+      "name": "takeover-gpu1080",
+      "url": "/play.html?mode=drive&seed=7",
+      "size": "1920x1080",
+      "hideUi": true,
+      "keys": [
+        "wait:1500",
+        "shot:gameplay",
+        "eval:(() => { document.getElementById('overview').click(); return 1; })()",
+        "wait:2500",
+        "shot:planet"
+      ]
+    },
+    {
+      "name": "takeover-closeup",
+      "url": "/play.html?mode=drive&seed=7",
+      "hideUi": true,
+      "size": "1920x1080",
+      "keys": [
+        "hold:KeyW:1200",
+        "wait:500",
+        "wheel:-400:3",
+        "wait:1500",
+        "shot:rear",
+        "drag:0.5:0.5:0.8:0.5:30",
+        "wait:1500",
+        "shot:orbit"
+      ]
+    },
+    {
+      "name": "takeover-overview",
+      "url": "/play.html?mode=drive&seed=7",
+      "keys": [
+        "click:#overview",
+        "wait:2500",
+        "shot:overview"
+      ]
+    }
+  ]
+}

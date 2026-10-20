@@ -1,0 +1,466 @@
+[
+  {
+    "name": "temperate-low-sun-close-off",
+    "seed": 7,
+    "skyTime": 42,
+    "epoch": 100,
+    "camera": {
+      "position": [
+        0.508084737922049,
+        22.682826433662118,
+        -0.011148372520206912
+      ],
+      "target": [
+        -5.335671901702881,
+        17.79914093017578,
+        -0.0000020782042611244833
+      ],
+      "up": [
+        -0.2871469129537156,
+        0.9578865540246083,
+        -1.118415729195605e-7
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": [
+      "clouds",
+      "volumetrics",
+      "lensFlare",
+      "godRays"
+    ]
+  },
+  {
+    "name": "temperate-low-sun-close-on",
+    "seed": 7,
+    "skyTime": 42,
+    "epoch": 100,
+    "camera": {
+      "position": [
+        0.508084737922049,
+        22.682826433662118,
+        -0.011148372520206912
+      ],
+      "target": [
+        -5.335671901702881,
+        17.79914093017578,
+        -0.0000020782042611244833
+      ],
+      "up": [
+        -0.2871469129537156,
+        0.9578865540246083,
+        -1.118415729195605e-7
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": []
+  },
+  {
+    "name": "temperate-overview-off",
+    "seed": 7,
+    "skyTime": 0,
+    "epoch": 300,
+    "camera": {
+      "position": [
+        -43.500314279064625,
+        33.501561016948614,
+        -32.998397124427306
+      ],
+      "target": [
+        -5.335671901702881,
+        17.79914093017578,
+        -0.0000020782042611244833
+      ],
+      "up": [
+        -0.2871469129537156,
+        0.9578865540246083,
+        -1.118415729195605e-7
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": [
+      "clouds",
+      "volumetrics",
+      "lensFlare",
+      "godRays"
+    ]
+  },
+  {
+    "name": "temperate-overview-on",
+    "seed": 7,
+    "skyTime": 0,
+    "epoch": 300,
+    "camera": {
+      "position": [
+        -43.500314279064625,
+        33.501561016948614,
+        -32.998397124427306
+      ],
+      "target": [
+        -5.335671901702881,
+        17.79914093017578,
+        -0.0000020782042611244833
+      ],
+      "up": [
+        -0.2871469129537156,
+        0.9578865540246083,
+        -1.118415729195605e-7
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": []
+  },
+  {
+    "name": "temperate-night-spots-off",
+    "seed": 7,
+    "skyTime": 180,
+    "epoch": 700,
+    "camera": {
+      "position": [
+        0.508084737922049,
+        22.682826433662118,
+        -0.011148372520206912
+      ],
+      "target": [
+        -5.335671901702881,
+        17.79914093017578,
+        -0.0000020782042611244833
+      ],
+      "up": [
+        -0.2871469129537156,
+        0.9578865540246083,
+        -1.118415729195605e-7
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "tanks": 4,
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": [
+      "clouds",
+      "volumetrics",
+      "lensFlare",
+      "godRays"
+    ]
+  },
+  {
+    "name": "temperate-night-spots-on",
+    "seed": 7,
+    "skyTime": 180,
+    "epoch": 700,
+    "camera": {
+      "position": [
+        0.508084737922049,
+        22.682826433662118,
+        -0.011148372520206912
+      ],
+      "target": [
+        -5.335671901702881,
+        17.79914093017578,
+        -0.0000020782042611244833
+      ],
+      "up": [
+        -0.2871469129537156,
+        0.9578865540246083,
+        -1.118415729195605e-7
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "tanks": 4,
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": []
+  },
+  {
+    "name": "glacial-day-off",
+    "seed": 6,
+    "skyTime": 0,
+    "epoch": 400,
+    "camera": {
+      "position": [
+        -18.97806550440047,
+        22.061268514133584,
+        -12.195063661838354
+      ],
+      "target": [
+        -5.33567476272583,
+        17.799148559570312,
+        -0.000002844262098733452
+      ],
+      "up": [
+        -0.2871469412948031,
+        0.9578865455287571,
+        -1.5306801823783027e-7
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": [
+      "clouds",
+      "volumetrics",
+      "lensFlare",
+      "godRays"
+    ]
+  },
+  {
+    "name": "glacial-day-on",
+    "seed": 6,
+    "skyTime": 0,
+    "epoch": 400,
+    "camera": {
+      "position": [
+        -18.97806550440047,
+        22.061268514133584,
+        -12.195063661838354
+      ],
+      "target": [
+        -5.33567476272583,
+        17.799148559570312,
+        -0.000002844262098733452
+      ],
+      "up": [
+        -0.2871469412948031,
+        0.9578865455287571,
+        -1.5306801823783027e-7
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": []
+  },
+  {
+    "name": "volcanic-day-off",
+    "seed": 4,
+    "skyTime": 0,
+    "epoch": 500,
+    "camera": {
+      "position": [
+        -18.97805685834609,
+        22.061283155390996,
+        -12.195055713154987
+      ],
+      "target": [
+        -5.335663795471191,
+        17.79915428161621,
+        -6.094927584854304e-7
+      ],
+      "up": [
+        -0.2871463150416796,
+        0.9578867332612888,
+        -3.2800717277619306e-8
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": [
+      "clouds",
+      "volumetrics",
+      "lensFlare",
+      "godRays"
+    ]
+  },
+  {
+    "name": "volcanic-day-on",
+    "seed": 4,
+    "skyTime": 0,
+    "epoch": 500,
+    "camera": {
+      "position": [
+        -18.97805685834609,
+        22.061283155390996,
+        -12.195055713154987
+      ],
+      "target": [
+        -5.335663795471191,
+        17.79915428161621,
+        -6.094927584854304e-7
+      ],
+      "up": [
+        -0.2871463150416796,
+        0.9578867332612888,
+        -3.2800717277619306e-8
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": []
+  },
+  {
+    "name": "dune-day-off",
+    "seed": 5,
+    "skyTime": 0,
+    "epoch": 600,
+    "camera": {
+      "position": [
+        -18.97806227458587,
+        22.06126754605297,
+        -12.195065263211012
+      ],
+      "target": [
+        -5.335672855377197,
+        17.79914665222168,
+        -0.0000032944865324679995
+      ],
+      "up": [
+        -0.28714687534507355,
+        0.9578865652985896,
+        -1.7729751041825e-7
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": [
+      "clouds",
+      "volumetrics",
+      "lensFlare",
+      "godRays"
+    ]
+  },
+  {
+    "name": "dune-day-on",
+    "seed": 5,
+    "skyTime": 0,
+    "epoch": 600,
+    "camera": {
+      "position": [
+        -18.97806227458587,
+        22.06126754605297,
+        -12.195065263211012
+      ],
+      "target": [
+        -5.335672855377197,
+        17.79914665222168,
+        -0.0000032944865324679995
+      ],
+      "up": [
+        -0.28714687534507355,
+        0.9578865652985896,
+        -1.7729751041825e-7
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": []
+  }
+]

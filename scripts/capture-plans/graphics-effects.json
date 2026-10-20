@@ -1,0 +1,19 @@
+{
+  "out": "artifacts/graphics-overhaul/effects",
+  "jobs": [{
+    "url": "/?mode=dev&seed=5&engineDev",
+    "name": "munitions", "wait": "game", "settle": 4000, "size": "1400x900", "hideUi": true,
+    "keys": [
+      "waitfor:window.__tmtVisuals && window.__tmtFluids",
+      "eval:window.__blastPoint = window.__tmtVisuals.aimHit().point; window.__tmtFluids.lookAt(window.__blastPoint, 10, 15)",
+      "eval:window.__tmtVisuals.burst(window.__blastPoint, 2.5, 'explosive')",
+      "wait:450", "shot:he-fire", "wait:1600", "shot:he-smoke", "wait:4000",
+      "eval:window.__tmtVisuals.burst(window.__blastPoint, 3.5, 'heavy')",
+      "wait:600", "shot:heavy-fire", "wait:2200", "shot:heavy-smoke", "wait:4000",
+      "eval:window.__tmtVisuals.burst(window.__blastPoint, 2.5, 'incendiary')",
+      "wait:1000", "shot:napalm", "wait:4000", "shot:napalm-smoke", "wait:9000",
+      "eval:window.__tmtFluids.lookAt(window.__blastPoint, 13, 22); window.__tmtVisuals.burst(window.__blastPoint, 4.6, 'nuclear')",
+      "wait:900", "shot:nuke-fire", "wait:2500", "shot:nuke-cap", "wait:3500", "shot:nuke-grown", "wait:4000", "shot:nuke-late"
+    ]
+  }]
+}

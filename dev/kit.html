@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TMT kit sandbox</title>
+    <!-- Dev only (W1-KIT): never a build input. ?sheet=1 or ?assembly=hull,gear,turret,weapon,utility&view=rear|quarter -->
+    <style>
+      html, body { margin: 0; height: 100%; background: #0b0d10; overflow: hidden; }
+      #kit-canvas { display: block; width: 100vw; height: 100vh; touch-action: none; }
+      #kit-status { position: fixed; left: 12px; bottom: 10px; font: 12px/1.4 ui-monospace, monospace; color: #9fb3c8; pointer-events: none; }
+      #kit-status[data-error="true"] { color: #ff8a80; }
+      .kit-label { position: fixed; left: 0; top: 0; font: 600 12px/1.2 ui-sans-serif, system-ui, sans-serif; color: #f4efe2;
+        background: rgba(12, 14, 18, 0.62); padding: 2px 6px; border-radius: 4px; white-space: nowrap; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <canvas id="kit-canvas"></canvas>
+    <div id="kit-status"></div>
+    <script type="module" src="/scripts/kit/kit-page.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+{
+  "name": "workshop-packaged-validation",
+  "out": "artifacts/workshop-packaged-validation",
+  "jobs": [
+    {
+      "name": "normals",
+      "url": "/play.html",
+      "size": "1920x1080",
+      "wait": "selector:#title-workshop",
+      "timeout": 120000,
+      "settle": 100,
+      "probe": "window.__tmtWorkshop?.snapshot()",
+      "keys": [
+        "eval:(async()=>{window.__normalDiagnostic=await import('/scripts/workshop/verify-normal-unpack.ts');window.__normalDiagnostic.instrumentNormalUpload();})()",
+        "click:#title-workshop",
+        "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')",
+        "eval@normalTexels:window.__normalDiagnostic.verifyNormalUpload()",
+        "eval@shaderCheck:window.__tmtWorkshop.shaderCheck()",
+        "wait:800",
+        "shot:hero",
+        "eval:(()=>{document.querySelector('.ws-overlay').style.visibility='hidden';document.querySelector('.ws-lift-controls').style.visibility='hidden';const e=window.__tmtWorkshop.engine;window.__savedFrame=e.frame.bind(e);e.frame=input=>window.__savedFrame({...input,camera:{position:[3.1,2.75,-2.65],target:[5.05,2.05,-5.65],up:[0,1,0],fovY:45*Math.PI/180},focus:{world:[5.05,2.05,-5.65],distance:3.6,tilt:0}});})()",
+        "wait:700",
+        "shot:boiler-normal-detail",
+        "eval:(()=>{window.__tmtWorkshop.engine.frame=window.__savedFrame;document.querySelector('.ws-overlay').style.visibility='visible';})()",
+        "click:#workshop-back",
+        "wait:300",
+        "eval@disposed:(()=>{const p=window.__tmtWorkshop,b=p.engine.telemetry().vram.total;if(p.ready||b!==0)throw new Error('Resources retained:'+b);return{remainingGpuBytes:b};})()"
+      ]
+    },
+    {
+      "name": "startup",
+      "url": "/play.html",
+      "size": "1920x1080",
+      "wait": "selector:#title-workshop",
+      "timeout": 120000,
+      "settle": 100,
+      "probe": "window.__tmtWorkshop?.snapshot()",
+      "keys": [
+        "eval:performance.setResourceTimingBufferSize(4000);performance.clearResourceTimings();window.__workshopColdStart=performance.now()",
+        "click:#title-workshop",
+        "waitfor:window.__tmtWorkshop?.ready && window.__tmtWorkshop.frames>2 && !document.querySelector('.ws-loading')",
+        "eval@coldStart:(()=>{const assets=performance.getEntriesByType('resource').filter(e=>e.name.includes('/workshop/')&&!e.name.includes('/src/'));return{interactiveMs:performance.now()-window.__workshopColdStart,assets:assets.length,transferBytes:assets.reduce((n,e)=>n+e.transferSize,0),encodedBytes:assets.reduce((n,e)=>n+e.encodedBodySize,0),decodedBytes:assets.reduce((n,e)=>n+e.decodedBodySize,0)};})()",
+        "wait:1800",
+        "shot:hero",
+        "eval@shaderCheck:window.__tmtWorkshop.shaderCheck()",
+        "click:#workshop-back",
+        "wait:300",
+        "eval@disposed:(()=>{const p=window.__tmtWorkshop,b=p.engine.telemetry().vram.total;if(p.ready||b!==0)throw new Error('Resources retained:'+b);return{remainingGpuBytes:b};})()"
+      ]
+    },
+    {
+      "name": "cancel-loading",
+      "url": "/play.html",
+      "size": "1440x900",
+      "wait": "selector:#title-workshop",
+      "settle": 100,
+      "timeout": 120000,
+      "keys": [
+        "eval:(() => { window.__workshopAbortTest={devices:[],delayed:0,cancelled:0}; const state=window.__workshopAbortTest; const fetchOriginal=window.fetch.bind(window); state.fetchOriginal=fetchOriginal; window.fetch=async (input, options) => { if(String(input).startsWith('/workshop/prop-') && String(input).includes('baseColor')) { state.delayed++; await new Promise((resolve,reject) => { const signal=options?.signal; const abort=()=>{clearTimeout(timer);state.cancelled++;reject(new DOMException('Slow asset aborted','AbortError'));}; const timer=setTimeout(()=>{signal?.removeEventListener('abort',abort);resolve();},15000); if(signal?.aborted) abort(); else signal?.addEventListener('abort',abort,{once:true}); }); } return fetchOriginal(input,options); }; const requestAdapter=navigator.gpu.requestAdapter.bind(navigator.gpu); navigator.gpu.requestAdapter=async options=>{const adapter=await requestAdapter(options); if(adapter){const requestDevice=adapter.requestDevice.bind(adapter);adapter.requestDevice=async descriptor=>{const device=await requestDevice(descriptor);state.devices.push(device);return device;};}return adapter;}; })()",
+        "click:#title-workshop",
+        "waitfor:window.__workshopAbortTest.delayed > 0",
+        "click:#workshop-back",
+        "wait:800",
+        "eval@aborted:(() => { const state=window.__workshopAbortTest;const bytes=state.devices.map(device=>device.__tmtVram?.total); if((state.cancelled<1 || state.cancelled!==state.delayed) || bytes.length!==1 || bytes.some(value=>value!==0) || document.querySelector('#workshop')) throw new Error('Early workshop leave failed to abort/release '+JSON.stringify({cancelled:state.cancelled,bytes}));window.fetch=state.fetchOriginal;return{abortedRequests:state.cancelled,devices:bytes.length,remainingGpuBytes:bytes}; })()",
+        "click:#title-workshop",
+        "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')",
+        "wait:700",
+        "shot:reopened",
+        "click:#workshop-back",
+        "wait:400",
+        "eval@recovered:(() => { const bytes=window.__workshopAbortTest.devices.map(device=>device.__tmtVram?.total);if(bytes.length!==2 || bytes.some(value=>value!==0) || window.__tmtWorkshop.ready)throw new Error('Workshop did not recover cleanly '+JSON.stringify(bytes));return{successfulReopen:true,remainingGpuBytes:bytes}; })()"
+      ]
+    },
+    {
+      "name": "cancel-reflection",
+      "url": "/play.html",
+      "size": "1440x900",
+      "wait": "selector:#title-workshop",
+      "settle": 100,
+      "timeout": 120000,
+      "keys": [
+        "eval:(() => { window.__workshopAbortTest={devices:[],delayed:0,cancelled:0}; const state=window.__workshopAbortTest; const fetchOriginal=window.fetch.bind(window); state.fetchOriginal=fetchOriginal; window.fetch=async (input, options) => { if(String(input)==='/workshop/reflection-nx.webp') { state.delayed++; await new Promise((resolve,reject) => { const signal=options?.signal; const abort=()=>{clearTimeout(timer);state.cancelled++;reject(new DOMException('Slow asset aborted','AbortError'));}; const timer=setTimeout(()=>{signal?.removeEventListener('abort',abort);resolve();},15000); if(signal?.aborted) abort(); else signal?.addEventListener('abort',abort,{once:true}); }); } return fetchOriginal(input,options); }; const requestAdapter=navigator.gpu.requestAdapter.bind(navigator.gpu); navigator.gpu.requestAdapter=async options=>{const adapter=await requestAdapter(options); if(adapter){const requestDevice=adapter.requestDevice.bind(adapter);adapter.requestDevice=async descriptor=>{const device=await requestDevice(descriptor);state.devices.push(device);return device;};}return adapter;}; })()",
+        "click:#title-workshop",
+        "waitfor:window.__workshopAbortTest.delayed > 0",
+        "click:#workshop-back",
+        "wait:800",
+        "eval@aborted:(() => { const state=window.__workshopAbortTest;const bytes=state.devices.map(device=>device.__tmtVram?.total); if(state.cancelled!==1 || bytes.length!==1 || bytes.some(value=>value!==0) || document.querySelector('#workshop')) throw new Error('Early workshop leave failed to abort/release '+JSON.stringify({cancelled:state.cancelled,bytes}));window.fetch=state.fetchOriginal;return{abortedRequests:state.cancelled,devices:bytes.length,remainingGpuBytes:bytes}; })()",
+        "click:#title-workshop",
+        "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')",
+        "wait:700",
+        "shot:reopened",
+        "click:#workshop-back",
+        "wait:400",
+        "eval@recovered:(() => { const bytes=window.__workshopAbortTest.devices.map(device=>device.__tmtVram?.total);if(bytes.length!==2 || bytes.some(value=>value!==0) || window.__tmtWorkshop.ready)throw new Error('Workshop did not recover cleanly '+JSON.stringify(bytes));return{successfulReopen:true,remainingGpuBytes:bytes}; })()"
+      ]
+    }
+  ]
+}

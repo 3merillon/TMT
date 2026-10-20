@@ -1,0 +1,299 @@
+[
+  {
+    "file": "prop-0-normal-q96.webp",
+    "kind": "normal",
+    "bytes": 1483168,
+    "meanAngle": 3.3346824645996094,
+    "p95Angle": 11.30405044555664,
+    "p99Angle": 19.085979461669922,
+    "maxAngle": 87.38948059082031
+  },
+  {
+    "file": "prop-0-normal-q100.webp",
+    "kind": "normal",
+    "bytes": 1926390,
+    "meanAngle": 3.2052221298217773,
+    "p95Angle": 11.142580032348633,
+    "p99Angle": 18.904956817626953,
+    "maxAngle": 91.23908233642578
+  },
+  {
+    "file": "prop-0-normal-xy6.webp",
+    "kind": "normal",
+    "bytes": 4160860,
+    "meanAngle": 0.7854888439178467,
+    "p95Angle": 1.3358875513076782,
+    "p99Angle": 2.0621297359466553,
+    "maxAngle": 20.83893585205078
+  },
+  {
+    "file": "prop-0-normal-xy7.webp",
+    "kind": "normal",
+    "bytes": 5100502,
+    "meanAngle": 0.43533968925476074,
+    "p95Angle": 0.7643826007843018,
+    "p99Angle": 1.4086158275604248,
+    "maxAngle": 20.83893585205078
+  },
+  {
+    "file": "prop-2-normal-q96.webp",
+    "kind": "normal",
+    "bytes": 1234674,
+    "meanAngle": 2.3067750930786133,
+    "p95Angle": 7.591217517852783,
+    "p99Angle": 13.57526683807373,
+    "maxAngle": 92.7289047241211
+  },
+  {
+    "file": "prop-2-normal-q100.webp",
+    "kind": "normal",
+    "bytes": 1630060,
+    "meanAngle": 2.2033538818359375,
+    "p95Angle": 7.526707649230957,
+    "p99Angle": 13.544634819030762,
+    "maxAngle": 93.1253433227539
+  },
+  {
+    "file": "prop-2-normal-xy6.webp",
+    "kind": "normal",
+    "bytes": 3271928,
+    "meanAngle": 0.7518301010131836,
+    "p95Angle": 1.270569920539856,
+    "p99Angle": 1.553937554359436,
+    "maxAngle": 34.276214599609375
+  },
+  {
+    "file": "prop-2-normal-xy7.webp",
+    "kind": "normal",
+    "bytes": 4201314,
+    "meanAngle": 0.41511663794517517,
+    "p95Angle": 0.6954878568649292,
+    "p99Angle": 0.9789879322052002,
+    "maxAngle": 31.43590545654297
+  },
+  {
+    "file": "prop-5-normal-q96.webp",
+    "kind": "normal",
+    "bytes": 1392782,
+    "meanAngle": 3.0534703731536865,
+    "p95Angle": 10.341033935546875,
+    "p99Angle": 17.777936935424805,
+    "maxAngle": 71.91541290283203
+  },
+  {
+    "file": "prop-5-normal-q100.webp",
+    "kind": "normal",
+    "bytes": 1816122,
+    "meanAngle": 2.9255270957946777,
+    "p95Angle": 10.167004585266113,
+    "p99Angle": 17.611204147338867,
+    "maxAngle": 72.39021301269531
+  },
+  {
+    "file": "prop-5-normal-xy6.webp",
+    "kind": "normal",
+    "bytes": 3879010,
+    "meanAngle": 0.7815258502960205,
+    "p95Angle": 1.3238213062286377,
+    "p99Angle": 2.0605156421661377,
+    "maxAngle": 30.88105583190918
+  },
+  {
+    "file": "prop-5-normal-xy7.webp",
+    "kind": "normal",
+    "bytes": 4830444,
+    "meanAngle": 0.4338817894458771,
+    "p95Angle": 0.7540733814239502,
+    "p99Angle": 1.4030479192733765,
+    "maxAngle": 27.176055908203125
+  },
+  {
+    "file": "prop-0-orm-q98.webp",
+    "kind": "orm",
+    "bytes": 323294,
+    "roughness": {
+      "p99": 0.0235294122248888,
+      "max": 0.07058823853731155
+    },
+    "metallic": {
+      "p99": 0.12941177189350128,
+      "max": 0.30980393290519714
+    }
+  },
+  {
+    "file": "prop-0-orm-gb6.webp",
+    "kind": "orm",
+    "bytes": 624364,
+    "roughness": {
+      "p99": 0.007843137718737125,
+      "max": 0.007843137718737125
+    },
+    "metallic": {
+      "p99": 0.007843137718737125,
+      "max": 0.007843137718737125
+    }
+  },
+  {
+    "file": "prop-0-orm-gb7.webp",
+    "kind": "orm",
+    "bytes": 856238,
+    "roughness": {
+      "p99": 0.003921568859368563,
+      "max": 0.003921568859368563
+    },
+    "metallic": {
+      "p99": 0.003921568859368563,
+      "max": 0.003921568859368563
+    }
+  },
+  {
+    "file": "prop-2-orm-q98.webp",
+    "kind": "orm",
+    "bytes": 268378,
+    "roughness": {
+      "p99": 0.0235294122248888,
+      "max": 0.06666667014360428
+    },
+    "metallic": {
+      "p99": 0.16078431904315948,
+      "max": 0.3764705955982208
+    }
+  },
+  {
+    "file": "prop-2-orm-gb6.webp",
+    "kind": "orm",
+    "bytes": 519644,
+    "roughness": {
+      "p99": 0.007843137718737125,
+      "max": 0.007843137718737125
+    },
+    "metallic": {
+      "p99": 0.007843137718737125,
+      "max": 0.007843137718737125
+    }
+  },
+  {
+    "file": "prop-2-orm-gb7.webp",
+    "kind": "orm",
+    "bytes": 709500,
+    "roughness": {
+      "p99": 0.003921568859368563,
+      "max": 0.003921568859368563
+    },
+    "metallic": {
+      "p99": 0.003921568859368563,
+      "max": 0.003921568859368563
+    }
+  },
+  {
+    "file": "prop-5-orm-q98.webp",
+    "kind": "orm",
+    "bytes": 304370,
+    "roughness": {
+      "p99": 0.0235294122248888,
+      "max": 0.07058823853731155
+    },
+    "metallic": {
+      "p99": 0.14901961386203766,
+      "max": 0.3803921639919281
+    }
+  },
+  {
+    "file": "prop-5-orm-gb6.webp",
+    "kind": "orm",
+    "bytes": 548948,
+    "roughness": {
+      "p99": 0.007843137718737125,
+      "max": 0.007843137718737125
+    },
+    "metallic": {
+      "p99": 0.007843137718737125,
+      "max": 0.007843137718737125
+    }
+  },
+  {
+    "file": "prop-5-orm-gb7.webp",
+    "kind": "orm",
+    "bytes": 754284,
+    "roughness": {
+      "p99": 0.003921568859368563,
+      "max": 0.003921568859368563
+    },
+    "metallic": {
+      "p99": 0.003921568859368563,
+      "max": 0.003921568859368563
+    }
+  },
+  {
+    "file": "architecture-brick-q94.webp",
+    "kind": "surface",
+    "bytes": 913134,
+    "psnr": 37.18244934082031
+  },
+  {
+    "file": "architecture-brick-q96.webp",
+    "kind": "surface",
+    "bytes": 1015648,
+    "psnr": 37.67988586425781
+  },
+  {
+    "file": "architecture-concrete-q94.webp",
+    "kind": "surface",
+    "bytes": 807364,
+    "psnr": 40.51824951171875
+  },
+  {
+    "file": "architecture-concrete-q96.webp",
+    "kind": "surface",
+    "bytes": 885396,
+    "psnr": 41.148193359375
+  },
+  {
+    "file": "architecture-vault-q94.webp",
+    "kind": "surface",
+    "bytes": 803668,
+    "psnr": 40.50058364868164
+  },
+  {
+    "file": "architecture-vault-q96.webp",
+    "kind": "surface",
+    "bytes": 882488,
+    "psnr": 41.144493103027344
+  },
+  {
+    "file": "fixture-paint-q94.webp",
+    "kind": "surface",
+    "bytes": 599388,
+    "psnr": 41.87501907348633
+  },
+  {
+    "file": "fixture-paint-q96.webp",
+    "kind": "surface",
+    "bytes": 675614,
+    "psnr": 42.718788146972656
+  },
+  {
+    "file": "fixture-brass-q94.webp",
+    "kind": "surface",
+    "bytes": 867636,
+    "psnr": 36.58583068847656
+  },
+  {
+    "file": "fixture-brass-q96.webp",
+    "kind": "surface",
+    "bytes": 976006,
+    "psnr": 36.95277404785156
+  },
+  {
+    "file": "gauge-face-q94.webp",
+    "kind": "surface",
+    "bytes": 222098,
+    "psnr": 43.611671447753906
+  },
+  {
+    "file": "gauge-face-q96.webp",
+    "kind": "surface",
+    "bytes": 262172,
+    "psnr": 44.23577117919922
+  }
+]

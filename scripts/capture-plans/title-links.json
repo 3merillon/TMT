@@ -1,0 +1,73 @@
+{
+  "name": "title-links",
+  "out": "artifacts/screens/title-links",
+  "jobs": [
+    {
+      "name": "desktop",
+      "url": "/play.html",
+      "size": "1440x900",
+      "wait": "selector:#title-donate",
+      "settle": 1200,
+      "keys": [
+        "eval@structure:(()=>{const expected={\"title-donate\":\"https://buy.stripe.com/3cIcN77Lg7xv2g68sQdnW00\",\"title-creator\":\"https://x.com/3merillon\",\"title-website\":\"https://3merillon.com\"};for(const[id,url]of Object.entries(expected)){const nodes=document.querySelectorAll('#'+id);if(nodes.length!==1||nodes[0].getAttribute('href')!==url)throw new Error(id+' missing or wrong destination');if(nodes[0].target!=='_blank'||!nodes[0].rel.includes('noopener'))throw new Error('External link safety');}const menu=document.querySelector('.title-menu');if([...menu.querySelectorAll(':scope>.menu-item')].at(-1)?.id!=='title-donate'||menu.lastElementChild?.className!=='title-footer')throw new Error('Donate/footer must end the menu');const rows=[...menu.children].map(e=>({name:e.id||e.className,r:e.getBoundingClientRect()}));for(let i=1;i<rows.length;i++)if(rows[i].r.top<rows[i-1].r.bottom-1)throw new Error(rows[i].name+' overlaps '+rows[i-1].name);if(document.querySelector('.screens').scrollWidth>innerWidth+1)throw new Error('Horizontal overflow');return{viewport:[innerWidth,innerHeight],rows:rows.map(x=>x.name)}})()",
+        "shot:initial",
+        "eval@reachable:(async()=>{for(const id of ['title-creator','title-website','title-donate']){const a=document.getElementById(id);a.scrollIntoView({block:'center'});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));const b=a.getBoundingClientRect();if(b.top<0||b.bottom>innerHeight+1||b.width<1||!a.contains(document.elementFromPoint(b.left+b.width/2,b.top+b.height/2)))throw new Error(id+' is not reachable without overlap');}return true})()",
+        "shot:menu-footer"
+      ]
+    },
+    {
+      "name": "mobile",
+      "url": "/play.html",
+      "size": "390x844",
+      "touch": true,
+      "wait": "selector:#title-donate",
+      "settle": 1200,
+      "keys": [
+        "eval@structure:(()=>{const expected={\"title-donate\":\"https://buy.stripe.com/3cIcN77Lg7xv2g68sQdnW00\",\"title-creator\":\"https://x.com/3merillon\",\"title-website\":\"https://3merillon.com\"};for(const[id,url]of Object.entries(expected)){const nodes=document.querySelectorAll('#'+id);if(nodes.length!==1||nodes[0].getAttribute('href')!==url)throw new Error(id+' missing or wrong destination');if(nodes[0].target!=='_blank'||!nodes[0].rel.includes('noopener'))throw new Error('External link safety');}const menu=document.querySelector('.title-menu');if([...menu.querySelectorAll(':scope>.menu-item')].at(-1)?.id!=='title-donate'||menu.lastElementChild?.className!=='title-footer')throw new Error('Donate/footer must end the menu');const rows=[...menu.children].map(e=>({name:e.id||e.className,r:e.getBoundingClientRect()}));for(let i=1;i<rows.length;i++)if(rows[i].r.top<rows[i-1].r.bottom-1)throw new Error(rows[i].name+' overlaps '+rows[i-1].name);if(document.querySelector('.screens').scrollWidth>innerWidth+1)throw new Error('Horizontal overflow');return{viewport:[innerWidth,innerHeight],rows:rows.map(x=>x.name)}})()",
+        "shot:initial",
+        "eval@reachable:(async()=>{for(const id of ['title-creator','title-website','title-donate']){const a=document.getElementById(id);a.scrollIntoView({block:'center'});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));const b=a.getBoundingClientRect();if(b.top<0||b.bottom>innerHeight+1||b.width<1||!a.contains(document.elementFromPoint(b.left+b.width/2,b.top+b.height/2)))throw new Error(id+' is not reachable without overlap');}return true})()",
+        "shot:menu-footer"
+      ]
+    },
+    {
+      "name": "narrow-mobile",
+      "url": "/play.html",
+      "size": "320x700",
+      "touch": true,
+      "wait": "selector:#title-donate",
+      "settle": 1200,
+      "keys": [
+        "eval@structure:(()=>{const expected={\"title-donate\":\"https://buy.stripe.com/3cIcN77Lg7xv2g68sQdnW00\",\"title-creator\":\"https://x.com/3merillon\",\"title-website\":\"https://3merillon.com\"};for(const[id,url]of Object.entries(expected)){const nodes=document.querySelectorAll('#'+id);if(nodes.length!==1||nodes[0].getAttribute('href')!==url)throw new Error(id+' missing or wrong destination');if(nodes[0].target!=='_blank'||!nodes[0].rel.includes('noopener'))throw new Error('External link safety');}const menu=document.querySelector('.title-menu');if([...menu.querySelectorAll(':scope>.menu-item')].at(-1)?.id!=='title-donate'||menu.lastElementChild?.className!=='title-footer')throw new Error('Donate/footer must end the menu');const rows=[...menu.children].map(e=>({name:e.id||e.className,r:e.getBoundingClientRect()}));for(let i=1;i<rows.length;i++)if(rows[i].r.top<rows[i-1].r.bottom-1)throw new Error(rows[i].name+' overlaps '+rows[i-1].name);if(document.querySelector('.screens').scrollWidth>innerWidth+1)throw new Error('Horizontal overflow');return{viewport:[innerWidth,innerHeight],rows:rows.map(x=>x.name)}})()",
+        "shot:initial",
+        "eval@reachable:(async()=>{for(const id of ['title-creator','title-website','title-donate']){const a=document.getElementById(id);a.scrollIntoView({block:'center'});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));const b=a.getBoundingClientRect();if(b.top<0||b.bottom>innerHeight+1||b.width<1||!a.contains(document.elementFromPoint(b.left+b.width/2,b.top+b.height/2)))throw new Error(id+' is not reachable without overlap');}return true})()",
+        "shot:menu-footer"
+      ]
+    },
+    {
+      "name": "desktop-720p",
+      "url": "/play.html",
+      "size": "1280x720",
+      "wait": "selector:#title-donate",
+      "settle": 1200,
+      "keys": [
+        "eval@structure:(()=>{const expected={\"title-donate\":\"https://buy.stripe.com/3cIcN77Lg7xv2g68sQdnW00\",\"title-creator\":\"https://x.com/3merillon\",\"title-website\":\"https://3merillon.com\"};for(const[id,url]of Object.entries(expected)){const nodes=document.querySelectorAll('#'+id);if(nodes.length!==1||nodes[0].getAttribute('href')!==url)throw new Error(id+' missing or wrong destination');if(nodes[0].target!=='_blank'||!nodes[0].rel.includes('noopener'))throw new Error('External link safety');}const menu=document.querySelector('.title-menu');if([...menu.querySelectorAll(':scope>.menu-item')].at(-1)?.id!=='title-donate'||menu.lastElementChild?.className!=='title-footer')throw new Error('Donate/footer must end the menu');const rows=[...menu.children].map(e=>({name:e.id||e.className,r:e.getBoundingClientRect()}));for(let i=1;i<rows.length;i++)if(rows[i].r.top<rows[i-1].r.bottom-1)throw new Error(rows[i].name+' overlaps '+rows[i-1].name);if(document.querySelector('.screens').scrollWidth>innerWidth+1)throw new Error('Horizontal overflow');return{viewport:[innerWidth,innerHeight],rows:rows.map(x=>x.name)}})()",
+        "shot:initial",
+        "eval@reachable:(async()=>{for(const id of ['title-creator','title-website','title-donate']){const a=document.getElementById(id);a.scrollIntoView({block:'center'});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));const b=a.getBoundingClientRect();if(b.top<0||b.bottom>innerHeight+1||b.width<1||!a.contains(document.elementFromPoint(b.left+b.width/2,b.top+b.height/2)))throw new Error(id+' is not reachable without overlap');}return true})()",
+        "shot:menu-footer"
+      ]
+    },
+    {
+      "name": "desktop-laptop",
+      "url": "/play.html",
+      "size": "1366x768",
+      "wait": "selector:#title-donate",
+      "settle": 1200,
+      "keys": [
+        "eval@structure:(()=>{const expected={\"title-donate\":\"https://buy.stripe.com/3cIcN77Lg7xv2g68sQdnW00\",\"title-creator\":\"https://x.com/3merillon\",\"title-website\":\"https://3merillon.com\"};for(const[id,url]of Object.entries(expected)){const nodes=document.querySelectorAll('#'+id);if(nodes.length!==1||nodes[0].getAttribute('href')!==url)throw new Error(id+' missing or wrong destination');if(nodes[0].target!=='_blank'||!nodes[0].rel.includes('noopener'))throw new Error('External link safety');}const menu=document.querySelector('.title-menu');if([...menu.querySelectorAll(':scope>.menu-item')].at(-1)?.id!=='title-donate'||menu.lastElementChild?.className!=='title-footer')throw new Error('Donate/footer must end the menu');const rows=[...menu.children].map(e=>({name:e.id||e.className,r:e.getBoundingClientRect()}));for(let i=1;i<rows.length;i++)if(rows[i].r.top<rows[i-1].r.bottom-1)throw new Error(rows[i].name+' overlaps '+rows[i-1].name);if(document.querySelector('.screens').scrollWidth>innerWidth+1)throw new Error('Horizontal overflow');return{viewport:[innerWidth,innerHeight],rows:rows.map(x=>x.name)}})()",
+        "shot:initial",
+        "eval@reachable:(async()=>{for(const id of ['title-creator','title-website','title-donate']){const a=document.getElementById(id);a.scrollIntoView({block:'center'});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));const b=a.getBoundingClientRect();if(b.top<0||b.bottom>innerHeight+1||b.width<1||!a.contains(document.elementFromPoint(b.left+b.width/2,b.top+b.height/2)))throw new Error(id+' is not reachable without overlap');}return true})()",
+        "shot:menu-footer"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "plan": "smoke",
+  "description": "Post-change sanity: the drive page gets ready with no errors, a shell commits its crater and the simulation resumes. The ready bound is deliberately loose; this is a functional smoke check, not a startup performance measurement.",
+  "tolerance": 0.15,
+  "checks": [
+    { "id": "ready", "path": "jobs.smoke-drive.ok", "equals": true, "stream": "W0-TOOLS" },
+    { "id": "page-errors", "path": "jobs.smoke-drive.pageErrors", "max": 0, "gate": true, "stream": "W0-TOOLS" },
+    { "id": "console-errors", "path": "jobs.smoke-drive.consoleErrors", "max": 0, "gate": true, "stream": "W0-TOOLS" },
+    { "id": "http-errors", "path": "jobs.smoke-drive.httpErrors", "max": 0, "gate": true, "note": "403s mean server.fs.allow misses the node_modules realpath", "stream": "W0-TOOLS" },
+    { "id": "ready-sanity-ms", "path": "jobs.smoke-drive.timings.readyMs", "max": 12000, "gate": true, "note": "Sanity only; use repeated performance captures to assess startup timing.", "stream": "W0-TOOLS" },
+    { "id": "crater-committed", "path": "shots.smoke-drive-impact.telemetry.terrainVersion", "min": 2, "gate": true, "note": "terrain version 1 -> 2 after the shell", "stream": "W0-TOOLS" },
+    { "id": "sim-resumed", "path": "shots.smoke-drive-impact.telemetry.phase", "equals": "aim", "stream": "W0-TOOLS" },
+    { "id": "no-nan-blotches", "image": { "shot": "smoke-drive-impact", "metric": "nanBlocks.total" }, "max": 0, "gate": true, "stream": "W0-TOOLS" }
+  ]
+}

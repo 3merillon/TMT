@@ -1,0 +1,13 @@
+{
+  "name": "workshop-mobile-framing", "out": "artifacts/workshop-mobile-framing",
+  "jobs": [{
+    "name": "mobile", "url": "/play.html", "size": "390x844", "wait": "selector:#title-workshop", "timeout": 120000,
+    "settle": 100, "probe": "window.__tmtWorkshop?.snapshot()",
+    "keys": [
+      "click:#title-workshop", "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')", "wait:1700",
+      "click:#workshop-open-components", "click:#workshop-slot-hull", "click:#workshop-part-skiff", "wait:950", "shot:full-preview",
+      "eval@shaderCheck:window.__tmtWorkshop.shaderCheck()", "click:#workshop-back", "wait:200",
+      "eval@disposed:(()=>{const p=window.__tmtWorkshop,b=p.engine.telemetry().vram.total;if(p.ready||b!==0)throw new Error('Resources retained:'+b);return{remainingGpuBytes:b,audio:p.snapshot().audio};})()"
+    ]
+  }]
+}

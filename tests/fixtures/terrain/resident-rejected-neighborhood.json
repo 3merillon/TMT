@@ -1,0 +1,88 @@
+{
+  "profile": "resident-f32-v1",
+  "brick": "-2,0,-2",
+  "fixture": {
+    "name": "one-support",
+    "bounds": {
+      "min": [
+        -12,
+        0,
+        -9
+      ],
+      "max": [
+        12,
+        9,
+        9
+      ]
+    },
+    "planetCenter": [
+      0,
+      -1000,
+      0
+    ],
+    "sources": [
+      {
+        "id": "foundation",
+        "material": 1,
+        "anchor": "fixed-foundation",
+        "bounds": {
+          "min": [
+            -12,
+            0,
+            -9
+          ],
+          "max": [
+            12,
+            0.6,
+            9
+          ]
+        }
+      },
+      {
+        "id": "pillar-0",
+        "material": 2,
+        "bounds": {
+          "min": [
+            -5.3,
+            0.6,
+            -0.9
+          ],
+          "max": [
+            -3.7,
+            6,
+            0.9
+          ]
+        }
+      },
+      {
+        "id": "slab",
+        "material": 3,
+        "bounds": {
+          "min": [
+            -8.4,
+            6,
+            -1.5
+          ],
+          "max": [
+            8.4,
+            7.2,
+            1.5
+          ]
+        }
+      }
+    ],
+    "cuts": [
+      {
+        "id": "cut-0",
+        "center": [
+          -4.5,
+          3,
+          0
+        ],
+        "radius": 2.25
+      }
+    ]
+  },
+  "error": "ResidentFailure: Ambiguous zero-area split; old pages retained (tet -9,0,-9/11, field plane:0/-1/-8.399999618530273)",
+  "continuation": "Resolve this local collapsed-cap construction from original sample constraints; preserve the old accepted world until the replacement passes volume and seam validation."
+}

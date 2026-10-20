@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 700" class="title-art-svg" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="tmt-halo">
+      <stop stop-color="#8baa6c" stop-opacity=".16"/><stop offset=".55" stop-color="#819d64" stop-opacity=".04"/><stop offset="1" stop-color="#819d64" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tmt-world" cx=".3" cy=".24" r=".8">
+      <stop stop-color="#8eaa72" stop-opacity=".24"/><stop offset=".33" stop-color="#526e45" stop-opacity=".15"/><stop offset=".7" stop-color="#263f2b" stop-opacity=".09"/><stop offset="1" stop-color="#0b1912" stop-opacity=".04"/>
+    </radialGradient>
+    <radialGradient id="tmt-night" cx=".23" cy=".23" r=".86">
+      <stop offset=".25" stop-color="#06110c" stop-opacity="0"/><stop offset=".65" stop-color="#06110c" stop-opacity=".2"/><stop offset="1" stop-color="#030a06" stop-opacity=".84"/>
+    </radialGradient>
+    <linearGradient id="tmt-rim" x2=".8" y2="1">
+      <stop stop-color="#dbdbad" stop-opacity=".7"/><stop offset=".5" stop-color="#b3cd8b" stop-opacity=".24"/><stop offset="1" stop-color="#92b270" stop-opacity=".08"/>
+    </linearGradient>
+    <pattern id="tmt-hatching" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <path d="M0 0V7" stroke="#c3d49e" stroke-opacity=".12" stroke-width=".7"/>
+    </pattern>
+    <clipPath id="tmt-world-clip"><circle r="146"/></clipPath>
+  </defs>
+  <g id="tmt-scene" transform="translate(360 345)">
+    <circle r="320" fill="url(#tmt-halo)"/>
+    <g fill="none" stroke="#b4c19c" stroke-opacity=".16" stroke-width=".7">
+      <path d="M-275 0h20m-10-10v20M255 0h20m-10-10v20M0-265v20m-10-10h20M0 245v20m-10-10h20"/>
+      <path d="M-215-186h18v-18M197-204v18h18M-215 186h18v18M197 204v-18h18"/>
+    </g>
+    <g id="tmt-rear"/>
+    <g clip-path="url(#tmt-world-clip)">
+      <circle r="146" fill="url(#tmt-world)"/>
+      <circle r="146" fill="url(#tmt-hatching)" opacity=".3"/>
+      <g id="tmt-grid-back" fill="none" stroke="#a4bf8b" stroke-opacity=".12" stroke-width=".55"/>
+      <g id="tmt-grid" fill="none" stroke="#c7d5a2" stroke-opacity=".25" stroke-width=".65"/>
+      <circle r="146" fill="url(#tmt-night)" opacity=".12"/>
+    </g>
+    <circle r="146" fill="none" stroke="url(#tmt-rim)" stroke-width="1.1"/>
+    <g id="tmt-target"/>
+    <g id="tmt-front"/>
+    <g id="tmt-tags"/>
+  </g>
+</svg>

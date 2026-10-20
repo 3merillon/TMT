@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-13",
+  "environment": "Chromium149, NVIDIA RTX3080, 1920x1080, local cold workshop entry",
+  "normalDecoder": {
+    "layers": 7,
+    "sampledTexels": 168,
+    "negativeZTexels": 7,
+    "maxByteError": 1
+  },
+  "startup": {
+    "interactiveMs": 3001.7999999821186,
+    "assets": 45,
+    "transferBytes": 39677947,
+    "encodedBytes": 39664447,
+    "decodedBytes": 39664447
+  },
+  "gpu": {
+    "total": 649204135,
+    "peak": 689040695,
+    "byCategory": {
+      "workshop": 419440324,
+      "screen": 149292000,
+      "mesh": 73069924,
+      "sdf-casters": 4222784,
+      "uniform-ring": 3145728,
+      "post": 16512,
+      "reserved": 6260,
+      "lights": 4112,
+      "timings": 4096,
+      "lighting": 1376,
+      "frame": 688,
+      "fog": 138,
+      "bloom": 96,
+      "debug": 80,
+      "taa": 17
+    }
+  },
+  "baseline": {
+    "interactiveMs": 4584,
+    "referencedAssetBytes": 329987962,
+    "steadyGpuBytes": 1704027367,
+    "peakGpuBytes": 1710309495,
+    "note": "Original full-resolution images and uncompressed geometry; this baseline preceded the final static crane adjustment."
+  },
+  "cleanup": {
+    "normalDiagnostic": {
+      "remainingGpuBytes": 0
+    },
+    "normalEntry": {
+      "remainingGpuBytes": 0
+    },
+    "imageAbortAndReopen": [
+      {
+        "label": "aborted",
+        "result": {
+          "abortedRequests": 2,
+          "devices": 1,
+          "remainingGpuBytes": [
+            0
+          ]
+        }
+      },
+      {
+        "label": "recovered",
+        "result": {
+          "successfulReopen": true,
+          "remainingGpuBytes": [
+            0,
+            0
+          ]
+        }
+      }
+    ],
+    "reflectionAbortAndReopen": [
+      {
+        "label": "aborted",
+        "result": {
+          "abortedRequests": 1,
+          "devices": 1,
+          "remainingGpuBytes": [
+            0
+          ]
+        }
+      },
+      {
+        "label": "recovered",
+        "result": {
+          "successfulReopen": true,
+          "remainingGpuBytes": [
+            0,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  "evidence": [
+    "artifacts/workshop-normal-unpack/normals.json",
+    "artifacts/workshop-packaged-validation/startup.json",
+    "artifacts/workshop-packaged-validation/cancel-loading.json",
+    "artifacts/workshop-packaged-validation/cancel-reflection.json"
+  ],
+  "limitations": [
+    "Static room reflections exclude moving objects.",
+    "A single central box-projected probe approximates curved vault and nearby machinery.",
+    "Full geometry is preserved; runtime remains GPU-intensive at native1080p.",
+    "Final crane geometry repack and full mechanics acceptance are separate checks."
+  ]
+}

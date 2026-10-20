@@ -1,0 +1,63 @@
+{
+  "out": "artifacts/screens/fluids",
+  "jobs": [
+    {
+      "url": "play.html?mode=dev&seed=7&dev&off=veil,mist,liquidVeil",
+      "name": "water",
+      "size": "1600x900",
+      "settle": 6000,
+      "hideUi": true,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats() && window.__tmtFluids.stats().ready",
+        "wait:2500",
+        "eval@stats0:JSON.stringify(window.__tmtFluids.stats())",
+        "eval:window.__shore = (() => { const s = window.__tmtGame.snapshot; const t = s.tanks[s.active].position; let best = 1e9, bp = null; for (const p of window.__tmtFluids.shorePoints(4000, 'water')) { const d = Math.hypot(p[0] - t[0], p[1] - t[1], p[2] - t[2]); if (d < best) { best = d; bp = p; } } return bp; })()",
+        "eval:window.__tmtFluids.lookAt(window.__shore, 5, 7)",
+        "wait:2500",
+        "shot:calm",
+        "eval@gpu0:JSON.stringify((window.__tmtGame.performance.gpu.passes || []).filter(p => p.name.startsWith('fluids')).map(p => [p.name, +p.ms.toFixed(3)]))",
+        "eval@vol0:JSON.stringify(window.__tmtFluids.volume())",
+        "eval@breach:JSON.stringify({ ok: window.__tmtFluids.breach(window.__shore, 2.25, 30), shore: window.__shore.map(v => +v.toFixed(2)) })",
+        "wait:300",
+        "shot:t0-3",
+        "wait:700",
+        "shot:t1",
+        "wait:1500",
+        "shot:t2-5",
+        "eval@gpu2:JSON.stringify((window.__tmtGame.performance.gpu.passes || []).filter(p => p.name.startsWith('fluids')).map(p => [p.name, +p.ms.toFixed(3)]))",
+        "wait:2500",
+        "shot:t5",
+        "wait:5000",
+        "shot:t10",
+        "eval@vol10:JSON.stringify(window.__tmtFluids.volume())",
+        "eval:window.__tmtFluids.lookAt(window.__shore, 2.5, 3.5)",
+        "wait:2000",
+        "shot:t12-close",
+        "wait:6000",
+        "shot:t18-close",
+        "eval@vol18:JSON.stringify({ vol: window.__tmtFluids.volume(), stats: window.__tmtFluids.stats() })"
+      ]
+    },
+    {
+      "url": "play.html?mode=dev&seed=7&dev&off=veil,mist,liquidVeil&view=liquid-flow",
+      "name": "water-flow",
+      "size": "1600x900",
+      "settle": 6000,
+      "hideUi": true,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats() && window.__tmtFluids.stats().ready",
+        "wait:2500",
+        "eval:window.__shore = (() => { const s = window.__tmtGame.snapshot; const t = s.tanks[s.active].position; let best = 1e9, bp = null; for (const p of window.__tmtFluids.shorePoints(4000, 'water')) { const d = Math.hypot(p[0] - t[0], p[1] - t[1], p[2] - t[2]); if (d < best) { best = d; bp = p; } } return bp; })()",
+        "eval:window.__tmtFluids.lookAt(window.__shore, 5, 7)",
+        "wait:2500",
+        "eval:window.__tmtFluids.breach(window.__shore, 2.25, 30)",
+        "wait:1000",
+        "shot:t1",
+        "wait:2000",
+        "shot:t3",
+        "wait:4000",
+        "shot:t7"
+      ]
+    }
+  ]
+}

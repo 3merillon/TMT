@@ -1,0 +1,42 @@
+{
+  "name": "flow",
+  "description": "Desktop (1280x720) and phone-viewport (390x844) menu flow from the normal title: skirmish setup, match, pause and results through Forfeit. play.html redirects to the root app. Route telemetry records screen history; clip probes inspect visible panel bounds/overflow, and the dev-bar probe checks that development controls stay hidden without ?dev. Screenshots require visual review for readability.",
+  "out": "artifacts/screens/flow",
+  "budget": "budgets/flow.json",
+  "jobs": [
+    { "name": "flow-desktop", "url": "/play.html", "size": "1280x720", "wait": "js:window.__tmtGame?.ui?.screen === 'title'", "settle": 1200,
+      "keys": [
+        "shot:title",
+        "eval@clip-title:(() => { const out = []; for (const el of document.querySelectorAll('.title-screen, .title-menu, .screen-card, .game-shell .paper, .hud-bottom')) { if (!el.getClientRects().length) continue; const r = el.getBoundingClientRect(); if (r.left < -1 || r.top < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1 || el.scrollHeight > el.clientHeight + 2 && !/auto|scroll/.test(getComputedStyle(el).overflowY)) out.push(el.id || el.className); } return out; })()",
+        "click:#title-skirmish", "wait:500", "shot:setup",
+        "eval@clip-setup:(() => { const out = []; for (const el of document.querySelectorAll('.title-screen, .title-menu, .screen-card, .game-shell .paper, .hud-bottom')) { if (!el.getClientRects().length) continue; const r = el.getBoundingClientRect(); if (r.left < -1 || r.top < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1 || el.scrollHeight > el.clientHeight + 2 && !/auto|scroll/.test(getComputedStyle(el).overflowY)) out.push(el.id || el.className); } return out; })()",
+        "click:#skirmish-start",
+        "waitfor:(() => { const g = window.__tmtGame; return !!g && g.ready === true && g.ui?.screen === 'match'; })()",
+        "wait:2500", "shot:match",
+        "eval@devbar:(() => { const bar = document.getElementById('dev-bar'); return !!bar && bar.hidden && !bar.getClientRects().length; })()",
+        "eval@clip-match:(() => { const out = []; for (const el of document.querySelectorAll('.title-screen, .title-menu, .screen-card, .game-shell .paper, .hud-bottom')) { if (!el.getClientRects().length) continue; const r = el.getBoundingClientRect(); if (r.left < -1 || r.top < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1 || el.scrollHeight > el.clientHeight + 2 && !/auto|scroll/.test(getComputedStyle(el).overflowY)) out.push(el.id || el.className); } return out; })()",
+        "press:Escape", "wait:500", "shot:pause",
+        "eval@clip-pause:(() => { const out = []; for (const el of document.querySelectorAll('.screen-card')) { if (!el.getClientRects().length) continue; const r = el.getBoundingClientRect(); if (r.left < -1 || r.top < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1) out.push(el.id || el.className); } return out; })()",
+        "click:#pause-forfeit", "wait:700", "shot:results",
+        "eval@clip-results:(() => { const out = []; for (const el of document.querySelectorAll('.screen-card')) { if (!el.getClientRects().length) continue; const r = el.getBoundingClientRect(); if (r.left < -1 || r.top < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1) out.push(el.id || el.className); } return out; })()",
+        "eval@route:window.__tmtGame.ui.history"
+      ] },
+    { "name": "flow-phone", "url": "/play.html", "size": "390x844", "wait": "js:window.__tmtGame?.ui?.screen === 'title'", "settle": 1200,
+      "keys": [
+        "shot:title",
+        "eval@clip-title:(() => { const out = []; for (const el of document.querySelectorAll('.title-screen, .title-menu, .screen-card, .game-shell .paper, .hud-bottom')) { if (!el.getClientRects().length) continue; const r = el.getBoundingClientRect(); if (r.left < -1 || r.top < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1 || el.scrollHeight > el.clientHeight + 2 && !/auto|scroll/.test(getComputedStyle(el).overflowY)) out.push(el.id || el.className); } return out; })()",
+        "click:#title-skirmish", "wait:500", "shot:setup",
+        "eval@clip-setup:(() => { const out = []; for (const el of document.querySelectorAll('.title-screen, .title-menu, .screen-card, .game-shell .paper, .hud-bottom')) { if (!el.getClientRects().length) continue; const r = el.getBoundingClientRect(); if (r.left < -1 || r.top < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1 || el.scrollHeight > el.clientHeight + 2 && !/auto|scroll/.test(getComputedStyle(el).overflowY)) out.push(el.id || el.className); } return out; })()",
+        "click:#skirmish-start",
+        "waitfor:(() => { const g = window.__tmtGame; return !!g && g.ready === true && g.ui?.screen === 'match'; })()",
+        "wait:2500", "shot:match",
+        "eval@devbar:(() => { const bar = document.getElementById('dev-bar'); return !!bar && bar.hidden && !bar.getClientRects().length; })()",
+        "eval@clip-match:(() => { const out = []; for (const el of document.querySelectorAll('.title-screen, .title-menu, .screen-card, .game-shell .paper, .hud-bottom')) { if (!el.getClientRects().length) continue; const r = el.getBoundingClientRect(); if (r.left < -1 || r.top < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1 || el.scrollHeight > el.clientHeight + 2 && !/auto|scroll/.test(getComputedStyle(el).overflowY)) out.push(el.id || el.className); } return out; })()",
+        "press:Escape", "wait:500", "shot:pause",
+        "eval@clip-pause:(() => { const out = []; for (const el of document.querySelectorAll('.screen-card')) { if (!el.getClientRects().length) continue; const r = el.getBoundingClientRect(); if (r.left < -1 || r.top < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1) out.push(el.id || el.className); } return out; })()",
+        "click:#pause-forfeit", "wait:700", "shot:results",
+        "eval@clip-results:(() => { const out = []; for (const el of document.querySelectorAll('.screen-card')) { if (!el.getClientRects().length) continue; const r = el.getBoundingClientRect(); if (r.left < -1 || r.top < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1) out.push(el.id || el.className); } return out; })()",
+        "eval@route:window.__tmtGame.ui.history"
+      ] }
+  ]
+}

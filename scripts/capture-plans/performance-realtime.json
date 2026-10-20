@@ -1,0 +1,148 @@
+[
+  {
+    "name": "quiet-drive",
+    "seed": 7,
+    "seconds": 16,
+    "timeline": [
+      { "t": 0.5, "do": "keydown", "key": "KeyW", "mark": "first-input" },
+      { "t": 4, "do": "keydown", "key": "KeyD" },
+      { "t": 6, "do": "keyup", "key": "KeyD" },
+      { "t": 9, "do": "keydown", "key": "KeyA" },
+      { "t": 11, "do": "keyup", "key": "KeyA" },
+      { "t": 15, "do": "keyup", "key": "KeyW" }
+    ]
+  },
+  {
+    "name": "quiet-drive-fog",
+    "seed": 7,
+    "fog": true,
+    "seconds": 16,
+    "timeline": [
+      { "t": 0.5, "do": "keydown", "key": "KeyW", "mark": "first-input" },
+      { "t": 4, "do": "keydown", "key": "KeyD" },
+      { "t": 6, "do": "keyup", "key": "KeyD" },
+      { "t": 9, "do": "keydown", "key": "KeyA" },
+      { "t": 11, "do": "keyup", "key": "KeyA" },
+      { "t": 15, "do": "keyup", "key": "KeyW" }
+    ]
+  },
+  {
+    "name": "bot-duel",
+    "seed": 7,
+    "mode": "bot",
+    "seconds": 45,
+    "timeline": [
+      { "t": 2, "do": "press", "key": "Space", "mark": "shot-1" },
+      { "t": 5, "do": "keydown", "key": "KeyW" },
+      { "t": 9, "do": "keyup", "key": "KeyW" },
+      { "t": 16, "do": "press", "key": "Space", "mark": "shot-2" },
+      { "t": 30, "do": "press", "key": "Space", "mark": "shot-3" }
+    ]
+  },
+  {
+    "name": "overview-idle",
+    "seed": 7,
+    "skyTime": 0,
+    "camera": { "position": [-43.50033642533781, 33.50159015866965, -32.99839567517453], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "seconds": 12
+  },
+  {
+    "name": "dense-clouds-orbit",
+    "seed": 7,
+    "skyTime": 42,
+    "clouds": { "coverage": 2.2, "density": 1.8 },
+    "seconds": 14,
+    "timeline": [
+      { "t": 2, "do": "orbit", "dx": 700, "dy": 0, "seconds": 2, "mark": "orbit-slow" },
+      { "t": 6, "do": "orbit", "dx": -900, "dy": -140, "seconds": 0.8, "mark": "orbit-rapid" },
+      { "t": 9.5, "do": "orbit", "dx": 500, "dy": 180, "seconds": 1.5 }
+    ]
+  },
+  {
+    "name": "night-headlights",
+    "seed": 7,
+    "skyTime": 180,
+    "tanks": 4,
+    "camera": { "position": [0.508084737922049, 22.682826433662118, -0.011148372520206912], "target": [-5.335671901702881, 17.79914093017578, -0.0000020782042611244833],
+      "up": [-0.2871469129537156, 0.9578865540246083, -1.118415729195605e-7], "fovY": 0.8203047484373349 },
+    "seconds": 12,
+    "timeline": [
+      { "t": 2, "do": "keydown", "key": "KeyW" },
+      { "t": 5, "do": "keydown", "key": "KeyD" },
+      { "t": 8, "do": "keyup", "key": "KeyD" },
+      { "t": 8, "do": "keyup", "key": "KeyW" }
+    ]
+  },
+  {
+    "name": "explosive-shots",
+    "seed": 7,
+    "seconds": 27,
+    "timeline": [
+      { "t": 1, "do": "press", "key": "Space", "mark": "shot-1-first-use" },
+      { "t": 9.5, "do": "press", "key": "Space", "mark": "shot-2-warmed" },
+      { "t": 18, "do": "press", "key": "Space", "mark": "shot-3-warmed" }
+    ]
+  },
+  {
+    "name": "incendiary-shots",
+    "seed": 7,
+    "seconds": 28,
+    "timeline": [
+      { "t": 0.3, "do": "press", "key": "Tab" },
+      { "t": 0.6, "do": "press", "key": "Tab" },
+      { "t": 1, "do": "press", "key": "Space", "mark": "shot-1-first-use" },
+      { "t": 14, "do": "press", "key": "Space", "mark": "shot-2-warmed" }
+    ]
+  },
+  {
+    "name": "nuclear-shots",
+    "seed": 7,
+    "seconds": 36,
+    "timeline": [
+      { "t": 0.2, "do": "press", "key": "Tab" },
+      { "t": 0.45, "do": "press", "key": "Tab" },
+      { "t": 0.7, "do": "press", "key": "Tab" },
+      { "t": 1, "do": "press", "key": "Space", "mark": "shot-1-first-use" },
+      { "t": 18, "do": "press", "key": "Space", "mark": "shot-2-warmed" }
+    ]
+  },
+  {
+    "name": "overlapping-barrage",
+    "seed": 7,
+    "seconds": 30,
+    "timeline": [
+      { "t": 1, "do": "press", "key": "Space", "mark": "shot-1-explosive" },
+      { "t": 3.4, "do": "press", "key": "Tab" },
+      { "t": 3.8, "do": "press", "key": "Space", "mark": "shot-2-heavy" },
+      { "t": 6.2, "do": "press", "key": "Tab" },
+      { "t": 6.6, "do": "press", "key": "Space", "mark": "shot-3-incendiary" },
+      { "t": 9.0, "do": "press", "key": "Tab" },
+      { "t": 9.4, "do": "press", "key": "Space", "mark": "shot-4-nuclear" },
+      { "t": 12.4, "do": "press", "key": "Space", "mark": "shot-5-nuclear" },
+      { "t": 15.4, "do": "press", "key": "Space", "mark": "shot-6-nuclear" }
+    ]
+  },
+  {
+    "name": "large-edits",
+    "seed": 7,
+    "anchor": { "on": "tank", "height": 9, "back": 15, "azimuth": 0.5 },
+    "seconds": 27,
+    "timeline": [
+      { "t": 1, "do": "blast", "radius": 5, "munition": "heavy", "aim": { "on": "tank", "height": 7, "back": 0, "azimuth": 0.5, "ahead": 4 }, "mark": "edit-1-first-use" },
+      { "t": 9.5, "do": "blast", "radius": 5, "munition": "heavy", "aim": { "on": "tank", "height": 7, "back": 0, "azimuth": 2.6, "ahead": 4 }, "mark": "edit-2-warmed" },
+      { "t": 18, "do": "blast", "radius": 5, "munition": "heavy", "aim": { "on": "tank", "height": 7, "back": 0, "azimuth": 4.7, "ahead": 4 }, "mark": "edit-3-warmed" }
+    ]
+  },
+  {
+    "name": "structure-collapse",
+    "seed": 7,
+    "anchor": { "on": "structure", "height": 4.5, "back": 10, "azimuth": 0.6 },
+    "seconds": 30,
+    "timeline": [
+      { "t": 1, "do": "blast", "radius": 3, "munition": "heavy", "aim": { "on": "structure", "height": 0.6, "back": 7, "azimuth": 0.6 }, "mark": "collapse-1-first-use" },
+      { "t": 10, "do": "blast", "radius": 3, "munition": "heavy", "aim": { "on": "structure", "height": 0.6, "back": 7, "azimuth": 2.4 }, "mark": "collapse-2-warmed" },
+      { "t": 19, "do": "blast", "radius": 4, "munition": "nuclear", "aim": { "on": "structure", "height": 2.5, "back": 7, "azimuth": 4.4 }, "mark": "collapse-3-nuclear" }
+    ]
+  }
+]

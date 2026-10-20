@@ -1,0 +1,624 @@
+{
+  "version": 1,
+  "name": "Underground Service Bay 03",
+  "source": "Blender 5.2 CAD architecture; image-generated atlas; full source geometry with packaged authored PBR maps; originals archived",
+  "bounds": {
+    "min": [
+      -7.5,
+      -0.85,
+      -21.6
+    ],
+    "max": [
+      7.5,
+      11,
+      9.3
+    ]
+  },
+  "meshes": [
+    {
+      "file": "room-5.bin",
+      "material": 5,
+      "tint": [
+        1,
+        0.75,
+        0.38
+      ],
+      "vertexCount": 360,
+      "indexCount": 528
+    },
+    {
+      "file": "room-9.bin",
+      "material": 9,
+      "tint": [
+        1,
+        1,
+        1
+      ],
+      "vertexCount": 1716,
+      "indexCount": 1824
+    },
+    {
+      "file": "room-10.bin",
+      "material": 10,
+      "tint": [
+        1,
+        1,
+        1
+      ],
+      "vertexCount": 141530,
+      "indexCount": 230526
+    },
+    {
+      "file": "room-12.bin",
+      "material": 12,
+      "tint": [
+        1,
+        1,
+        1
+      ],
+      "vertexCount": 7312,
+      "indexCount": 11616
+    },
+    {
+      "file": "room-13.bin",
+      "material": 13,
+      "tint": [
+        1,
+        1,
+        1
+      ],
+      "vertexCount": 668301,
+      "indexCount": 668301
+    },
+    {
+      "file": "room-15.bin",
+      "material": 15,
+      "tint": [
+        1,
+        1,
+        1
+      ],
+      "vertexCount": 425272,
+      "indexCount": 478290
+    },
+    {
+      "file": "room-16.bin",
+      "material": 16,
+      "tint": [
+        1,
+        1,
+        1
+      ],
+      "vertexCount": 216,
+      "indexCount": 324
+    },
+    {
+      "file": "room-17.bin",
+      "material": 17,
+      "tint": [
+        1,
+        1,
+        1
+      ],
+      "vertexCount": 53462,
+      "indexCount": 64752
+    },
+    {
+      "file": "room-18.bin",
+      "material": 18,
+      "tint": [
+        1,
+        1,
+        1
+      ],
+      "vertexCount": 12812,
+      "indexCount": 18816
+    },
+    {
+      "file": "room-19.bin",
+      "material": 19,
+      "tint": [
+        1,
+        1,
+        1
+      ],
+      "vertexCount": 53452,
+      "indexCount": 89028
+    }
+  ],
+  "fanRotor": [
+    {
+      "file": "fan-13.bin",
+      "material": 13,
+      "tint": [
+        1,
+        1,
+        1
+      ],
+      "vertexCount": 73725,
+      "indexCount": 73725
+    }
+  ],
+  "textures": [
+    {
+      "baseColor": "prop-0-baseColor.webp",
+      "normal": "prop-0-normal.webp",
+      "orm": "prop-0-orm.webp",
+      "normalEncoding": "xy-gray"
+    },
+    {
+      "baseColor": "prop-1-baseColor.webp",
+      "normal": "prop-1-normal.webp",
+      "orm": "prop-1-orm.webp",
+      "normalEncoding": "xy-gray"
+    },
+    {
+      "baseColor": "prop-2-baseColor.webp",
+      "normal": "prop-2-normal.webp",
+      "orm": "prop-2-orm.webp",
+      "normalEncoding": "xy-gray"
+    },
+    {
+      "baseColor": "prop-3-baseColor.webp",
+      "normal": "prop-3-normal.webp",
+      "orm": "prop-3-orm.webp",
+      "normalEncoding": "xy-gray"
+    },
+    {
+      "baseColor": "prop-4-baseColor.webp",
+      "normal": "prop-4-normal.webp",
+      "orm": "prop-4-orm.webp",
+      "normalEncoding": "xy-gray"
+    },
+    {
+      "baseColor": "prop-5-baseColor.webp",
+      "normal": "prop-5-normal.webp",
+      "orm": "prop-5-orm.webp",
+      "normalEncoding": "xy-gray"
+    },
+    {
+      "baseColor": "prop-6-baseColor.webp",
+      "normal": "prop-6-normal.webp",
+      "orm": "prop-6-orm.webp",
+      "normalEncoding": "xy-gray"
+    }
+  ],
+  "occluders": [
+    {
+      "min": [
+        -7.6,
+        -0.73,
+        -9.4
+      ],
+      "max": [
+        -1.72,
+        -0.005,
+        9.4
+      ]
+    },
+    {
+      "min": [
+        1.72,
+        -0.73,
+        -9.4
+      ],
+      "max": [
+        7.6,
+        -0.005,
+        9.4
+      ]
+    },
+    {
+      "min": [
+        -1.72,
+        -0.73,
+        -9.4
+      ],
+      "max": [
+        1.72,
+        -0.005,
+        -2.1
+      ]
+    },
+    {
+      "min": [
+        -1.72,
+        -0.73,
+        2.1
+      ],
+      "max": [
+        1.72,
+        -0.005,
+        9.4
+      ]
+    },
+    {
+      "min": [
+        -1.72,
+        -0.85,
+        -2.1
+      ],
+      "max": [
+        1.72,
+        -0.725,
+        2.1
+      ]
+    },
+    {
+      "min": [
+        -7.6,
+        0,
+        -9.3
+      ],
+      "max": [
+        -6.94,
+        8.5,
+        9.3
+      ]
+    },
+    {
+      "min": [
+        6.94,
+        0,
+        -9.3
+      ],
+      "max": [
+        7.6,
+        8.5,
+        9.3
+      ]
+    },
+    {
+      "min": [
+        -7.2,
+        0,
+        -9.35
+      ],
+      "max": [
+        7.2,
+        8.5,
+        -8.86
+      ],
+      "fanAperture": true
+    },
+    {
+      "min": [
+        -7.2,
+        0,
+        8.91
+      ],
+      "max": [
+        7.2,
+        8.5,
+        9.35
+      ]
+    },
+    {
+      "min": [
+        4.8,
+        0.4,
+        -6
+      ],
+      "max": [
+        5.3,
+        2.6,
+        -5.5
+      ]
+    },
+    {
+      "min": [
+        5.55,
+        0.24,
+        -2
+      ],
+      "max": [
+        5.93,
+        0.7,
+        -1.55
+      ]
+    },
+    {
+      "min": [
+        5.55,
+        0.24,
+        -0.95
+      ],
+      "max": [
+        5.93,
+        0.7,
+        -0.36
+      ]
+    },
+    {
+      "min": [
+        5.55,
+        0.24,
+        0.54
+      ],
+      "max": [
+        5.93,
+        0.7,
+        0.95
+      ]
+    },
+    {
+      "min": [
+        -5.6,
+        0.35,
+        -6.5
+      ],
+      "max": [
+        -4.95,
+        0.7,
+        -6.16
+      ]
+    },
+    {
+      "min": [
+        -6.36,
+        0.155,
+        -4.45
+      ],
+      "max": [
+        -5.09,
+        0.205,
+        -0.95
+      ]
+    },
+    {
+      "min": [
+        -6.36,
+        1.125,
+        -4.45
+      ],
+      "max": [
+        -5.09,
+        1.1749999999999998,
+        -0.95
+      ]
+    },
+    {
+      "min": [
+        -6.36,
+        2.1350000000000002,
+        -4.45
+      ],
+      "max": [
+        -5.09,
+        2.185,
+        -0.95
+      ]
+    },
+    {
+      "min": [
+        -6.36,
+        3.095,
+        -4.45
+      ],
+      "max": [
+        -5.09,
+        3.145,
+        -0.95
+      ]
+    },
+    {
+      "min": [
+        -7,
+        5.646637353248781,
+        -9.2
+      ],
+      "max": [
+        -5.833333333333333,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        -5.833333333333333,
+        6.455495168499706,
+        -9.2
+      ],
+      "max": [
+        -4.666666666666666,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        -4.666666666666666,
+        6.962306695894643,
+        -9.2
+      ],
+      "max": [
+        -3.499999999999999,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        -3.5,
+        7.2847979746446665,
+        -9.2
+      ],
+      "max": [
+        -2.333333333333333,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        -2.333333333333333,
+        7.466255848169731,
+        -9.2
+      ],
+      "max": [
+        -1.1666666666666663,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        -1.166666666666667,
+        7.525,
+        -9.2
+      ],
+      "max": [
+        -2.220446049250313e-16,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        0,
+        7.525,
+        -9.2
+      ],
+      "max": [
+        1.1666666666666667,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        1.166666666666666,
+        7.466255848169731,
+        -9.2
+      ],
+      "max": [
+        2.333333333333333,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        2.333333333333334,
+        7.2847979746446665,
+        -9.2
+      ],
+      "max": [
+        3.500000000000001,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        3.5,
+        6.962306695894642,
+        -9.2
+      ],
+      "max": [
+        4.666666666666667,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        4.666666666666666,
+        6.455495168499706,
+        -9.2
+      ],
+      "max": [
+        5.833333333333333,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        5.833333333333334,
+        5.64663735324878,
+        -9.2
+      ],
+      "max": [
+        7.000000000000001,
+        8.5,
+        9.2
+      ]
+    },
+    {
+      "min": [
+        -3.5,
+        0.23,
+        -3.95
+      ],
+      "max": [
+        -2.5,
+        0.43,
+        -3.25
+      ]
+    },
+    {
+      "min": [
+        -5.05,
+        0.23,
+        0.85
+      ],
+      "max": [
+        -4.05,
+        0.43,
+        1.5499999999999998
+      ]
+    }
+  ],
+  "steamVent": [
+    4.987679958343506,
+    3.3152667202769965,
+    -5.63187313079834
+  ],
+  "textureEncoding": "WebP; XY-gray vector normals, six-bit roughness/metallic; exact RGBM; originals preserved",
+  "gaugeFace": "gauge-face.webp",
+  "pressureGauge": {
+    "center": [
+      5.052,
+      2.269,
+      -4.864
+    ],
+    "normal": [
+      0.02997558,
+      0.02697802,
+      0.999186
+    ],
+    "radius": 0.238
+  },
+  "triangles": 545910,
+  "features": {
+    "vaulted basalt shell": 116,
+    "poured concrete service floor": 108,
+    "recessed service pit rim and drainage": 616,
+    "bonded brick side walls": 71760,
+    "fitted stone voussoirs": 20736,
+    "bonded brick vaulted end walls": 87978,
+    "exposed excavated basalt outcrops": 600,
+    "riveted steel structural ribs": 31136,
+    "flush boiler sump drain": 792,
+    "freight shutter and bulkhead": 9868,
+    "flanged copper distribution lines": 26316,
+    "overhead gantry crane rails": 7820,
+    "hanging linked chains and crane hook": 10488,
+    "spares shelving and crates": 1252,
+    "great circular ventilation assembly": 10516,
+    "utilitarian bay numbers": 1000,
+    "selective service spills and mineral wear": 498,
+    "brass cartridge rack": 2972,
+    "coiled service hose and hand tools": 1560,
+    "screw-height machinist tabouret": 10484,
+    "Meshy 7.1 authored pressure boiler": 24813,
+    "Meshy 7.1 authored machinist lathe": 20591,
+    "Meshy 7.1 authored rolling cabinets": 42064,
+    "bolted cabinet payload adapter frames": 1952,
+    "Meshy 7.1 authored inert ordnance trolley": 23964,
+    "Meshy 7.1 authored rotating seven-blade fan": 24575,
+    "Meshy 7.1 authored twin cylinder compressor": 24871,
+    "Meshy 7.1 authored reinforced oak parts crates": 86464
+  }
+}

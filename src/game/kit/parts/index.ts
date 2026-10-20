@@ -1,0 +1,38 @@
+/** Kit v2 part registry (W1-KIT): every Wave-1 part id (plan Appendix A) → its module. */
+import type { GearId, HullId, TurretId, UtilityId, WeaponId } from '../types';
+import { AETHER_HULL } from './hulls/aether-hull';
+import { FORGE_HULL } from './hulls/forge-hull';
+import { AETHER_DRIVE } from './gear/aether-drive';
+import { FORGE_TRACKS } from './gear/forge-tracks';
+import { AETHER_CROWN } from './turrets/aether-crown';
+import { FORGE_CASEMATE } from './turrets/forge-casemate';
+import { ARC_CANNON } from './weapons/arc-cannon';
+import { FORGE_MORTAR } from './weapons/forge-mortar';
+import { AETHER_VANE } from './utilities/aether-vane';
+import { STEAM_SENTINEL } from './utilities/steam-sentinel';
+import { CRAWLER } from './gear/crawler';
+import { GRIP } from './gear/grip';
+import { SCOUT } from './gear/scout';
+import { BASTION } from './hulls/bastion';
+import { SKIFF } from './hulls/skiff';
+import { WARDEN } from './hulls/warden';
+import { CRADLE } from './turrets/cradle';
+import { DOME } from './turrets/dome';
+import { WEDGE } from './turrets/wedge';
+import type { GearSpec, HullSpec, PartModule, TurretSpec, UtilitySpec, WeaponSpec } from './types';
+import { ANTENNA, WHIP_SHORT } from './utilities/antenna';
+import { PERISCOPE } from './utilities/periscope';
+import { RADAR } from './utilities/radar';
+import { SMOKE } from './utilities/smoke';
+import { YAGI } from './utilities/yagi';
+import { POINT_DEFENSE } from './utilities/point-defense';
+import { AUTOCANNON } from './weapons/autocannon';
+import { CANNON } from './weapons/cannon';
+import { MORTAR } from './weapons/mortar';
+import { RAIL } from './weapons/rail';
+
+export const HULLS: Readonly<Record<HullId, PartModule<HullSpec>>> = Object.freeze({ skiff: SKIFF, warden: WARDEN, bastion: BASTION, aether_hull: AETHER_HULL, forge_hull: FORGE_HULL });
+export const GEARS: Readonly<Record<GearId, GearSpec>> = Object.freeze({ scout: SCOUT, grip: GRIP, crawler: CRAWLER, aether_drive: AETHER_DRIVE, forge_tracks: FORGE_TRACKS });
+export const TURRETS: Readonly<Record<TurretId, PartModule<TurretSpec>>> = Object.freeze({ dome: DOME, wedge: WEDGE, cradle: CRADLE, aether_crown: AETHER_CROWN, forge_casemate: FORGE_CASEMATE });
+export const WEAPONS: Readonly<Record<WeaponId, PartModule<WeaponSpec>>> = Object.freeze({ mortar: MORTAR, cannon: CANNON, rail: RAIL, autocannon: AUTOCANNON, arc_cannon: ARC_CANNON, forge_mortar: FORGE_MORTAR });
+export const UTILITIES: Readonly<Record<UtilityId, PartModule<UtilitySpec>>> = Object.freeze({ antenna: ANTENNA, radar: RADAR, periscope: PERISCOPE, smoke: SMOKE, whip_short: WHIP_SHORT, yagi: YAGI, point_defense: POINT_DEFENSE, aether_vane: AETHER_VANE, steam_sentinel: STEAM_SENTINEL });

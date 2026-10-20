@@ -1,0 +1,169 @@
+THIRD-PARTY NOTICES
+
+Temporal upscaler
+-----------------
+
+The temporal super resolution passes (src/engine/passes/post/tsr.wgsl.ts and
+src/engine/passes/post/tsr.ts, compiled into this game's scripts) are adapted
+from @pmndrs/upscaler v0.5.0 (https://github.com/pmndrs/upscaler) and follow
+AMD FidelityFX Super Resolution. Their notices:
+
+MIT License
+
+Copyright (c) 2026 Dennis Smolek
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+The current RCAS sharpener in src/engine/passes/post/tsr.wgsl.ts derives from
+AMD FidelityFX Super Resolution. The temporal pipeline follows the architecture
+of FidelityFX Super Resolution 2/3. Earlier EASU/RCAS implementations lived in
+the now-retired src/shaders/ directory. Preserve AMD's notice:
+
+Copyright (c) 2021-2023 Advanced Micro Devices, Inc. All rights reserved.
+Released under the MIT License:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+https://github.com/GPUOpen-Effects/FidelityFX-FSR
+https://github.com/GPUOpen-LibrariesAndSDKs/FidelityFX-SDK
+
+
+Looptile procedural noise
+------------------------
+
+The periodic tile noise in src/engine/wgsl/common/noise.wgsl.ts adapts
+modular Worley tiling and domain-warp ideas from looptile. Its notice:
+
+MIT License
+
+Copyright (c) 2026 3merillon
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Three.js math adaptations
+-------------------------
+
+Local scalar camera, transform, quaternion and triangle-query routines adapt
+algorithms from Three.js r180 under the MIT License.
+Copyright © 2010-2025 three.js authors.
+The complete original license is available at /licenses/third-party/npm/three/LICENSE.
+The Three.js package remains a development dependency for diagnostic lab renderers
+and test oracles; the package itself is not distributed in the game bundle.
+
+Browser runtime dependencies
+----------------------------
+
+@dimforge/rapier3d-compat 0.20.0 is distributed in the game bundle under Apache-2.0. The complete original license is available at /licenses/third-party/npm/rapier3d-compat/LICENSE.
+
+Rust WebAssembly dependency graph
+---------------------------------
+
+The checked-in terrain WebAssembly is built from rust/terrain-core. Its locked wasm32-unknown-unknown normal dependency graph, including transitive and procedural-macro packages, is inventoried in THIRD_PARTY.md. Original crate license texts are served at /licenses/third-party/rust/<crate>-<version>/. No crate copyright or license text has been rewritten.
+
+
+Rust WebAssembly package list
+-----------------------------
+
+The following locked packages are in the terrain WebAssembly dependency graph. Their license texts are available at the listed public paths.
+
+approx 0.5.1 — Apache-2.0; license text: /licenses/third-party/rust/approx-0.5.1/LICENSE
+arrayvec 0.7.8 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/arrayvec-0.7.8/LICENSE-APACHE, /licenses/third-party/rust/arrayvec-0.7.8/LICENSE-MIT
+bitflags 2.13.2 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/bitflags-2.13.2/LICENSE-APACHE, /licenses/third-party/rust/bitflags-2.13.2/LICENSE-MIT
+bytemuck 1.25.2 — Zlib OR Apache-2.0 OR MIT; license text: /licenses/third-party/rust/bytemuck-1.25.2/LICENSE-APACHE, /licenses/third-party/rust/bytemuck-1.25.2/LICENSE-MIT, /licenses/third-party/rust/bytemuck-1.25.2/LICENSE-ZLIB
+byteorder 1.5.0 — Unlicense OR MIT; license text: /licenses/third-party/rust/byteorder-1.5.0/COPYING, /licenses/third-party/rust/byteorder-1.5.0/LICENSE-MIT
+downcast-rs 2.0.2 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/downcast-rs-2.0.2/LICENSE-APACHE, /licenses/third-party/rust/downcast-rs-2.0.2/LICENSE-MIT
+either 1.19.0 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/either-1.19.0/LICENSE-APACHE, /licenses/third-party/rust/either-1.19.0/LICENSE-MIT
+ena 0.14.4 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/ena-0.14.4/LICENSE-APACHE, /licenses/third-party/rust/ena-0.14.4/LICENSE-MIT
+foldhash 0.2.0 — Zlib; license text: /licenses/third-party/rust/foldhash-0.2.0/LICENSE
+glam 0.33.12 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/glam-0.33.12/LICENSE-APACHE, /licenses/third-party/rust/glam-0.33.12/LICENSE-MIT
+glamx 0.3.1 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/glamx-0.3.1/LICENSE-APACHE, /licenses/third-party/rust/glamx-0.3.1/LICENSE-MIT
+hash32 0.3.1 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/hash32-0.3.1/LICENSE-APACHE, /licenses/third-party/rust/hash32-0.3.1/LICENSE-MIT
+hashbrown 0.17.1 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/hashbrown-0.17.1/LICENSE-APACHE, /licenses/third-party/rust/hashbrown-0.17.1/LICENSE-MIT
+heapless 0.8.0 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/heapless-0.8.0/LICENSE-APACHE, /licenses/third-party/rust/heapless-0.8.0/LICENSE-MIT
+libm 0.2.16 — MIT; license text: /licenses/third-party/rust/libm-0.2.16/LICENSE.txt
+log 0.4.34 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/log-0.4.34/LICENSE-APACHE, /licenses/third-party/rust/log-0.4.34/LICENSE-MIT
+matrixmultiply 0.3.11 — MIT/Apache-2.0; license text: /licenses/third-party/rust/matrixmultiply-0.3.11/LICENSE-APACHE, /licenses/third-party/rust/matrixmultiply-0.3.11/LICENSE-MIT
+nalgebra 0.35.0 — Apache-2.0; license text: /licenses/third-party/rust/nalgebra-0.35.0/LICENSE
+nalgebra-macros 0.3.0 — Apache-2.0; license text: /licenses/third-party/rust/nalgebra-macros-0.3.0/LICENSE
+num-bigint 0.4.6 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/num-bigint-0.4.6/LICENSE-APACHE, /licenses/third-party/rust/num-bigint-0.4.6/LICENSE-MIT
+num-complex 0.4.6 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/num-complex-0.4.6/LICENSE-APACHE, /licenses/third-party/rust/num-complex-0.4.6/LICENSE-MIT
+num-derive 0.4.2 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/num-derive-0.4.2/LICENSE-APACHE, /licenses/third-party/rust/num-derive-0.4.2/LICENSE-MIT
+num-integer 0.1.47 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/num-integer-0.1.47/LICENSE-APACHE, /licenses/third-party/rust/num-integer-0.1.47/LICENSE-MIT
+num-rational 0.4.2 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/num-rational-0.4.2/LICENSE-APACHE, /licenses/third-party/rust/num-rational-0.4.2/LICENSE-MIT
+num-traits 0.2.19 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/num-traits-0.2.19/LICENSE-APACHE, /licenses/third-party/rust/num-traits-0.2.19/LICENSE-MIT
+ordered-float 5.5.0 — MIT; license text: /licenses/third-party/rust/ordered-float-5.5.0/LICENSE-MIT
+parry3d 0.30.2 — Apache-2.0; license text: /licenses/third-party/rust/parry3d-0.30.2/LICENSE
+proc-macro2 1.0.107 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/proc-macro2-1.0.107/LICENSE-APACHE, /licenses/third-party/rust/proc-macro2-1.0.107/LICENSE-MIT
+profiling 1.0.18 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/profiling-1.0.18/LICENSE-APACHE, /licenses/third-party/rust/profiling-1.0.18/LICENSE-MIT
+profiling-procmacros 1.0.18 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/profiling-procmacros-1.0.18/LICENSE-APACHE, /licenses/third-party/rust/profiling-procmacros-1.0.18/LICENSE-MIT
+quote 1.0.47 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/quote-1.0.47/LICENSE-APACHE, /licenses/third-party/rust/quote-1.0.47/LICENSE-MIT
+rapier3d 0.35.1 — Apache-2.0; license text: /licenses/third-party/rust/rapier3d-0.35.1/LICENSE
+rawpointer 0.2.1 — MIT/Apache-2.0; license text: /licenses/third-party/rust/rawpointer-0.2.1/LICENSE-APACHE, /licenses/third-party/rust/rawpointer-0.2.1/LICENSE-MIT
+rstar 0.13.0 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/rstar-0.13.0/LICENSE-APACHE, /licenses/third-party/rust/rstar-0.13.0/LICENSE-MIT
+simba 0.10.2 — Apache-2.0; license text: /licenses/third-party/rust/simba-0.10.2/LICENSE
+slab 0.4.12 — MIT; license text: /licenses/third-party/rust/slab-0.4.12/LICENSE
+smallvec 1.16.3 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/smallvec-1.16.3/LICENSE-APACHE, /licenses/third-party/rust/smallvec-1.16.3/LICENSE-MIT
+stable_deref_trait 1.2.1 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/stable_deref_trait-1.2.1/LICENSE-APACHE, /licenses/third-party/rust/stable_deref_trait-1.2.1/LICENSE-MIT
+static_assertions 1.1.0 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/static_assertions-1.1.0/LICENSE-APACHE, /licenses/third-party/rust/static_assertions-1.1.0/LICENSE-MIT
+syn 2.0.119 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/syn-2.0.119/LICENSE-APACHE, /licenses/third-party/rust/syn-2.0.119/LICENSE-MIT
+syn 3.0.9 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/syn-3.0.9/LICENSE-APACHE, /licenses/third-party/rust/syn-3.0.9/LICENSE-MIT
+thiserror 2.0.21 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/thiserror-2.0.21/LICENSE-APACHE, /licenses/third-party/rust/thiserror-2.0.21/LICENSE-MIT
+thiserror-impl 2.0.21 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/thiserror-impl-2.0.21/LICENSE-APACHE, /licenses/third-party/rust/thiserror-impl-2.0.21/LICENSE-MIT
+typenum 1.20.1 — MIT OR Apache-2.0; license text: /licenses/third-party/rust/typenum-1.20.1/LICENSE, /licenses/third-party/rust/typenum-1.20.1/LICENSE-APACHE, /licenses/third-party/rust/typenum-1.20.1/LICENSE-MIT
+unicode-ident 1.0.27 — (MIT OR Apache-2.0) AND Unicode-3.0; license text: /licenses/third-party/rust/unicode-ident-1.0.27/LICENSE-APACHE, /licenses/third-party/rust/unicode-ident-1.0.27/LICENSE-MIT, /licenses/third-party/rust/unicode-ident-1.0.27/LICENSE-UNICODE
+wide 1.7.1 — Zlib OR Apache-2.0 OR MIT; license text: /licenses/third-party/rust/wide-1.7.1/LICENSE-APACHE.txt, /licenses/third-party/rust/wide-1.7.1/LICENSE-MIT.txt, /licenses/third-party/rust/wide-1.7.1/LICENSE-ZLIB.txt
+
+Build and test tools
+--------------------
+
+JavaScript devDependencies support source builds, asset preparation, type checking, browser capture and tests. They are not part of the deployed browser bundle and are listed separately in THIRD_PARTY.md.

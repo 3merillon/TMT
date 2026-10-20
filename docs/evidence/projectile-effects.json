@@ -1,0 +1,1468 @@
+{
+  "date": "2026-10-13T18:27:46.476Z",
+  "browser": "155.0.8059.40",
+  "hardware": {
+    "vendor": "nvidia",
+    "architecture": "ampere",
+    "fallback": false
+  },
+  "scope": {
+    "visualViewport": [
+      1440,
+      900
+    ],
+    "performanceViewport": [
+      1280,
+      720
+    ],
+    "phoneViewport": [
+      390,
+      844
+    ],
+    "phoneHardware": false,
+    "cpuThrottle": 1,
+    "performanceRecording": false,
+    "idleSeconds": 2.5,
+    "shotSeconds": 7,
+    "note": "Frame samples may repeat the last completed GPU timestamp batch; whole-renderer values include existing blast and terrain work."
+  },
+  "cases": [
+    {
+      "ammo": "explosive",
+      "camera": "normal",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 13825.600000023842
+        },
+        {
+          "type": "impact",
+          "at": 15582.800000011921
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "explosive",
+      "camera": "detail",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 24748.40000000596
+        },
+        {
+          "type": "impact",
+          "at": 26499.40000000596
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "explosive",
+      "camera": "muzzle",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 35690.30000001192
+        },
+        {
+          "type": "impact",
+          "at": 37454.40000000596
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "heavy",
+      "camera": "normal",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 46458.70000001788
+        },
+        {
+          "type": "impact",
+          "at": 47871
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "heavy",
+      "camera": "detail",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 57393.10000002384
+        },
+        {
+          "type": "impact",
+          "at": 58796.70000001788
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "heavy",
+      "camera": "muzzle",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 68168.20000001788
+        },
+        {
+          "type": "impact",
+          "at": 69584.20000001788
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "incendiary",
+      "camera": "normal",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 78953.80000001192
+        },
+        {
+          "type": "impact",
+          "at": 80544.10000002384
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "incendiary",
+      "camera": "detail",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 89934
+        },
+        {
+          "type": "impact",
+          "at": 91523
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "incendiary",
+      "camera": "muzzle",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 101714.10000002384
+        },
+        {
+          "type": "impact",
+          "at": 103293.20000001788
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "nuclear",
+      "camera": "normal",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 113546.20000001788
+        },
+        {
+          "type": "impact",
+          "at": 114813.10000002384
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "nuclear",
+      "camera": "detail",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 126060.60000002384
+        },
+        {
+          "type": "impact",
+          "at": 127341.10000002384
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "nuclear",
+      "camera": "muzzle",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 138128.80000001192
+        },
+        {
+          "type": "impact",
+          "at": 139396.30000001192
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "heavy",
+      "camera": "impact",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 151020.20000001788
+        },
+        {
+          "type": "impact",
+          "at": 152420.10000002384
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "nuclear",
+      "camera": "grazing",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 163312.40000000596
+        },
+        {
+          "type": "impact",
+          "at": 164571.60000002384
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "explosive",
+      "camera": "muzzle",
+      "weapon": "cannon",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 175381.10000002384
+        },
+        {
+          "type": "impact",
+          "at": 177546
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "incendiary",
+      "camera": "muzzle",
+      "weapon": "rail",
+      "tier": "high",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 187798
+        },
+        {
+          "type": "impact",
+          "at": 190699.60000002384
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "nuclear",
+      "camera": "impact",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": true,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 198800.5
+        },
+        {
+          "type": "impact",
+          "at": 200051.80000001192
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "heavy",
+      "camera": "muzzle",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": true,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 209919.90000000596
+        },
+        {
+          "type": "impact",
+          "at": 211318.60000002384
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "explosive",
+      "camera": "impact",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": true,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 221759.80000001192
+        },
+        {
+          "type": "impact",
+          "at": 222785
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "nuclear",
+      "camera": "grazing",
+      "weapon": "mortar",
+      "tier": "high",
+      "night": false,
+      "water": true,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 233624.5
+        },
+        {
+          "type": "impact",
+          "at": 235124.40000000596
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "heavy",
+      "camera": "normal",
+      "weapon": "mortar",
+      "tier": "low",
+      "night": false,
+      "water": false,
+      "phoneViewport": true,
+      "events": [
+        {
+          "type": "shot",
+          "at": 244839.70000001788
+        },
+        {
+          "type": "impact",
+          "at": 246240.40000000596
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "ammo": "nuclear",
+      "camera": "impact",
+      "weapon": "mortar",
+      "tier": "medium",
+      "night": false,
+      "water": false,
+      "phoneViewport": false,
+      "events": [
+        {
+          "type": "shot",
+          "at": 255748.40000000596
+        },
+        {
+          "type": "impact",
+          "at": 257007.70000001788
+        }
+      ],
+      "validationErrors": 0,
+      "compileErrors": 0
+    }
+  ],
+  "errors": [],
+  "performance": [
+    {
+      "tier": "high",
+      "idle": {
+        "frameMs": {
+          "n": 301,
+          "p50": 8.300000000001091,
+          "p95": 8.400000000001455,
+          "max": 9
+        },
+        "gpuMs": {
+          "n": 301,
+          "p50": 3.753,
+          "p95": 4.586,
+          "max": 4.616
+        },
+        "cpuEncodeMs": {
+          "n": 301,
+          "p50": 0.665,
+          "p95": 0.823,
+          "max": 0.885
+        },
+        "cpuFrameMs": {
+          "n": 301,
+          "p50": 8.335,
+          "p95": 8.441,
+          "max": 8.537
+        },
+        "heapBytes": {
+          "n": 301,
+          "p50": 603540910,
+          "p95": 616263387,
+          "max": 619103269
+        },
+        "passes": {},
+        "vramBytes": 642858654,
+        "meshBytes": 12656664,
+        "muzzleAtlasBytes": 2322432,
+        "shockwaveBytes": 400,
+        "validationErrors": 0,
+        "compileErrors": 0
+      },
+      "shot": {
+        "frameMs": {
+          "n": 817,
+          "p50": 8.300000000001091,
+          "p95": 8.400000000001455,
+          "max": 100
+        },
+        "gpuMs": {
+          "n": 817,
+          "p50": 4.99,
+          "p95": 6.211,
+          "max": 59.623
+        },
+        "cpuEncodeMs": {
+          "n": 817,
+          "p50": 0.737,
+          "p95": 1.037,
+          "max": 1.374
+        },
+        "cpuFrameMs": {
+          "n": 817,
+          "p50": 8.338,
+          "p95": 9.201,
+          "max": 24.337
+        },
+        "heapBytes": {
+          "n": 817,
+          "p50": 371571959,
+          "p95": 620711883,
+          "max": 628600377
+        },
+        "passes": {
+          "fluids.muzzleGas": {
+            "n": 817,
+            "p50": 0,
+            "p95": 0.07,
+            "max": 0.146
+          },
+          "fluids.muzzleGasDraw": {
+            "n": 817,
+            "p50": 0,
+            "p95": 0.033,
+            "max": 0.033
+          },
+          "shockwaves": {
+            "n": 817,
+            "p50": 0,
+            "p95": 0.037,
+            "max": 0.04
+          }
+        },
+        "vramBytes": 643358902,
+        "meshBytes": 12722200,
+        "muzzleAtlasBytes": 2322432,
+        "shockwaveBytes": 400,
+        "validationErrors": 0,
+        "compileErrors": 0
+      }
+    },
+    {
+      "tier": "medium",
+      "idle": {
+        "frameMs": {
+          "n": 301,
+          "p50": 8.299999999999272,
+          "p95": 8.400000000001455,
+          "max": 8.5
+        },
+        "gpuMs": {
+          "n": 301,
+          "p50": 2.858,
+          "p95": 3.326,
+          "max": 3.352
+        },
+        "cpuEncodeMs": {
+          "n": 301,
+          "p50": 0.651,
+          "p95": 0.741,
+          "max": 0.776
+        },
+        "cpuFrameMs": {
+          "n": 301,
+          "p50": 8.334,
+          "p95": 8.466,
+          "max": 8.563
+        },
+        "heapBytes": {
+          "n": 301,
+          "p50": 398286521,
+          "p95": 411406256,
+          "max": 413119399
+        },
+        "passes": {
+          "fluids.muzzleGas": {
+            "n": 301,
+            "p50": 0,
+            "p95": 0,
+            "max": 0
+          },
+          "fluids.muzzleGasDraw": {
+            "n": 301,
+            "p50": 0,
+            "p95": 0,
+            "max": 0
+          },
+          "shockwaves": {
+            "n": 301,
+            "p50": 0,
+            "p95": 0,
+            "max": 0
+          }
+        },
+        "vramBytes": 431026774,
+        "meshBytes": 12722200,
+        "muzzleAtlasBytes": 896000,
+        "shockwaveBytes": 400,
+        "validationErrors": 0,
+        "compileErrors": 0
+      },
+      "shot": {
+        "frameMs": {
+          "n": 825,
+          "p50": 8.299999999999272,
+          "p95": 8.400000000001455,
+          "max": 100
+        },
+        "gpuMs": {
+          "n": 825,
+          "p50": 3.904,
+          "p95": 4.254,
+          "max": 32.734
+        },
+        "cpuEncodeMs": {
+          "n": 825,
+          "p50": 0.743,
+          "p95": 0.937,
+          "max": 1.271
+        },
+        "cpuFrameMs": {
+          "n": 825,
+          "p50": 8.338,
+          "p95": 9.065,
+          "max": 20.491
+        },
+        "heapBytes": {
+          "n": 825,
+          "p50": 436621053,
+          "p95": 454713768,
+          "max": 459452667
+        },
+        "passes": {
+          "fluids.muzzleGas": {
+            "n": 825,
+            "p50": 0,
+            "p95": 0.057,
+            "max": 0.058
+          },
+          "fluids.muzzleGasDraw": {
+            "n": 825,
+            "p50": 0,
+            "p95": 0.027,
+            "max": 0.029
+          },
+          "shockwaves": {
+            "n": 825,
+            "p50": 0,
+            "p95": 0.038,
+            "max": 0.04
+          }
+        },
+        "vramBytes": 432192598,
+        "meshBytes": 12722200,
+        "muzzleAtlasBytes": 896000,
+        "shockwaveBytes": 400,
+        "validationErrors": 0,
+        "compileErrors": 0
+      }
+    },
+    {
+      "tier": "low",
+      "idle": {
+        "frameMs": {
+          "n": 301,
+          "p50": 8.30000000000291,
+          "p95": 8.400000000001455,
+          "max": 8.5
+        },
+        "gpuMs": {
+          "n": 301,
+          "p50": 3.159,
+          "p95": 3.443,
+          "max": 3.482
+        },
+        "cpuEncodeMs": {
+          "n": 301,
+          "p50": 0.675,
+          "p95": 0.762,
+          "max": 0.786
+        },
+        "cpuFrameMs": {
+          "n": 301,
+          "p50": 8.326,
+          "p95": 8.5,
+          "max": 8.551
+        },
+        "heapBytes": {
+          "n": 301,
+          "p50": 462875708,
+          "p95": 473690012,
+          "max": 477657133
+        },
+        "passes": {
+          "fluids.muzzleGas": {
+            "n": 301,
+            "p50": 0,
+            "p95": 0,
+            "max": 0
+          },
+          "fluids.muzzleGasDraw": {
+            "n": 301,
+            "p50": 0,
+            "p95": 0,
+            "max": 0
+          },
+          "shockwaves": {
+            "n": 301,
+            "p50": 0,
+            "p95": 0,
+            "max": 0
+          }
+        },
+        "vramBytes": 393034170,
+        "meshBytes": 12722200,
+        "muzzleAtlasBytes": 458752,
+        "shockwaveBytes": 400,
+        "validationErrors": 0,
+        "compileErrors": 0
+      },
+      "shot": {
+        "frameMs": {
+          "n": 818,
+          "p50": 8.30000000000291,
+          "p95": 8.400000000001455,
+          "max": 100
+        },
+        "gpuMs": {
+          "n": 818,
+          "p50": 3.223,
+          "p95": 3.65,
+          "max": 23.731
+        },
+        "cpuEncodeMs": {
+          "n": 818,
+          "p50": 0.582,
+          "p95": 0.787,
+          "max": 0.979
+        },
+        "cpuFrameMs": {
+          "n": 818,
+          "p50": 8.411,
+          "p95": 9.515,
+          "max": 22.905
+        },
+        "heapBytes": {
+          "n": 818,
+          "p50": 520923920,
+          "p95": 536809831,
+          "max": 540559927
+        },
+        "passes": {
+          "fluids.muzzleGas": {
+            "n": 818,
+            "p50": 0,
+            "p95": 0.047,
+            "max": 0.049
+          },
+          "fluids.muzzleGasDraw": {
+            "n": 818,
+            "p50": 0,
+            "p95": 0.057,
+            "max": 0.072
+          },
+          "shockwaves": {
+            "n": 818,
+            "p50": 0,
+            "p95": 0.033,
+            "max": 0.034
+          }
+        },
+        "vramBytes": 395922610,
+        "meshBytes": 12722200,
+        "muzzleAtlasBytes": 458752,
+        "shockwaveBytes": 400,
+        "validationErrors": 0,
+        "compileErrors": 0
+      }
+    }
+  ],
+  "repeatedNuclear": [
+    {
+      "frameMs": {
+        "n": 466,
+        "p50": 8.30000000000291,
+        "p95": 8.400000000001455,
+        "max": 100
+      },
+      "gpuMs": {
+        "n": 466,
+        "p50": 5.151,
+        "p95": 22.651,
+        "max": 23.101
+      },
+      "cpuEncodeMs": {
+        "n": 466,
+        "p50": 0.611,
+        "p95": 0.725,
+        "max": 0.787
+      },
+      "cpuFrameMs": {
+        "n": 466,
+        "p50": 8.396,
+        "p95": 9.342,
+        "max": 19.316
+      },
+      "heapBytes": {
+        "n": 466,
+        "p50": 588610651,
+        "p95": 606989435,
+        "max": 609794575
+      },
+      "passes": {
+        "fluids.muzzleGas": {
+          "n": 466,
+          "p50": 0.053,
+          "p95": 0.058,
+          "max": 0.059
+        },
+        "fluids.muzzleGasDraw": {
+          "n": 466,
+          "p50": 0.047,
+          "p95": 0.095,
+          "max": 0.095
+        },
+        "shockwaves": {
+          "n": 466,
+          "p50": 0,
+          "p95": 0.039,
+          "max": 0.039
+        }
+      },
+      "vramBytes": 649562574,
+      "meshBytes": 12722200,
+      "muzzleAtlasBytes": 2322432,
+      "shockwaveBytes": 400,
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "frameMs": {
+        "n": 465,
+        "p50": 8.30000000000291,
+        "p95": 8.400000000001455,
+        "max": 100
+      },
+      "gpuMs": {
+        "n": 465,
+        "p50": 5.263,
+        "p95": 21.713,
+        "max": 21.983
+      },
+      "cpuEncodeMs": {
+        "n": 465,
+        "p50": 0.607,
+        "p95": 0.701,
+        "max": 0.94
+      },
+      "cpuFrameMs": {
+        "n": 465,
+        "p50": 8.418,
+        "p95": 9.955,
+        "max": 19.255
+      },
+      "heapBytes": {
+        "n": 465,
+        "p50": 622970429,
+        "p95": 642632919,
+        "max": 645527161
+      },
+      "passes": {
+        "fluids.muzzleGas": {
+          "n": 465,
+          "p50": 0.056,
+          "p95": 0.062,
+          "max": 0.062
+        },
+        "fluids.muzzleGasDraw": {
+          "n": 465,
+          "p50": 0.104,
+          "p95": 0.131,
+          "max": 0.131
+        },
+        "shockwaves": {
+          "n": 465,
+          "p50": 0,
+          "p95": 0.034,
+          "max": 0.035
+        }
+      },
+      "vramBytes": 650448110,
+      "meshBytes": 12722200,
+      "muzzleAtlasBytes": 2322432,
+      "shockwaveBytes": 400,
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "frameMs": {
+        "n": 429,
+        "p50": 8.30000000000291,
+        "p95": 16.60000000000582,
+        "max": 100
+      },
+      "gpuMs": {
+        "n": 429,
+        "p50": 5.857,
+        "p95": 7.948,
+        "max": 8.507
+      },
+      "cpuEncodeMs": {
+        "n": 429,
+        "p50": 0.674,
+        "p95": 0.851,
+        "max": 0.962
+      },
+      "cpuFrameMs": {
+        "n": 429,
+        "p50": 8.46,
+        "p95": 12.814,
+        "max": 28.94
+      },
+      "heapBytes": {
+        "n": 429,
+        "p50": 661971403,
+        "p95": 684633179,
+        "max": 686501407
+      },
+      "passes": {
+        "fluids.muzzleGas": {
+          "n": 429,
+          "p50": 0.075,
+          "p95": 0.087,
+          "max": 0.087
+        },
+        "fluids.muzzleGasDraw": {
+          "n": 429,
+          "p50": 0.105,
+          "p95": 0.125,
+          "max": 0.125
+        },
+        "shockwaves": {
+          "n": 429,
+          "p50": 0,
+          "p95": 0.032,
+          "max": 0.032
+        }
+      },
+      "vramBytes": 651379334,
+      "meshBytes": 12722200,
+      "muzzleAtlasBytes": 2322432,
+      "shockwaveBytes": 400,
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "frameMs": {
+        "n": 338,
+        "p50": 8.400000000008731,
+        "p95": 16.70000000001164,
+        "max": 100
+      },
+      "gpuMs": {
+        "n": 338,
+        "p50": 11.693,
+        "p95": 28.066,
+        "max": 28.15
+      },
+      "cpuEncodeMs": {
+        "n": 338,
+        "p50": 0.616,
+        "p95": 0.749,
+        "max": 0.974
+      },
+      "cpuFrameMs": {
+        "n": 338,
+        "p50": 11.541,
+        "p95": 13.451,
+        "max": 24.987
+      },
+      "heapBytes": {
+        "n": 338,
+        "p50": 702107336,
+        "p95": 720619300,
+        "max": 723732112
+      },
+      "passes": {
+        "fluids.muzzleGas": {
+          "n": 338,
+          "p50": 0.078,
+          "p95": 0.083,
+          "max": 0.091
+        },
+        "fluids.muzzleGasDraw": {
+          "n": 338,
+          "p50": 0.11,
+          "p95": 0.123,
+          "max": 0.124
+        },
+        "shockwaves": {
+          "n": 338,
+          "p50": 0,
+          "p95": 0.031,
+          "max": 0.031
+        }
+      },
+      "vramBytes": 652361278,
+      "meshBytes": 12722200,
+      "muzzleAtlasBytes": 2322432,
+      "shockwaveBytes": 400,
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "frameMs": {
+        "n": 333,
+        "p50": 8.39999999999418,
+        "p95": 16.69999999999709,
+        "max": 100
+      },
+      "gpuMs": {
+        "n": 333,
+        "p50": 11.903,
+        "p95": 12.742,
+        "max": 12.804
+      },
+      "cpuEncodeMs": {
+        "n": 333,
+        "p50": 0.617,
+        "p95": 0.755,
+        "max": 0.91
+      },
+      "cpuFrameMs": {
+        "n": 333,
+        "p50": 11.436,
+        "p95": 13.42,
+        "max": 25.719
+      },
+      "heapBytes": {
+        "n": 333,
+        "p50": 740643382,
+        "p95": 760635712,
+        "max": 763704676
+      },
+      "passes": {
+        "fluids.muzzleGas": {
+          "n": 333,
+          "p50": 0.09,
+          "p95": 0.122,
+          "max": 0.122
+        },
+        "fluids.muzzleGasDraw": {
+          "n": 333,
+          "p50": 0.11,
+          "p95": 0.126,
+          "max": 0.126
+        },
+        "shockwaves": {
+          "n": 333,
+          "p50": 0,
+          "p95": 0.032,
+          "max": 0.032
+        }
+      },
+      "vramBytes": 653409310,
+      "meshBytes": 12722200,
+      "muzzleAtlasBytes": 2322432,
+      "shockwaveBytes": 400,
+      "validationErrors": 0,
+      "compileErrors": 0
+    },
+    {
+      "frameMs": {
+        "n": 330,
+        "p50": 8.39999999999418,
+        "p95": 16.69999999999709,
+        "max": 100
+      },
+      "gpuMs": {
+        "n": 330,
+        "p50": 12.216,
+        "p95": 13.021,
+        "max": 13.036
+      },
+      "cpuEncodeMs": {
+        "n": 330,
+        "p50": 0.625,
+        "p95": 0.715,
+        "max": 0.83
+      },
+      "cpuFrameMs": {
+        "n": 330,
+        "p50": 11.678,
+        "p95": 14.019,
+        "max": 25.013
+      },
+      "heapBytes": {
+        "n": 330,
+        "p50": 778260346,
+        "p95": 796910410,
+        "max": 798060482
+      },
+      "passes": {
+        "fluids.muzzleGas": {
+          "n": 330,
+          "p50": 0.1,
+          "p95": 0.146,
+          "max": 0.147
+        },
+        "fluids.muzzleGasDraw": {
+          "n": 330,
+          "p50": 0.109,
+          "p95": 0.125,
+          "max": 0.126
+        },
+        "shockwaves": {
+          "n": 330,
+          "p50": 0,
+          "p95": 0.032,
+          "max": 0.032
+        }
+      },
+      "vramBytes": 654509534,
+      "meshBytes": 12722200,
+      "muzzleAtlasBytes": 2322432,
+      "shockwaveBytes": 400,
+      "validationErrors": 0,
+      "compileErrors": 0
+    }
+  ],
+  "naturalCleanup": {
+    "shells": 0,
+    "muzzles": {
+      "active": 0,
+      "total": 9
+    },
+    "shockwaves": {
+      "live": 0,
+      "capacity": 8,
+      "emitted": 9,
+      "replaced": 0,
+      "bytes": 400,
+      "drawn": 0
+    },
+    "gasLive": 0,
+    "gasDrawn": 0,
+    "muzzleLive": 0,
+    "muzzleDrawn": 0,
+    "muzzleAtlasBytes": 2322432,
+    "vramBytes": 654856238
+  },
+  "restore": {
+    "tick": 117,
+    "hash": "8cbe4a13bdfa81bc",
+    "muzzleEmissionsBefore": 10,
+    "muzzleEmissionsAfter": 10
+  },
+  "restartCleanup": {
+    "shells": 0,
+    "muzzles": {
+      "active": 0,
+      "total": 10
+    },
+    "shockwaves": {
+      "live": 0,
+      "capacity": 8,
+      "emitted": 10,
+      "replaced": 0,
+      "bytes": 400,
+      "drawn": 0
+    },
+    "gasLive": 0,
+    "gasDrawn": 0,
+    "muzzleLive": 0,
+    "muzzleDrawn": 0,
+    "muzzleAtlasBytes": 2322432,
+    "vramBytes": 1019693174
+  },
+  "sceneCleanup": {
+    "shells": 0,
+    "muzzles": {
+      "active": 0,
+      "total": 10
+    },
+    "shockwaves": {
+      "live": 0,
+      "capacity": 8,
+      "emitted": 10,
+      "replaced": 0,
+      "bytes": 400,
+      "drawn": 0
+    },
+    "gasLive": 0,
+    "gasDrawn": 0,
+    "muzzleLive": 0,
+    "muzzleDrawn": 0,
+    "muzzleAtlasBytes": 2322432,
+    "vramBytes": 1008639566
+  },
+  "driving": {
+    "samples": 989,
+    "movingSamples": 487,
+    "interpolatedMoving": 487,
+    "maxMuzzleError": 0,
+    "start": [
+      -5.335644245147705,
+      17.799144744873047,
+      -0.0000042334795580245554
+    ],
+    "end": [
+      9.57082748413086,
+      14.750170707702637,
+      8.254883766174316
+    ],
+    "yawRange": [
+      -0.012205408379608864,
+      1.1844333391770396
+    ],
+    "interTickMovingFrames": 376,
+    "maxValidationErrors": 0
+  },
+  "asset": {
+    "source": "assets/workshop/meshy/inert-ordnance-cart/model.glb",
+    "sourceSha256": "cfb7692d7085e984f3669433a3810a76d812737ce428122fe5d90e47d2b0cf25",
+    "sourceBytes": 34293060,
+    "sourceTriangles": 23964,
+    "method": "Radial surface/UV retopology from source triangles; bridge transport straps and cradle contacts; retain original fin faces",
+    "excluded": [
+      "trolley",
+      "wheels",
+      "cradles",
+      "transport straps",
+      "handle"
+    ],
+    "strapIntervalsSourceX": [
+      [
+        -0.637,
+        -0.405
+      ],
+      [
+        0.085,
+        0.321
+      ]
+    ],
+    "skinSamples": 7232,
+    "bridgedSamples": 5380,
+    "originalFinTriangles": 408,
+    "vertices": 8456,
+    "triangles": 14744,
+    "packedBytes": 129312,
+    "bounds": [
+      [
+        -0.08772064000368118,
+        -0.0868000015616417,
+        -0.5062400102615356
+      ],
+      [
+        0.0871623232960701,
+        0.0868000015616417,
+        0.5062400102615356
+      ]
+    ],
+    "encoding": "PMB2",
+    "casingGrid": {
+      "rings": 112,
+      "segments": 64
+    }
+  },
+  "bundle": {
+    "baselineCommit": "db2cae9",
+    "baseline": [
+      {
+        "entry": "structural",
+        "initialKb": 3804.2,
+        "initialGzipKb": 1355.6,
+        "allKb": 3804.2
+      },
+      {
+        "entry": "game",
+        "initialKb": 3933.4,
+        "initialGzipKb": 1422.7,
+        "allKb": 4263.4
+      }
+    ],
+    "current": [
+      {
+        "entry": "structural",
+        "initialKb": 3804.2,
+        "initialGzipKb": 1355.6,
+        "allKb": 3804.2
+      },
+      {
+        "entry": "game",
+        "initialKb": 4139.5,
+        "initialGzipKb": 1523.4,
+        "allKb": 4470.1
+      }
+    ],
+    "findings": [
+      {
+        "level": "error",
+        "check": "entries",
+        "message": "game initial JS 4139.5 KB > 1070 KB (+15%)"
+      },
+      {
+        "level": "error",
+        "check": "entries",
+        "message": "game initial JS 1523.4 KB gzip > 315 KB (+15%)"
+      }
+    ]
+  },
+  "controls": {
+    "date": "2026-10-13T19:12:08.478Z",
+    "browser": "155.0.8059.40",
+    "hardware": {
+      "vendor": "nvidia",
+      "architecture": "ampere",
+      "fallback": false
+    },
+    "layout": "WASD drives; right-drag turns/elevates barrel; held-right wheel adjusts approximate range proportionally; released wheel zooms; Space fires; no Shift modifier.",
+    "errors": [],
+    "before": {
+      "points": 29,
+      "readout": {
+        "visible": true,
+        "text": "LANDING 6.6 m",
+        "kind": "landing",
+        "range": 6.605884710214716,
+        "targetVisible": true,
+        "occluded": false,
+        "x": 742.9997394421149,
+        "y": 366.3580773332777
+      }
+    },
+    "wheel": {
+      "pixels": -120,
+      "powerBefore": 0.55,
+      "powerAfter": 0.5656190812587738,
+      "powerAfterReverse": 0.5500000417232513,
+      "cameraBefore": 17,
+      "cameraAfter": 17,
+      "rangeBefore": 5.66854736805123,
+      "rangeAfter": 5.922401879283535
+    },
+    "zoom": {
+      "before": 17,
+      "after": 20.35269517307077,
+      "powerUnchanged": true
+    },
+    "servo": {
+      "driveMax": 0,
+      "aimMax": 0.6836617588996887,
+      "release": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "frameSamples": 528,
+    "maxMuzzleError": 0,
+    "maxValidationErrors": 0,
+    "shotPower": 0.5656190812587738,
+    "visuals": [
+      "daylight full arc and landing readout",
+      "night full arc and landing readout",
+      "continuous driving and right-drag control recording"
+    ],
+    "artifactDirectory": "artifacts/projectile-controls-readable",
+    "rangeComparison": {
+      "cases": 108,
+      "impactCases": 108,
+      "method": "SphereWorld radius18; all 3 weapons, 4 ammo, pitch .45/.75/1.05, power .15/.55/.85. One upward 100px wheel gesture. Old power +.05; new launch-speed-squared x exp(.05). Great-circle tank-to-prediction endpoint. No wind.",
+      "oldChangePercent": {
+        "min": 3.3123624969300547,
+        "median": 13.44853890095823,
+        "max": 20.606707731453454
+      },
+      "newChangePercent": {
+        "min": 1.2140378646742223,
+        "median": 3.225511584456786,
+        "max": 5.364521748972462
+      }
+    }
+  },
+  "verification": {
+    "fullFastBeforeFinalControls": {
+      "files": 132,
+      "passed": 1192,
+      "expectedFailure": 3
+    },
+    "affectedSuitesAfterFinalControls": {
+      "projects": [
+        "ui",
+        "fx",
+        "rules",
+        "audio"
+      ],
+      "files": 64,
+      "passed": 499,
+      "expectedFailure": 1
+    },
+    "finalLabelPlacement": {
+      "passed": 7
+    },
+    "typescript": "passed",
+    "productionBuild": "passed",
+    "sourceGuards": {
+      "status": "passed",
+      "files": 3330
+    },
+    "revisedRibbonNaga": "passed",
+    "bundleGate": "Two inherited initial-size failures; complete game closure remains within existing limit."
+  }
+}

@@ -1,0 +1,182 @@
+[
+  {
+    "file": "prop-0-normal-planes3-q82.webp",
+    "planes": 3,
+    "quality": 82,
+    "bytes": 1541072,
+    "meanAngle": 1.685307264328003,
+    "p95Angle": 4.11993932723999,
+    "p99Angle": 5.536190032958984,
+    "maxAngle": 18.13824462890625
+  },
+  {
+    "file": "prop-0-normal-planes3-q88.webp",
+    "planes": 3,
+    "quality": 88,
+    "bytes": 2032510,
+    "meanAngle": 1.2433148622512817,
+    "p95Angle": 2.862180709838867,
+    "p99Angle": 3.7635860443115234,
+    "maxAngle": 10.344422340393066
+  },
+  {
+    "file": "prop-0-normal-planes3-q94.webp",
+    "planes": 3,
+    "quality": 94,
+    "bytes": 2985876,
+    "meanAngle": 0.7670614719390869,
+    "p95Angle": 1.6699979305267334,
+    "p99Angle": 2.1765477657318115,
+    "maxAngle": 4.310934066772461
+  },
+  {
+    "file": "prop-0-normal-planes2-q82.webp",
+    "planes": 2,
+    "quality": 82,
+    "bytes": 1224436,
+    "meanAngle": 1.7557712471370204,
+    "p95Angle": 4.383539077854021,
+    "p99Angle": 6.464259611583377,
+    "maxAngle": 26.415928940219604
+  },
+  {
+    "file": "prop-0-normal-planes2-q88.webp",
+    "planes": 2,
+    "quality": 88,
+    "bytes": 1633788,
+    "meanAngle": 1.2876387755441654,
+    "p95Angle": 3.0276189895091883,
+    "p99Angle": 4.507035321451623,
+    "maxAngle": 22.29399183140043
+  },
+  {
+    "file": "prop-0-normal-planes2-q94.webp",
+    "planes": 2,
+    "quality": 94,
+    "bytes": 2284046,
+    "meanAngle": 0.829936055208369,
+    "p95Angle": 1.8762527025554838,
+    "p99Angle": 2.799308640355013,
+    "maxAngle": 18.510996477344015
+  },
+  {
+    "file": "prop-2-normal-planes3-q82.webp",
+    "planes": 3,
+    "quality": 82,
+    "bytes": 1033736,
+    "meanAngle": 1.4869849681854248,
+    "p95Angle": 3.6861021518707275,
+    "p99Angle": 5.0975823402404785,
+    "maxAngle": 12.733102798461914
+  },
+  {
+    "file": "prop-2-normal-planes3-q88.webp",
+    "planes": 3,
+    "quality": 88,
+    "bytes": 1439096,
+    "meanAngle": 1.1432371139526367,
+    "p95Angle": 2.7319412231445312,
+    "p99Angle": 3.664682626724243,
+    "maxAngle": 9.239652633666992
+  },
+  {
+    "file": "prop-2-normal-planes3-q94.webp",
+    "planes": 3,
+    "quality": 94,
+    "bytes": 2200870,
+    "meanAngle": 0.7243704795837402,
+    "p95Angle": 1.6191872358322144,
+    "p99Angle": 2.0999362468719482,
+    "maxAngle": 4.933996200561523
+  },
+  {
+    "file": "prop-2-normal-planes2-q82.webp",
+    "planes": 2,
+    "quality": 82,
+    "bytes": 869094,
+    "meanAngle": 1.5179921500183249,
+    "p95Angle": 3.8408758619394527,
+    "p99Angle": 5.543848863973684,
+    "maxAngle": 27.559429626063125
+  },
+  {
+    "file": "prop-2-normal-planes2-q88.webp",
+    "planes": 2,
+    "quality": 88,
+    "bytes": 1204372,
+    "meanAngle": 1.1603945671704863,
+    "p95Angle": 2.829410764363808,
+    "p99Angle": 3.9960396235497484,
+    "maxAngle": 23.721070519897136
+  },
+  {
+    "file": "prop-2-normal-planes2-q94.webp",
+    "planes": 2,
+    "quality": 94,
+    "bytes": 1788998,
+    "meanAngle": 0.7526546808345058,
+    "p95Angle": 1.7011482718609379,
+    "p99Angle": 2.351680444020239,
+    "maxAngle": 16.612148480145123
+  },
+  {
+    "file": "prop-5-normal-planes3-q82.webp",
+    "planes": 3,
+    "quality": 82,
+    "bytes": 1400840,
+    "meanAngle": 1.5585880279541016,
+    "p95Angle": 3.766915798187256,
+    "p99Angle": 5.1245317459106445,
+    "maxAngle": 13.162236213684082
+  },
+  {
+    "file": "prop-5-normal-planes3-q88.webp",
+    "planes": 3,
+    "quality": 88,
+    "bytes": 1869420,
+    "meanAngle": 1.185257077217102,
+    "p95Angle": 2.7418112754821777,
+    "p99Angle": 3.632540225982666,
+    "maxAngle": 8.458257675170898
+  },
+  {
+    "file": "prop-5-normal-planes3-q94.webp",
+    "planes": 3,
+    "quality": 94,
+    "bytes": 2771966,
+    "meanAngle": 0.7515192627906799,
+    "p95Angle": 1.6265431642532349,
+    "p99Angle": 2.0944302082061768,
+    "maxAngle": 4.740368366241455
+  },
+  {
+    "file": "prop-5-normal-planes2-q82.webp",
+    "planes": 2,
+    "quality": 82,
+    "bytes": 1113670,
+    "meanAngle": 1.6271148870768641,
+    "p95Angle": 4.051328222648686,
+    "p99Angle": 6.11765804671255,
+    "maxAngle": 28.37733881085573
+  },
+  {
+    "file": "prop-5-normal-planes2-q88.webp",
+    "planes": 2,
+    "quality": 88,
+    "bytes": 1472638,
+    "meanAngle": 1.2485996197895355,
+    "p95Angle": 2.9149656431954902,
+    "p99Angle": 4.470655896658843,
+    "maxAngle": 24.282857542377318
+  },
+  {
+    "file": "prop-5-normal-planes2-q94.webp",
+    "planes": 2,
+    "quality": 94,
+    "bytes": 2124878,
+    "meanAngle": 0.8171833498821639,
+    "p95Angle": 1.8528872358739132,
+    "p99Angle": 2.7633563105866585,
+    "maxAngle": 17.982337163835833
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "out": "artifacts/screens/fluids",
+  "jobs": [
+    {
+      "url": "play.html?mode=dev&seed=7&dev&off=veil,mist,liquidVeil",
+      "name": "planet",
+      "size": "1600x900",
+      "settle": 5000,
+      "hideUi": true,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats() && window.__tmtFluids.stats().ready",
+        "wait:3000",
+        "eval:window.__sea = window.__tmtFluids.shorePoints(4000, 'water').filter(p => Math.abs(Math.hypot(p[0], p[1], p[2]) - window.__tmtFluids.seaLevel()) < 0.002)",
+        "eval@seaShores:JSON.stringify({ n: window.__sea.length, first: window.__sea[0] })",
+        "eval:window.__tmtFluids.lookAt(window.__sea[Math.floor(window.__sea.length / 2)], 26, 18)",
+        "wait:2500",
+        "shot:far",
+        "eval:window.__tmtFluids.lookAt(window.__sea[Math.floor(window.__sea.length / 3)], 3.5, 5)",
+        "wait:2500",
+        "shot:sea-shore",
+        "eval@gpu:JSON.stringify((window.__tmtGame.performance.gpu.passes || []).filter(p => p.name.startsWith('fluids')).map(p => [p.name, +p.ms.toFixed(3)]))"
+      ]
+    },
+    {
+      "url": "play.html?mode=dev&seed=7&dev&off=veil,mist,liquidVeil&view=liquid-flow",
+      "name": "planet-flow",
+      "size": "1600x900",
+      "settle": 5000,
+      "hideUi": true,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats() && window.__tmtFluids.stats().ready",
+        "wait:3000",
+        "eval:window.__sea = window.__tmtFluids.shorePoints(4000, 'water').filter(p => Math.abs(Math.hypot(p[0], p[1], p[2]) - window.__tmtFluids.seaLevel()) < 0.002)",
+        "eval:window.__tmtFluids.lookAt(window.__sea[Math.floor(window.__sea.length / 2)], 26, 18)",
+        "wait:2500",
+        "shot:far"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "workshop-normal-unpack", "out": "artifacts/workshop-normal-unpack",
+  "jobs": [{
+    "name": "normals", "url": "/play.html", "size": "1920x1080", "wait": "selector:#title-workshop", "timeout": 120000,
+    "settle": 100, "probe": "window.__tmtWorkshop?.snapshot()",
+    "keys": [
+      "eval:(async()=>{window.__normalDiagnostic=await import('/scripts/workshop/verify-normal-unpack.ts');window.__normalDiagnostic.instrumentNormalUpload();})()",
+      "click:#title-workshop", "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')",
+      "eval@normalTexels:window.__normalDiagnostic.verifyNormalUpload()",
+      "eval@shaderCheck:window.__tmtWorkshop.shaderCheck()", "wait:800", "shot:hero",
+      "eval:(()=>{document.querySelector('.ws-overlay').style.visibility='hidden';document.querySelector('.ws-lift-controls').style.visibility='hidden';const e=window.__tmtWorkshop.engine;window.__savedFrame=e.frame.bind(e);e.frame=input=>window.__savedFrame({...input,camera:{position:[3.1,2.75,-2.65],target:[5.05,2.05,-5.65],up:[0,1,0],fovY:45*Math.PI/180},focus:{world:[5.05,2.05,-5.65],distance:3.6,tilt:0}});})()",
+      "wait:700", "shot:boiler-normal-detail",
+      "eval:(()=>{window.__tmtWorkshop.engine.frame=window.__savedFrame;document.querySelector('.ws-overlay').style.visibility='visible';})()",
+      "click:#workshop-back", "wait:300",
+      "eval@disposed:(()=>{const p=window.__tmtWorkshop,b=p.engine.telemetry().vram.total;if(p.ready||b!==0)throw new Error('Resources retained:'+b);return{remainingGpuBytes:b};})()"
+    ]
+  }]
+}

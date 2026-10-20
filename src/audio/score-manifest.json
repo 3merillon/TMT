@@ -1,0 +1,1185 @@
+{
+ "version": 1,
+ "sampleRate": 48000,
+ "encoder": "ffmpeg version 6.1.1-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers\r",
+ "kbps": 64,
+ "generated": "2026-10-17T08:44:29.504Z",
+ "tracks": {
+  "title": {
+   "id": "title",
+   "title": "Tiny Metal Tank (Main Theme)",
+   "bpm": 108,
+   "beatsPerBar": 4,
+   "introBars": 4,
+   "loopBars": 32,
+   "seconds": 80.00025,
+   "samples": 3840012,
+   "loopStartSec": 8.888916666666667,
+   "loopEndSec": 80.00025,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "title-l0.ogg",
+     "layer": 0,
+     "bytes": 646906
+    },
+    {
+     "id": "l1",
+     "file": "title-l1.ogg",
+     "layer": 1,
+     "bytes": 614643
+    },
+    {
+     "id": "l2",
+     "file": "title-l2.ogg",
+     "layer": 2,
+     "bytes": 532491
+    }
+   ],
+   "lufs": -13.4,
+   "truePeakDb": -1,
+   "seed": 2026
+  },
+  "cradle-combat": {
+   "id": "cradle-combat",
+   "title": "Relay Drive",
+   "bpm": 158,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 51.645291666666665,
+   "samples": 2478974,
+   "loopStartSec": 3.0379583333333335,
+   "loopEndSec": 51.645291666666665,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "cradle-combat-l0.ogg",
+     "layer": 0,
+     "bytes": 435364
+    },
+    {
+     "id": "l1",
+     "file": "cradle-combat-l1.ogg",
+     "layer": 1,
+     "bytes": 452666
+    },
+    {
+     "id": "l2",
+     "file": "cradle-combat-l2.ogg",
+     "layer": 2,
+     "bytes": 384470
+    },
+    {
+     "id": "l3",
+     "file": "cradle-combat-l3.ogg",
+     "layer": 3,
+     "bytes": 495027
+    }
+   ],
+   "lufs": -12.8,
+   "truePeakDb": -1,
+   "seed": 4101
+  },
+  "cradle-explore": {
+   "id": "cradle-explore",
+   "title": "Lamp Hill",
+   "bpm": 118,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 69.15245833333333,
+   "samples": 3319318,
+   "loopStartSec": 4.0677916666666665,
+   "loopEndSec": 69.15245833333333,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "cradle-explore-l0.ogg",
+     "layer": 0,
+     "bytes": 617420
+    },
+    {
+     "id": "l1",
+     "file": "cradle-explore-l1.ogg",
+     "layer": 1,
+     "bytes": 524117
+    },
+    {
+     "id": "l2",
+     "file": "cradle-explore-l2.ogg",
+     "layer": 2,
+     "bytes": 257774
+    }
+   ],
+   "lufs": -16.7,
+   "truePeakDb": -1,
+   "seed": 4102
+  },
+  "workshop": {
+   "id": "workshop",
+   "title": "Copper Lathe",
+   "bpm": 96,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 85,
+   "samples": 4080000,
+   "loopStartSec": 5,
+   "loopEndSec": 85,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "workshop-l0.ogg",
+     "layer": 0,
+     "bytes": 678928
+    },
+    {
+     "id": "l1",
+     "file": "workshop-l1.ogg",
+     "layer": 1,
+     "bytes": 604108
+    },
+    {
+     "id": "l2",
+     "file": "workshop-l2.ogg",
+     "layer": 2,
+     "bytes": 295043
+    }
+   ],
+   "lufs": -15.5,
+   "truePeakDb": -1,
+   "seed": 7501
+  },
+  "dune-explore": {
+   "id": "dune-explore",
+   "title": "Rim Wind",
+   "bpm": 104,
+   "beatsPerBar": 3.5,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 68.65379166666666,
+   "samples": 3295382,
+   "loopStartSec": 4.038458333333334,
+   "loopEndSec": 68.65379166666666,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "dune-explore-l0.ogg",
+     "layer": 0,
+     "bytes": 670385
+    },
+    {
+     "id": "l1",
+     "file": "dune-explore-l1.ogg",
+     "layer": 1,
+     "bytes": 542940
+    },
+    {
+     "id": "l2",
+     "file": "dune-explore-l2.ogg",
+     "layer": 2,
+     "bytes": 347145
+    }
+   ],
+   "lufs": -16.2,
+   "truePeakDb": -1,
+   "seed": 5201
+  },
+  "stinger-victory": {
+   "id": "stinger-victory",
+   "title": "Victory",
+   "bpm": 108,
+   "beatsPerBar": 4,
+   "introBars": 3,
+   "loopBars": 0,
+   "seconds": 6.6666875,
+   "samples": 320001,
+   "loopStartSec": 6.6666875,
+   "loopEndSec": 6.6666875,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-victory-l0.ogg",
+     "layer": 0,
+     "bytes": 54258
+    }
+   ],
+   "lufs": -14.1,
+   "truePeakDb": -1,
+   "seed": 8101
+  },
+  "dune-combat": {
+   "id": "dune-combat",
+   "title": "Sandstorm Teeth",
+   "bpm": 146,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 55.89033333333333,
+   "samples": 2682736,
+   "loopStartSec": 3.2876666666666665,
+   "loopEndSec": 55.89033333333333,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "dune-combat-l0.ogg",
+     "layer": 0,
+     "bytes": 481218
+    },
+    {
+     "id": "l1",
+     "file": "dune-combat-l1.ogg",
+     "layer": 1,
+     "bytes": 515371
+    },
+    {
+     "id": "l2",
+     "file": "dune-combat-l2.ogg",
+     "layer": 2,
+     "bytes": 338133
+    },
+    {
+     "id": "l3",
+     "file": "dune-combat-l3.ogg",
+     "layer": 3,
+     "bytes": 533129
+    }
+   ],
+   "lufs": -12.9,
+   "truePeakDb": -1,
+   "seed": 5202
+  },
+  "frost-explore": {
+   "id": "frost-explore",
+   "title": "Observatory Glass",
+   "bpm": 92,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 88.695375,
+   "samples": 4257378,
+   "loopStartSec": 5.217375,
+   "loopEndSec": 88.695375,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "frost-explore-l0.ogg",
+     "layer": 0,
+     "bytes": 776923
+    },
+    {
+     "id": "l1",
+     "file": "frost-explore-l1.ogg",
+     "layer": 1,
+     "bytes": 631824
+    },
+    {
+     "id": "l2",
+     "file": "frost-explore-l2.ogg",
+     "layer": 2,
+     "bytes": 506083
+    }
+   ],
+   "lufs": -17.5,
+   "truePeakDb": -1,
+   "seed": 5301
+  },
+  "frost-combat": {
+   "id": "frost-combat",
+   "title": "Calving Line",
+   "bpm": 170,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 48.00020833333333,
+   "samples": 2304010,
+   "loopStartSec": 2.823541666666667,
+   "loopEndSec": 48.00020833333333,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "frost-combat-l0.ogg",
+     "layer": 0,
+     "bytes": 375064
+    },
+    {
+     "id": "l1",
+     "file": "frost-combat-l1.ogg",
+     "layer": 1,
+     "bytes": 408974
+    },
+    {
+     "id": "l2",
+     "file": "frost-combat-l2.ogg",
+     "layer": 2,
+     "bytes": 355538
+    },
+    {
+     "id": "l3",
+     "file": "frost-combat-l3.ogg",
+     "layer": 3,
+     "bytes": 462197
+    }
+   ],
+   "lufs": -12.9,
+   "truePeakDb": -1,
+   "seed": 5302
+  },
+  "forge-explore": {
+   "id": "forge-explore",
+   "title": "Slag Tide",
+   "bpm": 84,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 97.14295833333334,
+   "samples": 4662862,
+   "loopStartSec": 5.714291666666667,
+   "loopEndSec": 97.14295833333334,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "forge-explore-l0.ogg",
+     "layer": 0,
+     "bytes": 796685
+    },
+    {
+     "id": "l1",
+     "file": "forge-explore-l1.ogg",
+     "layer": 1,
+     "bytes": 564900
+    },
+    {
+     "id": "l2",
+     "file": "forge-explore-l2.ogg",
+     "layer": 2,
+     "bytes": 369682
+    }
+   ],
+   "lufs": -16.8,
+   "truePeakDb": -1,
+   "seed": 5401
+  },
+  "forge-combat": {
+   "id": "forge-combat",
+   "title": "Furnace Hammer",
+   "bpm": 136,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 60.000083333333336,
+   "samples": 2880004,
+   "loopStartSec": 3.5294166666666666,
+   "loopEndSec": 60.000083333333336,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "forge-combat-l0.ogg",
+     "layer": 0,
+     "bytes": 447583
+    },
+    {
+     "id": "l1",
+     "file": "forge-combat-l1.ogg",
+     "layer": 1,
+     "bytes": 495639
+    },
+    {
+     "id": "l2",
+     "file": "forge-combat-l2.ogg",
+     "layer": 2,
+     "bytes": 348271
+    },
+    {
+     "id": "l3",
+     "file": "forge-combat-l3.ogg",
+     "layer": 3,
+     "bytes": 586607
+    }
+   ],
+   "lufs": -13,
+   "truePeakDb": -1,
+   "seed": 5402
+  },
+  "halo-explore": {
+   "id": "halo-explore",
+   "title": "Driftstone Static",
+   "bpm": 128,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 63.75,
+   "samples": 3060000,
+   "loopStartSec": 3.75,
+   "loopEndSec": 63.75,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "halo-explore-l0.ogg",
+     "layer": 0,
+     "bytes": 650046
+    },
+    {
+     "id": "l1",
+     "file": "halo-explore-l1.ogg",
+     "layer": 1,
+     "bytes": 203968
+    },
+    {
+     "id": "l2",
+     "file": "halo-explore-l2.ogg",
+     "layer": 2,
+     "bytes": 555452
+    }
+   ],
+   "lufs": -16.4,
+   "truePeakDb": -1,
+   "seed": 5501
+  },
+  "halo-combat": {
+   "id": "halo-combat",
+   "title": "Orbital Mechanics",
+   "bpm": 174,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 46.896625,
+   "samples": 2251038,
+   "loopStartSec": 2.758625,
+   "loopEndSec": 46.896625,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "halo-combat-l0.ogg",
+     "layer": 0,
+     "bytes": 354320
+    },
+    {
+     "id": "l1",
+     "file": "halo-combat-l1.ogg",
+     "layer": 1,
+     "bytes": 386827
+    },
+    {
+     "id": "l2",
+     "file": "halo-combat-l2.ogg",
+     "layer": 2,
+     "bytes": 288440
+    },
+    {
+     "id": "l3",
+     "file": "halo-combat-l3.ogg",
+     "layer": 3,
+     "bytes": 428286
+    }
+   ],
+   "lufs": -12.9,
+   "truePeakDb": -1,
+   "seed": 5502
+  },
+  "boss-crawler": {
+   "id": "boss-crawler",
+   "title": "The Siege Crawler",
+   "bpm": 132,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 61.818375,
+   "samples": 2967282,
+   "loopStartSec": 3.636375,
+   "loopEndSec": 61.818375,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "boss-crawler-l0.ogg",
+     "layer": 0,
+     "bytes": 518694
+    },
+    {
+     "id": "l1",
+     "file": "boss-crawler-l1.ogg",
+     "layer": 1,
+     "bytes": 514114
+    },
+    {
+     "id": "l2",
+     "file": "boss-crawler-l2.ogg",
+     "layer": 2,
+     "bytes": 375525
+    },
+    {
+     "id": "l3",
+     "file": "boss-crawler-l3.ogg",
+     "layer": 3,
+     "bytes": 581352
+    }
+   ],
+   "lufs": -13,
+   "truePeakDb": -1,
+   "seed": 6101
+  },
+  "boss-leviathan": {
+   "id": "boss-leviathan",
+   "title": "Leviathan Battery",
+   "bpm": 120,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 68,
+   "samples": 3264000,
+   "loopStartSec": 4,
+   "loopEndSec": 68,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "boss-leviathan-l0.ogg",
+     "layer": 0,
+     "bytes": 579701
+    },
+    {
+     "id": "l1",
+     "file": "boss-leviathan-l1.ogg",
+     "layer": 1,
+     "bytes": 556657
+    },
+    {
+     "id": "l2",
+     "file": "boss-leviathan-l2.ogg",
+     "layer": 2,
+     "bytes": 400951
+    },
+    {
+     "id": "l3",
+     "file": "boss-leviathan-l3.ogg",
+     "layer": 3,
+     "bytes": 671814
+    }
+   ],
+   "lufs": -13.2,
+   "truePeakDb": -1,
+   "seed": 6201
+  },
+  "boss-titan": {
+   "id": "boss-titan",
+   "title": "The Frost Titan",
+   "bpm": 150,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 54.4,
+   "samples": 2611200,
+   "loopStartSec": 3.2,
+   "loopEndSec": 54.4,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "boss-titan-l0.ogg",
+     "layer": 0,
+     "bytes": 455826
+    },
+    {
+     "id": "l1",
+     "file": "boss-titan-l1.ogg",
+     "layer": 1,
+     "bytes": 455359
+    },
+    {
+     "id": "l2",
+     "file": "boss-titan-l2.ogg",
+     "layer": 2,
+     "bytes": 333826
+    },
+    {
+     "id": "l3",
+     "file": "boss-titan-l3.ogg",
+     "layer": 3,
+     "bytes": 502680
+    }
+   ],
+   "lufs": -13.1,
+   "truePeakDb": -1,
+   "seed": 6301
+  },
+  "boss-rustcrown": {
+   "id": "boss-rustcrown",
+   "title": "Rustcrown (Corvin)",
+   "bpm": 160,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 51,
+   "samples": 2448000,
+   "loopStartSec": 3,
+   "loopEndSec": 51,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "boss-rustcrown-l0.ogg",
+     "layer": 0,
+     "bytes": 404592
+    },
+    {
+     "id": "l1",
+     "file": "boss-rustcrown-l1.ogg",
+     "layer": 1,
+     "bytes": 402697
+    },
+    {
+     "id": "l2",
+     "file": "boss-rustcrown-l2.ogg",
+     "layer": 2,
+     "bytes": 304254
+    },
+    {
+     "id": "l3",
+     "file": "boss-rustcrown-l3.ogg",
+     "layer": 3,
+     "bytes": 407489
+    }
+   ],
+   "lufs": -12.8,
+   "truePeakDb": -1,
+   "seed": 6401
+  },
+  "fleet-launch": {
+   "id": "fleet-launch",
+   "title": "Council of Embers",
+   "bpm": 148,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 55.13525,
+   "samples": 2646492,
+   "loopStartSec": 3.24325,
+   "loopEndSec": 55.13525,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "fleet-launch-l0.ogg",
+     "layer": 0,
+     "bytes": 466627
+    },
+    {
+     "id": "l1",
+     "file": "fleet-launch-l1.ogg",
+     "layer": 1,
+     "bytes": 445991
+    },
+    {
+     "id": "l2",
+     "file": "fleet-launch-l2.ogg",
+     "layer": 2,
+     "bytes": 421100
+    },
+    {
+     "id": "l3",
+     "file": "fleet-launch-l3.ogg",
+     "layer": 3,
+     "bytes": 472659
+    }
+   ],
+   "lufs": -12.8,
+   "truePeakDb": -1,
+   "seed": 6501
+  },
+  "finale-escape": {
+   "id": "finale-escape",
+   "title": "Unwinding",
+   "bpm": 184,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 44.34804166666667,
+   "samples": 2128706,
+   "loopStartSec": 2.6087083333333334,
+   "loopEndSec": 44.34804166666667,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "finale-escape-l0.ogg",
+     "layer": 0,
+     "bytes": 328898
+    },
+    {
+     "id": "l1",
+     "file": "finale-escape-l1.ogg",
+     "layer": 1,
+     "bytes": 327207
+    },
+    {
+     "id": "l2",
+     "file": "finale-escape-l2.ogg",
+     "layer": 2,
+     "bytes": 332009
+    },
+    {
+     "id": "l3",
+     "file": "finale-escape-l3.ogg",
+     "layer": 3,
+     "bytes": 346193
+    }
+   ],
+   "lufs": -12.2,
+   "truePeakDb": -1,
+   "seed": 7101
+  },
+  "finale-choice": {
+   "id": "finale-choice",
+   "title": "The Mainspring",
+   "bpm": 70,
+   "beatsPerBar": 4,
+   "introBars": 1,
+   "loopBars": 16,
+   "seconds": 58.2855625,
+   "samples": 2797707,
+   "loopStartSec": 3.4285625,
+   "loopEndSec": 58.2855625,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "finale-choice-l0.ogg",
+     "layer": 0,
+     "bytes": 558713
+    },
+    {
+     "id": "l2",
+     "file": "finale-choice-l2.ogg",
+     "layer": 2,
+     "bytes": 422799
+    }
+   ],
+   "lufs": -18.1,
+   "truePeakDb": -1,
+   "seed": 7201
+  },
+  "ending-rewind": {
+   "id": "ending-rewind",
+   "title": "Rewind (The Orrery Turns Again)",
+   "bpm": 96,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 32,
+   "seconds": 85,
+   "samples": 4080000,
+   "loopStartSec": 5,
+   "loopEndSec": 85,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "ending-rewind-l0.ogg",
+     "layer": 0,
+     "bytes": 658235
+    },
+    {
+     "id": "l1",
+     "file": "ending-rewind-l1.ogg",
+     "layer": 1,
+     "bytes": 634138
+    },
+    {
+     "id": "l2",
+     "file": "ending-rewind-l2.ogg",
+     "layer": 2,
+     "bytes": 794703
+    }
+   ],
+   "lufs": -13.8,
+   "truePeakDb": -1,
+   "seed": 7301
+  },
+  "ending-release": {
+   "id": "ending-release",
+   "title": "Release (Sail for the Lantern)",
+   "bpm": 72,
+   "beatsPerBar": 4,
+   "introBars": 1,
+   "loopBars": 24,
+   "seconds": 83.33333333333333,
+   "samples": 4000000,
+   "loopStartSec": 3.3333333333333335,
+   "loopEndSec": 83.33333333333333,
+   "kind": "loop",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "ending-release-l0.ogg",
+     "layer": 0,
+     "bytes": 776533
+    },
+    {
+     "id": "l1",
+     "file": "ending-release-l1.ogg",
+     "layer": 1,
+     "bytes": 906576
+    },
+    {
+     "id": "l2",
+     "file": "ending-release-l2.ogg",
+     "layer": 2,
+     "bytes": 697861
+    }
+   ],
+   "lufs": -17,
+   "truePeakDb": -1,
+   "seed": 7401
+  },
+  "stinger-defeat": {
+   "id": "stinger-defeat",
+   "title": "Defeat",
+   "bpm": 84,
+   "beatsPerBar": 4,
+   "introBars": 3,
+   "loopBars": 0,
+   "seconds": 8.5714375,
+   "samples": 411429,
+   "loopStartSec": 8.5714375,
+   "loopEndSec": 8.5714375,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-defeat-l0.ogg",
+     "layer": 0,
+     "bytes": 68818
+    }
+   ],
+   "lufs": -13.2,
+   "truePeakDb": -1,
+   "seed": 8201
+  },
+  "stinger-mission-start": {
+   "id": "stinger-mission-start",
+   "title": "Mission start",
+   "bpm": 120,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 0,
+   "seconds": 4,
+   "samples": 192000,
+   "loopStartSec": 4,
+   "loopEndSec": 4,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-mission-start-l0.ogg",
+     "layer": 0,
+     "bytes": 31001
+    }
+   ],
+   "lufs": -14.2,
+   "truePeakDb": -1,
+   "seed": 8301
+  },
+  "stinger-checkpoint": {
+   "id": "stinger-checkpoint",
+   "title": "Checkpoint",
+   "bpm": 120,
+   "beatsPerBar": 4,
+   "introBars": 1,
+   "loopBars": 0,
+   "seconds": 2,
+   "samples": 96000,
+   "loopStartSec": 2,
+   "loopEndSec": 2,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-checkpoint-l0.ogg",
+     "layer": 0,
+     "bytes": 22875
+    }
+   ],
+   "lufs": -14,
+   "truePeakDb": -3.8,
+   "seed": 8401
+  },
+  "stinger-boss-phase": {
+   "id": "stinger-boss-phase",
+   "title": "Boss phase",
+   "bpm": 132,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 0,
+   "seconds": 3.636375,
+   "samples": 174546,
+   "loopStartSec": 3.636375,
+   "loopEndSec": 3.636375,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-boss-phase-l0.ogg",
+     "layer": 0,
+     "bytes": 26923
+    }
+   ],
+   "lufs": -14.3,
+   "truePeakDb": -1,
+   "seed": 8501
+  },
+  "stinger-escalation": {
+   "id": "stinger-escalation",
+   "title": "Fleet away",
+   "bpm": 148,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 0,
+   "seconds": 3.24325,
+   "samples": 155676,
+   "loopStartSec": 3.24325,
+   "loopEndSec": 3.24325,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-escalation-l0.ogg",
+     "layer": 0,
+     "bytes": 28844
+    }
+   ],
+   "lufs": -14.4,
+   "truePeakDb": -1,
+   "seed": 8601
+  },
+  "stinger-undermined": {
+   "id": "stinger-undermined",
+   "title": "Undermined",
+   "bpm": 100,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 0,
+   "seconds": 4.8,
+   "samples": 230400,
+   "loopStartSec": 4.8,
+   "loopEndSec": 4.8,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-undermined-l0.ogg",
+     "layer": 0,
+     "bytes": 40806
+    }
+   ],
+   "lufs": -13.5,
+   "truePeakDb": -1,
+   "seed": 8701
+  },
+  "stinger-near-miss": {
+   "id": "stinger-near-miss",
+   "title": "Near miss",
+   "bpm": 160,
+   "beatsPerBar": 4,
+   "introBars": 1,
+   "loopBars": 0,
+   "seconds": 1.5,
+   "samples": 72000,
+   "loopStartSec": 1.5,
+   "loopEndSec": 1.5,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-near-miss-l0.ogg",
+     "layer": 0,
+     "bytes": 11996
+    }
+   ],
+   "lufs": -13,
+   "truePeakDb": -2.4,
+   "seed": 8801
+  },
+  "stinger-kill-streak": {
+   "id": "stinger-kill-streak",
+   "title": "Kill streak",
+   "bpm": 160,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 0,
+   "seconds": 3,
+   "samples": 144000,
+   "loopStartSec": 3,
+   "loopEndSec": 3,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-kill-streak-l0.ogg",
+     "layer": 0,
+     "bytes": 24626
+    }
+   ],
+   "lufs": -13.4,
+   "truePeakDb": -1,
+   "seed": 8901
+  },
+  "stinger-objective": {
+   "id": "stinger-objective",
+   "title": "Objective complete",
+   "bpm": 120,
+   "beatsPerBar": 4,
+   "introBars": 2,
+   "loopBars": 0,
+   "seconds": 4,
+   "samples": 192000,
+   "loopStartSec": 4,
+   "loopEndSec": 4,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-objective-l0.ogg",
+     "layer": 0,
+     "bytes": 35255
+    }
+   ],
+   "lufs": -13.9,
+   "truePeakDb": -1,
+   "seed": 9001
+  },
+  "stinger-checkpoint-b": {
+   "id": "stinger-checkpoint-b",
+   "title": "Checkpoint B",
+   "bpm": 120,
+   "beatsPerBar": 4,
+   "introBars": 1,
+   "loopBars": 0,
+   "seconds": 2,
+   "samples": 96000,
+   "loopStartSec": 2,
+   "loopEndSec": 2,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-checkpoint-b-l0.ogg",
+     "layer": 0,
+     "bytes": 24393
+    }
+   ],
+   "lufs": -13.4,
+   "truePeakDb": -3.6,
+   "seed": 8411
+  },
+  "stinger-checkpoint-c": {
+   "id": "stinger-checkpoint-c",
+   "title": "Checkpoint C",
+   "bpm": 120,
+   "beatsPerBar": 4,
+   "introBars": 1,
+   "loopBars": 0,
+   "seconds": 2,
+   "samples": 96000,
+   "loopStartSec": 2,
+   "loopEndSec": 2,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-checkpoint-c-l0.ogg",
+     "layer": 0,
+     "bytes": 22186
+    }
+   ],
+   "lufs": -13.7,
+   "truePeakDb": -3.8,
+   "seed": 8421
+  },
+  "stinger-boss-defeated": {
+   "id": "stinger-boss-defeated",
+   "title": "Boss defeated",
+   "bpm": 120,
+   "beatsPerBar": 4,
+   "introBars": 3,
+   "loopBars": 0,
+   "seconds": 6,
+   "samples": 288000,
+   "loopStartSec": 6,
+   "loopEndSec": 6,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-boss-defeated-l0.ogg",
+     "layer": 0,
+     "bytes": 46119
+    }
+   ],
+   "lufs": -13.6,
+   "truePeakDb": -1,
+   "seed": 8511
+  },
+  "stinger-ending-rewind": {
+   "id": "stinger-ending-rewind",
+   "title": "Rewind: the final hit",
+   "bpm": 96,
+   "beatsPerBar": 4,
+   "introBars": 3,
+   "loopBars": 0,
+   "seconds": 7.5,
+   "samples": 360000,
+   "loopStartSec": 7.5,
+   "loopEndSec": 7.5,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-ending-rewind-l0.ogg",
+     "layer": 0,
+     "bytes": 59533
+    }
+   ],
+   "lufs": -13.8,
+   "truePeakDb": -1,
+   "seed": 9101
+  },
+  "stinger-ending-release": {
+   "id": "stinger-ending-release",
+   "title": "Release: the final hit",
+   "bpm": 72,
+   "beatsPerBar": 4,
+   "introBars": 3,
+   "loopBars": 0,
+   "seconds": 10,
+   "samples": 480000,
+   "loopStartSec": 10,
+   "loopEndSec": 10,
+   "kind": "stinger",
+   "stems": [
+    {
+     "id": "l0",
+     "file": "stinger-ending-release-l0.ogg",
+     "layer": 0,
+     "bytes": 94719
+    }
+   ],
+   "lufs": -14.1,
+   "truePeakDb": -1,
+   "seed": 9201
+  }
+ }
+}

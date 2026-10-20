@@ -1,0 +1,19 @@
+{
+  "out": "artifacts/graphics-overhaul/underwater",
+  "jobs": [
+    {
+      "url": "/?mode=dev&seed=7&engineDev", "name": "underwater", "wait": "game", "settle": 5000,
+      "keys": [
+        "waitfor:window.__tmtFluids && window.__tmtFluids.stats().ready",
+        "eval@gpu-regression:import('/scripts/capture-fixtures/liquid-regression.ts').then(m => m.liquidRegression())",
+        "click:.dev-underwater", "wait:1800", "shot:snells-window",
+        "eval@camera-water:window.__tmtFluids.probe([window.__tmtVisuals.camera().eye, window.__tmtVisuals.camera().target]).then(samples => ({samples, camera: window.__tmtVisuals.camera(), stats: window.__tmtFluids.stats()}))",
+        "eval:window.__waterTarget = window.__tmtVisuals.camera().target",
+        "eval@deep-hull:import('/scripts/capture-fixtures/liquid-regression.ts').then(m => m.deepHullRegression(window.__tmtFluids, window.__waterTarget))",
+        "eval:window.__tmtFluids.lookAt(window.__waterTarget, -0.015, 0.3)", "wait:1200", "shot:waterline-below",
+        "eval:window.__tmtFluids.lookAt(window.__waterTarget, 0.015, 0.3)", "wait:1200", "shot:waterline-above",
+        "click:.dev-water", "wait:500", "click:.dev-blast", "wait:700", "shot:volumetric-splash", "wait:3500", "shot:water-debris"
+      ]
+    }
+  ]
+}

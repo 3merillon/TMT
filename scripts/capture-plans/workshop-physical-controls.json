@@ -1,0 +1,28 @@
+{
+  "name": "workshop-physical-controls", "out": "artifacts/workshop-physical-controls",
+  "jobs": [{
+    "name": "controls", "url": "/play.html", "size": "1920x1080", "wait": "selector:#title-workshop", "timeout": 120000,
+    "settle": 100, "probe": "window.__tmtWorkshop?.snapshot()",
+    "keys": [
+      "click:#title-workshop", "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')", "wait:1800",
+      "eval:window.__tmtWorkshop.setLiftInput(1)", "waitfor:window.__tmtWorkshop.liftHeight>=.5", "eval:window.__tmtWorkshop.setLiftInput(0)",
+      "eval:(()=>{document.querySelector('.ws-overlay').style.visibility='hidden';const e=window.__tmtWorkshop.engine;window.__physicalFrame=e.frame.bind(e);window.__physicalCamera=(position,target,fov=43)=>{e.frame=input=>window.__physicalFrame({...input,camera:{position,target,up:[0,1,0],fovY:fov*Math.PI/180},focus:{world:target,distance:3,tilt:0}});};window.__physicalCamera([2.65,1.55,4.5],[2.22,1.12,2.45],38);})()",
+      "wait:700", "hover:#workshop-lift-up", "wait:350", "shot:physical-up-hover",
+      "eval@upHover:(()=>{const b=document.querySelector('#workshop-lift-up'),s=getComputedStyle(b);if(!b.matches(':hover')||b.disabled||s.backgroundColor!=='rgba(0, 0, 0, 0)'||s.borderWidth!=='0px'||s.boxShadow!=='none'||b.textContent)throw new Error('Physical up target has visible DOM decoration or misses real hover');return{hover:b.matches(':hover'),background:s.backgroundColor,border:s.borderWidth,shadow:s.boxShadow};})()",
+      "hover:#workshop-lift-down", "wait:350", "shot:physical-down-hover",
+      "eval@downHover:(()=>{const b=document.querySelector('#workshop-lift-down');if(!b.matches(':hover')||b.disabled)throw new Error('Physical down target misses real hover');return{hover:true,liftHeight:window.__tmtWorkshop.liftHeight};})()",
+      "click:#workshop-lift-down", "move:0.01:0.01", "press:Shift+Tab", "wait:350", "shot:physical-keyboard-focus",
+      "eval@keyboardFocus:(()=>{const b=document.querySelector('#workshop-lift-up');if(document.activeElement!==b||!b.matches(':focus-visible'))throw new Error('Physical control keyboard focus missing');window.__liftBefore=window.__tmtWorkshop.liftHeight;return{focused:true,focusVisible:true};})()",
+      "down:Space", "wait:350", "shot:physical-keyboard-pressed", "up:Space", "wait:150",
+      "eval@keyboardLift:(()=>{const after=window.__tmtWorkshop.liftHeight;if(after<=window.__liftBefore+.04)throw new Error('Physical keyboard lift did not move');return{before:window.__liftBefore,after};})()",
+      "eval:document.activeElement.blur();window.__physicalCamera([3.6,.95,4.9],[2.22,.55,2.5],42)", "wait:700", "shot:panel-and-ground-cable",
+      "eval:window.__tmtWorkshop.setLiftInput(-1)", "waitfor:window.__tmtWorkshop.liftHeight<.001", "eval:window.__tmtWorkshop.setLiftInput(0)",
+      "eval:window.__physicalCamera([-2.7,.46,3.3],[0,.14,0],43)", "wait:700", "shot:metal-grate-grazing",
+      "eval:window.__physicalCamera([0,2.4,3.0],[0,2.6,8.95],60)", "wait:700", "shot:freight-door-lighting",
+      "eval@shaderCheck:window.__tmtWorkshop.shaderCheck()",
+      "eval:(()=>{window.__tmtWorkshop.engine.frame=window.__physicalFrame;document.querySelector('.ws-overlay').style.visibility='visible';})()",
+      "click:#workshop-back", "wait:300",
+      "eval@disposed:(()=>{const p=window.__tmtWorkshop,b=p.engine.telemetry().vram.total;if(p.ready||b!==0)throw new Error('Resources retained:'+b);return{remainingGpuBytes:b};})()"
+    ]
+  }]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "workshop-lamps",
+  "out": "artifacts/tank-designs/lamps",
+  "jobs": [
+    {
+      "name": "lamps",
+      "url": "/play.html",
+      "size": "1600x1000",
+      "wait": "selector:#title-workshop",
+      "timeout": 120000,
+      "settle": 100,
+      "probe": "window.__tmtWorkshop?.snapshot()",
+      "keys": [
+        "click:#title-workshop",
+        "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')",
+        "wait:1200",
+        "eval@shaderCheck:window.__tmtWorkshop.shaderCheck()",
+        "shot:room",
+        "eval:(() => { document.querySelector('.ws-overlay').style.visibility='hidden';window.__lampOriginalFrame=window.__tmtWorkshop.engine.frame.bind(window.__tmtWorkshop.engine); })()",
+        "eval:(() => { const e=window.__tmtWorkshop.engine; e.frame=input=>window.__lampOriginalFrame({...input,camera:{position:[2.2,4.3,3.3],target:[3.6,4.7,1.5],up:[0,1,0],fovY:42*Math.PI/180},focus:{world:[3.6,4.7,1.5],distance:2,tilt:0}}); })()",
+        "wait:800",
+        "shot:bay-lamp-low",
+        "eval:window.__tmtWorkshop.setLiftInput(1)",
+        "wait:3200",
+        "eval:window.__tmtWorkshop.setLiftInput(0)",
+        "wait:800",
+        "shot:bay-lamp-raised",
+        "eval:(() => { const e=window.__tmtWorkshop.engine; e.frame=input=>window.__lampOriginalFrame({...input,camera:{position:[4.9,3.25,5.6],target:[6.32,3.18,4.5],up:[0,1,0],fovY:35*Math.PI/180},focus:{world:[6.32,3.18,4.5],distance:2,tilt:0}}); })()",
+        "wait:800",
+        "shot:wall-lantern",
+        "eval:(() => { const e=window.__tmtWorkshop.engine; e.frame=input=>window.__lampOriginalFrame({...input,camera:{position:[3.5,3.1,2.1],target:[5.57,3.04,0.6],up:[0,1,0],fovY:43*Math.PI/180},focus:{world:[5.57,3.04,0.6],distance:2,tilt:0}}); })()",
+        "wait:800",
+        "shot:bench-arm",
+        "eval:(() => {window.__tmtWorkshop.engine.frame=window.__lampOriginalFrame;document.querySelector('.ws-overlay').style.visibility='visible';})()",
+        "click:#workshop-back",
+        "wait:300",
+        "eval@disposed:(() => {const p=window.__tmtWorkshop;const bytes=p.engine.telemetry().vram.total;if(p.ready||bytes!==0)throw new Error('Lamp resources retained: '+bytes);return{bytes};})()"
+      ]
+    }
+  ]
+}

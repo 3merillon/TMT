@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "publicMaxBytes": 54000000,
+  "docsImages": {
+    "directory": "docs/images",
+    "maxTotalBytes": 1000000,
+    "maxFileBytes": 400000
+  },
+  "assetsMaxBytes": 700000000,
+  "sourceGlbMaxBytes": 270000000,
+  "videoExtensions": [".mp4", ".webm", ".mov", ".m4v", ".avi", ".mkv"],
+  "videoAllowlist": [],
+  "docsScope": "Checks every Markdown file in the release inventory. docFiles additionally requires the core public guides and notices to exist.",
+  "forbiddenDirectories": [
+    "node_modules",
+    "dist",
+    "dist-hub",
+    ".verify-dist",
+    "target",
+    "public/wasm",
+    ".wrangler",
+    ".vite-capture",
+    "coverage",
+    "test-results",
+    "playwright-report"
+  ],
+  "docFiles": [
+    "README.md",
+    "docs/README.md",
+    "docs/development.md",
+    "docs/architecture.md",
+    "docs/media.md",
+    "docs/release-readiness.md",
+    "docs/images/README.md",
+    "dev/README.md",
+    "server/README.md",
+    "src/engine/README.md",
+    "src/game/campaign/README.md",
+    "src/game/workshop/README.md",
+    "CONTRIBUTING.md",
+    "AGENTS.md",
+    "THIRD_PARTY.md",
+    "public/THIRD-PARTY-NOTICES.txt"
+  ]
+}

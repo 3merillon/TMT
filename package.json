@@ -1,0 +1,80 @@
+{
+  "name": "tiny-metal-tank",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:hub": "wrangler dev --port 8787 --var ALLOW_DIRECT_ONLY:true --var HUB_ORIGINS:http://127.0.0.1:5173,http://localhost:5173,http://127.0.0.1:5174,http://localhost:5174",
+    "dev:online": "npm run build && wrangler dev --port 8787 --var ALLOW_DIRECT_ONLY:true",
+    "dev:online-test": "node scripts/online-test-server.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:check": "npm run build && wrangler deploy --dry-run",
+    "public:sync": "tsx scripts/sync-public.ts",
+    "verify:cloudflare": "node scripts/verify-cloudflare.mjs",
+    "verify:online": "node scripts/verify-online.mjs",
+    "dev": "vite --host 127.0.0.1 --open",
+    "build": "tsc --noEmit && vite build",
+    "build:realtime-wasm": "tsx scripts/build-realtime-wasm.ts",
+    "build:terrain-wasm": "tsx scripts/build-terrain-wasm.ts",
+    "test": "vitest run",
+    "check": "tsc --noEmit",
+    "verify:fast": "tsc --noEmit && vitest run --project tools --project engine --project kit --project vehicle --project terrain --project rules --project ui --project fx --project world --project audio --project content --project lab",
+    "verify:engine": "vitest run --project engine --passWithNoTests",
+    "verify:terrain": "vitest run --project terrain --passWithNoTests",
+    "verify:kit": "vitest run --project kit --passWithNoTests",
+    "verify:vehicle": "vitest run --project vehicle --passWithNoTests",
+    "verify:physics": "vitest run --project physics --project vehicle --passWithNoTests",
+    "verify:rules": "vitest run --project rules --passWithNoTests",
+    "verify:ui": "vitest run --project ui --passWithNoTests",
+    "verify:fx": "vitest run --project fx --passWithNoTests",
+    "verify:world": "vitest run --project world --passWithNoTests",
+    "verify:audio": "vitest run --project audio --passWithNoTests",
+    "verify:content": "vitest run --project content --passWithNoTests",
+    "verify:tools": "vitest run --project tools --passWithNoTests",
+    "verify:lab": "vitest run --project lab --passWithNoTests",
+    "verify:kernel": "vitest run --project lab --passWithNoTests",
+    "verify:slow": "vitest run --project slow --passWithNoTests",
+    "verify:performance": "vitest run tests/kit-interference.slow.test.ts tests/terrain-scaling.test.ts --maxWorkers=1",
+    "verify:guard": "tsx scripts/guards.ts",
+    "verify:bundle": "vite build --outDir .verify-dist --emptyOutDir --logLevel warn && tsx scripts/check-bundle.ts",
+    "verify:browser": "tsx scripts/capture.ts --plan",
+    "verify:closure": "tsx scripts/import-closure.ts",
+    "bake:voice": "tsx scripts/bake-campaign-voice.ts",
+    "verify:repo": "node scripts/check-repo.mjs"
+  },
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "0.20.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261016.1",
+    "@types/node": "^22.20.4",
+    "@types/three": "^0.180.0",
+    "esbuild": "0.28.2",
+    "magic-string": "0.30.21",
+    "meshoptimizer": "1.2.0",
+    "miniflare": "5.20261012.1-beta",
+    "playwright-core": "1.61.0",
+    "sharp": "^0.35.5",
+    "three": "0.180.0",
+    "tsx": "^4.20.6",
+    "typescript": "~5.9.2",
+    "vite": "^7.1.7",
+    "vitest": "^4.1.11",
+    "wrangler": "^4.151.1"
+  },
+  "description": "A browser artillery game on destructible planets, with a WebGPU renderer and Rust/WASM terrain core.",
+  "license": "MIT",
+  "author": "3merillon",
+  "homepage": "https://tmt.3merillon.workers.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3merillon/TMT.git"
+  },
+  "bugs": {
+    "url": "https://github.com/3merillon/TMT/issues"
+  },
+  "funding": "https://buy.stripe.com/3cIcN77Lg7xv2g68sQdnW00",
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

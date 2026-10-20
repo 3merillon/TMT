@@ -1,0 +1,105 @@
+WORKSHOP / SERVICE BAY 03
+
+Baseline: 4472f2d on game/runtime. Working branch: codex/workshop-3d.
+Underground vaulted basalt and red-clay brick bay. Riveted navy iron ribs, burnished aged
+brass, oxidized copper piping, neutral service lamps over the hero tank, warm
+wall lamps and a restrained cool backlight. Real kit meshes are authoritative.
+Precision lift and robot remain parametric, with authored static surroundings.
+
+materials-atlas.png was generated with the built-in image generation tool.
+Prompt: Production albedo texture atlas for a realistically CAD-like steampunk
+underground tank workshop rendered in a stylized physically based game engine.
+Square 2x2 material sample atlas, flat orthographic surfaces, no perspective,
+lighting gradients or shadows. Top left: grey blue excavated basalt with subtle
+veins. Top right: aged dark navy gunmetal plate, fine scratches and oil wear.
+Bottom left: aged golden brass with gentle patina. Bottom right: oxidized copper,
+warm reddish brown and sparse verdigris. Four equal square quadrants entirely
+filled with materials. No text, objects, bolts, gaps, borders, or watermarks.
+Restrained physically plausible wear. Bake this image onto actual 3D geometry.
+
+Blender 5.2.1 LTS was verified through MCP. The room is authored and exported
+with a separate headless Blender process so the user's interactive Blender can
+remain closed. scripts/blender/build-workshop.py is the reproducible source.
+
+Meshy 7.1 generated the boiler, lathe, rolling cabinets, inert ordnance cart,
+twin-cylinder compressor and reinforced oak parts crates
+using the image references in meshy/. The dynamic fan rotor uses the same
+original-geometry pipeline. All original meshes and PBR maps are preserved
+(4K base color and normal, 2K metallic/roughness).
+Job receipts and generation provenance are recorded under meshy/. The official
+MCP verified the balance; the official REST API explicitly requested model 7.1
+because the installed MCP schema did not expose that model literal.
+
+Walls use individual .48m x .20m red-clay bricks, alternating running bond and
+recessed 12mm mortar joints. The elliptical vault uses fitted stone voussoirs.
+The rear fan has a real 1.48m-radius liner, with a clear 1.55m masonry opening,
+and a twelve-metre receding open duct bending upward at z=-20.1, plus a
+separate original-geometry rotor for runtime rotation. The pressure gauge keeps
+its original bezel and replaces only the dial face with an independent image
+and moving pointer; its measured plane is recorded in manifest.pressureGauge.
+
+workshop.blend links the exact original textures in texture-source/ and
+stores no packed texture duplicates. It can be reopened and rendered directly.
+The two cabinet instances share one texture layer; their bolted adapter frames
+end at the mechanical payload support datum y=.75m. No prop is decimated.
+The seven jobs consumed 245 of the authorized 450 Meshy credits.
+
+Architecture uses dedicated world-projected image textures: red clay brick
+(material15,.4m repeat), old cold concrete (16,1.5m repeat) and matte rough stone
+voussoirs (17,.6m repeat). Geometry supplies real bond and narrow mortar joints;
+the images supply grain, pits and wear. The floor is one continuous poured slab.
+Every procedural pipe elbow is a tangent circular sweep with oriented flange
+collars and visible bolts. The fan cowling is one coherent non-overlapping
+annular casting; receding duct stiffeners and a supported drive shaft give depth.
+Millimetre relief on exposed brick and stone faces supplements the bitmap bump;
+all mortar edges and masonry bed dimensions remain fixed. Static brass uses
+the same authored rest-space material19 bitmap as the runtime service hardware.
+The freight gate uses captured end rollers, nineteen interlocking formed slats,
+a supported winding drum and geared motor, manual override and an operator box.
+Its central approach lane remains clear. The pit is exactly3.44m x4.20m with
+bottom y=-.72; fixed cover plates end25mm outside the2.85m x3.90m moving deck.
+Return cabinet is[-3,0,-3.6], delivery[-4.55,0,1.2]. The shelf/crates moved rearward
+toz=-2.7 and the ordnance cart forward toz=5.0 to clear their enlarged service beds.
+
+reflection-probe/ contains six scene-linear EXRs rendered at [0,1.7,0] from
+the actual static room. public/workshop/reflection-*.webp encode RGBM range32
+without a tone-map or gamma transform. The engine decodes HDR before GGX
+prefiltering and projects reflection directions into the room's physical box.
+No tank, lift, robot or animated fan was baked into the probe. The reproducible
+script is scripts/blender/render-workshop-probe.py; metadata includes exact
+cube orientation and box bounds in assets/workshop/runtime-source/reflection-probe.json.
+
+Shipping texture packaging: scripts/workshop/pack-workshop-textures.py keeps
+unaltered original maps and SHA256s in texture-source/, then writes2K albedo
+and vector-renormalized2K normals, plus1K variance-filtered roughness/metallic.
+Color uses WebP quality90. The --compact pack writes X/Y normal components as
+separate grayscale planes at quality94, retaining exact Z-sign alpha. The GPU
+reconstructs the ordinary2K normal array once at load time; all seven maps have
+p95 angular error below1.89 degrees after RGBA8 quantization. Roughness and
+metallic use six-bit scalar quantization, maximum error2/255, then lossless WebP.
+Architecture/fixture maps use quality94 and the gauge quality96 at native size.
+RGBM remains native-size lossless RGBA, checked byte-for-byte including alpha.
+The full geometry plus compact textures totals about40MB; every original map,
+source GLB and geometry triangle is preserved in the source asset directories.
+Measured codec alternatives and final error bounds are in texture-source/.
+Reproduction order: build-workshop.py, render-workshop-probe.py, texture packer,
+then runtime geometry packaging. Do not rerun Blender export over a packaged
+runtime without rerunning both packaging steps.
+
+The parked static overhead crane has flange-riding runway wheels, transverse
+hoist trolley, outer bolted carrier plates, stub axles and motor reduction.
+Its two chain falls form a continuous reeving path around a supported sheave;
+a thrust swivel, retained clevis pin and gated tapered hook complete the load
+path. This architectural crane is separate from the animated tank service rig.
+The machinist's tabouret at [4.58,0,1.22] has a dished worn steel seat at y=.854,
+a genuine coarse trapezoidal spindle, captive bronze nut and locking lever,
+supporting cast hub, three splayed tubular legs, floor-flush pads and a connected
+footrest. Its screw shoulder bears against the underside of the seat boss.
+
+target-scene.png is generated concept art, not an in-game screenshot. Its prompt
+is saved in target-scene-prompt.txt. The user approved its functional layout and
+lighting direction, but requested a cleaner, more gamified finish compatible
+with the existing tanks. Keep grime localized, service aisles clear, all lamps
+outside the crane's swept volume, and drains recessed and purposeful. No large
+brand signs. The interface is called Workshop, with contextual controls and
+compact overall stats rather than permanently occluding panels.

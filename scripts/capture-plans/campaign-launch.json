@@ -1,0 +1,27 @@
+{
+  "name": "campaign-launch",
+  "out": "artifacts/screens/campaign-launch",
+  "jobs": [{
+    "name": "three-pads",
+    "url": "/play.html?mode=campaign&mission=ii-7&autopilot=1",
+    "wait": "game",
+    "timeout": 1200000,
+    "keys": [
+      "waitfor:window.__tmtGame.mission?.beat === 'launch-defence'",
+      "wait:20000",
+      "eval:if(document.querySelectorAll('.ch-posts select').length !== 3) throw new Error('Missing companion assignments')",
+      "eval:const s=document.querySelector('#assign-mags');s.value='aether-pad';s.dispatchEvent(new Event('change'));",
+      "wait:2000",
+      "eval:if(document.querySelector('#assign-mags').value !== 'aether-pad') throw new Error('Assignment did not persist')",
+      "eval:const s=document.querySelector('#assign-mags');s.value='harbor-pad';s.dispatchEvent(new Event('change'));",
+      "shot:three-pads",
+      "eval@early:({mission:window.__tmtGame.mission,tanks:window.__tmtGame.snapshot.tanks})",
+      "waitfor:window.__tmtGame.mission?.objectives?.some(o=>o.id==='forge-pad' && o.state==='done') || window.__tmtGame.mission?.outcome",
+      "shot:forge-away",
+      "waitfor:window.__tmtGame.mission?.outcome",
+      "shot:result",
+      "eval@finished:({mission:window.__tmtGame.mission,tanks:window.__tmtGame.snapshot.tanks})",
+      "eval:if(window.__tmtGame.mission.outcome !== 'won') throw new Error('Three-pad defence failed')"
+    ]
+  }]
+}

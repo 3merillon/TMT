@@ -1,0 +1,49 @@
+{
+  "name": "campaign-identity",
+  "out": "artifacts/screens/campaign-identity",
+  "jobs": [
+    {
+      "name": "title-desktop",
+      "url": "/play.html",
+      "size": "1280x900",
+      "wait": "js:window.__tmtGame?.ui?.screen === 'title'",
+      "keys": [
+        "waitfor:Array.from(document.querySelectorAll('.title-hero img')).every(i=>i.complete && i.naturalWidth>0)",
+        "eval:if(!document.title.includes('Tiny Metal Tank')) throw new Error('Old title')",
+        "shot:title",
+        "click:#title-campaign",
+        "waitfor:window.__tmtGame.ui.screen === 'campaign'",
+        "shot:campaign-board"
+      ]
+    },
+    {
+      "name": "title-mobile",
+      "url": "/play.html",
+      "size": "390x844",
+      "wait": "js:window.__tmtGame?.ui?.screen === 'title'",
+      "keys": [
+        "waitfor:Array.from(document.querySelectorAll('.title-hero img')).every(i=>i.complete && i.naturalWidth>0)",
+        "eval:if(document.documentElement.scrollWidth > innerWidth) throw new Error('Horizontal title overflow')",
+        "shot:title"
+      ]
+    },
+    {
+      "name": "rustling",
+      "url": "/play.html?mode=campaign&mission=p2&autopilot=1&dev&fog=off",
+      "wait": "game",
+      "settle": 0,
+      "timeout": 180000,
+      "hideUi": true,
+      "css": ".ch-radio-overlay,.screens{display:none!important}",
+      "keys": [
+        "waitfor:window.__tmtGame.snapshot.tanks.some(t=>t.visualKind==='rustling' && t.health>0 && window.__tmtGame.snapshot.observations?.[0]?.[t.id]?.visible)",
+        "press:Escape",
+        "waitfor:window.__tmtGame.ui.screen === 'pause'",
+        "eval:window.__tmtVisuals.setFog(false);window.__tmtFluids.lookAt(window.__tmtGame.snapshot.tanks.find(t=>t.visualKind==='rustling' && t.health>0 && window.__tmtGame.snapshot.observations?.[0]?.[t.id]?.visible).position,1.5,3,.7)",
+        "eval@inspected-actors:window.__tmtGame.snapshot.tanks.filter(t=>t.visualKind==='rustling').map(t=>({id:t.id,health:t.health,position:t.position,contact:window.__tmtGame.snapshot.observations?.[0]?.[t.id]}))",
+        "wait:1000",
+        "shot:swarm-model"
+      ]
+    }
+  ]
+}

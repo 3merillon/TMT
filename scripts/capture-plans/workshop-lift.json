@@ -1,0 +1,36 @@
+{
+  "name": "workshop-lift",
+  "out": "artifacts/workshop-scissor-lift",
+  "jobs": [{
+    "name": "lift",
+    "url": "/play.html",
+    "size": "1920x1080",
+    "wait": "selector:#title-workshop",
+    "timeout": 120000,
+    "settle": 100,
+    "probe": "window.__tmtWorkshop?.snapshot()",
+    "keys": [
+      "click:#title-workshop",
+      "waitfor:window.__tmtWorkshop?.ready && !document.querySelector('.ws-loading')",
+      "wait:1800",
+      "shot:hero",
+      "eval:(() => { document.querySelector('.ws-overlay').style.visibility='hidden';document.querySelector('.ws-lift-controls').style.visibility='hidden'; const e=window.__tmtWorkshop.engine; window.__originalWorkshopFrame=e.frame.bind(e); e.frame = input => window.__originalWorkshopFrame({...input, camera:{position:[-2.9,.78,3.5],target:[0,.58,0],up:[0,1,0],fovY:44*Math.PI/180},focus:{world:[0,.58,0],distance:4.5,tilt:0}}); })()",
+      "wait:600",
+      "shot:lowered",
+      "eval:window.__tmtWorkshop.setLiftInput(1)",
+      "wait:1400",
+      "eval:window.__tmtWorkshop.setLiftInput(0)",
+      "shot:midpoint",
+      "eval:window.__tmtWorkshop.setLiftInput(1)",
+      "wait:2600",
+      "eval:window.__tmtWorkshop.setLiftInput(0)",
+      "shot:raised",
+      "eval:(() => { const e=window.__tmtWorkshop.engine; e.frame = input => window.__originalWorkshopFrame({...input, camera:{position:[-.75,.58,2.8],target:[0,.34,0],up:[0,1,0],fovY:42*Math.PI/180},focus:{world:[0,.34,0],distance:2.9,tilt:0}}); })()",
+      "wait:600",
+      "shot:drive",
+      "eval:(() => {window.__tmtWorkshop.engine.frame=window.__originalWorkshopFrame;document.querySelector('.ws-overlay').style.visibility='visible';document.querySelector('.ws-lift-controls').style.visibility='visible';})()",
+      "click:#workshop-back",
+      "wait:300"
+    ]
+  }]
+}

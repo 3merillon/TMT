@@ -1,0 +1,44 @@
+[
+  {
+    "name": "temperate-incendiary-dynamic",
+    "seed": 7,
+    "skyTime": 180,
+    "epoch": 900,
+    "camera": {
+      "position": [
+        0.508084737922049,
+        22.682826433662118,
+        -0.011148372520206912
+      ],
+      "target": [
+        -5.335671901702881,
+        17.79914093017578,
+        -0.0000020782042611244833
+      ],
+      "up": [
+        -0.2871469129537156,
+        0.9578865540246083,
+        -1.118415729195605e-7
+      ],
+      "fovY": 0.8203047484373349
+    },
+    "tanks": 2,
+    "graphics": {
+      "tier": "high",
+      "renderScale": 1,
+      "grain": 0,
+      "miniature": 0,
+      "fisheye": 0,
+      "clouds": true,
+      "volumetrics": true,
+      "lensFlare": true,
+      "godRays": true
+    },
+    "off": [],
+    "frames": 360,
+    "measureImpact": {
+      "radius": 2.25,
+      "munition": "incendiary"
+    }
+  }
+]

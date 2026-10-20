@@ -1,0 +1,10 @@
+{
+  "name": "smoke",
+  "description": "Seed-7 gameplay smoke capture: wait for the drive test to be ready, fire once, then wait for terrain version >= 2 and the aim phase before capturing the committed crater. The budget checks readiness, console/page errors and the observed terrain commit.",
+  "out": "artifacts/screens/smoke",
+  "budget": "budgets/smoke.json",
+  "jobs": [
+    { "name": "smoke-drive", "url": "/play.html?mode=drive&seed=7",
+      "keys": ["shot:ready", "press:Space", "wait:1200", "shot:fire", "waitfor:(() => { const g = window.__tmtGame; return !!g && g.terrainVersion >= 2 && g.phase === 'aim'; })()", "wait:800", "shot:impact"] }
+  ]
+}

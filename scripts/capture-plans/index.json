@@ -1,0 +1,12 @@
+{
+  "$comment": "Capture-plan registry. Run a plan with `npm run verify:browser -- <name>` (capture + its budget); add --repeat 3 --min --perf for performance measurements.",
+  "plans": [
+    { "name": "smoke", "plan": "scripts/capture-plans/smoke.json", "budget": "budgets/smoke.json", "when": "after every merge batch", "owner": "W0-TOOLS", "stream": "W0-TOOLS" },
+    { "name": "terrain", "plan": "scripts/capture-plans/terrain.json", "budget": "budgets/terrain.json", "when": "terrain changes; nightly", "owner": "W1-TER", "stream": "W0-TOOLS" },
+    { "name": "drive", "plan": "scripts/capture-plans/drive.json", "budget": "budgets/drive.json", "when": "vehicle changes; nightly", "owner": "W1-PHY", "stream": "W0-TOOLS" },
+    { "name": "flow", "plan": "scripts/capture-plans/flow.json", "budget": "budgets/flow.json", "when": "front-end changes; nightly", "owner": "W1-SHELL", "stream": "W1-SHELL" },
+    { "name": "lighting", "plan": "scripts/capture-plans/lighting.json", "budget": "budgets/lighting.json", "when": "lighting, atmosphere, shadows or post changes; nightly", "owner": "W1-ENG-LOOK", "stream": "W1-ENG-LOOK" },
+    { "name": "kit-sheet", "plan": "scripts/capture-plans/kit-sheet.json", "when": "kit changes (src/game/kit); nightly", "owner": "W1-KIT", "stream": "W1-KIT" },
+    { "name": "takeover", "plan": "scripts/capture-plans/takeover.json", "budget": "budgets/takeover.json", "when": "engine scene / facade changes; nightly", "owner": "W1-ENG-SCENE", "stream": "W1-ENG-SCENE" }
+  ]
+}

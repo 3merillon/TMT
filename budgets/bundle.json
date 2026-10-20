@@ -1,0 +1,84 @@
+{
+  "description": "Production bundle budgets: raw and gzip chunk limits plus import-boundary rules. Initial game code must exclude the renderer and compatibility physics implementation; those load through renderer warm-up. Limits retain the existing 15% tolerance. Investigate regressions before changing budgets.",
+  "tolerance": 0.15,
+  "anyJsMaxKb": 2860,
+  "files": [
+    {
+      "match": "assets/resident-terrain-*.js",
+      "maxKb": 2860,
+      "gzipMaxKb": 1080
+    }
+  ],
+  "entries": {
+    "game": {
+      "initialMaxKb": 1070,
+      "initialGzipMaxKb": 315,
+      "allMaxKb": 3940
+    }
+  },
+  "forbidden": [
+    {
+      "entry": "game",
+      "scope": "all",
+      "module": "{server,scripts,tests}/**",
+      "level": "error",
+      "why": "server, scripts and tests never ship in the game; play.html only redirects"
+    },
+    {
+      "entry": "game",
+      "scope": "all",
+      "module": "src/{backends,reference,ui}/**",
+      "level": "error",
+      "why": "retired lab backends, oracles and window management must not re-enter the game bundle"
+    },
+    {
+      "entry": "game",
+      "scope": "all",
+      "module": "node_modules/{playwright-core,vitest,@vitest,typescript,vite,tsx,esbuild}/**",
+      "level": "error",
+      "why": "dev tooling never ships"
+    },
+    {
+      "entry": "game",
+      "scope": "all",
+      "module": "src/game/{online-client,online-protocol,visibility-check,visibility-pass,visibility-volumes}.ts",
+      "level": "error",
+      "why": "retired online and visibility prototypes must not re-enter the game bundle"
+    },
+    {
+      "entry": "game",
+      "scope": "all",
+      "module": "src/game/{terrain,terrain-build,terrain-worker,terrain-jobs,terrain-lod,terrain-seams,terrain-triangulation,terrain-fracture}.ts",
+      "level": "error",
+      "why": "retired terrain modules must not re-enter the game bundle"
+    },
+    {
+      "entry": "game",
+      "scope": "all",
+      "module": "node_modules/three/**",
+      "level": "error",
+      "why": "Three.js is development-only; no part of the package may ship in the game"
+    },
+    {
+      "entry": "game",
+      "scope": "all",
+      "module": "src/lab/**",
+      "level": "error",
+      "why": "The game must not depend on diagnostic lab modules"
+    },
+    {
+      "entry": "game",
+      "scope": "initial",
+      "module": "src/engine/engine.ts",
+      "level": "error",
+      "why": "Renderer construction belongs behind asynchronous warm-up"
+    },
+    {
+      "entry": "game",
+      "scope": "initial",
+      "module": "node_modules/@dimforge/rapier3d-compat/**",
+      "level": "error",
+      "why": "Compatibility physics must not block title imports"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "source": "assets/workshop/meshy/inert-ordnance-cart/model.glb",
+  "sourceSha256": "cfb7692d7085e984f3669433a3810a76d812737ce428122fe5d90e47d2b0cf25",
+  "sourceBytes": 34293060,
+  "sourceTriangles": 23964,
+  "method": "Radial surface/UV retopology from source triangles; bridge transport straps and cradle contacts; retain original fin faces",
+  "excluded": [
+    "trolley",
+    "wheels",
+    "cradles",
+    "transport straps",
+    "handle"
+  ],
+  "strapIntervalsSourceX": [
+    [
+      -0.637,
+      -0.405
+    ],
+    [
+      0.085,
+      0.321
+    ]
+  ],
+  "skinSamples": 7232,
+  "bridgedSamples": 5380,
+  "originalFinTriangles": 408,
+  "vertices": 8456,
+  "triangles": 14744,
+  "packedBytes": 129312,
+  "bounds": [
+    [
+      -0.08772064000368118,
+      -0.0868000015616417,
+      -0.5062400102615356
+    ],
+    [
+      0.0871623232960701,
+      0.0868000015616417,
+      0.5062400102615356
+    ]
+  ],
+  "encoding": "PMB2",
+  "casingGrid": {
+    "rings": 112,
+    "segments": 64
+  }
+}
