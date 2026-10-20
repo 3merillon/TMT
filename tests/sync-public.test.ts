@@ -16,6 +16,7 @@ describe('independent public snapshots', () => {
     git(root, 'config', 'user.name', 'Snapshot test');
     git(root, 'config', 'user.email', 'test@example.invalid');
     git(root, 'config', 'core.autocrlf', 'false');
+    git(root, 'config', 'core.filemode', 'false');
     return root;
   };
   const commit = (root: string, message: string) => { git(root, 'add', '-A'); git(root, 'commit', '-q', '-m', message); };
