@@ -48,6 +48,7 @@ export function validateRules(rules: MatchRules): MatchRules {
   if (!integer(r.commitWindowTicks, 0, 600)) fail('rules.commitWindowTicks must be an integer in [0, 600]');
   if (r.turnModel !== 'tempo' && r.turnModel !== 'realtime') fail(`unknown turn model ${String(r.turnModel)}`);
   if (r.autoCoax !== undefined && typeof r.autoCoax !== 'boolean') fail('rules.autoCoax must be a boolean');
+  if (r.projectileWater !== undefined && typeof r.projectileWater !== 'boolean') fail('rules.projectileWater must be a boolean');
   if (r.aimSeconds !== undefined && (!finite(r.aimSeconds) || (r.aimSeconds as number) <= 0)) fail('rules.aimSeconds must be positive');
   if (r.maxTurns !== undefined && !integer(r.maxTurns, 1)) fail('rules.maxTurns must be a positive integer');
   if (r.suddenDeathTurn !== undefined && !integer(r.suddenDeathTurn, 1)) fail('rules.suddenDeathTurn must be a positive integer');

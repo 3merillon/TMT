@@ -24,7 +24,7 @@ describe('DEFAULT_RULES', () => {
     expect(DEFAULT_RULES.radarCost).toBe(RADAR_COST);
     expect(DEFAULT_RULES.radarCost).toBe(3);
     expect(DEFAULT_RULES).toEqual({
-      moveSeconds: 30, wind: null, fog: true, projectileAge: 8, gravityScale: 1, ammo: {}, radarCost: 3, startCharge: 1, friendlyFire: true,
+      moveSeconds: 30, wind: null, fog: true, projectileAge: 8, gravityScale: 1, projectileWater: true, ammo: {}, radarCost: 3, startCharge: 1, friendlyFire: true,
       commitWindowTicks: 12, turnModel: 'tempo', brace: false, taps: false, overdrive: false, supplyEvery: 0, fallDamage: false,
     });
     // No aim timer, turn limit or sudden death today.

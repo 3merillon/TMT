@@ -4,6 +4,7 @@ import type { TerrainHit, V3 } from './contracts';
 import type { Flight } from './rules/ballistics';
 import type { WindState } from '../world/weather';
 import type { NativeMatch } from './native-match';
+import type { ProjectileWater } from './rules/projectile-water';
 
 export function readFlightStep(w: Float64Array, flight: Flight): { hit: TerrainHit | null; stepped: boolean; expired: boolean; direction: V3; extent: number } {
   if (w[7]) { flight.position = [w[0], w[1], w[2]]; flight.vx = w[3]; flight.vy = w[4]; flight.vz = w[5]; flight.age = w[6]; }
@@ -26,6 +27,9 @@ export class NativeBallistics {
     return w.length ? { tick: w[0], strength: w[1], bars: w[2], heading: w[3], axis: [w[4], w[5], w[6]] } : null;
   }
   bind(match: NativeMatch): void { match.admitShots(this.core, this.context); }
+  configureWater(water?: ProjectileWater): void {
+    if (water) this.call(6, 0, [1, water.n, ...water.levels]);
+  }
   advance(flight: Flight, barrelLength: number, windFactor: number, query?: BallisticQuery): { hit: TerrainHit | null; stepped: boolean; expired: boolean; direction: V3; extent: number } {
     if (query && query.core !== this.core) throw new Error('Flight query belongs to another engine');
     let id = this.flights.get(flight);

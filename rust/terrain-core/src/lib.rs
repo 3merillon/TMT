@@ -14,6 +14,7 @@ mod vehicle;
 mod traversal;
 mod match_state;
 mod flight;
+mod projectile_water;
 mod combat;
 mod ai;
 mod ai_profile;

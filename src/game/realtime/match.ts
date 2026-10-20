@@ -5,6 +5,7 @@
  * the fixed 60 Hz tick: seeded streams, no clocks. Unlike the turn rules, a terrain edit that is not prepared by its
  * commit tick never stalls the match: realtime driving must not freeze whenever something explodes. The crater shows
  * at once (the view's pending cut) and the collision terrain commits when the edit is ready, in impact order. */
+import { projectileWater, type ProjectileWater } from '../rules/projectile-water';
 import type { Contact, DriveInput, GameEvent, GameSnapshot, ImpactEvent, PlayerId, ProjectileState, TankState, TerrainHit, TerrainQueryBounds,
   TerrainUpdate, TrajectoryPrediction, V3, WorldQuery, TankComponent } from '../contracts';
 import type { CutRequest, TerrainTicket } from '../../gpu/terrain/transactions';
@@ -233,6 +234,7 @@ export class RealtimeMatch implements MatchRuntime {
   private previousPoses: TankPose[] | null = null;
   private solvesLeft = AIM_SOLVES_PER_TICK;
   private decisions = 0;
+  private water?: ProjectileWater;
   private stillAir: BallisticEnv | null = null;
   private windCache: WindState | null = null;
   private readonly windSeed: number;
@@ -307,6 +309,8 @@ export class RealtimeMatch implements MatchRuntime {
       this.script?.restore?.(this.api, saved.script);
       for (const tank of this.state.tanks) if (tank.retired) world.removeTank?.(tank.id);
       world.configureLiquids?.(this.state.tanks.map(t => t.position));
+      this.water = this.rules.projectileWater ? projectileWater(world.liquidBasins?.()) : undefined;
+      this.nativeBallistics?.configureWater(this.water);
       this.spawnEvents.length = 0; return;
     }
     // The player first (it is setup.tanks[0]), then any initial units.
@@ -329,6 +333,8 @@ export class RealtimeMatch implements MatchRuntime {
     this.updateSight();
     if (!options.replica) this.script?.start(this.api);
     world.configureLiquids?.(this.state.tanks.map(t => t.position));
+    this.water = this.rules.projectileWater ? projectileWater(world.liquidBasins?.()) : undefined;
+    this.nativeBallistics?.configureWater(this.water);
     this.realtime.push(...this.spawnEvents.splice(0));
   }
 
@@ -882,8 +888,8 @@ export class RealtimeMatch implements MatchRuntime {
   }
 
   private ballistics(owner: PlayerId, munition: MunitionId | undefined): BallisticEnv {
-    if (!this.rules.wind) return this.stillAir ??= { gravity: this.gravity, wind: null, windFactor: 0 };
-    return { gravity: this.gravity, wind: tick => this.windAt(tick)!, windFactor: windFactor(this.units[owner].kit, munition) };
+    if (!this.rules.wind) return this.stillAir ??= { gravity: this.gravity, wind: null, windFactor: 0, water: this.water };
+    return { gravity: this.gravity, water: this.water, wind: tick => this.windAt(tick)!, windFactor: windFactor(this.units[owner].kit, munition) };
   }
   private windAt(tick: number): WindState | null {
     if (!this.rules.wind) return null;

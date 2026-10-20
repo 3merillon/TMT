@@ -6,7 +6,7 @@ use crate::{core::Outcome, physics::Physics, traversal::Queries};
 const DT: f64 = 1. / 60.;
 type V = [f64; 3];
 fn v(d: &[f64], i: usize) -> V { [d[i], d[i+1], d[i+2]] }
-fn len(p: V) -> f64 { let m = p[0].abs().max(p[1].abs()).max(p[2].abs()); if m == 0. { 0. } else { let a = [p[0]/m, p[1]/m, p[2]/m]; (a[0]*a[0]+a[1]*a[1]+a[2]*a[2]).sqrt()*m } }
+pub(crate) fn len(p: V) -> f64 { let m = p[0].abs().max(p[1].abs()).max(p[2].abs()); if m == 0. { 0. } else { let a = [p[0]/m, p[1]/m, p[2]/m]; (a[0]*a[0]+a[1]*a[1]+a[2]*a[2]).sqrt()*m } }
 fn normal(p: V) -> V { let n = len(p); if n > 1e-10 { let s = 1./n; [p[0]*s,p[1]*s,p[2]*s] } else { [0.,1.,0.] } }
 fn valid(d: &[f64], size: usize) -> Outcome<()> { if d.len() != size || d.iter().any(|n| !n.is_finite()) { Err("Invalid flight descriptor".into()) } else { Ok(()) } }
 fn integer(x: f64) -> bool { x >= 0. && x <= 9007199254740991. && x.fract() == 0. }
@@ -32,13 +32,13 @@ impl Weather {
 }
 #[derive(Clone, Copy)]
 pub(crate) struct Flight { pub p: V, pub velocity: V, pub age: f64, pub launch: f64, barrel: f64, factor: f64 }
-struct Environment { gravity: f64, radius: f64, max_age: f64, weather: Option<Weather>, next: u32, flights: HashMap<u32, Flight>, scratch: Vec<u8> }
+struct Environment { water: Option<crate::projectile_water::Water>, gravity: f64, radius: f64, max_age: f64, weather: Option<Weather>, next: u32, flights: HashMap<u32, Flight>, scratch: Vec<u8> }
 #[derive(Default)]
 pub struct Flights { next: u32, environments: HashMap<u32, Environment> }
 impl Flights {
     pub(crate) fn canonical_environment(&self,id:u32,w:&mut crate::canonical::Writer)->Outcome<()>{
         let e=self.environments.get(&id).ok_or("Unknown flight environment")?;
-        w.words(&[e.gravity,e.radius,e.max_age]);w.option(&e.weather,|w,e|{w.integer(e.seed as u64);w.words(&[e.mean,e.gust,e.period]);});Ok(())
+        w.words(&[e.gravity,e.radius,e.max_age]);w.option(&e.weather,|w,e|{w.integer(e.seed as u64);w.words(&[e.mean,e.gust,e.period]);});if let Some(water)=&e.water { w.section(11,|w|water.canonical(w)); } Ok(())
     }
     pub fn create(&mut self, d: &[f64]) -> Outcome<u32> {
         valid(d,9)?;
@@ -46,7 +46,7 @@ impl Flights {
             || (d[5] != 0. && d[5] != 1.) || d[6] < 0. || d[7] < 0. || d[8] <= 0. { return Err("Invalid flight environment".into()); }
         let weather = if d[5] == 0. { None } else { Some(Weather { seed: d[4] as u32, mean: d[6], gust: d[7], period: d[8] }) };
         self.next = self.next.checked_add(1).ok_or("Flight environments exhausted")?;
-        self.environments.insert(self.next, Environment { gravity:d[1],radius:d[2],max_age:d[3],weather,next:0,flights:HashMap::new(),scratch:Vec::new() }); Ok(self.next)
+        self.environments.insert(self.next, Environment { water:None,gravity:d[1],radius:d[2],max_age:d[3],weather,next:0,flights:HashMap::new(),scratch:Vec::new() }); Ok(self.next)
     }
     pub(crate) fn require(&self,id:u32)->Outcome<()> {if self.environments.contains_key(&id){Ok(())}else{Err("Unknown flight environment".into())}}
     pub(crate) fn live(&mut self,context:u32,f:Flight,d:&[f64],queries:&mut Queries,physics:Option<&Physics>,out:&mut Vec<u8>)->Outcome<Flight> {self.environments.get_mut(&context).ok_or("Unknown flight environment")?.advance(f,d,queries,physics,out)}
@@ -65,6 +65,7 @@ impl Flights {
             3 => { valid(d,0)?; e.flights.remove(&id); out.clear(); }
             4 => { valid(d,0)?; let f = e.flights.get(&id).ok_or("Unknown resident flight")?; write(out,&[f.p[0],f.p[1],f.p[2],f.velocity[0],f.velocity[1],f.velocity[2],f.age]); }
             5 => { valid(d,0)?; write(out,&[e.flights.len() as f64]); }
+            6 => { e.water=Some(crate::projectile_water::Water::read(d)?); write(out,&[1.]); }
             _ => return Err("Unknown flight command".into()),
         }
         Ok(())
@@ -93,7 +94,7 @@ impl Environment {
                     let n = normal(old); let g = -self.gravity*DT;
                     for i in 0..3 { f.velocity[i] += n[i]*g; }
                     if let Some(w) = self.weather {
-                        if f.factor != 0. {
+                        if f.factor != 0. && !self.water.as_ref().is_some_and(|w|w.contains(old)) {
                             let tick = f.launch+1.+(f.age/DT).round(); if !integer(tick) { return Err("Invalid wind tick".into()); }
                             let wind = w.sample(tick); let length = len(old);
                             if wind[1] != 0. && length > 1e-9 {
@@ -103,7 +104,8 @@ impl Environment {
                             }
                         }
                     }
-                    for i in 0..3 { f.p[i] = old[i]+f.velocity[i]*DT; } f.age += DT;
+                    if let Some((p,velocity))=self.water.as_ref().and_then(|w|w.advance(old,f.velocity,DT)) { f.p=p; f.velocity=velocity; }
+                    else { for i in 0..3 { f.p[i] = old[i]+f.velocity[i]*DT; } } f.age += DT;
                     let delta = [f.p[0]-old[0],f.p[1]-old[1],f.p[2]-old[2]]; direction = normal(delta); extent = len(delta);
                     query(0,&[old[0],old[1],old[2],direction[0],direction[1],direction[2],extent],queries,&mut self.scratch)?;
                     expired = f.age+1e-9 >= self.max_age || len(f.p) > self.radius*5.;

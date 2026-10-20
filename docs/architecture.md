@@ -47,6 +47,8 @@ The exterior renderer combines map-based sun shadows and screen-space contact sh
 
 The exterior fluid module runs GPU passes for water, spray, gas, and liquid compositing. It is tailored to TMT's game effects and surface liquids, not a general-purpose computational fluid dynamics solver. CPU basin logic also lives in [`src/world/basins.ts`](../src/world/basins.ts). Volumetric clouds and their shadows are renderer modules with quality controls; the world weather module currently supplies deterministic wind and does not make clouds or rain part of the world simulation. See [`fluids.ts`](../src/engine/passes/fluids/fluids.ts), [`clouds.ts`](../src/engine/passes/clouds/clouds.ts), and [`weather.ts`](../src/world/weather.ts).
 
+Projectiles use the canonical standing-water basins, independently of GPU waves and visual quality. The native and TypeScript integrators apply quadratic drag through water, split entry/exit at the surface and retain the lost speed after emerging. Live fire, previews and AI use the same flight environment. New matches enable `rules.projectileWater`; its absence in older saved setups preserves their original replay physics. The projectile state and existing save formats remain compatible.
+
 ## Network and persistence
 
 Online matches use browser-to-browser WebRTC for gameplay traffic. The Worker coordinates room discovery, admission, signaling, chat, and recovery. The elected player host runs the authoritative simulation and is trusted; hosting can move between players without transferring campaign ownership. The Worker does not run the simulation. See [`server/README.md`](../server/README.md) for deployment and operating boundaries.

@@ -1,0 +1,15 @@
+{
+  "out": "artifacts/projectile-water/browser",
+  "jobs": [{
+    "url": "/?mode=dev&seed=7&engineDev", "name": "underwater-shot", "wait": "game", "settle": 1500,
+    "keys": [
+      "waitfor:window.__tmtFluids?.stats().ready",
+      "eval@setup:import('/scripts/capture-fixtures/projectile-water.ts').then(m => m.prepareProjectileWater())",
+      "waitfor:window.__projectileWater.samples.some(p => p.age >= 0.2)",
+      "shot:drag",
+      "waitfor:window.__projectileWater.events.length > 0",
+      "shot:impact",
+      "eval@physics:window.__projectileWater.finish()"
+    ]
+  }]
+}

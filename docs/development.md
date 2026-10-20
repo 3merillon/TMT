@@ -47,9 +47,12 @@ WGSL validation uses the `naga` executable, discovered on PATH, in the Cargo bin
 npm run verify:browser -- smoke --strict
 npm run verify:browser -- mobile-fire --strict
 npm run verify:browser -- release-gallery --strict
+npm run verify:browser -- projectile-water --strict
 ```
 
 The capture harness starts an isolated Vite server and a local Chromium browser. Set `TMT_CHROME` if browser discovery fails. Captures/logs go under ignored `artifacts/`; inspect images and console/page errors. `--perf` serializes GPU measurements; record device, tier, resolution, seed, warm/cold cache, and workload before comparing runs. An initial bundle-size reduction does not by itself prove a higher frame rate or lower complete gameplay download.
+
+The projectile-water plan fires from a natural basin using resident live shots and checks speed loss and preview agreement.
 
 ## Rust cores
 

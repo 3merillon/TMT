@@ -3,6 +3,7 @@
 import type { ProjectileState, V3 } from '../contracts';
 import { normalize } from '../math';
 import { windAcceleration, type WindState } from '../../world/weather';
+import { advanceThroughWater, inProjectileWater, type ProjectileWater } from './projectile-water';
 
 /** The fixed simulation tick (60 Hz). */
 export const FIXED_DT = 1 / 60;
@@ -14,6 +15,7 @@ export interface BallisticEnv {
   readonly wind: ((tick: number) => WindState) | null;
   /** The shell's wind drift multiplier (munitions.windFactor). */
   readonly windFactor: number;
+  readonly water?: ProjectileWater;
 }
 
 /** The fixed tick in which a projectile's next integration step runs: launched between ticks at `launchTick`, its
@@ -33,12 +35,13 @@ export function advanceFlight(flight: Flight, env: BallisticEnv, dt = FIXED_DT):
   let nx = 0, ny = 1, nz = 0;
   if (length > 1e-10) { const s = 1 / length; nx = p[0] * s; ny = p[1] * s; nz = p[2] * s; }
   let vx = flight.vx + nx * g, vy = flight.vy + ny * g, vz = flight.vz + nz * g;
-  if (env.wind && env.windFactor !== 0) {
+  if (env.wind && env.windFactor !== 0 && !inProjectileWater(p, env.water)) {
     const wind = env.wind(stepTick(flight, dt));
     if (wind.strength !== 0) { const a = windAcceleration(wind, p), k = env.windFactor * dt; vx = vx + a[0] * k; vy = vy + a[1] * k; vz = vz + a[2] * k; }
   }
-  flight.vx = vx; flight.vy = vy; flight.vz = vz;
-  flight.position = [p[0] + vx * dt, p[1] + vy * dt, p[2] + vz * dt];
+  const water = env.water && advanceThroughWater(p, [vx, vy, vz], dt, env.water);
+  flight.vx = water ? water.velocity[0] : vx; flight.vy = water ? water.velocity[1] : vy; flight.vz = water ? water.velocity[2] : vz;
+  flight.position = water ? water.position : [p[0] + vx * dt, p[1] + vy * dt, p[2] + vz * dt];
   flight.age = flight.age + dt;
 }
 

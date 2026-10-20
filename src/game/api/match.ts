@@ -11,6 +11,8 @@ export interface WindRule { mean: number; gust: number; period: number }
 export interface MatchRules {
   moveSeconds: number; aimSeconds?: number; maxTurns?: number; suddenDeathTurn?: number;
   wind: WindRule | null; fog: boolean; projectileAge: number; gravityScale: number;
+  /** Standing-water drag. Missing in old saves: retain their original replay physics. */
+  projectileWater?: boolean;
   ammo: Partial<Record<MunitionId, number>>; radarCost: number; startCharge: number; friendlyFire: boolean;
   commitWindowTicks: number;                 // K, default 12
   turnModel: 'tempo' | 'realtime';           // tempo: equal tempo == strict alternation; realtime: src/game/realtime (campaign)
@@ -40,7 +42,7 @@ export interface MatchSetup {
  * The literals mirror simulation.ts (MOVE_SECONDS, MAX_PROJECTILE_AGE, RADAR_COST; checked by
  * tests/rules-match-setup) so this contract never imports the simulation it configures. */
 export const DEFAULT_RULES: MatchRules = Object.freeze({                    // reproduces today's practice duel
-  moveSeconds: 30, wind: null, fog: true, projectileAge: 8, gravityScale: 1,
+  moveSeconds: 30, wind: null, fog: true, projectileAge: 8, gravityScale: 1, projectileWater: true,
   ammo: Object.freeze({}), radarCost: 3, startCharge: 1, friendlyFire: true,
   commitWindowTicks: 12, turnModel: 'tempo', brace: false, taps: false, overdrive: false, supplyEvery: 0, fallDamage: false,
 });

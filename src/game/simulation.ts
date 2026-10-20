@@ -1,3 +1,4 @@
+import { projectileWater, type ProjectileWater } from './rules/projectile-water';
 import { isW1Profile } from './ai/profiles';
 import type { Contact, DriveInput, GameEvent, GameSnapshot, ImpactEvent, Loadout, PlayerId, ProjectileState, TankState, TerrainHit, TerrainQueryBounds, TerrainUpdate, TrajectoryPrediction, V3, WorldQuery } from './contracts';
 import type { CommitResult, CutRequest, TerrainTicket } from '../gpu/terrain/transactions';
@@ -146,6 +147,7 @@ export class GameSimulation {
   /** Hull-frame sight points (all but the trunnion and muzzle) per tank, for the kit and turret yaw they were built at. */
   private readonly sightCache: { kit: KitAssembly; yaw: number; points: V3[] }[] = [];
   private readonly outcome: StepOutcome = { hit: null, victim: null, hitTarget: false, expired: false, stepped: true };
+  private water?: ProjectileWater;
   private stillAir: BallisticEnv | null = null;
   /** Transactions path: prepared edits ordered by commit tick. */
   private commits: PendingCommit[] = [];
@@ -210,6 +212,8 @@ export class GameSimulation {
     this.state = { tick: 0, time: 0, phase: 'aim', active: 0, turn: 1, phaseTime: 0, tanks, projectiles: [], contacts: tanks.map(() => null), winner: null, fog: this.rules.fog,
       observations: tanks.map(() => tanks.map(() => null)), wind: this.windAt(0) };
     world.configureLiquids?.(tanks.map(t => t.position));
+    this.water = this.rules.projectileWater ? projectileWater(world.liquidBasins?.()) : undefined;
+    this.nativeBallistics?.configureWater(this.water);
     this.nativeMatch = world.createMatchLifecycle?.(this.setup, this.state);
     if (this.nativeMatch?.nativeAI) for (let id = 0; id < this.brains.length; id++) {
       const profile = this.brains[id];
@@ -744,8 +748,8 @@ export class GameSimulation {
   }
   /** The ballistic environment of a shell (live, preview and AI traces all use it). */
   private ballistics(projectile: ProjectileState): BallisticEnv {
-    if (!this.rules.wind) return this.stillAir ??= { gravity: this.gravity, wind: null, windFactor: 0 };
-    return { gravity: this.gravity, wind: tick => this.windAt(tick)!, windFactor: windFactor(kitOf(this.state.tanks[projectile.owner]), projectile.munition) };
+    if (!this.rules.wind) return this.stillAir ??= { gravity: this.gravity, wind: null, windFactor: 0, water: this.water };
+    return { gravity: this.gravity, water: this.water, wind: tick => this.windAt(tick)!, windFactor: windFactor(kitOf(this.state.tanks[projectile.owner]), projectile.munition) };
   }
 
   /** The v1 `contacts[observer]`: the visible enemy nearest the observer, else the most recently observed one. */
