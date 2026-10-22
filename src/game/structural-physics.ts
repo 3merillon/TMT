@@ -240,6 +240,13 @@ export class StructuralPhysics {
   };
   private prepareLiquidDrag(): void {
     if (!this.liquid || !this.bodies.size) return;
+    // Chassis updates can invalidate the preceding solver snapshot. Refresh the
+    // structural poses in bounded batches before sampling basins, preserving the
+    // resident path's one crossing per batch instead of one read per chunk.
+    if (this.native) {
+      const bodies = [...this.bodies.values()].map(entry => entry.body);
+      for (let i = 0; i < bodies.length; i += 64) this.native.refreshBodies(bodies.slice(i, i + 64));
+    }
     const words: number[] = [...this.planetCenter];
     for (const { body, candidate } of this.bodies.values()) {
       const p = body.translation(), position: Vec3 = [p.x, p.y, p.z], liquid = this.liquid(position);
