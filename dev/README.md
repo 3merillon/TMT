@@ -7,6 +7,7 @@ Run `npm run dev`, then open one of these local tools:
 | `/dev/engine-sandbox.html?scene=test` | Inspect engine scenes, render passes, quality tiers, and GPU telemetry. |
 | `/dev/kit.html?sheet=1` | Inspect component variants, assembly, joint limits, and overlap reports. |
 | `/dev/structural-check.html?auto=1&fixture=two-supports` | Run the compatibility terrain renderer's structural acceptance sequence. |
+| `/dev/chunk-water.html` | Drop a detached native terrain chunk into water, then launch it upward to inspect drag, spray and wakes. |
 
 These pages remain available for development and regression investigation. They
 are excluded from production builds. The shipped pages are the game at `/` and

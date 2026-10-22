@@ -1,4 +1,4 @@
-import { stableWaterHulls } from './hull-motion';
+import { previousWaterHulls, stableWaterHulls } from './hull-motion';
 /**
  * Planet water, host side: the shallow-water layer's buffers, pipelines and
  * per-frame step. The WGSL and the model are described in water.wgsl.ts.
@@ -85,8 +85,10 @@ export const WATER_TUNING = {
   blastReach: 1.4,
 } as const;
 
-/** A moving solid in the water: a box (a tank hull) at its rendered pose. */
+/** A moving solid in the water: a tank or structural envelope at its rendered pose. */
 export interface WaterHull {
+  /** Stable presentation identity; never infer motion between unrelated bodies. */
+  id?: string;
   centre: readonly number[];
   /** Unit axes (x, y, z) of the box in world space. */
   axes: readonly (readonly number[])[];
@@ -385,7 +387,7 @@ export class PlanetWater {
   /** Fill again from the basins in the params (a new recipe solve, a new planet, a dev reset). */
   refill(): void { this.initWanted = true; }
 
-  /** The hulls in the water this frame (every tank; the first WATER_MAX_HULLS). */
+  /** Tank and structural envelopes this frame (the first WATER_MAX_HULLS). */
   setHulls(hulls: readonly WaterHull[]): void { this.hulls = hulls; }
 
   /** A blast of radius `radius` at `centre`: the water within reach is pushed outward for a moment and whitened. */
@@ -395,10 +397,10 @@ export class PlanetWater {
     if (this.impulses.length > WATER_MAX_IMPULSES) this.impulses.shift();
   }
 
-  /** Small, bounded surface entry. Does not evict an active explosion impulse. */
+  /** Small, bounded surface crossing. Does not evict an active explosion impulse. */
   disturb(centre: readonly number[], radius: number, energy: number): boolean {
     if (this.impulses.length >= WATER_MAX_IMPULSES) return false;
-    this.impulses.push({ centre: [...centre], radius, accel: (0.08 + energy * 0.24) / 0.12,
+    this.impulses.push({ centre: [...centre], radius, accel: (0.16 + energy * 0.5) / 0.12,
       foam: 1 + energy * 5, until: this.time + 0.12 });
     return true;
   }
@@ -525,9 +527,9 @@ export class PlanetWater {
     for (let k = this.impulses.length - 1; k >= 0; k--) if (!(this.impulses[k].until > this.time)) this.impulses.splice(k, 1);
     const test = this.testHullNow(TEST_HULL_HALF);
     this.drawTestHull(test);
-    const previousHulls = this.lastHulls;
-    // Appending the optional dev hull preserves the pose-history slots of every tank when it is toggled.
-    const hulls = stableWaterHulls((test ? [...this.hulls, test] : this.hulls).slice(0, WATER_MAX_HULLS), previousHulls);
+    const current = (test ? [...this.hulls, { ...test, id: 'developer-hull' }] : this.hulls).slice(0, WATER_MAX_HULLS);
+    const previousHulls = previousWaterHulls(current, this.lastHulls);
+    const hulls = stableWaterHulls(current, previousHulls);
     const hullWords = this.hullWords.fill(0);
     const packHull = (h: WaterHull, k: number) => {
       const o = k * 16;

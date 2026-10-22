@@ -10,6 +10,7 @@ mod collider;
 mod publication;
 mod audit;
 mod physics;
+mod structural_liquid;
 mod vehicle;
 mod traversal;
 mod match_state;

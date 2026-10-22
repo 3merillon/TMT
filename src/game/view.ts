@@ -290,6 +290,7 @@ export class GameView {
       camera: () => this.engineRig(),
       addCameraConstraint: fn => this.addCameraConstraint(fn),
       world: () => this.world,
+      debrisWaterHulls: () => this.debris?.waterHulls() ?? [],
       observer: () => this.observer,
       addTrauma: amount => this.followCamera.addTrauma(amount),
     };

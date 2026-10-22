@@ -7,9 +7,11 @@ export const GAME_LIQUID_N = 128;
 export const LIQUID_DRY_MARGIN = .35;
 export interface LiquidSurface { level: number; material: 'water' | 'lava' }
 export type LiquidQuery = (position: V3) => LiquidSurface | null;
-export interface LiquidCheckpoint { labels: number[]; basins: Basin[]; seaLevel: number | null }
+export interface LiquidCheckpoint { labels: number[]; basins: Basin[]; seaLevel: number | null; chunkDrag?: true }
 
 export class GameLiquids {
+  /** Absent in older saves: preserve their structural motion rules. */
+  chunkDrag = true;
   private value?: BasinSolution;
   constructor(private readonly world: WorldQuery, private readonly kind: PlanetKindName) {}
   get solution(): BasinSolution | undefined { return this.value; }
@@ -39,12 +41,13 @@ export class GameLiquids {
     return null;
   };
   checkpoint(): LiquidCheckpoint | undefined {
-    return this.value && { labels: Array.from(this.value.labels), basins: structuredClone([...this.value.basins]), seaLevel: this.value.seaLevel };
+    return this.value && { labels: Array.from(this.value.labels), basins: structuredClone([...this.value.basins]), seaLevel: this.value.seaLevel, ...(this.chunkDrag ? { chunkDrag: true as const } : {}) };
   }
-  restore(input: LiquidCheckpoint): void { this.value = { n: GAME_LIQUID_N, labels: Uint8Array.from(input.labels), basins: structuredClone(input.basins), seaLevel: input.seaLevel }; }
+  restore(input: LiquidCheckpoint): void { this.chunkDrag = input.chunkDrag === true; this.value = { n: GAME_LIQUID_N, labels: Uint8Array.from(input.labels), basins: structuredClone(input.basins), seaLevel: input.seaLevel }; }
 }
 
 export function validateLiquidCheckpoint(c: LiquidCheckpoint): LiquidCheckpoint {
+  if (c?.chunkDrag !== undefined && c.chunkDrag !== true) throw new Error('Invalid checkpoint chunk drag');
   if (!c || !Array.isArray(c.basins) || c.basins.length > 16 || !Array.isArray(c.labels) || c.labels.length !== 6 * GAME_LIQUID_N ** 2
     || !c.labels.every(v => Number.isInteger(v) && v >= 0 && v <= c.basins.length)
     || !(c.seaLevel === null || Number.isFinite(c.seaLevel) && c.seaLevel > 0 && c.seaLevel < 100)

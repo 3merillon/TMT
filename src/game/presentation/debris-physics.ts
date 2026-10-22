@@ -20,8 +20,14 @@ export function buoyDebris(b: DebrisBody, water: DebrisWater, dt: number, submer
     b.sleeping = false;
     const flow = water.velocity, fx = flow ? flow[0] : 0, fy = flow ? flow[1] : 0, fz = flow ? flow[2] : 0;
     const inverse = 1 / distance, up = distance > 1e-10, lift = 9.8 * fraction / density * dt, v = b.velocity;
-    const dx = v[0] + (up ? p[0] * inverse : 0) * lift - fx, dy = v[1] + (up ? p[1] * inverse : 1) * lift - fy, dz = v[2] + (up ? p[2] * inverse : 0) * lift - fz;
-    const drag = 1 / (1 + dt * fraction * (3 + Math.hypot(dx, dy, dz)) / density);
-    v[0] = fx + dx * drag; v[1] = fy + dy * drag; v[2] = fz + dz * drag;
+    const dx = v[0] - fx, dy = v[1] - fy, dz = v[2] - fz;
+    // Drag acts on area while inertia grows with volume: small/light shards
+    // shed speed sooner than large or dense pieces. Bound tiny slivers' response.
+    const drag = 1 / (1 + dt * fraction * (3 + Math.hypot(dx, dy, dz)) / (density * Math.max(.15, b.radius)));
+    // Apply lift after resistance, as Rapier applies gravity after this delta-v.
+    // Damping only buoyancy would make a stationary light shard sink.
+    v[0] = fx + dx * drag + (up ? p[0] * inverse : 0) * lift;
+    v[1] = fy + dy * drag + (up ? p[1] * inverse : 1) * lift;
+    v[2] = fz + dz * drag + (up ? p[2] * inverse : 0) * lift;
   }
 }

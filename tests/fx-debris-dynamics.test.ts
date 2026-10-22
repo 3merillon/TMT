@@ -68,7 +68,7 @@ describe('convex terrain shards', () => {
   });
 });
 
-/** The 29baad2 debris world, kept verbatim as the oracle for the allocation-free one. */
+/** The 29baad2 debris world as the allocation oracle, with the current size-dependent water drag. */
 class ReferenceDynamics {
   readonly world = new RAPIER.World({ x: 0, y: 0, z: 0 });
   private shards = new Map<DebrisBody, RAPIER.RigidBody>();
@@ -94,9 +94,9 @@ class ReferenceDynamics {
     const density = b.density ?? 2.5;
     if (density < 1 || !b.sleeping) {
       b.sleeping = false;
-      b.velocity = add(b.velocity, mul(normalize(b.position), 9.8 * fraction / density * dt));
       const flow = water.velocity ?? [0, 0, 0];
-      b.velocity = add(flow, mul(sub(b.velocity, flow), 1 / (1 + dt * fraction * (3 + length(sub(b.velocity, flow))) / density)));
+      b.velocity = add(flow, mul(sub(b.velocity, flow), 1 / (1 + dt * fraction * (3 + length(sub(b.velocity, flow))) / (density * Math.max(.15, b.radius)))));
+      b.velocity = add(b.velocity, mul(normalize(b.position), 9.8 * fraction / density * dt));
     }
   }
   add(s: RigidShard): void {

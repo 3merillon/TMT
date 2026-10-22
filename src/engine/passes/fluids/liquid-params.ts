@@ -40,8 +40,9 @@ export const WATER_SURFACE_RINGS = 2;
 export const WATER_BAND_RINGS = 4;
 /** A drawn surface cell that dips under its bed (a front running downhill) carries this in the atlas's water depth. */
 export const WATER_FRONT_MARK = -0.2;
-/** Eight tanks with hull/left-track/right-track boxes, plus the optional developer test hull. */
-export const WATER_MAX_HULLS = 25;
+/** Eight three-box tanks, bounded rigid-body envelopes, and the developer hull. */
+export const WATER_MAX_CHUNK_HULLS = 16; // Shared by structural chunks and cosmetic debris.
+export const WATER_MAX_HULLS = 24 + WATER_MAX_CHUNK_HULLS + 1;
 /** Blast impulses. */
 export const WATER_MAX_IMPULSES = 8;
 /** Lava vents (volcanic planets). */

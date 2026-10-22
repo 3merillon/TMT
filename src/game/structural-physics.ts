@@ -6,6 +6,8 @@ import { convexMassProperties } from './structural-mass';
 import { GRAVITY_BODY } from './world-constants';
 import { NativeEvents, NativePhysicsWorld } from './native-physics';
 import type { RustTerrainCore } from '../gpu/terrain/rust-core';
+import type { LiquidQuery } from './liquids';
+import { structuralImmersion } from './structural-liquid';
 
 let initialization: Promise<void> | undefined;
 export interface StructuralBody { readonly candidate: BodyCandidate; readonly body: RAPIER.RigidBody; readonly committedTick: number }
@@ -24,6 +26,8 @@ export const collisionGroups = (membership: number, filter: number): number => (
  * flag includes MERGE_DUPLICATE_VERTICES. Collision queries never read collider vertex buffers back. */
 export const STATIC_TERRAIN_FLAGS = RAPIER.TriMeshFlags.FIX_INTERNAL_EDGES;
 export class StructuralPhysics {
+  /** Canonical basin query only; visual waves never feed authoritative forces. */
+  liquid?: LiquidQuery;
   readonly bodies = new Map<number, StructuralBody>();
   readonly actors = new Set<RAPIER.RigidBody>();
   readonly world: RAPIER.World;
@@ -200,6 +204,7 @@ export class StructuralPhysics {
   /** v19 solver legs: the native step() with the engine call supplied by the caller (`run` sends the op 50 packet
    * and returns the step's event words); every host-side effect of step() is kept, in order. */
   nativeStepWith(run: (packet: Float64Array) => Float64Array): void {
+    this.prepareLiquidDrag();
     const start = this.clock?.(), native = this.native!;
     const words = run(native.stepPacket(this.planetCenter, GRAVITY_BODY, this.forceBodies, this.forceData, this.forceCount, this.torqueBodies, this.torqueData, this.torqueCount));
     if (this.contactEvents) (this.events as NativeEvents).words = words; native.revision++;
@@ -209,6 +214,7 @@ export class StructuralPhysics {
     if (start !== undefined) this.lastStepMs = this.clock!() - start;
   }
   step(): void {
+    this.prepareLiquidDrag();
     const start = this.clock?.();
     if (this.native) {
       this.native.radialStep(this.planetCenter, GRAVITY_BODY, this.forceBodies, this.forceData, this.forceCount, this.torqueBodies, this.torqueData, this.torqueCount, this.contactEvents ? this.events as NativeEvents : undefined);
@@ -232,6 +238,19 @@ export class StructuralPhysics {
     const ca = this.world.getCollider(a)?.parent(), cb = this.world.getCollider(b)?.parent();
     if (ca?.isDynamic() && cb?.isDynamic()) this.bodyContacts++;
   };
+  private prepareLiquidDrag(): void {
+    if (!this.liquid || !this.bodies.size) return;
+    const words: number[] = [...this.planetCenter];
+    for (const { body, candidate } of this.bodies.values()) {
+      const p = body.translation(), position: Vec3 = [p.x, p.y, p.z], liquid = this.liquid(position);
+      const viscosity = liquid?.material === 'lava' ? 2 : 1;
+      if (this.native) { words.push(body.handle, liquid?.level ?? 0, viscosity); continue; }
+      const q = body.rotation(), fraction = liquid ? structuralImmersion(candidate.colliders, position, [q.x, q.y, q.z, q.w], this.planetCenter, liquid.level) : 0;
+      body.setLinearDamping(.15 + 4.8 * fraction * viscosity);
+      body.setAngularDamping(.25 + 3 * fraction * viscosity);
+    }
+    if (this.native) this.native.call(53, 0, words);
+  }
   /** Reset an awake body's accumulated user forces and torques, then add radial gravity at its world COM. */
   private applyGravity(body: RAPIER.RigidBody): void {
     if (body.isSleeping()) return;

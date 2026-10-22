@@ -1,5 +1,12 @@
 import type { WaterHull } from './water';
 
+/** Align history after removal, recuts and priority changes. A newly observed
+ * body starts at rest, so appearing or teleporting into the selected set adds no impulse. */
+export function previousWaterHulls(current: readonly WaterHull[], previous: readonly WaterHull[]): WaterHull[] {
+  const keyed = new Map(previous.filter(h => h.id !== undefined).map(h => [h.id, h]));
+  return current.map((h, i) => (h.id === undefined ? previous[i] : keyed.get(h.id)) ?? h);
+}
+
 /** Ignore suspension solver chatter; compare against the retained pose so slow
  * deliberate motion still accumulates and eventually displaces water. */
 export function stableWaterHulls(current: readonly WaterHull[], previous: readonly WaterHull[]): WaterHull[] {
@@ -15,6 +22,6 @@ export function stableWaterHulls(current: readonly WaterHull[], previous: readon
       }
       if (motion < 0.004) return p;
     }
-    return { centre: [...h.centre], axes: h.axes.map(a => [...a]), half: [...h.half] };
+    return { ...(h.id === undefined ? {} : { id: h.id }), centre: [...h.centre], axes: h.axes.map(a => [...a]), half: [...h.half] };
   });
 }

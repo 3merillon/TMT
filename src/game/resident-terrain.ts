@@ -275,6 +275,7 @@ export class ResidentGameTerrain implements TerrainService {
       isSolid: p => resident.queries.fixed.isSolid(p), queryTriangles: (bounds, max) => resident.queries.fixed.queryTriangles(bounds, max),
       visibilityTriangles: () => resident.queries.fixed.visibilityTriangles(), fixedChunks: () => resident.queries.fixed.chunks };
     this.liquids = new GameLiquids(this.footprintSurface, kind);
+    resident.physics.liquid = p => this.liquids.chunkDrag ? this.liquids.sample(p) : null;
     this.tanks = new ResidentTanks(resident.physics, this.liquids.sample);
   }
   /** Pages are emitted on `host.device` and published through `host.commit` (plan §5.1). */
@@ -319,6 +320,7 @@ export class ResidentGameTerrain implements TerrainService {
     const checkpoint = validateResidentCheckpoint(input), service = await this.create(checkpoint.seed, host, checkpoint.structures, checkpoint.profile, checkpoint.kind, undefined, checkpoint.engine ?? 'compatibility-v1');
     try {
       await replayResident(service.resident, checkpoint.edits, checkpoint.bodies, checkpoint.tick);
+      service.liquids.chunkDrag = checkpoint.liquids?.chunkDrag === true;
       service.tanks.restore(checkpoint.chassis); if (checkpoint.liquids) service.liquids.restore(checkpoint.liquids); service.initialized = true; service.revision = checkpoint.revision;
       return { service, update: service.update() };
     } catch (error) { service.dispose(); throw error; }

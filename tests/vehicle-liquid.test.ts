@@ -47,11 +47,16 @@ describe('liquid drive resistance', () => {
     expect(reads).toBe(6 * GAME_LIQUID_N ** 2);
     expect(field.sample([0, -15.2, 0])?.material).toBe('lava');
     const snapshot = field.checkpoint()!;
+    expect(snapshot.chunkDrag).toBe(true);
     const restored = new GameLiquids(world, 'volcanic'); restored.restore(validateLiquidCheckpoint(snapshot));
     restored.configure([[0, -15.2, 0]]);
     expect(restored.checkpoint()).toEqual(snapshot);
     expect(restored.sample([0, -15.2, 0])).toEqual(field.sample([0, -15.2, 0]));
     expect(reads).toBe(6 * GAME_LIQUID_N ** 2);
     expect(() => validateLiquidCheckpoint({ ...snapshot, labels: [Infinity] })).toThrow('Invalid checkpoint liquids');
+    const { chunkDrag: _, ...legacy } = snapshot;
+    restored.restore(validateLiquidCheckpoint(legacy));
+    expect(restored.chunkDrag).toBe(false);
+    expect(restored.checkpoint()).toEqual(legacy);
   });
 });

@@ -4,7 +4,11 @@ import { assembleKit, KIT_PART_IDS, V1_PROXY, type HullBox, type KitLoadout } fr
 import { rotate } from '../src/game/math';
 import { fluidPresenter, tankFluidBoxes } from '../src/game/presentation/fluid-presenter';
 import type { ViewServices } from '../src/game/presentation/presenters';
-import { stableWaterHulls } from '../src/engine/passes/fluids/hull-motion';
+import { previousWaterHulls, stableWaterHulls } from '../src/engine/passes/fluids/hull-motion';
+import { selectWaterHulls, structuralWaterHulls } from '../src/game/presentation/structural-water';
+import { debrisWaterHulls } from '../src/game/presentation/debris-water';
+import type { RigidShard } from '../src/game/presentation/debris-dynamics';
+import type { WorldQuery } from '../src/game/contracts';
 import { WATER_MAX_HULLS } from '../src/engine/passes/fluids/liquid-params';
 import type { WaterHull } from '../src/engine/passes/fluids/water';
 
@@ -29,6 +33,68 @@ function harness() {
 }
 
 describe('tank fluid contact', () => {
+  it('couples debris using its displayed mesh size, centre and rotation rather than its splash radius', () => {
+    const p: RigidShard & { id: number } = { id: 9,
+      positions: new Float32Array([-1,-.2,-.5, 1,.6,.5]), rotation: [0,0,Math.SQRT1_2,Math.SQRT1_2], angularVelocity: [0,0,0],
+      body: { position: [0,18,0], velocity: [2,-3,0], radius: .03, age: 0, bounces: 0, sleeping: false } };
+    const initial = debrisWaterHulls([p])[0];
+    expect(initial.id).toBe('debris:9');
+    expect(initial.half[0]).toBe(1); expect(initial.half[1]).toBeCloseTo(.4); expect(initial.half[2]).toBe(.5);
+    expect(initial.centre[0]).toBeCloseTo(-.2); expect(initial.centre[1]).toBeCloseTo(18);
+    expect(initial.axes[0][1]).toBeCloseTo(1);
+    p.body.position = [0,17.8,1];
+    const moved = debrisWaterHulls([p])[0];
+    expect(moved.half).toBe(initial.half);
+    expect(moved.centre[1]).toBeCloseTo(17.8); expect(moved.centre[2]).toBe(1);
+    expect(initial.centre[1]).toBeCloseTo(18);
+    expect(previousWaterHulls([moved], [initial])).toEqual([initial]);
+  });
+
+  it('shares sixteen surface-body slots without displacing the eight tanks or retaining removed debris', () => {
+    const hull = (id: string, y: number, size: number): WaterHull => ({ id, centre: [0,y,0], half: [size,size,size], axes: [[1,0,0],[0,1,0],[0,0,1]] });
+    const world = { liquidBasins: () => ({ n: 1, labels: new Uint8Array(6).fill(1), basins: [{ level: 18, material: 'water' }] }) } as unknown as WorldQuery;
+    const large = hull('debris:large', 18.1, .6), chunks = [hull('chunk:1', 18, 1)];
+    const pieces = [...Array.from({ length: 40 }, (_, i) => hull(`debris:${i}`, 18, .1)), large, hull('debris:airborne', 23, 1)];
+    const selected = selectWaterHulls([...pieces, ...chunks], world);
+    expect(selected).toHaveLength(16); expect(selected).toContain(large); expect(selected).toContain(chunks[0]);
+    expect(selected.some(h => h.id === 'debris:airborne')).toBe(false);
+    expect(selectWaterHulls([...pieces, ...chunks].reverse(), world)).toEqual(selected);
+    const setHulls = vi.fn(), configure = vi.fn(), presenter = fluidPresenter();
+    let debris: readonly WaterHull[] = pieces;
+    presenter.install({ world: () => world, debrisWaterHulls: () => debris, scene: { get: () => ({ setHulls, configure }) } } as unknown as ViewServices);
+    const tanks = Array.from({ length: 8 }, (_, id) => tank(kits[id], id));
+    presenter.onUpdate!(snapshot(tanks), 1 / 60);
+    const first: WaterHull[] = setHulls.mock.lastCall![0];
+    expect(first).toHaveLength(40); expect(first.filter(h => h.id?.startsWith('tank:'))).toHaveLength(24);
+    expect(first).toContain(large); expect(first.length + 1).toBe(WATER_MAX_HULLS);
+    debris = []; presenter.onUpdate!(snapshot(tanks), 1 / 60);
+    expect(setHulls.mock.lastCall![0]).toHaveLength(24);
+    presenter.reset!(); expect(setHulls.mock.lastCall![0]).toEqual([]);
+  });
+
+  it('keeps chunk histories separate through insertions, removals and recuts', () => {
+    const hull = (id: string, x: number): WaterHull => ({ id, centre: [x, 18, 0], half: [1,1,1], axes: [[1,0,0],[0,1,0],[0,0,1]] });
+    const a = hull('chunk:1', 0), b = hull('chunk:2', 10), c = hull('chunk:3', 20);
+    const moved = hull('chunk:2', 11);
+    expect(previousWaterHulls([moved, c], [a, b])).toEqual([b, c]);
+    expect(previousWaterHulls([], [a, b])).toEqual([]);
+    expect(previousWaterHulls([hull('chunk:4', 10)], [b])[0].id).toBe('chunk:4');
+  });
+
+  it('feeds moving structural envelopes even with no tanks and retains immutable local geometry', () => {
+    const body = { id: 7, position: [0,18,0] as V3, rotation: [0,0,0,1] as Q4,
+      shapes: [{ vertices: new Float32Array([-1,-.5,-1, 1,.5,1]), indices: new Uint32Array(), offset: [0,1,0] as V3 }] };
+    const world = { collisionBodies: () => [body] } as unknown as WorldQuery;
+    const first = structuralWaterHulls(world);
+    expect(first[0]).toMatchObject({ id: 'chunk:7', centre: [0,19,0], half: [1,.5,1] });
+    body.position[1] = 17;
+    const second = structuralWaterHulls(world);
+    expect(second[0].centre).toEqual([0,18,0]); expect(second[0].half).toBe(first[0].half);
+    const setHulls = vi.fn(), p = fluidPresenter();
+    p.install({ world: () => world, scene: { get: () => ({ setHulls }) } } as unknown as ViewServices);
+    p.onUpdate!(snapshot([]), 1 / 60);
+    expect(setHulls.mock.lastCall![0]).toEqual(second);
+  });
   it.each(kits)('$hull/$runningGear wets both tracks in 0.1 u water while the belly stays dry', kit => {
     const t = tank(kit), a = assembleKit(kit), boxes = tankFluidBoxes(t), [body, left, right] = boxes;
     expect(boxes).toHaveLength(3);

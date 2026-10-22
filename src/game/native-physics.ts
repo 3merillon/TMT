@@ -34,6 +34,7 @@ class NativeBody {
   worldCom(target?: Vector): Vector { return vector(this.read(), 13, target); }
   mass(): number { return this.read()[16]; }
   angularDamping(): number { return this.owner.call(43, this.handle)[1]; }
+  linearDamping(): number { return this.owner.call(43, this.handle)[0]; }
   isSleeping(): boolean { return this.read()[17] !== 0; }
   bodyType(): RAPIER.RigidBodyType { return this.read()[18]; }
   isDynamic(): boolean { return this.bodyType() === 0; }

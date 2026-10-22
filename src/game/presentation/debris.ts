@@ -11,6 +11,7 @@ import { DEBRIS_STRIDE, type DebrisCommand, type DebrisFrame, type DebrisSupport
 import { LocalDebrisChannel, WorkerDebrisChannel, type DebrisChannel } from './debris-channel';
 export type { DebrisBody } from './debris-physics';
 import { craterProfile } from '../rules/crater';
+import { debrisWaterHulls } from './debris-water';
 
 export interface DebrisFragment { center: V3; textureOrigin?: V3; positions: Float32Array; normals: Float32Array; indices: Uint32Array; radius: number; material: number }
 
@@ -210,7 +211,8 @@ export class TerrainDebris {
     this.recoverEmbedded(world.footprintSurface ?? world);
     this.waterClock += dt;
     const fluids = this.scene.get('fluids');
-    if (fluids && this.pieces.length && this.waterClock >= 0.15 && !this.readingWater) {
+    const probeInterval = this.pieces.some(p => !p.body.sleeping) ? .075 : .15;
+    if (fluids && this.pieces.length && this.waterClock >= probeInterval && !this.readingWater) {
       this.waterClock = 0; this.readingWater = true;
       const epoch = this.epoch, pieces = [...this.pieces], positions = pieces.map(p => [...p.body.position] as V3);
       // The GPU probe caps each readback at 64 points. Never stall the render loop.
@@ -240,6 +242,8 @@ export class TerrainDebris {
     }
   }
   get active(): number { return this.pieces.length; }
+  /** The same poses drawn above feed continuous fluid displacement and wakes. */
+  waterHulls() { return debrisWaterHulls(this.pieces); }
 
   /** Detachment can start inside a crater wall, and a moving collider can push a tiny shard through a mesh.
    * CCD cannot escape an already embedded body. Return it to free space and let the solver settle it again. */

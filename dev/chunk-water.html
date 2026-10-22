@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TMT — Chunk water playtest</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #101819; color: #e1ece7; font: 14px system-ui, sans-serif; }
+  header { height: 58px; display: flex; align-items: center; gap: 12px; padding: 10px 16px; }
+  strong { margin-right: 8px; }
+  button { padding: 8px 14px; border: 1px solid #668078; border-radius: 5px; background: #253c34; color: inherit; cursor: pointer; }
+  button:disabled { opacity: .4; cursor: wait; }
+  #status { color: #a9beb5; }
+  iframe { display: block; width: 100%; height: calc(100vh - 58px); border: 0; }
+</style>
+<header>
+  <strong>Chunk water playtest</strong>
+  <button id="drop" disabled>Drop chunk</button>
+  <button id="rise" disabled>Launch upward</button>
+  <button id="reset">Reset scene</button>
+  <span id="status">Preparing a detached chunk above a natural basin…</span>
+</header>
+<iframe id="game" title="Tiny Metal Tank water test" src="/?mode=dev&amp;seed=7&amp;engineDev"></iframe>
+<script type="module">
+  const frame = document.querySelector('#game'), status = document.querySelector('#status');
+  const drop = document.querySelector('#drop'), rise = document.querySelector('#rise');
+  let generation = 0;
+  frame.addEventListener('load', async () => {
+    const current = ++generation, win = frame.contentWindow;
+    drop.disabled = rise.disabled = true;
+    status.textContent = 'Preparing a detached chunk above a natural basin…';
+    while (current === generation && !win.__tmtFluids?.stats().ready) await new Promise(r => setTimeout(r, 250));
+    if (current !== generation) return;
+    const script = win.document.createElement('script');
+    script.type = 'module';
+    script.textContent = `import { prepareChunkWater } from '/scripts/capture-fixtures/chunk-water.ts';
+      try { await prepareChunkWater({ record: false }); parent.postMessage({ kind: 'chunk-water-ready' }, location.origin); }
+      catch (error) { parent.postMessage({ kind: 'chunk-water-error', message: String(error) }, location.origin); }`;
+    win.document.body.append(script);
+  });
+  window.addEventListener('message', event => {
+    if (event.origin !== location.origin || event.source !== frame.contentWindow) return;
+    if (event.data?.kind === 'chunk-water-ready') {
+      drop.disabled = false; status.textContent = 'Drop it, then launch it upward to test both surface crossings.';
+    } else if (event.data?.kind === 'chunk-water-error') status.textContent = event.data.message;
+  });
+  drop.onclick = () => { frame.contentWindow.__chunkWater.drop(); drop.disabled = true; rise.disabled = false; status.textContent = 'Slow motion: watch the entry splash, wake and submerged drag.'; };
+  rise.onclick = () => { frame.contentWindow.__chunkWater.rise(); status.textContent = 'The chunk disturbs the surface again as it emerges.'; };
+  document.querySelector('#reset').onclick = () => { generation++; frame.src = frame.src; };
+</script>
+</html>

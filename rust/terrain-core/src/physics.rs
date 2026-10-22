@@ -12,6 +12,7 @@ pub struct Physics {
     bodies:Vec<Option<RigidBodyHandle>>,colliders:Vec<Option<ColliderHandle>>,
     shapes:Vec<Option<SharedShape>>,free_shapes:Vec<usize>,events:Events,
     drives:HashMap<u32,Drive>,forces:Vec<Force>,torques:Vec<(RigidBodyHandle,Vector)>,
+    liquid_boxes:HashMap<ColliderHandle,crate::structural_liquid::LiquidBox>,
 }
 #[derive(Default)]
 struct Events(Mutex<Vec<CollisionEvent>>);
@@ -38,7 +39,7 @@ impl Physics {
     pub fn new()->Self {
         let mut world=PhysicsWorld::new();world.gravity=Vector::ZERO;
         world.integration_parameters.dt=1./60.;world.integration_parameters.num_solver_iterations=8;world.integration_parameters.max_ccd_substeps=4;
-        Self {world,bodies:Vec::new(),colliders:Vec::new(),shapes:Vec::new(),free_shapes:Vec::new(),events:Events::default(),drives:HashMap::new(),forces:Vec::new(),torques:Vec::new()}
+        Self {world,bodies:Vec::new(),colliders:Vec::new(),shapes:Vec::new(),free_shapes:Vec::new(),events:Events::default(),drives:HashMap::new(),forces:Vec::new(),torques:Vec::new(),liquid_boxes:HashMap::new()}
     }
     pub(crate) fn body(&self,id:u32)->Outcome<RigidBodyHandle> {self.bodies.get(id as usize).copied().flatten().filter(|h|self.world.bodies.contains(*h)).ok_or("Unknown native body".into())}
     pub(crate) fn drive(&self,id:u32)->Outcome<&Drive>{self.drives.get(&id).ok_or("Unknown native drive".into())}
@@ -69,7 +70,7 @@ impl Physics {
                 .enabled(d[14]!=0.).ccd_enabled(d[15]!=0.).sleeping(d[16]!=0.).linear_damping(d[17] as f32).angular_damping(d[18] as f32)
                 .gravity_scale(d[19] as f32).additional_mass_properties(mass(d,20)).can_sleep(d[31]!=0.).build();
                 let id=self.bodies.len();body.user_data=id as u128;let h=self.world.insert_body(body);self.bodies.push(Some(h));number(out,id as f64);},
-            11=>{let h=self.body(id)?;let colliders=self.world.bodies[h].colliders().to_vec();for c in colliders {let i=self.world.colliders[c].user_data as usize;self.colliders[i]=None;}self.world.remove_body(h);self.bodies[id as usize]=None;self.drives.remove(&id);},
+            11=>{let h=self.body(id)?;let colliders=self.world.bodies[h].colliders().to_vec();for c in colliders {let i=self.world.colliders[c].user_data as usize;self.colliders[i]=None;self.liquid_boxes.remove(&c);}self.world.remove_body(h);self.bodies[id as usize]=None;self.drives.remove(&id);},
             12=>self.snapshot(id,out)?,
             13=>{args(d,3)?;let b=&self.world.bodies[self.body(id)?];vector(out,b.velocity_at_point(v(d,0)));},
             14=>{let h=self.body(id)?;self.world.bodies[h].recompute_mass_properties_from_colliders(&self.world.colliders);},
@@ -96,7 +97,7 @@ impl Physics {
             35=>{args(d,8)?;let c=&self.world.colliders[self.collider(id)?];let ray=Ray::new(v(d,0),v(d,3));number(out,c.shape().cast_ray(c.position(),&ray,d[6] as f32,d[7]!=0.).map(|v|v as f64).unwrap_or(-1.));},
             36=>{args(d,3)?;let h=self.body(id)?;self.world.bodies[h].set_next_kinematic_translation(v(d,0));},
             37=>{args(d,4)?;let h=self.body(id)?;self.world.bodies[h].set_next_kinematic_rotation(q(d,0));},
-            38=>{let h=self.collider(id)?;self.world.remove_collider(h);self.colliders[id as usize]=None;},
+            38=>{let h=self.collider(id)?;self.liquid_boxes.remove(&h);self.world.remove_collider(h);self.colliders[id as usize]=None;},
             // A wheel ball cast: pose7, velocity3, radius, target distance,
             // maximum time, stop flag, groups, excluded body (or -1).
             40=>{args(d,16)?;let mut filter=QueryFilter::default().groups(groups(d[14] as u32));if d[15]>=0. {filter=filter.exclude_rigid_body(self.body(d[15] as u32)?);}
@@ -131,6 +132,16 @@ impl Physics {
                     if let (Some(a),Some(b))=(self.world.colliders.get(a),self.world.colliders.get(b)){number(out,a.user_data as f64);number(out,b.user_data as f64);number(out,u8::from(started) as f64);}
                 }},
             52=>{if d.len()>64||d.iter().any(|v|!v.is_finite()||*v!=*v as u32 as f64){return Err("Invalid body snapshot batch".into());}for &v in d{self.body(v as u32)?;}for &v in d{number(out,v);self.snapshot(v as u32,out)?;}},
+            // Additive ABI: planet centre3, then structural body / resting level (0=dry) / viscosity.
+            // Geometry and immersion stay resident; no collider buffers cross the JS boundary.
+            53=>{
+                if d.len()<3||(d.len()-3)%3!=0||d.iter().any(|x|!x.is_finite()){return Err("Invalid structural liquid batch".into());}
+                for row in d[3..].chunks_exact(3){if row[0]!=row[0] as u32 as f64||row[1]<0.||row[2]<1.||row[2]>2.{return Err("Invalid structural liquid row".into());}self.body(row[0] as u32)?;}
+                for row in d[3..].chunks_exact(3){let h=self.body(row[0] as u32)?;
+                    let fraction=if row[1]>0.{crate::structural_liquid::immersion(&self.world.bodies[h],&self.world.colliders,&mut self.liquid_boxes,v(d,0),row[1] as f32)}else{0.};
+                    let b=&mut self.world.bodies[h];b.set_linear_damping(0.15+4.8*fraction*row[2] as f32);b.set_angular_damping(0.25+3.*fraction*row[2] as f32);
+                }
+            },
             60=>{self.body(id)?;if self.drives.contains_key(&id){return Err("Native drive already exists".into());}let drive=Drive::new(d)?;self.drives.insert(id,drive);},
             61..=64=>{let mut drive=self.drives.remove(&id).ok_or("Unknown native drive")?;let result=drive.command(op,self,id,d,out);if result.is_ok(){self.forces.extend(drive.forces.drain(..));}self.drives.insert(id,drive);result?;},
             65=>{let control=Control::new(d)?;let drive=self.drives.get_mut(&id).ok_or("Unknown native drive")?;if drive.control.is_some(){return Err("Native chassis control already exists".into());}drive.control=Some(control);},

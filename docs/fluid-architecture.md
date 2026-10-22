@@ -7,6 +7,20 @@ Waves, spray and gas are presentation: gameplay never reads GPU simulation or gr
 
 `vehicle/liquid-motion.ts` measures submerged volume from the oriented body, both physical track envelopes and turret. Shallow track immersion has little effect; resistance rises smoothly toward 60% commanded speed when fully submerged in water and 30% in lava. Lava adds more drag. Forward, reverse and steering use the same factor for player and enemy tanks in both physics backends; force at the center of mass damps motion without overriding contacts or recoil. Dry ground restores normal handling. Gameplay samples resting basin levels; transient wakes, waves and water redistributed beyond the original basin footprint remain cosmetic.
 
+Detached structural chunks also receive linear and angular resistance from the saved basin levels. The native
+physics core estimates immersion from oriented collider bounds weighted by occupied volume; the compatibility
+solver uses the same approximation. Dry chunks retain their normal damping, and the resistance does not wake
+sleeping chunks or move bodies held by a terrain transaction. New liquid checkpoints carry `chunkDrag: true`;
+older checkpoints without it retain their original structural dynamics.
+
+Presentation feeds up to sixteen nearby structural/debris envelopes into the existing hull displacement, wake, foam and
+spray passes, alongside the eight tanks. Cosmetic fragments use their actual oriented mesh bounds, not the smaller
+radius used for splash effects. Large surface contacts take priority within the shared bound; no extra GPU slots or
+dispatches are added for debris. Stable identities align previous poses through chunk removal, recuts and
+selection changes, so a newly observed envelope does not invent a motion impulse. These are conservative oriented
+boxes, not exact submerged polyhedra. The water remains a single surface layer; it does not erode terrain, provide
+wave-driven structural forces, or simulate water carried inside a moving hollow chunk.
+
 ## Files
 
 - `src/engine/passes/fluids/`
@@ -96,8 +110,8 @@ Each frame:
 1. **Hull coupling** (when there are hulls; Müller 2008).
    - The presenter supplies the kit's body/fender envelope and two narrow track boxes, in stable tank-id and
      body/left/right order. Only the tracks extend below the belly; the gap between them stays open. Water and gas
-     accept all eight tanks (24 boxes) plus one optional developer hull. The developer hull is appended so toggling
-     it cannot shift real tanks' pose-history slots.
+     accept eight tanks (24 boxes), sixteen structural envelopes and one optional developer hull. Stable identities
+     align current and previous poses when that collection changes.
    - `couple_occupy`: a ray–box test along each column's radial line gives its submerged hull thickness, tapered over
      0.22 u across the box's sides.
    - `couple_share` and `couple_push`: the change since last frame is the volume the hull pushed aside or left behind.
@@ -224,7 +238,10 @@ Terrain shards use their actual closed convex geometry in a cosmetic Rapier worl
 other shards, mirrored tank hulls and moving structures, can break again on hard impacts, and dither away near the
 end of their life. Their material textures come from the terrain arrays. GPU water probes provide the waterline and
 flow; buoyancy uses material density and the shard's oriented radial span (an approximate submerged volume).
-Entering water creates a bounded ripple, foam and spray. These contacts push the cosmetic debris, not the
+Drag scales inversely with density and size, so small/light fragments lose speed sooner. Moving debris probes
+water every 75 ms; a sample follows the same radial column for at most half a second, with a 0.75 u lateral limit.
+Selected debris also continuously displaces water and transfers wake momentum through the same hull coupling as tanks.
+Entering or leaving the surface adds bounded foam and spray; fully submerged motion does not repeatedly splash. These contacts push the cosmetic debris, not the
 authoritative tank physics.
 
 Loaded tread footprints sweep the complete contact patch while retaining belt orientation. Sideways slip softens

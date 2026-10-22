@@ -25,7 +25,7 @@ export const DEBRIS_STRIDE = 17;
 /** splashes: [x, y, z, radius, speed] per splash; shatters: ids of first-generation shards that hit hard enough. */
 export interface DebrisResult { frame: number; state: Float64Array; splashes: Float64Array; shatters: number[] }
 
-interface HostShard extends RigidShard { id: number; generation: number; sample?: DebrisWater; sampledAt?: V3; waterGap?: number; lastSplash?: number }
+interface HostShard extends RigidShard { id: number; generation: number; sample?: DebrisWater; sampledAt?: V3; sampledAge?: number; waterGap?: number; waterTop?: number; lastSplash?: number }
 type Shapes = NonNullable<DebrisSupport['shapes']>;
 
 export class DebrisHost {
@@ -74,6 +74,7 @@ export class DebrisHost {
     for (const [id, sample, at] of frame.water) {
       const shard = this.byId.get(id); if (!shard) continue;
       shard.sample = sample ?? undefined; shard.sampledAt = at ?? undefined;
+      shard.sampledAge = shard.body.age;
     }
     for (const t of frame.terrain ?? []) this.terrain(t);
     for (const s of frame.supports) if (s.shapes) this.shapes.set(s.id, s.shapes);
@@ -98,18 +99,25 @@ export class DebrisHost {
     });
     return { frame: frame.frame, state, splashes: new Float64Array(splashes), shatters: [...shatters] };
   }
-  /** Water assignment and splash detection before a step, exactly as TerrainDebris did on the main thread. */
+  /** Probes describe radial columns: falling within one must not discard its water. */
   private wet(p: HostShard, splashes: number[]): void {
     const at = p.sampledAt, x = p.body.position;
-    const water = p.water = at && Math.hypot(x[0] - at[0], x[1] - at[1], x[2] - at[2]) < 1 ? p.sample : undefined;
-    if (!water || water.water < 0.01) { p.waterGap = undefined; return; }
-    const gap = shardWaterSpan(p, this.span)[0] - water.surface;
-    const v = p.body.velocity, flow = water.velocity, distance = Math.hypot(x[0], x[1], x[2]), inverse = 1 / distance, up = distance > 1e-10;
+    const distance = Math.hypot(...x), sampledRadius = at ? Math.hypot(...at) : 0;
+    const scale = sampledRadius > 0 ? distance / sampledRadius : 0;
+    const sameColumn = at && Math.hypot(x[0] - at[0] * scale, x[1] - at[1] * scale, x[2] - at[2] * scale) < .75;
+    const water = p.water = sameColumn && p.body.age - (p.sampledAge ?? -1) < .5 ? p.sample : undefined;
+    if (!water || water.water < 0.01) { p.waterGap = p.waterTop = undefined; return; }
+    const span = shardWaterSpan(p, this.span), gap = span[0] - water.surface, top = span[1] - water.surface;
+    const v = p.body.velocity, flow = water.velocity, inverse = 1 / distance, up = distance > 1e-10;
     const speed = -((v[0] - (flow ? flow[0] : 0)) * (up ? x[0] * inverse : 0) + (v[1] - (flow ? flow[1] : 0)) * (up ? x[1] * inverse : 1) + (v[2] - (flow ? flow[2] : 0)) * (up ? x[2] * inverse : 0));
-    if (gap <= 0 && (p.waterGap === undefined || p.waterGap > 0) && speed > 0.7 && p.body.age - (p.lastSplash ?? -1) > 0.6) {
-      splashes.push(...mul(normalize(x), water.surface), p.body.radius, speed); p.lastSplash = p.body.age;
+    // A first sample already deep underwater is not a surface strike. Entry uses
+    // the leading bottom; exit uses the leading top, including a rotating shard.
+    const entering = gap <= 0 && (p.waterGap === undefined ? top >= 0 : p.waterGap > 0) && speed > .7;
+    const leaving = top >= 0 && p.waterTop !== undefined && p.waterTop < 0 && speed < -.7;
+    if ((entering || leaving) && p.body.age - (p.lastSplash ?? -1) > .15) {
+      splashes.push(...mul(normalize(x), water.surface), p.body.radius, Math.abs(speed)); p.lastSplash = p.body.age;
     }
-    p.waterGap = gap;
+    p.waterGap = gap; p.waterTop = top;
   }
   /** Pages of one terrain version arrive in parts; the world sees them only once the version is complete. */
   private terrain(t: DebrisTerrain): void {

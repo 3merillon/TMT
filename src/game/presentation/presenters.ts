@@ -13,6 +13,7 @@ import type { CameraRig, Engine, FrameInput, SceneRegistry } from '../../engine'
 import type { SimInterpolation } from '../api/extensions';
 import type { GameEvent, GameSnapshot, V3, WorldQuery } from '../contracts';
 import { fluidPresenter } from './fluid-presenter';
+import type { WaterHull } from '../../engine/passes/fluids/water';
 
 export interface ViewServices {
   engine: Engine;
@@ -21,6 +22,8 @@ export interface ViewServices {
   camera(): CameraRig;
   addCameraConstraint(fn: (position: V3, target: V3) => V3): () => void;
   world(): WorldQuery | undefined;
+  /** Cosmetic rigid bodies at their displayed poses, after the debris worker update. */
+  debrisWaterHulls?(): readonly WaterHull[];
   /** W1 additive: the observed tank id (the follow camera's subject). */
   observer(): number;
   /** W1 additive: add camera shake (0..1, decays in about a second). */

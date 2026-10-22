@@ -1,0 +1,19 @@
+{
+  "out": "artifacts/chunk-water/browser",
+  "jobs": [{
+    "url": "/?mode=dev&seed=7&engineDev", "name": "chunk-water", "wait": "game", "settle": 2000,
+    "keys": [
+      "waitfor:window.__tmtFluids?.stats().ready",
+      "eval@setup:import('/scripts/capture-fixtures/chunk-water.ts').then(m => m.prepareChunkWater())",
+      "wait:1000", "shot:above",
+      "eval:window.__chunkWater.drop()",
+      "wait:1500", "shot:entry",
+      "wait:1500", "shot:submerged",
+      "wait:2500", "shot:wake",
+      "eval:window.__chunkWater.rise()",
+      "wait:1000", "shot:exit",
+      "wait:1500", "shot:airborne",
+      "eval@result:window.__chunkWater.finish()"
+    ]
+  }]
+}
